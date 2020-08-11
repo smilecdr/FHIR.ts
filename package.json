@@ -1,0 +1,7 @@
+{
+  "name": "fhirlib",
+  "version": "1.0.4",
+  "description": "Fhir ts library for frontend apps",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts"
+}
