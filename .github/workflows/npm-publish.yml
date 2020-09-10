@@ -20,7 +20,7 @@ jobs:
       - name: Install Dependencies 
         run: npm install
       - name: Compile Typescript
-        run: npm build
+        run: npm run-script build
       - name: Publish to NPM
         run: npm publish --access public
         env:
