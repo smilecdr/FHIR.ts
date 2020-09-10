@@ -17,11 +17,11 @@ $ npm i @smile-cdr/fhirts
 
 ```js
 // if using FHIR R3 
-import fhirR3 from '@smile-cdr/fhirts';
+import { fhirR3 } from '@smile-cdr/fhirts';
 let practitioner = new fhirR3.Practitioner();
 
 // if using FHIR R4 
-import fhirR4 from '@smile-cdr/fhirts';
+import { fhirR4 } from '@smile-cdr/fhirts';
 let patient = new fhirR4.Patient();
 ```
 
