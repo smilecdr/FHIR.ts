@@ -2,9 +2,9 @@
 
 The Following Library contains classes and interafaces for [FHIR](https://www.hl7.org/fhir/) versions.
 
-R3 is intended for projects using FHIR [R3](https://www.hl7.org/fhir/stu3/).
-R4 is intended for projects using FHIR  [R4](http://hl7.org/fhir/index.html).
-**Note**: This library does not include all FHIR TypeScript definitions. The idea is to collaborate and expand this library.
+* R3 is intended for projects using FHIR [R3](https://www.hl7.org/fhir/stu3/).
+* R4 is intended for projects using FHIR  [R4](http://hl7.org/fhir/index.html). The definitions are generated using [Swagger Codegen](https://github.com/swagger-api/swagger-codegen).
+**Note**: This library does not include all FHIR TypeScript definitions for R3. The idea is to collaborate and expand this library.
 
 # Installation
 
