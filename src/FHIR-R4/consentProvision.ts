@@ -60,7 +60,7 @@ export interface ConsentProvision {
     /**
      * The class of information covered by this rule. The type can be a FHIR resource type, a profile on a type, or a CDA document, or some other type that indicates what sort of information the consent relates to.
      */
-    _class?: Array<Coding>;
+    class?: Array<Coding>;
     /**
      * If this code is found in an instance, then the rule applies.
      */

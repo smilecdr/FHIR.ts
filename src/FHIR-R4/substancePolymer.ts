@@ -59,7 +59,7 @@ export interface SubstancePolymer {
     /**
      * Todo.
      */
-    _class?: CodeableConcept;
+    class?: CodeableConcept;
     /**
      * Todo.
      */

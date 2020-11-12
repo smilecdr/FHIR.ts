@@ -107,7 +107,7 @@ export interface Coverage {
     /**
      * A suite of underwriter specific classifiers.
      */
-    _class?: Array<CoverageClass>;
+    class: Array<CoverageClass>;
     /**
      * The order of applicability of this coverage relative to other coverages which are currently in force. Note, there may be gaps in the numbering and this does not imply primary, secondary etc. as the specific positioning of coverages depends upon the episode of care.
      */

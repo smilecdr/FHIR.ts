@@ -33,7 +33,7 @@ export interface EncounterClassHistory {
     /**
      * inpatient | outpatient | ambulatory | emergency +.
      */
-    _class: Coding;
+    class: Coding;
     /**
      * The time that the episode was in the specified class.
      */

@@ -40,7 +40,7 @@ export interface SubstanceSourceMaterialOrganismGeneral {
     /**
      * The class of an organism shall be specified.
      */
-    _class?: CodeableConcept;
+    class?: CodeableConcept;
     /**
      * The order of an organism shall be specified,.
      */
