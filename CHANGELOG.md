@@ -8,7 +8,7 @@
 
 ### Updates (R4)
 
-* The `Extension` resource previously : 
+* The `Extension` resource previous assigned all value[x] to type `string`. This has been corrected. Below is the list of all value types affected:
 
   * `valueCanonical` now requires a `Canonical` object 
   * `valueCode` now requires a `Code` object 
