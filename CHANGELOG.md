@@ -13,4 +13,3 @@
 
 ### Bug Fixes
 
-* Fixed an issue where a user upload that's cancelled would set the document status incorrectly to In-Progress
