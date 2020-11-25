@@ -9,9 +9,38 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { Coding } from './coding';
-import { Uri } from './uri';
 
+import { Address } from './address';
+import { Annotation } from './annotation';
+import { Attachment } from './attachment';
+import { Canonical } from './canonical';
+import { Code } from './code';
+import { CodeableConcept } from './codeableConcept';
+import { Coding } from './coding';
+import { ContactDetail } from './contactDetail';
+import { ContactPoint } from './contactPoint';
+import { Contributor } from './contributor';
+import { DataRequirement } from './dataRequirement';
+import { Dosage } from './dosage';
+import { Expression } from './expression';
+import { HumanName } from './humanName';
+import { Identifier } from './identifier';
+import { Instant } from './instant';
+import { Markdown } from './markdown';
+import { Money } from './money';
+import { ParameterDefinition } from './parameterDefinition';
+import { Period } from './period';
+import { Quantity } from './quantity';
+import { Range } from './range';
+import { Ratio } from './ratio';
+import { Reference } from './reference';
+import { RelatedArtifact } from './relatedArtifact';
+import { SampledData } from './sampledData';
+import { Signature } from './signature';
+import { Timing } from './timing';
+import { TriggerDefinition } from './triggerDefinition';
+import { Uri } from './uri';
+import { UsageContext } from './usageContext';
 
 /**
  * Optional Extension Element - found in all resources.
@@ -40,11 +69,11 @@ export interface Extension {
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valueCanonical?: string;
+    valueCanonical?: Canonical;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valueCode?: string;
+    valueCode?: Code;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
@@ -64,7 +93,7 @@ export interface Extension {
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valueInstant?: string;
+    valueInstant?: Instant;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
@@ -72,7 +101,7 @@ export interface Extension {
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valueMarkdown?: string;
+    valueMarkdown?: Markdown;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
@@ -108,7 +137,7 @@ export interface Extension {
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valueAddress?: string;
+    valueAddress?: Address;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
@@ -116,15 +145,15 @@ export interface Extension {
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valueAnnotation?: string;
+    valueAnnotation?: Annotation;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valueAttachment?: string;
+    valueAttachment?: Attachment;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valueCodeableConcept?: string;
+    valueCodeableConcept?: CodeableConcept;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
@@ -132,7 +161,7 @@ export interface Extension {
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valueContactPoint?: string;
+    valueContactPoint?: ContactPoint;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
@@ -148,81 +177,81 @@ export interface Extension {
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valueHumanName?: string;
+    valueHumanName?: HumanName;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valueIdentifier?: string;
+    valueIdentifier?: Identifier;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valueMoney?: string;
+    valueMoney?: Money;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valuePeriod?: string;
+    valuePeriod?: Period;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valueQuantity?: string;
+    valueQuantity?: Quantity;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valueRange?: string;
+    valueRange?: Range;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valueRatio?: string;
+    valueRatio?: Ratio;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valueReference?: string;
+    valueReference?: Reference;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valueSampledData?: string;
+    valueSampledData?: SampledData;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valueSignature?: string;
+    valueSignature?: Signature;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valueTiming?: string;
+    valueTiming?: Timing;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valueContactDetail?: string;
+    valueContactDetail?: ContactDetail;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valueContributor?: string;
+    valueContributor?: Contributor;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valueDataRequirement?: string;
+    valueDataRequirement?: DataRequirement;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valueExpression?: string;
+    valueExpression?: Expression;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valueParameterDefinition?: string;
+    valueParameterDefinition?: ParameterDefinition;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valueRelatedArtifact?: string;
+    valueRelatedArtifact?: RelatedArtifact;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valueTriggerDefinition?: string;
+    valueTriggerDefinition?: TriggerDefinition;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valueUsageContext?: string;
+    valueUsageContext?: UsageContext;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */
-    valueDosage?: string;
+    valueDosage?: Dosage;
 }
