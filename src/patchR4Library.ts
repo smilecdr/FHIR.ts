@@ -96,6 +96,18 @@ export class OperationObject implements ParametersParameter {
     return this;
   }
 
+  addValueString(valueString: string) {
+    const valueStringObject = {
+      name: 'value',
+      valueString: valueString
+    };
+    if (!this.part) {
+      this.part = [];
+    }
+    this.part.push(valueStringObject);
+    return this;
+  }
+
   addPath(valueString: string) {
     const pathObject = {
       name: 'path',
@@ -108,7 +120,31 @@ export class OperationObject implements ParametersParameter {
     return this;
   }
 
-  addValueAnnotation(annotation: Annotation) {
+  addAddress(address: Address) {
+    const valueAddressObject = {
+      name: 'value',
+      valueAddress: address
+    };
+    if (!this.part) {
+      this.part = [];
+    }
+    this.part.push(valueAddressObject);
+    return this;
+  }
+
+  addAge(age: Age) {
+    const valueAgeObject = {
+      name: 'value',
+      valueAge: age
+    };
+    if (!this.part) {
+      this.part = [];
+    }
+    this.part.push(valueAgeObject);
+    return this;
+  }
+
+  addAnnotation(annotation: Annotation) {
     const valueAnnotationObject = {
       name: 'value',
       valueAnnotation: annotation
@@ -120,15 +156,15 @@ export class OperationObject implements ParametersParameter {
     return this;
   }
 
-  addValueString(valueString: string) {
-    const valueStringObject = {
+  addAttachment(attachment: Attachment) {
+    const valueAttachmentObject = {
       name: 'value',
-      valueString: valueString
+      valueAttachment: attachment
     };
     if (!this.part) {
       this.part = [];
     }
-    this.part.push(valueStringObject);
+    this.part.push(valueAttachmentObject);
     return this;
   }
 
@@ -144,26 +180,82 @@ export class OperationObject implements ParametersParameter {
     return this;
   }
 
-  addValueReference(reference: Reference, display?: string) {
-    const valueReferenceObject = {
+  addCoding(coding: Coding) {
+    const valueCodingObject = {
       name: 'value',
-      valueReference: reference
+      valueCoding: coding
     };
     if (!this.part) {
       this.part = [];
     }
-    this.part.push(valueReferenceObject);
+    this.part.push(valueCodingObject);
     return this;
   }
 
+  addContactDetail(contactDetail: ContactDetail) {
+    const valueContactDetailObject = {
+      name: 'value',
+      valueContactDetail: contactDetail
+    };
+    if (!this.part) {
+      this.part = [];
+    }
+    this.part.push(valueContactDetailObject);
+    return this;
+  }
 
+  addContactPoint(contactPoint: ContactPoint) {
+    const valueContactPointObject = {
+      name: 'value',
+      valueContactPoint: contactPoint
+    };
+    if (!this.part) {
+      this.part = [];
+    }
+    this.part.push(valueContactPointObject);
+    return this;
+  }
 
-  addValuePeriod(start: string) {
+  addContributor(contributor: Contributor) {
+    const valueContributorObject = {
+      name: 'value',
+      valueContributor: contributor
+    };
+    if (!this.part) {
+      this.part = [];
+    }
+    this.part.push(valueContributorObject);
+    return this;
+  }
+
+  addDataRequirement(dataRequirement: DataRequirement) {
+    const valueDataRequirementObject = {
+      name: 'value',
+      valueDataRequirement: dataRequirement
+    };
+    if (!this.part) {
+      this.part = [];
+    }
+    this.part.push(valueDataRequirementObject);
+    return this;
+  }
+
+  addExpression(expression: Expression) {
+    const valueExpressionObject = {
+      name: 'value',
+      valueExpression: expression
+    };
+    if (!this.part) {
+      this.part = [];
+    }
+    this.part.push(valueExpressionObject);
+    return this;
+  }
+
+  addPeriod(period: Period) {
     const valuePeriodObject = {
       name: 'value',
-      valuePeriod: {
-        start: start
-      }
+      valuePeriod: period
     };
     if (!this.part) {
       this.part = [];
