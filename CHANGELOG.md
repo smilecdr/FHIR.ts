@@ -1,5 +1,14 @@
 # Changelog
 
+
+### 1.2.3
+---
+### Updates (R4)
+
+* `classes` and `interfaces` both are now available for FHIR R4 resources.
+
+
+
 ## 1.1.3
 ---
 ### Updates (General)
