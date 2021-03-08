@@ -33,7 +33,7 @@ export class MedicationAdministrationPerformer {
     /**
      * Distinguishes the type of involvement of the performer in the medication administration.
      */
-    _function?: CodeableConcept;
+    function?: CodeableConcept;
     /**
      * Indicates who or what performed the medication administration.
      */

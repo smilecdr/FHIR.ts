@@ -33,7 +33,7 @@ export class MedicationDispensePerformer {
     /**
      * Distinguishes the type of performer in the dispense.  For example, date enterer, packager, final checker.
      */
-    _function?: CodeableConcept;
+    function?: CodeableConcept;
     /**
      * The device, practitioner, etc. who performed the action.  It should be assumed that the actor is the dispenser of the medication.
      */

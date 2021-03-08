@@ -33,7 +33,7 @@ export class ImagingStudyPerformer {
     /**
      * Distinguishes the type of involvement of the performer in the series.
      */
-    _function?: CodeableConcept;
+    function?: CodeableConcept;
     /**
      * Indicates who or what performed the series.
      */

@@ -33,7 +33,7 @@ export class ProcedurePerformer {
     /**
      * Distinguishes the type of involvement of the performer in the procedure. For example, surgeon, anaesthetist, endoscopist.
      */
-    _function?: CodeableConcept;
+    function?: CodeableConcept;
     /**
      * The practitioner who was involved in the procedure.
      */

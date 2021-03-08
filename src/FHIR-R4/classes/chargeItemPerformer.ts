@@ -33,7 +33,7 @@ export class ChargeItemPerformer {
     /**
      * Describes the type of performance or participation(e.g. primary surgeon, anesthesiologiest, etc.).
      */
-    _function?: CodeableConcept;
+    function?: CodeableConcept;
     /**
      * The device, practitioner, etc. who performed or participated in the service.
      */

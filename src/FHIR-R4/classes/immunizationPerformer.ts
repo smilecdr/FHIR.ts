@@ -33,7 +33,7 @@ export class ImmunizationPerformer {
     /**
      * Describes the type of performance (e.g. ordering provider, administering provider, etc.).
      */
-    _function?: CodeableConcept;
+    function?: CodeableConcept;
     /**
      * The practitioner or organization who performed the action.
      */
