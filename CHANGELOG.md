@@ -1,4 +1,24 @@
 # Changelog
+## 1.2.5
+---
+### Updates (General)
+
+* A GETTINGSTARTED guide has now been implemented to introduce the library to new users
+* Updated compiler to ES6
+* Updated README
+
+### 1.2.4
+---
+### Updates (R4)
+
+* Instances of `_function` have been replaced with  `function` for the following resources:
+
+  * ProcedurePerformer
+  * MedicationDispensePerformer
+  * MedicationAdministrationPerformer
+  * ImmunizationPerformer 
+  * ImagingStudyPerformer
+  * ChargeItemPerformer
 
 
 ### 1.2.3
@@ -6,8 +26,6 @@
 ### Updates (R4)
 
 * `classes` and `interfaces` both are now available for FHIR R4 resources.
-
-
 
 ## 1.1.3
 ---
