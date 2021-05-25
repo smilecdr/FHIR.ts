@@ -1,4 +1,12 @@
 # Changelog
+## 1.2.6
+---
+### Updates (R4)
+
+* Instances of `status` made required according to FHIR spec:
+
+  * Observation
+
 ## 1.2.5
 ---
 ### Updates (General)
