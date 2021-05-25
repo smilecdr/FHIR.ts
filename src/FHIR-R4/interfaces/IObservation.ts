@@ -81,7 +81,7 @@ export interface IObservation {
     /**
      * The status of the result value.
      */
-    status?: Observation.StatusEnum;
+    status: Observation.StatusEnum;
     /**
      * A code that classifies the general type of observation being made.
      */
