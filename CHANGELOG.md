@@ -1,4 +1,14 @@
 # Changelog
+
+
+## 1.2.7
+---
+### Updates (R4)
+
+* Instances of `status` and `intent` made required according to FHIR spec:
+
+  * MedicationRequest
+
 ## 1.2.6
 ---
 ### Updates (R4)
