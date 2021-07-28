@@ -69,7 +69,7 @@ export class MedicationRequest {
     /**
      * A code specifying the current state of the order.  Generally, this will be active or completed state.
      */
-    status?: Code;
+    status: Code;
     /**
      * Captures the reason for the current state of the MedicationRequest.
      */
@@ -77,7 +77,7 @@ export class MedicationRequest {
     /**
      * Whether the request is a proposal, plan, or an original order.
      */
-    intent?: Code;
+    intent: Code;
     /**
      * Indicates the type of medication request (for example, where the medication is expected to be consumed or administered (i.e. inpatient or outpatient)).
      */
