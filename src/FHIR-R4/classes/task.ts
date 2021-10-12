@@ -122,7 +122,7 @@ export class Task {
     /**
      * The entity who benefits from the performance of the service specified in the task (e.g., the patient).
      */
-    _for?: Reference;
+    for?: Reference;
     /**
      * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created.
      */

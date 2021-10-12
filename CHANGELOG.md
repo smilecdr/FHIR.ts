@@ -1,5 +1,12 @@
 # Changelog
 
+### 1.2.8
+---
+### Updates (R4)
+
+* Instances of `_for` have been replaced with  `for` for the following resources:
+
+  * Task
 
 ## 1.2.7
 ---
