@@ -465,7 +465,7 @@ export class SampledData extends FHIRElement {
 }
 export class Restriction extends BackboneElement {
   repetitions: number;
-  preiod: Period;
+  period: Period;
   recipient: Reference[];
 }
 
