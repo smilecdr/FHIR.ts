@@ -1,6 +1,12 @@
 # Changelog
 
-### 1.2.8
+## 1.2.9
+---
+
+### Updates (R3)
+
+* Fixed a type in the `Restriction` resource, where `period` was written as `preiod`
+## 1.2.8
 ---
 ### Updates (R4)
 
