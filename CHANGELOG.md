@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.10
+---
+
+### Updates (R3)
+
+* Added class for `slot` resource.
+
+
 ## 1.2.9
 ---
 
