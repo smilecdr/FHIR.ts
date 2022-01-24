@@ -1137,5 +1137,18 @@ export class Schedule extends Resource {
   comment: string;
 }
 
+export class Slot extends Resource {
+  identifier: Identifier[];
+  serviceCategory: CodeableConcept;
+  serviceType: CodeableConcept[];
+  speciality: CodeableConcept[];
+  appointmentType: CodeableConcept;
+  schedule: Reference;
+  status: string;
+  start: string;
+  end: string;
+  overbooked: boolean;
+  comment: string;
+}
 
 
