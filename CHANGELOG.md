@@ -5,7 +5,7 @@
 
 ### Updates (R3)
 
-* Added class for `slot` resource.
+* Added class for `Slot` resource.
 
 
 ## 1.2.9

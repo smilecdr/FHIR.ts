@@ -1137,7 +1137,7 @@ export class Schedule extends Resource {
   comment: string;
 }
 
-export class slot extends Resource {
+export class Slot extends Resource {
   identifier: Identifier[];
   serviceCategory: CodeableConcept;
   serviceType: CodeableConcept[];
