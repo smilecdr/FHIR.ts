@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2.11
+---
+
+### Updates (R3)
+
+* Fixed an issue where BundleResponse.location was of type `number` instead of type `string`
+
 ## 1.2.10
 ---
 

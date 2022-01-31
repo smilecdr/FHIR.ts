@@ -513,7 +513,7 @@ export class BundleRequest extends BackboneElement {
 
 export class BundleResponse extends BackboneElement {
   status: string;
-  location: number;
+  location: string;
   etag: string;
   lastModified: number;
   outcome: number;
