@@ -43,18 +43,6 @@ export class Meta extends FHIRElement {
   profile: string;
   security: Coding;
   tag: Coding;
-
-  deserialize(jsonObject: any): Meta {
-    const that = this;
-    Object.entries(jsonObject).forEach((value) => {
-      if (!(typeof value[1] === 'object')) {
-        that[value[0]] = value[1];
-      } else {
-        (that[value[0]].deserialize(value[1]));
-      }
-    });
-    return this;
-  }
 }
 
 export class Narrative {
@@ -91,18 +79,6 @@ export class HumanName extends FHIRElement {
   prefix: string[];
   suffix: string[];
   period: Period;
-
-  deserialize(jsonObject: any): HumanName {
-    const that = this;
-    Object.entries(jsonObject).forEach((value) => {
-      if (!(typeof value[1] === 'object')) {
-        that[value[0]] = value[1];
-      } else {
-        (that[value[0]].deserialize(value[1]));
-      }
-    });
-    return this;
-  }
 }
 
 export class Extension {
@@ -126,18 +102,6 @@ export class Coding extends FHIRElement {
   code: string;
   display: string;
   userSelected: boolean;
-
-  deserialize(jsonObject: any): Coding {
-    const that = this;
-    Object.entries(jsonObject).forEach((value) => {
-      if (!(typeof value[1] === 'object')) {
-        that[value[0]] = value[1];
-      } else {
-        (that[value[0]].deserialize(value[1]));
-      }
-    });
-    return this;
-  }
 }
 
 export class Period extends FHIRElement {
