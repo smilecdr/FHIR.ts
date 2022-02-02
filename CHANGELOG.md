@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.0
+
+### Updates (DSTU2)
+
+* Added initial classes for DSTU2.
+
 ## 1.2.11
 ---
 
