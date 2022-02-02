@@ -17,6 +17,10 @@ FHIR.ts offers both classes & interfaces for various FHIR resources - which one(
 To start, you'll need to first import the library:
 
 ```js
+
+// if using FHIR DSTU2
+import { dstu2 } from '@smile-cdr/fhirts';
+
 // if using FHIR R3 
 import { fhirR3 } from '@smile-cdr/fhirts';
 
@@ -30,6 +34,9 @@ import { IfhirR4 } from '@smile-cdr/fhirts';
 Next, depending on the library & whether you're using classes or interfaces, the way you initialize resources might look a bit different:
 
 ```js
+// if using FHIR DSTU2
+let patient = new dstu2.Patient();
+
 // if using FHIR R3 
 let patient = new fhirR3.Patient();
 
