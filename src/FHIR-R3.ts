@@ -1151,4 +1151,38 @@ export class Slot extends Resource {
   comment: string;
 }
 
+export class ClinicalImpressions extends Resource {
+  identifier: Identifier[];
+  status: string;
+  code: CodeableConcept;
+  description: string;
+  subject: Reference;
+  context: Reference;
+  effectiveDateTime: string;
+  effectivePeriod: Period;
+  date: string;
+  assessor: Reference;
+  previous: Reference;
+  problem: Reference[];
+  investigation: ClinicalImpressionsInvestigation[];
+  protocol: string[];
+  summary: string;
+  finding: ClinicalImpressionsFinding[];
+  prognosisCodeableConcept: CodeableConcept[];
+  prognosisReference: Reference[];
+  action: Reference[];
+  note: Annotation[];
+}
+
+export class ClinicalImpressionsInvestigation extends BackboneElement {
+  code: CodeableConcept;
+  item: Reference[];
+}
+
+export class ClinicalImpressionsFinding extends BackboneElement {
+  basis: string;
+  itemCodeableConcept: CodeableConcept;
+  itemReference: Reference;
+}
+
 
