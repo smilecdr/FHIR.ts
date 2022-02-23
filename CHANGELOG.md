@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.1
+---
+### Updates (R3)
+
+* Added class for `ClinicalImpression` resource.
+
 ## 1.3.0
 
 ### Updates (DSTU2)
