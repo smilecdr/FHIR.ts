@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.4.0
+
+### Updates (R3)
+
+* The `Participant` class has been re-tooled to only be used in the `Appointment` class
+* Droped the `Period` field in the `Participant` class as it is not used in `Appointment.participant`
+* Added `EncounterParticipant` to replace the class type in `Encounter.participant`
+  * `EncounterParticipant` follows the STU3 spec for `Encounter.participant` 
+
+This release introduces a breaking change for Encounter.If you're using `Encounter` in your code, the `participant` field will have a new type, `EncounterParticipant` with the appropriate changes. This will break existing implementations, unless they are updated to take advantage of the new `EncounterParticipant` class. The `Period` in the `Participant` class has been removed as it's not using by the `Appointment.participant` field.
+
 ## 1.3.1
 ---
 ### Updates (R3)
