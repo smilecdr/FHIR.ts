@@ -1,7 +1,7 @@
 # Changelog
 
 ## 1.4.0
-
+---
 ### Updates (R3)
 
 * The `Participant` class has been re-tooled to only be used in the `Appointment` class
