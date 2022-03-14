@@ -391,8 +391,14 @@ export class Participant extends BackboneElement {
   actor: Reference;
   required: string;
   status: string;
+}
+
+export class EncounterParticipant extends BackboneElement {
+  type: CodeableConcept[];
+  individual: Reference;
   period: Period;
 }
+
 export class Activity extends BackboneElement {
   outcomeCodeableConcept: CodeableConcept[];
   outcomeReference: Reference[];
@@ -810,7 +816,7 @@ export class Encounter extends Resource {
   status: string;
   episodeOfCare: Reference[];
   subject: Reference;
-  participant: Participant[];
+  participant: EncounterParticipant[];
 }
 
 export class CareTeamParticipant extends BackboneElement {
