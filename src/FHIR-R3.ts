@@ -339,6 +339,7 @@ export class Answer extends BackboneElement {
   valueQuantity: Quantity;
   valueBoolean: boolean;
   valueReference: Reference;
+  item: QuestionnaireResponseItem[];
 }
 
 
@@ -566,6 +567,7 @@ export class QuestionnaireResponseItem extends BackboneElement {
   definition: string;
   text: string;
   answer: Answer[];
+  item: QuestionnaireResponseItem[];
 }
 
 export class Item extends BackboneElement {
