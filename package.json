@@ -1,6 +1,6 @@
 {
   "name": "@smile-cdr/fhirts",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Fhir ts/js library for frontend apps",
   "license": "Apache-2.0",
   "main": "dist/index.js",
@@ -10,7 +10,6 @@
     "build": "tsc"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.21.0",
     "typescript": "^4.0.2"
   }
 }

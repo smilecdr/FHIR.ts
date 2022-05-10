@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4.1
+
+### Updates (R3)
+
+* Added support for nested `QuestionnaireResponseItem` in `QuestionnaireResponse.item` and `QuestionnaireResponse.item.answer`.
+
 ## 1.4.0
 ---
 ### Updates (R3)
