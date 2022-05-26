@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4.2
+
+### Updates (R3)
+
+* Removed `Id` type used by `Meta.versionId` and changed to `string`.
+
 ## 1.4.1
 
 ### Updates (R3)
