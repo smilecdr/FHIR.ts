@@ -8,19 +8,6 @@ export class BackboneElement extends FHIRElement {
   modifierExtension: any;
 }
 /* FHIR classes used in resources */
-export class Id {
-  private id: string;
-
-  constructor(input?: string) {
-    const re = new RegExp('[A-Za-z0-9\\-\\.]{1,64}');
-
-    if (re.test(input)) {
-      this.id = input;
-    } else {
-      throw new RangeError('Not a valid Id string - must match reg exp [A-Za-z0-9\\-\\.]{1,64} Was provided: ' + input);
-    }
-  }
-}
 
 export class DomainResource  {
   text: Narrative;
@@ -127,7 +114,7 @@ export class Address extends FHIRElement {
 }
 
 export class Meta extends FHIRElement {
-  versionId: Id;
+  versionId: string;
   lastUpdated: string;
   profile: string;
   security: Coding;
