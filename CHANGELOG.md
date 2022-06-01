@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.4.3
+
+### Updates (R4)
+
+* Updated `_short` property to `short` used in `elementDefinition.ts` for R4.
+* Updated `_abstract` property to `abstract` used in `structureDefinition.ts, valueSetContains.ts and IStructureDefinition.ts` for R4.
+
 ## 1.4.2
 
 ### Updates (R3)
