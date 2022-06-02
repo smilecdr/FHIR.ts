@@ -1,6 +1,6 @@
 # FHIR TypeScript / JavaScript Library For Front End Applications
 
-![npm](https://img.shields.io/npm/v/@smile-cdr/fhirts) ![workflow](https://github.com/smilecdr/FHIR.ts/actions/workflows/npm-publish.yml/badge.svg)
+![npm](https://img.shields.io/npm/v/@smile-cdr/fhirts) ![workflow](https://github.com/smilecdr/FHIR.ts/actions/workflows/npm-publish.yml/badge.svg) [![License][Badge-License]][Link-License]
 
 ## About 
 
