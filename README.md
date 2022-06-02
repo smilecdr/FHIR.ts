@@ -1,6 +1,6 @@
 # FHIR TypeScript / JavaScript Library For Front End Applications
 
-![npm](https://img.shields.io/npm/v/@smile-cdr/fhirts) ![workflow](https://github.com/smilecdr/FHIR.ts/actions/workflows/npm-publish.yml/badge.svg) ![NPM](https://img.shields.io/npm/l/@smile-cdr/fhirts)
+![npm](https://img.shields.io/npm/v/@smile-cdr/fhirts) ![workflow](https://github.com/smilecdr/FHIR.ts/actions/workflows/npm-publish.yml/badge.svg) [![NPM](https://img.shields.io/npm/l/@smile-cdr/fhirts)](./LICENSE)
 
 ## About 
 
@@ -31,5 +31,7 @@ Checkout the [Getting Started section](GETTINGSTARTED.md) for how to use the lib
 2. Create a branch related to the issue.
 3. Make necessary changes and upgrade library version in `package.json` file. This is a must as npm doesn't allow publish on same version.
 4. Push changes & create a Pull Request.
+
+
 
 
