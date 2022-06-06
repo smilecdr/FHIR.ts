@@ -144,7 +144,7 @@ export class StructureDefinition {
     /**
      * Whether structure this definition describes is abstract or not  - that is, whether the structure is not intended to be instantiated. For Resources and Data types, abstract types will never be exchanged  between systems.
      */
-    _abstract?: boolean;
+    abstract?: boolean;
     /**
      * Identifies the types of resource or data type elements to which the extension can be applied.
      */

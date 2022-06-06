@@ -38,7 +38,7 @@ export class ValueSetContains {
     /**
      * If true, this entry is included in the expansion for navigational purposes, and the user cannot select the code directly as a proper value.
      */
-    _abstract?: boolean;
+    abstract?: boolean;
     /**
      * If the concept is inactive in the code system that defines it. Inactive codes are those that are no longer to be used, but are maintained by the code system for understanding legacy data. It might not be known or specified whether an concept is inactive (and it may depend on the context of use).
      */
