@@ -1053,7 +1053,7 @@ export class CommunicationRequest extends Resource {
   priority: string;
   medium: CodeableConcept[];
   subject: Reference;
-  recipent: Reference[];
+  recipient: Reference[];
   topic: Reference[];
   context: Reference[];
   payload: Payload[];
