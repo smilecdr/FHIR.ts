@@ -1,4 +1,9 @@
 # Changelog
+## 1.4.4
+
+### Updates (R3)
+
+* Fixed typo in `CommunicationRequest.recipient` (was previously `CommunicationRequest.recipent`)
 
 ## 1.4.3
 
