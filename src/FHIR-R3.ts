@@ -115,7 +115,7 @@ export class Address extends FHIRElement {
 
 export class Meta extends FHIRElement {
   versionId: string;
-  lastUpdated: string;
+  lastUpdated: string | Date;
   profile: string;
   security: Coding;
   tag: Coding;
@@ -127,8 +127,8 @@ export class CodeableConcept extends FHIRElement {
 }
 
 export class Period extends FHIRElement {
-  start: string;
-  end: string;
+  start: string | Date;
+  end: string | Date;
 }
 
 export class Quantity extends FHIRElement {
@@ -466,8 +466,8 @@ export class Restriction extends BackboneElement {
 export class AvailableTime extends BackboneElement {
   daysOfWeek: string[];
   allDay: boolean;
-  availableStartTime: string;
-  availableEndTime: string;
+  availableStartTime: string | Date;
+  availableEndTime: string | Date;
 }
 
 export class NotAvailable extends BackboneElement {
@@ -656,12 +656,12 @@ export class Questionnaire extends Resource  {
   // TODO - fix Code and change status to type Code
   status: string;
   experimental: boolean;
-  date: string;
+  date: string | Date;
   publisher: string;
   description: string;
   purpose: string;
-  rovalDate: string;
-  lastReviewedDate: string;
+  rovalDate: string | Date;
+  lastReviewedDate: string | Date;
   effectivePeriod: Period;
   useContext: UsageContext[];
   jurisdiction: CodeableConcept[];
@@ -679,7 +679,7 @@ export class Patient extends Resource {
   name: HumanName[];
   telecom: ContactPoint[];
   gender: Code;
-  birthDate: string;
+  birthDate: string | Date;
   address: Address;
   maritalStatus: CodeableConcept;
   contact: Contact[];
@@ -959,7 +959,7 @@ export class Practitioner extends Resource {
   telecom: ContactPoint[];
   address: Address[];
   gender: string;
-  birthDate: string;
+  birthDate: string | Date;
   photo: Attachment[];
   qualification: Qualification[];
   communication: CodeableConcept[];
@@ -1027,13 +1027,13 @@ export class Immunization extends Resource {
   vaccineCode: CodeableConcept;
   patient: Reference;
   encounter: Reference;
-  date: string;
+  date: string | Date;
   primarySource: boolean;
   reportOrigin: CodeableConcept;
   location: Reference;
   manufacturer: Reference;
   lotNumber: string;
-  expirationDate: string;
+  expirationDate: string | Date;
   site: CodeableConcept;
   route: CodeableConcept;
   doseQuantity: DoseCoding;
@@ -1153,9 +1153,9 @@ export class ClinicalImpression extends Resource {
   description: string;
   subject: Reference;
   context: Reference;
-  effectiveDateTime: string;
+  effectiveDateTime: string | Date;
   effectivePeriod: Period;
-  date: string;
+  date: string | Date;
   assessor: Reference;
   previous: Reference;
   problem: Reference[];

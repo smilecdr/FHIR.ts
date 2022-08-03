@@ -1,4 +1,11 @@
 # Changelog
+
+## 1.4.5
+
+### Updates (R3)
+
+* Added optional date type properties to FHIR dateTime/Date properties for easier parsing on the front-end side.
+
 ## 1.4.4
 
 ### Updates (R3)
