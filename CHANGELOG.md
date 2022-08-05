@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4.6
+
+### Updates (R3)
+
+* Added AllergyIntolerance resource. 
+
 ## 1.4.5
 
 ### Updates (R3)
