@@ -1190,7 +1190,7 @@ export class AllergyIntolerance extends Resource {
   code: CodeableConcept;
   patient: Reference;
   onsetDateTime: Date | string;
-  onsetAge: ;
+  onsetAge: Age;
   onsetPeriod: Period;
   onsetRange: Range;
   onsetString: string;
