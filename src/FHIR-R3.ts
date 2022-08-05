@@ -1180,4 +1180,42 @@ export class ClinicalImpressionFinding extends BackboneElement {
   itemReference: Reference;
 }
 
+export class AllergyIntolerance extends Resource {
+  identifier: Identifier[];
+  clinicalStatus: Code;
+  verificationStatus: Code;
+  type: Code;
+  category: Code[];
+  critically: Code;
+  code: CodeableConcept;
+  patient: Reference;
+  onsetDateTime: Date | string;
+  onsetAge: ;
+  onsetPeriod: Period;
+  onsetRange: Range;
+  onsetString: string;
+  assertedDate: Date | string;
+  recorder: Reference;
+  asserted: Reference;
+  lastOccurrence: Date | string;
+  note: Annotation[];
+  reaction: AllergyIntoleranceReaction[];
+}
 
+export class AllergyIntoleranceReaction extends BackboneElement {
+  substance: CodeableConcept;
+  manifestation: CodeableConcept[];
+  description: string;
+  onset: Date | string;
+  severity: Code;
+  exposureRoute: CodeableConcept;
+  note: Annotation[];
+}
+
+export class Age extends FHIRElement {
+    value: number;
+    comparator: '<' | '<=' | '>=' | '>';
+    unit: string;
+    system: string;
+    code: Code;
+}
