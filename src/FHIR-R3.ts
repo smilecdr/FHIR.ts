@@ -1196,7 +1196,7 @@ export class AllergyIntolerance extends Resource {
   onsetString: string;
   assertedDate: Date | string;
   recorder: Reference;
-  asserted: Reference;
+  asserter: Reference;
   lastOccurrence: Date | string;
   note: Annotation[];
   reaction: AllergyIntoleranceReaction[];
