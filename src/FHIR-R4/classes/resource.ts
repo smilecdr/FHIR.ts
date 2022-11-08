@@ -16,7 +16,7 @@ import { Uri } from './uri';
 
 
 export class Resource { 
-    resourceType?: string;
+    resourceType: string;
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

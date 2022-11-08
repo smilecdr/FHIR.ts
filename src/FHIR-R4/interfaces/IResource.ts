@@ -16,7 +16,7 @@ import { Uri } from './../classes/uri';
 
 
 export interface IResource { 
-    resourceType?: string;
+    resourceType: string;
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

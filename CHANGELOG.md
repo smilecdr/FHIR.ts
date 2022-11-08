@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4.8
+
+### Updates (R4)
+
+* Made `resourceType` a `required` for Resource for R4.
+
 ## 1.4.7
 
 ### Updates (R3)
