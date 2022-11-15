@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.4.9
+
+### Updates (R3)
+
+* Made a generic `Resource` type which is a union of all other resources to allow type narrowing when working with Bundles and Contained Resources. For example:
+```
+const res = bundle.entry[0].resource
+// res -> fhirR3.Resource
+if(res.resourceType === 'Organization'){
+  // TypeScript will infer the type of Organization automatically
+  // res -> fhirR3.Organization
+```
+
 ## 1.4.8
 
 ### Updates (R4)
