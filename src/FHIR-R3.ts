@@ -16,7 +16,7 @@ export class DomainResource  {
   modifierExtension: Extension[];
 }
 
-export class Resource extends DomainResource {
+export class BaseResource extends DomainResource {
   resourceType: string;
   id: string;
   meta: Meta;
@@ -633,7 +633,8 @@ export class Udi extends BackboneElement {
   entryType: string;
 }
 
-export class QuestionnaireResponse extends Resource {
+export class QuestionnaireResponse extends BaseResource {
+  resourceType: "QuestionnaireResponse";
   identifier: Identifier;
   basedOn: Reference[];
   parent: Reference[];
@@ -647,7 +648,8 @@ export class QuestionnaireResponse extends Resource {
   subject: Reference;
 }
 
-export class Questionnaire extends Resource  {
+export class Questionnaire extends BaseResource {
+  resourceType: "Questionnaire";
   url: string;
   identifier: Identifier[];
   version: string;
@@ -673,7 +675,8 @@ export class Questionnaire extends Resource  {
 }
 
 
-export class Patient extends Resource {
+export class Patient extends BaseResource {
+  resourceType: "Patient";
   identifier: Identifier[];
   active: boolean;
   name: HumanName[];
@@ -689,7 +692,8 @@ export class Patient extends Resource {
   link: Link[];
 }
 
-export class DocumentReference extends Resource {
+export class DocumentReference extends BaseResource {
+  resourceType: "DocumentReference";
   masterIdentifier: Identifier;
   identifier: Identifier[];
   status: string;
@@ -704,7 +708,8 @@ export class DocumentReference extends Resource {
   context: Context;
 }
 
-export class Appointment extends Resource {
+export class Appointment extends BaseResource {
+  resourceType: "Appointment";
   identifier: Identifier[];
   status: string;
   serviceCategory: CodeableConcept;
@@ -726,7 +731,8 @@ export class Appointment extends Resource {
   requestPeriod: Period[];
 }
 
-export class AppointmentResponse extends Resource {
+export class AppointmentResponse extends BaseResource {
+  resourceType: "AppointmentResponse";
   identifier: Identifier[];
   appointment: Reference;
   start: Date;
@@ -738,7 +744,8 @@ export class AppointmentResponse extends Resource {
 }
 
 
-export class Organization extends Resource {
+export class Organization extends BaseResource {
+  resourceType: "Organization";
   identifier: Identifier[];
   active: boolean;
   status: string;
@@ -753,7 +760,8 @@ export class Organization extends Resource {
   endpoint: Reference[];
 }
 
-export class Location extends Resource {
+export class Location extends BaseResource {
+  resourceType: "Location";
   identifier: Identifier[];
   status: string;
   operationalStatus: Coding;
@@ -771,7 +779,8 @@ export class Location extends Resource {
   extension: Extension[];
 }
 
-export class Account extends Resource {
+export class Account extends BaseResource {
+  resourceType: "Account";
   identifier: Identifier[];
   status: Code;
   type: CodeableConcept;
@@ -792,7 +801,8 @@ export class Account extends Resource {
   endpoint: Reference[];
 }
 
-export class ProcessRequest extends Resource {
+export class ProcessRequest extends BaseResource {
+  resourceType: "ProcessRequest";
   identifier: Identifier[];
   status: string;
   created: Date;
@@ -800,7 +810,8 @@ export class ProcessRequest extends Resource {
   request: Reference;
 }
 
-export class Encounter extends Resource {
+export class Encounter extends BaseResource {
+  resourceType: "Encounter";
   identifier: Identifier[];
   status: string;
   episodeOfCare: Reference[];
@@ -815,7 +826,8 @@ export class CareTeamParticipant extends BackboneElement {
   period: Period;
 }
 
-export class CareTeam extends Resource {
+export class CareTeam extends BaseResource {
+  resourceType: "CareTeam";
   identifier: Identifier[];
   status: string;
   category: CodeableConcept[];
@@ -826,7 +838,8 @@ export class CareTeam extends Resource {
   note: Annotation[];
 }
 
-export class EpisodeOfCare extends Resource {
+export class EpisodeOfCare extends BaseResource {
+  resourceType: "EpisodeOfCare";
   identifier: Identifier[];
   status: string;
   statusHistory: BackboneElement[];
@@ -841,7 +854,8 @@ export class EpisodeOfCare extends Resource {
   account: Reference[];
 }
 
-export class CarePlan extends Resource {
+export class CarePlan extends BaseResource {
+  resourceType: "CarePlan";
   identifier: Identifier[];
   definition: Reference[];
   basedOn: Reference[];
@@ -864,7 +878,8 @@ export class CarePlan extends Resource {
   note: Annotation[];
 }
 
-export class Communication extends Resource {
+export class Communication extends BaseResource {
+  resourceType: "Communication";
   identifier: Identifier[];
   definition: Reference[];
   basedOn: Reference[];
@@ -887,7 +902,8 @@ export class Communication extends Resource {
   note: Annotation[];
 }
 
-export class Task extends Resource {
+export class Task extends BaseResource {
+  resourceType: "Task";
   identifier: Identifier[];
   definitionUri: string;
   definitionReference: Reference;
@@ -919,7 +935,8 @@ export class Task extends Resource {
   output: Output[];
 }
 
-export class ProcedureRequest extends Resource {
+export class ProcedureRequest extends BaseResource {
+  resourceType: "ProcedureRequest";
   identifier: Identifier[];
   status: string;
   intent: string;
@@ -935,7 +952,8 @@ export class ProcedureRequest extends Resource {
 }
 
 
-export class PractitionerRole extends Resource {
+export class PractitionerRole extends BaseResource {
+  resourceType: "PractitionerRole";
   identifier: Identifier[];
   active: boolean;
   period: Period;
@@ -952,7 +970,8 @@ export class PractitionerRole extends Resource {
   endpoint: Reference[];
 }
 
-export class Practitioner extends Resource {
+export class Practitioner extends BaseResource {
+  resourceType: "Practitioner";
   identifier: Identifier[];
   active: boolean;
   name: HumanName[];
@@ -965,7 +984,8 @@ export class Practitioner extends Resource {
   communication: CodeableConcept[];
 }
 
-export class Device extends Resource {
+export class Device extends BaseResource {
+  resourceType: "Device";
   identifier: Identifier[];
   udi: Udi;
   status: string;
@@ -985,7 +1005,8 @@ export class Device extends Resource {
   safety: CodeableConcept[];
 }
 
-export class Observation extends Resource {
+export class Observation extends BaseResource {
+  resourceType: "Observation";
   identifier: Identifier[];
   basedOn: Reference[];
   status: string;
@@ -1020,7 +1041,8 @@ export class Observation extends Resource {
   component: Component[];
 }
 
-export class Immunization extends Resource {
+export class Immunization extends BaseResource {
+  resourceType: "Immunization";
   identifier: Identifier[];
   status: string;
   notGiven: boolean;
@@ -1043,7 +1065,8 @@ export class Immunization extends Resource {
   vaccinationProtocol: VaccinationProtocol[];
 }
 
-export class CommunicationRequest extends Resource {
+export class CommunicationRequest extends BaseResource {
+  resourceType: "CommunicationRequest";
   identifier: Identifier[];
   basedOn: Reference[];
   replaces: Reference[];
@@ -1068,7 +1091,8 @@ export class CommunicationRequest extends Resource {
 }
 
 
-export class AuditEvent extends Resource {
+export class AuditEvent extends BaseResource {
+  resourceType: "AuditEvent";
   type: Coding;
   subtype: Coding[];
   action: string;
@@ -1084,7 +1108,8 @@ export class AuditEvent extends Resource {
   entity: Entity[];
 }
 
-export class Bundle extends Resource {
+export class Bundle extends BaseResource {
+  resourceType: "Bundle";
   identifier: Identifier;
   type: string;
   timestamp: string;
@@ -1094,7 +1119,8 @@ export class Bundle extends Resource {
   signature: BundleSignature;
 }
 
-export class HealthcareService extends Resource {
+export class HealthcareService extends BaseResource {
+  resourceType: "HealthcareService";
   identifier: Identifier[];
   active: string;
   providedBy: Reference;
@@ -1121,7 +1147,8 @@ export class HealthcareService extends Resource {
   endpoint: Reference[];
 }
 
-export class Schedule extends Resource {
+export class Schedule extends BaseResource {
+  resourceType: "Schedule";
   identifier: Identifier[];
   active: boolean;
   serviceCategory: CodeableConcept;
@@ -1132,7 +1159,8 @@ export class Schedule extends Resource {
   comment: string;
 }
 
-export class Slot extends Resource {
+export class Slot extends BaseResource {
+  resourceType: "Slot";
   identifier: Identifier[];
   serviceCategory: CodeableConcept;
   serviceType: CodeableConcept[];
@@ -1146,7 +1174,8 @@ export class Slot extends Resource {
   comment: string;
 }
 
-export class ClinicalImpression extends Resource {
+export class ClinicalImpression extends BaseResource {
+  resourceType: "ClinicalImpression";
   identifier: Identifier[];
   status: string;
   code: CodeableConcept;
@@ -1180,7 +1209,8 @@ export class ClinicalImpressionFinding extends BackboneElement {
   itemReference: Reference;
 }
 
-export class AllergyIntolerance extends Resource {
+export class AllergyIntolerance extends BaseResource {
+  resourceType: "AllergyIntolerance";
   identifier: Identifier[];
   clinicalStatus: Code;
   verificationStatus: Code;
@@ -1219,3 +1249,5 @@ export class Age extends FHIRElement {
     system: string;
     code: Code;
 }
+
+export type Resource = AllergyIntolerance | ClinicalImpression | Schedule | HealthcareService | Bundle | AuditEvent | CommunicationRequest | Immunization | Observation | Device | Practitioner | PractitionerRole | ProcedureRequest | Task | Communication | CarePlan | EpisodeOfCare | CareTeam | Encounter | ProcessRequest | Account | Location | Organization | AppointmentResponse | Appointment | QuestionnaireResponse | Questionnaire | Slot | Patient | DocumentReference;
