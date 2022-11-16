@@ -35,7 +35,7 @@ import { Range } from './range';
 import { Ratio } from './ratio';
 import { Reference } from './reference';
 import { RelatedArtifact } from './relatedArtifact';
-import { ResourceList } from './resourceList';
+import { Resource } from './resource';
 import { SampledData } from './sampledData';
 import { Signature } from './signature';
 import { Timing } from './timing';
@@ -262,7 +262,7 @@ export class ParametersParameter {
     /**
      * If the parameter is a whole resource.
      */
-    resource?: ResourceList;
+    resource?: Resource;
     /**
      * A named part of a multi-part parameter.
      */
