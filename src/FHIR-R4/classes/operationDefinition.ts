@@ -21,6 +21,7 @@ import { Meta } from './meta';
 import { Narrative } from './narrative';
 import { OperationDefinitionOverload } from './operationDefinitionOverload';
 import { OperationDefinitionParameter } from './operationDefinitionParameter';
+import { ResourceList } from './resourceList';
 import { Uri } from './uri';
 import { UsageContext } from './usageContext';
 
@@ -28,11 +29,11 @@ import { UsageContext } from './usageContext';
 /**
  * A formal computable definition of an operation (on the RESTful class) or a named query (using the search interaction).
  */
-export class OperationDefinition { 
+export class OperationDefinition {
     /**
      * This is a OperationDefinition resource
      */
-    resourceType: string;
+    resourceType: 'OperationDefinition';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */
@@ -136,7 +137,7 @@ export class OperationDefinition {
     /**
      * The types on which this operation can be executed.
      */
-    resource?: Array<Code>;
+    resource?: Array<ResourceList>;
     /**
      * Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).
      */

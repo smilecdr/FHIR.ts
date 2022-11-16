@@ -31,7 +31,7 @@ export class Coverage {
     /**
      * This is a Coverage resource
      */
-    resourceType: string;
+    resourceType: 'Coverage';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

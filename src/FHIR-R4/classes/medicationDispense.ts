@@ -33,7 +33,7 @@ export class MedicationDispense {
     /**
      * This is a MedicationDispense resource
      */
-    resourceType: string;
+    resourceType: 'MedicationDispense';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

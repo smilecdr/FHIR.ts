@@ -12,13 +12,14 @@
 import { Canonical } from './canonical';
 import { Code } from './code';
 import { Extension } from './extension';
+import { ResourceList } from './resourceList';
 import { UnsignedInt } from './unsignedInt';
 
 
 /**
  * Defines the characteristics of a message that can be shared between systems, including the type of event that initiates the message, the content to be transmitted and what response(s), if any, are permitted.
  */
-export class MessageDefinitionFocus { 
+export class MessageDefinitionFocus {
     /**
      * Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.
      */
@@ -34,7 +35,7 @@ export class MessageDefinitionFocus {
     /**
      * The kind of resource that must be the focus for this message.
      */
-    code?: Code;
+    code: ResourceList;
     /**
      * A profile that reflects constraints for the focal resource (and potentially for related resources).
      */

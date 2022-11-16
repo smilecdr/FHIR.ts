@@ -20,6 +20,7 @@ import { Id } from './id';
 import { Markdown } from './markdown';
 import { Meta } from './meta';
 import { Narrative } from './narrative';
+import { ResourceList } from './resourceList';
 import { Uri } from './uri';
 import { UsageContext } from './usageContext';
 
@@ -27,11 +28,11 @@ import { UsageContext } from './usageContext';
 /**
  * A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references. The Graph Definition resource defines a set and makes rules about the set.
  */
-export class GraphDefinition { 
+export class GraphDefinition {
     /**
      * This is a GraphDefinition resource
      */
-    resourceType: string;
+    resourceType: 'GraphDefinition';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */
@@ -111,7 +112,7 @@ export class GraphDefinition {
     /**
      * The type of FHIR resource at which instances of this graph start.
      */
-    start?: Code;
+    start: ResourceList;
     /**
      * The profile that describes the use of the base resource.
      */

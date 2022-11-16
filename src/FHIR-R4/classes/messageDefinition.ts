@@ -30,11 +30,11 @@ import { UsageContext } from './usageContext';
 /**
  * Defines the characteristics of a message that can be shared between systems, including the type of event that initiates the message, the content to be transmitted and what response(s), if any, are permitted.
  */
-export class MessageDefinition { 
+export class MessageDefinition {
     /**
      * This is a MessageDefinition resource
      */
-    resourceType: string;
+    resourceType: 'MessageDefinition';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

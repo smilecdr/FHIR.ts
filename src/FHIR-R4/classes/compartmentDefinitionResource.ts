@@ -11,12 +11,13 @@
  */
 import { Code } from './code';
 import { Extension } from './extension';
+import { ResourceList } from './resourceList';
 
 
 /**
  * A compartment definition that defines how resources are accessed on a server.
  */
-export class CompartmentDefinitionResource { 
+export class CompartmentDefinitionResource {
     /**
      * Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.
      */
@@ -32,7 +33,7 @@ export class CompartmentDefinitionResource {
     /**
      * The name of a resource supported by the server.
      */
-    code?: Code;
+    code: ResourceList;
     /**
      * The name of a search parameter that represents the link to the compartment. More than one may be listed because a resource may be linked to a compartment in more than one way,.
      */

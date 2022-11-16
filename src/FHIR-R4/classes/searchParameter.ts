@@ -19,6 +19,7 @@ import { Id } from './id';
 import { Markdown } from './markdown';
 import { Meta } from './meta';
 import { Narrative } from './narrative';
+import { ResourceList } from './resourceList';
 import { SearchParameterComponent } from './searchParameterComponent';
 import { Uri } from './uri';
 import { UsageContext } from './usageContext';
@@ -27,11 +28,11 @@ import { UsageContext } from './usageContext';
 /**
  * A search parameter that defines a named search item that can be used to search/filter on a resource.
  */
-export class SearchParameter { 
+export class SearchParameter {
     /**
      * This is a SearchParameter resource
      */
-    resourceType: string;
+    resourceType: 'SearchParameter';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */
@@ -115,15 +116,15 @@ export class SearchParameter {
     /**
      * The code used in the URL or the parameter name in a parameters resource for this search parameter.
      */
-    code?: Code;
+    code: Code;
     /**
      * The base resource type(s) that this search parameter can be used against.
      */
-    base?: Array<Code>;
+    base: Array<ResourceList>;
     /**
      * The type of value that a search parameter may contain, and how the content is interpreted.
      */
-    type?: SearchParameter.TypeEnum;
+    type: SearchParameter.TypeEnum;
     /**
      * A FHIRPath expression that returns a set of elements for the search parameter.
      */
@@ -139,7 +140,7 @@ export class SearchParameter {
     /**
      * Types of resource (if a resource is referenced).
      */
-    target?: Array<Code>;
+    target: Array<ResourceList>;
     /**
      * Whether multiple values are allowed for each time the parameter exists. Values are separated by commas, and the parameter matches if any of the values match.
      */

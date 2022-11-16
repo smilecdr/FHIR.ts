@@ -33,7 +33,7 @@ export class AllergyIntolerance {
     /**
      * This is a AllergyIntolerance resource
      */
-    resourceType: string;
+    resourceType: 'AllergyIntolerance';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

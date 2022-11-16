@@ -32,7 +32,7 @@ export class CarePlan {
     /**
      * This is a CarePlan resource
      */
-    resourceType: string;
+    resourceType: 'CarePlan';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

@@ -34,7 +34,7 @@ export class Procedure {
     /**
      * This is a Procedure resource
      */
-    resourceType: string;
+    resourceType: 'Procedure';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

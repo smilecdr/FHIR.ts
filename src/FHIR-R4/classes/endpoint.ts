@@ -31,7 +31,7 @@ export class Endpoint {
     /**
      * This is a Endpoint resource
      */
-    resourceType: string;
+    resourceType: 'Endpoint';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

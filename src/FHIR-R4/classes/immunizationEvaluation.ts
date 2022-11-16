@@ -28,7 +28,7 @@ export class ImmunizationEvaluation {
     /**
      * This is a ImmunizationEvaluation resource
      */
-    resourceType: string;
+    resourceType: 'ImmunizationEvaluation';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

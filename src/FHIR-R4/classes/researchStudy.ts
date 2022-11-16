@@ -34,7 +34,7 @@ export class ResearchStudy {
     /**
      * This is a ResearchStudy resource
      */
-    resourceType: string;
+    resourceType: 'ResearchStudy';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

@@ -12,12 +12,13 @@
 import { Canonical } from './canonical';
 import { Code } from './code';
 import { Extension } from './extension';
+import { ResourceList } from './resourceList';
 
 
 /**
  * A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
  */
-export class ImplementationGuideGlobal { 
+export class ImplementationGuideGlobal {
     /**
      * Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.
      */
@@ -33,7 +34,7 @@ export class ImplementationGuideGlobal {
     /**
      * The type of resource that all instances must conform to.
      */
-    type?: Code;
+    type: ResourceList;
     /**
      * A reference to the profile that all instances must conform to.
      */

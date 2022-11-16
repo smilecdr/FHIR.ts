@@ -35,7 +35,7 @@ export class ServiceRequest {
     /**
      * This is a ServiceRequest resource
      */
-    resourceType: string;
+    resourceType: 'ServiceRequest';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

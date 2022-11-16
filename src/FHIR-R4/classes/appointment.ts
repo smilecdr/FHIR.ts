@@ -33,7 +33,7 @@ export class Appointment {
     /**
      * This is a Appointment resource
      */
-    resourceType: string;
+    resourceType: 'Appointment';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

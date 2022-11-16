@@ -39,7 +39,7 @@ export class MedicationKnowledge {
     /**
      * This is a MedicationKnowledge resource
      */
-    resourceType: string;
+    resourceType: 'MedicationKnowledge';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

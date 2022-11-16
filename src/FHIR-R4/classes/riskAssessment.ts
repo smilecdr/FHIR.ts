@@ -30,7 +30,7 @@ export class RiskAssessment {
     /**
      * This is a RiskAssessment resource
      */
-    resourceType: string;
+    resourceType: 'RiskAssessment';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

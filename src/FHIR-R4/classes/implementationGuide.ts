@@ -33,7 +33,7 @@ export class ImplementationGuide {
     /**
      * This is a ImplementationGuide resource
      */
-    resourceType: string;
+    resourceType: 'ImplementationGuide';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

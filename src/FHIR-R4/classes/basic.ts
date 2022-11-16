@@ -27,7 +27,7 @@ export class Basic {
     /**
      * This is a Basic resource
      */
-    resourceType: string;
+    resourceType: 'Basic';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

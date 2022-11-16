@@ -23,6 +23,7 @@ import { Meta } from './meta';
 import { Narrative } from './narrative';
 import { Period } from './period';
 import { QuestionnaireItem } from './questionnaireItem';
+import { ResourceList } from './resourceList';
 import { Uri } from './uri';
 import { UsageContext } from './usageContext';
 
@@ -30,11 +31,11 @@ import { UsageContext } from './usageContext';
 /**
  * A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection.
  */
-export class Questionnaire { 
+export class Questionnaire {
     /**
      * This is a Questionnaire resource
      */
-    resourceType: string;
+    resourceType: 'Questionnaire';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */
@@ -98,7 +99,7 @@ export class Questionnaire {
     /**
      * The types of subjects that can be the subject of responses created for the questionnaire.
      */
-    subjectType?: Array<Code>;
+    subjectType: Array<ResourceList>;
     /**
      * The date  (and optionally time) when the questionnaire was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the questionnaire changes.
      */

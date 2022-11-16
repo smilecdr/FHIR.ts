@@ -29,7 +29,7 @@ export class OrganizationAffiliation {
     /**
      * This is a OrganizationAffiliation resource
      */
-    resourceType: string;
+    resourceType: 'OrganizationAffiliation';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

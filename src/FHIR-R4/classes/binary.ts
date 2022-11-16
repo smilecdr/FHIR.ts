@@ -24,7 +24,7 @@ export class Binary {
     /**
      * This is a Binary resource
      */
-    resourceType: string;
+    resourceType: 'Binary';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

@@ -34,7 +34,7 @@ export class Immunization {
     /**
      * This is a Immunization resource
      */
-    resourceType: string;
+    resourceType: 'Immunization';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

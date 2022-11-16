@@ -32,7 +32,7 @@ export class SupplyRequest {
     /**
      * This is a SupplyRequest resource
      */
-    resourceType: string;
+    resourceType: 'SupplyRequest';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

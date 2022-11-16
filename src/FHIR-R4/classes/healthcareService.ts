@@ -33,7 +33,7 @@ export class HealthcareService {
     /**
      * This is a HealthcareService resource
      */
-    resourceType: string;
+    resourceType: 'HealthcareService';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

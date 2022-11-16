@@ -30,7 +30,7 @@ export class List {
     /**
      * This is a List resource
      */
-    resourceType: string;
+    resourceType: 'List';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

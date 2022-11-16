@@ -32,7 +32,7 @@ export class Composition {
     /**
      * This is a Composition resource
      */
-    resourceType: string;
+    resourceType: 'Composition';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

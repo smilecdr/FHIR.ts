@@ -36,7 +36,7 @@ export class PlanDefinition {
     /**
      * This is a PlanDefinition resource
      */
-    resourceType: string;
+    resourceType: 'PlanDefinition';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

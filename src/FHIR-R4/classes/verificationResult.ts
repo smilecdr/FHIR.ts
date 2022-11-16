@@ -31,7 +31,7 @@ export class VerificationResult {
     /**
      * This is a VerificationResult resource
      */
-    resourceType: string;
+    resourceType: 'VerificationResult';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

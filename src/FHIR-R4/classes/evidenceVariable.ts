@@ -34,7 +34,7 @@ export class EvidenceVariable {
     /**
      * This is a EvidenceVariable resource
      */
-    resourceType: string;
+    resourceType: 'EvidenceVariable';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

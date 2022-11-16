@@ -34,7 +34,7 @@ export class EventDefinition {
     /**
      * This is a EventDefinition resource
      */
-    resourceType: string;
+    resourceType: 'EventDefinition';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

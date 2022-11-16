@@ -31,7 +31,7 @@ export class DiagnosticReport {
     /**
      * This is a DiagnosticReport resource
      */
-    resourceType: string;
+    resourceType: 'DiagnosticReport';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

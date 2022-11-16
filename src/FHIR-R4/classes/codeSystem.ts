@@ -35,7 +35,7 @@ export class CodeSystem {
     /**
      * This is a CodeSystem resource
      */
-    resourceType: string;
+    resourceType: 'CodeSystem';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

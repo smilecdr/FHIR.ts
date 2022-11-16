@@ -31,7 +31,7 @@ export class DocumentReference {
     /**
      * This is a DocumentReference resource
      */
-    resourceType: string;
+    resourceType: 'DocumentReference';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

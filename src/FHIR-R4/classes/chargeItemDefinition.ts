@@ -35,7 +35,7 @@ export class ChargeItemDefinition {
     /**
      * This is a ChargeItemDefinition resource
      */
-    resourceType: string;
+    resourceType: 'ChargeItemDefinition';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

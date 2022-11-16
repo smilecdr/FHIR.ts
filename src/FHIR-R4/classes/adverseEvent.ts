@@ -29,7 +29,7 @@ export class AdverseEvent {
     /**
      * This is a AdverseEvent resource
      */
-    resourceType: string;
+    resourceType: 'AdverseEvent';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

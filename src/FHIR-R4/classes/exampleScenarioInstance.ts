@@ -14,12 +14,13 @@ import { ExampleScenarioContainedInstance } from './exampleScenarioContainedInst
 import { ExampleScenarioVersion } from './exampleScenarioVersion';
 import { Extension } from './extension';
 import { Markdown } from './markdown';
+import { ResourceList } from './resourceList';
 
 
 /**
  * Example of workflow instance.
  */
-export class ExampleScenarioInstance { 
+export class ExampleScenarioInstance {
     /**
      * Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.
      */
@@ -35,11 +36,11 @@ export class ExampleScenarioInstance {
     /**
      * The id of the resource for referencing.
      */
-    resourceId?: string;
+    resourceId: string;
     /**
      * The type of the resource.
      */
-    resourceType?: Code;
+    resourceType: ResourceList;
     /**
      * A short name for the resource instance.
      */

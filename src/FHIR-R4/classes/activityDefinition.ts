@@ -42,7 +42,7 @@ export class ActivityDefinition {
     /**
      * This is a ActivityDefinition resource
      */
-    resourceType: string;
+    resourceType: 'ActivityDefinition';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

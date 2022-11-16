@@ -32,7 +32,7 @@ export class TestReport {
     /**
      * This is a TestReport resource
      */
-    resourceType: string;
+    resourceType: 'TestReport';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

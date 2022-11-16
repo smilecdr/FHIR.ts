@@ -31,7 +31,7 @@ export class RequestGroup {
     /**
      * This is a RequestGroup resource
      */
-    resourceType: string;
+    resourceType: 'RequestGroup';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

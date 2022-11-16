@@ -33,7 +33,7 @@ export class StructureMap {
     /**
      * This is a StructureMap resource
      */
-    resourceType: string;
+    resourceType: 'StructureMap';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

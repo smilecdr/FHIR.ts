@@ -31,7 +31,7 @@ export class AuditEvent {
     /**
      * This is a AuditEvent resource
      */
-    resourceType: string;
+    resourceType: 'AuditEvent';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

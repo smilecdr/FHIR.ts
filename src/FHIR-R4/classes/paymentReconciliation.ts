@@ -32,7 +32,7 @@ export class PaymentReconciliation {
     /**
      * This is a PaymentReconciliation resource
      */
-    resourceType: string;
+    resourceType: 'PaymentReconciliation';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

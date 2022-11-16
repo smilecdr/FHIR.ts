@@ -32,7 +32,7 @@ export class Location {
     /**
      * This is a Location resource
      */
-    resourceType: string;
+    resourceType: 'Location';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

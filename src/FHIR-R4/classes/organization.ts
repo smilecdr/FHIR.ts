@@ -30,7 +30,7 @@ export class Organization {
     /**
      * This is a Organization resource
      */
-    resourceType: string;
+    resourceType: 'Organization';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */
