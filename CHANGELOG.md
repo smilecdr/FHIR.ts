@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4.10
+
+### Updates (R4)
+
+* Correct type for `ParametersParameter.resource`
+
 ## 1.4.9
 
 ### Updates (R3)
