@@ -15,7 +15,7 @@ import { Meta } from './meta';
 import { Uri } from './uri';
 
 
-export class BaseResource {
+class BaseResource {
   resourceType: string;
   id?: Id;
   meta?: Meta;
