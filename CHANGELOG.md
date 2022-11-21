@@ -7,11 +7,6 @@
 * Added a `ResourceList` type for codes which are part of the [ResourceTypes](https://hl7.org/fhir/codesystem-resource-types.html) codesystem
 * Updated `Required` status for: MessageDefinition.focus.code, CapabilityStatement.rest.resource.type, GraphDefinition.start, GraphDefinition.link.target.type, ImplementationGuide.global.type, SearchParameter.base, SearchParameter.target, OperationDefinition.resource, CompartmentDefinition.resource.code, ExampleScenario.instance.resourceType
 * Changed `BundleEntry.resource` and other uses of generic `Resource` to a union type which supports inference and narrowing.
-
-## 1.4.10
-
-### Updates (R4)
-
 * Correct type for `ParametersParameter.resource`
 
 ## 1.4.9
