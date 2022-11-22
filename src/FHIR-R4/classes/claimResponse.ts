@@ -38,7 +38,7 @@ export class ClaimResponse {
     /**
      * This is a ClaimResponse resource
      */
-    resourceType: string;
+    resourceType: 'ClaimResponse';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

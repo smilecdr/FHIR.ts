@@ -72,3 +72,15 @@ patient.resourceType = 'Patient';
 patient.identifier = [identifer];
 patient.name = [humanName]
 ```
+
+## Type / Resource [Narrowing](https://www.typescriptlang.org/docs/handbook/2/narrowing.html)
+
+When working with Resources from a Bundle, by investigating the values and properties of those Resources Typescript will automatically infer the correct type. For example take the following code:
+```js
+function getResourceType(resource:Resource){
+   if(resource.resourceType === 'CarePlan'){
+      resource
+   } 
+}
+```
+If you try writing this out you will see that the variable `res` inside the `if` block is of type `CarePlan`. This was inferred automatically using the `if` condition (since as per the specification the only resources which can have `resourceType:"CarePlan"` are `CarePlan` resources).

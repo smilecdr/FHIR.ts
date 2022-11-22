@@ -29,7 +29,7 @@ export class ObservationDefinition {
     /**
      * This is a ObservationDefinition resource
      */
-    resourceType: string;
+    resourceType: 'ObservationDefinition';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

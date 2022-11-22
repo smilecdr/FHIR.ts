@@ -27,7 +27,7 @@ export class ResearchSubject {
     /**
      * This is a ResearchSubject resource
      */
-    resourceType: string;
+    resourceType: 'ResearchSubject';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

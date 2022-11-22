@@ -31,7 +31,7 @@ export class DeviceUseStatement {
     /**
      * This is a DeviceUseStatement resource
      */
-    resourceType: string;
+    resourceType: 'DeviceUseStatement';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

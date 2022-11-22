@@ -32,7 +32,7 @@ export class CoverageEligibilityRequest {
     /**
      * This is a CoverageEligibilityRequest resource
      */
-    resourceType: string;
+    resourceType: 'CoverageEligibilityRequest';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

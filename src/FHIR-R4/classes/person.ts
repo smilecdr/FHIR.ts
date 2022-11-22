@@ -31,7 +31,7 @@ export class Person {
     /**
      * This is a Person resource
      */
-    resourceType: string;
+    resourceType: 'Person';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

@@ -29,7 +29,7 @@ export class DeviceMetric {
     /**
      * This is a DeviceMetric resource
      */
-    resourceType: string;
+    resourceType: 'DeviceMetric';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

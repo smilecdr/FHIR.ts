@@ -16,7 +16,7 @@ import { Markdown } from './markdown';
 /**
  * Example of workflow instance.
  */
-export class ExampleScenarioVersion { 
+export class ExampleScenarioVersion {
     /**
      * Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.
      */
@@ -32,9 +32,9 @@ export class ExampleScenarioVersion {
     /**
      * The identifier of a specific version of a resource.
      */
-    versionId?: string;
+    versionId: string;
     /**
      * The description of the resource version.
      */
-    description?: Markdown;
+    description: Markdown;
 }

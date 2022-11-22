@@ -27,7 +27,7 @@ export class EnrollmentResponse {
     /**
      * This is a EnrollmentResponse resource
      */
-    resourceType: string;
+    resourceType: 'EnrollmentResponse';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

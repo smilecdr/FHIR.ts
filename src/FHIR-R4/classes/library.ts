@@ -36,7 +36,7 @@ export class Library {
     /**
      * This is a Library resource
      */
-    resourceType: string;
+    resourceType: 'Library';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

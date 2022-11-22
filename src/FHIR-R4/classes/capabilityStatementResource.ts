@@ -16,12 +16,13 @@ import { CapabilityStatementSearchParam } from './capabilityStatementSearchParam
 import { Code } from './code';
 import { Extension } from './extension';
 import { Markdown } from './markdown';
+import { ResourceList } from './resourceList';
 
 
 /**
  * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
  */
-export class CapabilityStatementResource { 
+export class CapabilityStatementResource {
     /**
      * Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.
      */
@@ -37,7 +38,7 @@ export class CapabilityStatementResource {
     /**
      * A type of resource exposed via the restful class.
      */
-    type?: Code;
+    type: ResourceList;
     /**
      * A specification of the profile that describes the solution's overall support for the resource, including any constraints on cardinality, bindings, lengths or other limitations. See further discussion in [Using Profiles](profiling.html#profile-uses).
      */

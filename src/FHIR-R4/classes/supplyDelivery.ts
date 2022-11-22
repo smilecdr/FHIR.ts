@@ -30,7 +30,7 @@ export class SupplyDelivery {
     /**
      * This is a SupplyDelivery resource
      */
-    resourceType: string;
+    resourceType: 'SupplyDelivery';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

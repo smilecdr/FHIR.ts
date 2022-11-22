@@ -26,7 +26,7 @@ export class Linkage {
     /**
      * This is a Linkage resource
      */
-    resourceType: string;
+    resourceType: 'Linkage';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

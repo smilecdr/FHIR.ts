@@ -31,7 +31,7 @@ export class Practitioner {
     /**
      * This is a Practitioner resource
      */
-    resourceType: string;
+    resourceType: 'Practitioner';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

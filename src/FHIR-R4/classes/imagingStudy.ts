@@ -32,7 +32,7 @@ export class ImagingStudy {
     /**
      * This is a ImagingStudy resource
      */
-    resourceType: string;
+    resourceType: 'ImagingStudy';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

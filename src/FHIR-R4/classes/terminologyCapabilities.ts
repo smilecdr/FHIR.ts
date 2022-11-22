@@ -36,7 +36,7 @@ export class TerminologyCapabilities {
     /**
      * This is a TerminologyCapabilities resource
      */
-    resourceType: string;
+    resourceType: 'TerminologyCapabilities';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

@@ -17,7 +17,7 @@ import { Uri } from './uri';
 /**
  * A reference from one resource to another.
  */
-export class Reference { 
+export class Reference {
     /**
      * Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.
      */

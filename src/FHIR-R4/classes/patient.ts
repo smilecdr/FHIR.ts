@@ -34,7 +34,7 @@ export class Patient {
     /**
      * This is a Patient resource
      */
-    resourceType: string;
+    resourceType: 'Patient';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

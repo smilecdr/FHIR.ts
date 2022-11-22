@@ -31,7 +31,7 @@ export class MeasureReport {
     /**
      * This is a MeasureReport resource
      */
-    resourceType: string;
+    resourceType: 'MeasureReport';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

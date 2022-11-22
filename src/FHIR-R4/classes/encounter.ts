@@ -36,7 +36,7 @@ export class Encounter {
     /**
      * This is a Encounter resource
      */
-    resourceType: string;
+    resourceType: 'Encounter';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

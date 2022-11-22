@@ -34,7 +34,7 @@ export class Invoice {
     /**
      * This is a Invoice resource
      */
-    resourceType: string;
+    resourceType: 'Invoice';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

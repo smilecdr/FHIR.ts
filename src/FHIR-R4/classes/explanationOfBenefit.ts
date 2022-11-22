@@ -46,7 +46,7 @@ export class ExplanationOfBenefit {
     /**
      * This is a ExplanationOfBenefit resource
      */
-    resourceType: string;
+    resourceType: 'ExplanationOfBenefit';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

@@ -32,7 +32,7 @@ export class MolecularSequence {
     /**
      * This is a MolecularSequence resource
      */
-    resourceType: string;
+    resourceType: 'MolecularSequence';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

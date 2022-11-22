@@ -36,7 +36,7 @@ export class Contract {
     /**
      * This is a Contract resource
      */
-    resourceType: string;
+    resourceType: 'Contract';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

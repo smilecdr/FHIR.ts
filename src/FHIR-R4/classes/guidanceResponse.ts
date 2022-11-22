@@ -30,7 +30,7 @@ export class GuidanceResponse {
     /**
      * This is a GuidanceResponse resource
      */
-    resourceType: string;
+    resourceType: 'GuidanceResponse';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

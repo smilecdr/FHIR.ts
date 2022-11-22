@@ -38,7 +38,7 @@ export class DeviceDefinition {
     /**
      * This is a DeviceDefinition resource
      */
-    resourceType: string;
+    resourceType: 'DeviceDefinition';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

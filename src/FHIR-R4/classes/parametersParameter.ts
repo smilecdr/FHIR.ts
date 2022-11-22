@@ -35,7 +35,7 @@ import { Range } from './range';
 import { Ratio } from './ratio';
 import { Reference } from './reference';
 import { RelatedArtifact } from './relatedArtifact';
-import { ResourceList } from './resourceList';
+import { Resource } from './resource';
 import { SampledData } from './sampledData';
 import { Signature } from './signature';
 import { Timing } from './timing';
@@ -46,7 +46,7 @@ import { UsageContext } from './usageContext';
 /**
  * This resource is a non-persisted resource used to pass information into and back from an [operation](operations.html). It has no other use, and there is no RESTful endpoint associated with it.
  */
-export class ParametersParameter { 
+export class ParametersParameter {
     /**
      * Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.
      */
@@ -262,7 +262,7 @@ export class ParametersParameter {
     /**
      * If the parameter is a whole resource.
      */
-    resource?: ResourceList;
+    resource?: Resource;
     /**
      * A named part of a multi-part parameter.
      */

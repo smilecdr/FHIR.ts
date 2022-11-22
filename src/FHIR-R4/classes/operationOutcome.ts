@@ -19,7 +19,7 @@ export class OperationOutcome {
     /**
      * This is a OperationOutcome resource
      */
-    resourceType: string;
+    resourceType: 'OperationOutcome';
     /**
      * An error, warning, or information message that results from a system action.
      */

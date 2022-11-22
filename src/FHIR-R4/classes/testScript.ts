@@ -39,7 +39,7 @@ export class TestScript {
     /**
      * This is a TestScript resource
      */
-    resourceType: string;
+    resourceType: 'TestScript';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

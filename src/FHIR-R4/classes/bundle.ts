@@ -24,7 +24,7 @@ export class Bundle {
     /**
      * This is a Bundle resource
      */
-    resourceType: string;
+    resourceType: 'Bundle';
     /**
      * A persistent identifier for the bundle that won't change as a bundle is copied from server to server.
      */

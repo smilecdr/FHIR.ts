@@ -27,7 +27,7 @@ export class Subscription {
     /**
      * This is a Subscription resource
      */
-    resourceType: string;
+    resourceType: 'Subscription';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

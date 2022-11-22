@@ -28,7 +28,7 @@ export class Substance {
     /**
      * This is a Substance resource
      */
-    resourceType: string;
+    resourceType: 'Substance';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

@@ -36,7 +36,7 @@ export class StructureDefinition {
     /**
      * This is a StructureDefinition resource
      */
-    resourceType: string;
+    resourceType: 'StructureDefinition';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

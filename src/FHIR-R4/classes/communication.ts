@@ -31,7 +31,7 @@ export class Communication {
     /**
      * This is a Communication resource
      */
-    resourceType: string;
+    resourceType: 'Communication';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

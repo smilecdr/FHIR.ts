@@ -31,7 +31,7 @@ export class CareTeam {
     /**
      * This is a CareTeam resource
      */
-    resourceType: string;
+    resourceType: 'CareTeam';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

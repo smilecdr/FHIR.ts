@@ -33,7 +33,7 @@ export class NutritionOrder {
     /**
      * This is a NutritionOrder resource
      */
-    resourceType: string;
+    resourceType: 'NutritionOrder';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */

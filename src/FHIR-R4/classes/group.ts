@@ -30,7 +30,7 @@ export class Group {
     /**
      * This is a Group resource
      */
-    resourceType: string;
+    resourceType: 'Group';
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */
