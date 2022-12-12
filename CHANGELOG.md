@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.1
+
+### Updates (R3)
+
+* Added support for `ValueSet` resource.
+
 ## 1.5.0
 
 ### Updates (R4)
