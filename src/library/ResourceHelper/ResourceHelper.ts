@@ -6,9 +6,9 @@ export class ResourceHelper {
    * @param castTo - valid class
    * @returns deserialized resource 
    */
-  static deserializeResource<T>(inputJson: object, castTo: T): T {
+  static deserializeResource<T>(inputJson: object, castTo: T): T | null {
     const isValidJson = ValidationHelper.isValidJson(inputJson);
-    let deserializedResource = null;
+    let deserializedResource: T | null = null;
     if (isValidJson) {
       for (let propName in inputJson) {
         castTo[propName] = inputJson[propName];
