@@ -8,7 +8,7 @@ export class TypeHelper {
    * @returns array with results based on matches found
    */
   static findMatchingValuesInArray(arrayToMatchValueIn: Array<object>, valueToMatch: object): Array<object> {
-    let matchingResults = [];
+    let matchingResults: Array<object> = [];
     const valueToMatchIsValidJson = ValidationHelper.isValidJson(valueToMatch);
     const valueToMatchInArrayIncludesValidJson = arrayToMatchValueIn.length > 0 ? ValidationHelper.isValidJson(arrayToMatchValueIn[0]) : false;
     if (valueToMatchIsValidJson && valueToMatchInArrayIncludesValidJson) {
