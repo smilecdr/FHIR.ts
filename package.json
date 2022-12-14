@@ -8,7 +8,8 @@
   "repository": "git://github.com/smilecdr/FHIR.ts",
   "scripts": {
     "build": "tsc",
-    "test": "ts-node --project ./tsconfig.json node_modules/jasmine/bin/jasmine --config=spec/support/jasmine.json"
+    "test": "ts-node --project ./tsconfig.json node_modules/jasmine/bin/jasmine --config=spec/support/jasmine.json",
+    "coverage": "nyc npm run test"
   },
   "devDependencies": {
     "@types/jasmine": "^4.3.1",
@@ -17,6 +18,7 @@
     "typescript": "^4.0.2"
   },
   "dependencies": {
-    "@types/node": "^18.11.15"
+    "@types/node": "^18.11.15",
+    "nyc": "^15.1.0"
   }
 }
