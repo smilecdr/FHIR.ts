@@ -20,19 +20,19 @@ describe("TypeHelper", () => {
       expect(isValidJsonSpy).toHaveBeenCalledTimes(2);
     });
 
-    it("should return empty array given valueToMatchInArray parameter is invalid", () => {
+    it("should return empty array given arrayToMatchValueIn parameter is invalid", () => {
       // setup
       const valueToMatch = {
         use: "usual",
         system: "urn:oid:2.16.840.1.113883.2.4.6.3",
       };
-      const valueToMatchInArray = [["abc"], ["def"]];
+      const arrayToMatchValueIn = [["abc"], ["def"]];
       const isValidJsonSpy = spyOn(ValidationHelper, "isValidJson")
-        .withArgs(valueToMatchInArray[0]).and.returnValue(false)
+        .withArgs(arrayToMatchValueIn[0]).and.returnValue(false)
         .withArgs(valueToMatch).and.returnValue(true);
       // execute
       const actual = TypeHelper.findMatchingValuesInArray(
-        valueToMatchInArray,
+        arrayToMatchValueIn,
         valueToMatch
       );
       // validate
@@ -40,16 +40,16 @@ describe("TypeHelper", () => {
       expect(isValidJsonSpy).toHaveBeenCalledTimes(2);
     });
 
-    it("should return empty array given valueToMatchInArray & valueToMatch parameters are invalid", () => {
+    it("should return empty array given arrayToMatchValueIn & valueToMatch parameters are invalid", () => {
         // setup
         const valueToMatch = new Date();
-        const valueToMatchInArray = [];
+        const arrayToMatchValueIn = [];
         const isValidJsonSpy = spyOn(ValidationHelper, "isValidJson")
-          .withArgs(valueToMatchInArray).and.returnValue(false)
+          .withArgs(arrayToMatchValueIn).and.returnValue(false)
           .withArgs(valueToMatch).and.returnValue(false);
         // execute
         const actual = TypeHelper.findMatchingValuesInArray(
-          valueToMatchInArray,
+          arrayToMatchValueIn,
           valueToMatch
         );
         // validate

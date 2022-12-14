@@ -3,20 +3,20 @@ import { ValidationHelper } from "../ValidationHelper/ValidationHelper";
 export class TypeHelper {
   /**
    * 
-   * @param arrayToFindValueIn - Array of JSON objects in which we want to find values
-   * @param valueToMatch - Value we want to find in @param arrayToFindValueIn
+   * @param arrayToMatchValueIn - Array of JSON objects in which we want to find values
+   * @param valueToMatch - Value we want to find in @param arrayToMatchValueIn
    * @returns array with results based on matches found
    */
-  static findMatchingValuesInArray(arrayToFindValueIn: Array<object>, valueToMatch: object): Array<object> {
+  static findMatchingValuesInArray(arrayToMatchValueIn: Array<object>, valueToMatch: object): Array<object> {
     let matchingResults = [];
     const valueToMatchIsValidJson = ValidationHelper.isValidJson(valueToMatch);
-    const valueToMatchInArrayIncludesValidJson = arrayToFindValueIn.length > 0 ? ValidationHelper.isValidJson(arrayToFindValueIn[0]) : false;
+    const valueToMatchInArrayIncludesValidJson = arrayToMatchValueIn.length > 0 ? ValidationHelper.isValidJson(arrayToMatchValueIn[0]) : false;
     if (valueToMatchIsValidJson && valueToMatchInArrayIncludesValidJson) {
-      for (let index = 0; index < arrayToFindValueIn.length; index++) {
-        const matchAgainstStringified = JSON.stringify(arrayToFindValueIn[index]);
+      for (let index = 0; index < arrayToMatchValueIn.length; index++) {
+        const matchAgainstStringified = JSON.stringify(arrayToMatchValueIn[index]);
         const matchValueStringified = JSON.stringify(valueToMatch);
         if (matchAgainstStringified === matchValueStringified) {
-          matchingResults.push(arrayToFindValueIn[index]);
+          matchingResults.push(arrayToMatchValueIn[index]);
         }
       }
     }
