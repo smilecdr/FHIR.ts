@@ -1,6 +1,6 @@
-import { ValidationHelper } from "../ValidationHelper/ValidationHelper";
+import { ValidationUtilities } from "../ValidationUtilities/ValidationUtilities";
 
-export class TypeHelper {
+export class TypeUtilities {
   /**
    * 
    * @param arrayToMatchValueIn - Array of JSON objects in which we want to find values
@@ -9,8 +9,8 @@ export class TypeHelper {
    */
   static findMatchingValuesInArray(arrayToMatchValueIn: Array<object>, valueToMatch: object): Array<object> {
     let matchingResults: Array<object> = [];
-    const valueToMatchIsValidJson = ValidationHelper.isValidJson(valueToMatch);
-    const valueToMatchInArrayIncludesValidJson = arrayToMatchValueIn.length > 0 ? ValidationHelper.isValidJson(arrayToMatchValueIn[0]) : false;
+    const valueToMatchIsValidJson = ValidationUtilities.isValidJson(valueToMatch);
+    const valueToMatchInArrayIncludesValidJson = arrayToMatchValueIn.length > 0 ? ValidationUtilities.isValidJson(arrayToMatchValueIn[0]) : false;
     if (valueToMatchIsValidJson && valueToMatchInArrayIncludesValidJson) {
       for (let index = 0; index < arrayToMatchValueIn.length; index++) {
         const matchAgainstStringified = JSON.stringify(arrayToMatchValueIn[index]);
@@ -22,4 +22,17 @@ export class TypeHelper {
     }
     return matchingResults;
   }
+
+  /**
+   * 
+   * @param identifierList list of identifiers
+   * @param propertyToCompare identifier property to compare
+   * @param propertyValue value we want to compare against
+   * @returns array of matches
+   * @limitations currently does not work with identifier.type, identifier.period & identifier.assigner
+   */
+  static getIdentifierByProperty(identifierList: any[], propertyToCompare: string, propertyValue: string): any[] {
+    return identifierList.filter(x => x[propertyToCompare] === propertyValue);
+  }
+
 }

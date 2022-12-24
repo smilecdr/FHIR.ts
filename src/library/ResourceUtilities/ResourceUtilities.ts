@@ -1,5 +1,5 @@
-import { ValidationHelper } from "./../ValidationHelper/ValidationHelper";
-export class ResourceHelper {
+import { ValidationUtilities } from "../ValidationUtilities/ValidationUtilities";
+export class ResourceUtilities {
   /**
    * 
    * @param inputJson - valid json
@@ -7,7 +7,7 @@ export class ResourceHelper {
    * @returns deserialized resource 
    */
   static deserializeResource<T>(inputJson: object, castTo: T): T | null {
-    const isValidJson = ValidationHelper.isValidJson(inputJson);
+    const isValidJson = ValidationUtilities.isValidJson(inputJson);
     let deserializedResource: T | null = null;
     if (isValidJson) {
       for (let propName in inputJson) {
@@ -26,7 +26,7 @@ export class ResourceHelper {
    * @limitation currently just supports get for top level property on resource
    */
   static getResourceProperty(inputJson: object, propertyName: string) {
-    const isValidJson = ValidationHelper.isValidJson(inputJson);
+    const isValidJson = ValidationUtilities.isValidJson(inputJson);
     let resourcePropertyValue = null;
     if (isValidJson && inputJson[propertyName] !== undefined) {
       resourcePropertyValue = inputJson[propertyName];

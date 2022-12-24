@@ -1,12 +1,12 @@
-import { ValidationHelper } from "./ValidationHelper";
+import { ValidationUtilities } from "./ValidationUtilities";
 
-describe("ValidationHelper", () => {
+describe("ValidationUtilities", () => {
   describe("#isValidJson()", () => {
     it("should return true if json is passed as inputJson", () => {
       // setup
       const inputPayload = require("./../../test-resources/Patient-R4.json");
       // execute
-      const actual = ValidationHelper.isValidJson(inputPayload);
+      const actual = ValidationUtilities.isValidJson(inputPayload);
       // validate
       expect(actual).toBeTrue();
     });
@@ -16,7 +16,7 @@ describe("ValidationHelper", () => {
       const inputPayload = [1, 2];
       const consoleSpy = spyOn(console, 'error');
       // execute
-      const actual = ValidationHelper.isValidJson(inputPayload);
+      const actual = ValidationUtilities.isValidJson(inputPayload);
       // validate
       expect(actual).toBeFalse();
       expect(consoleSpy).toHaveBeenCalledOnceWith("Invalid JSON input.");
@@ -27,7 +27,7 @@ describe("ValidationHelper", () => {
       const inputPayload = null;
       const consoleSpy = spyOn(console, 'error');
       // execute
-      const actual = ValidationHelper.isValidJson(inputPayload);
+      const actual = ValidationUtilities.isValidJson(inputPayload);
       // validate
       expect(actual).toBeFalse();
       expect(consoleSpy).toHaveBeenCalledOnceWith("Invalid JSON input.");
@@ -38,7 +38,7 @@ describe("ValidationHelper", () => {
       const inputPayload = new Date();
       const consoleSpy = spyOn(console, 'error');
       // execute
-      const actual = ValidationHelper.isValidJson(inputPayload);
+      const actual = ValidationUtilities.isValidJson(inputPayload);
       // validate
       expect(actual).toBeFalse();
       expect(consoleSpy).toHaveBeenCalledOnceWith("Invalid JSON input.");

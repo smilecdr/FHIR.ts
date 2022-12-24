@@ -1,4 +1,4 @@
-export class ValidationHelper {
+export class ValidationUtilities {
     /**
      * 
      * @param inputJson - takes an object

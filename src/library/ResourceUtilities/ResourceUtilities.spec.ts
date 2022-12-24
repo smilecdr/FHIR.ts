@@ -1,15 +1,15 @@
 import { Patient } from "../../FHIR-R4/classes/patient";
-import { ResourceHelper } from "./ResourceHelper";
-import { ValidationHelper } from "../ValidationHelper/ValidationHelper";
+import { ResourceUtilities } from "./ResourceUtilities";
+import { ValidationUtilities } from "../ValidationUtilities/ValidationUtilities";
 
 const inputPayload = require("./../../test-resources/Patient-R4.json");
-describe("ResourceHelper", () => {
+describe("ResourceUtilities", () => {
   describe("#deserializeResource()", () => {
     it("should deserialize if input JSON is valid Patient R4 resource", () => {
       // setup
-      const isValidJsonSpy = spyOn(ValidationHelper, 'isValidJson').and.returnValue(true);
+      const isValidJsonSpy = spyOn(ValidationUtilities, 'isValidJson').and.returnValue(true);
       // execute
-      const actual = ResourceHelper.deserializeResource(inputPayload, new Patient());
+      const actual = ResourceUtilities.deserializeResource(inputPayload, new Patient());
       // validate
       expect(actual instanceof Patient).toBeTrue();
       expect(actual.gender).toEqual("male");
@@ -20,9 +20,9 @@ describe("ResourceHelper", () => {
 
     it("should return null", () => {
       // setup
-      const isValidJsonSpy = spyOn(ValidationHelper, 'isValidJson').and.returnValue(false);
+      const isValidJsonSpy = spyOn(ValidationUtilities, 'isValidJson').and.returnValue(false);
       // execute
-      const actual = ResourceHelper.deserializeResource(inputPayload, new Patient());
+      const actual = ResourceUtilities.deserializeResource(inputPayload, new Patient());
       // validate
       expect(actual).toBeNull();
       expect(isValidJsonSpy).toHaveBeenCalledOnceWith(inputPayload);
@@ -32,9 +32,9 @@ describe("ResourceHelper", () => {
   describe("#getResourceProperty()", () => {
     it('should return property if property exists in valid inputJson', () => {
       // setup
-      const isValidJsonSpy = spyOn(ValidationHelper, 'isValidJson').and.returnValue(true);
+      const isValidJsonSpy = spyOn(ValidationUtilities, 'isValidJson').and.returnValue(true);
       // execute
-      const actual = ResourceHelper.getResourceProperty(inputPayload, 'deceasedBoolean');
+      const actual = ResourceUtilities.getResourceProperty(inputPayload, 'deceasedBoolean');
       // validate
       expect(actual).toBeFalse();
       expect(isValidJsonSpy).toHaveBeenCalledOnceWith(inputPayload);
@@ -42,9 +42,9 @@ describe("ResourceHelper", () => {
 
     it('should return null if property exists in valid inputJson', () => {
       // setup
-      const isValidJsonSpy = spyOn(ValidationHelper, 'isValidJson').and.returnValue(true);
+      const isValidJsonSpy = spyOn(ValidationUtilities, 'isValidJson').and.returnValue(true);
       // execute
-      const actual = ResourceHelper.getResourceProperty(inputPayload, 'abcd');
+      const actual = ResourceUtilities.getResourceProperty(inputPayload, 'abcd');
       // validate
       expect(actual).toBeNull();
       expect(isValidJsonSpy).toHaveBeenCalledOnceWith(inputPayload);
@@ -53,9 +53,9 @@ describe("ResourceHelper", () => {
     it('should return null if invalid inputJson is passed', () => {
       // setup
       const inputPayload = [1,2];
-      const isValidJsonSpy = spyOn(ValidationHelper, 'isValidJson').and.returnValue(false);
+      const isValidJsonSpy = spyOn(ValidationUtilities, 'isValidJson').and.returnValue(false);
       // execute
-      const actual = ResourceHelper.getResourceProperty(inputPayload, 'deceasedBoolean');
+      const actual = ResourceUtilities.getResourceProperty(inputPayload, 'deceasedBoolean');
       // validate
       expect(actual).toBeNull();
       expect(isValidJsonSpy).toHaveBeenCalledOnceWith(inputPayload);
