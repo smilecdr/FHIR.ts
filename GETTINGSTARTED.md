@@ -84,3 +84,47 @@ function getResourceType(resource:Resource){
 }
 ```
 If you try writing this out you will see that the variable `res` inside the `if` block is of type `CarePlan`. This was inferred automatically using the `if` condition (since as per the specification the only resources which can have `resourceType:"CarePlan"` are `CarePlan` resources).
+
+## Utilities
+
+- There are 3 new utilities available starting `v2.0.0`.
+   - BundleUtilities
+   - ResourceUtilities
+   - TypeUtilities
+- All of the above mentioned classes are currently in preliminary phase and will be refined in future as per needs.
+- The above utlity classes include common functionalities used by front end applications using FHIR. 
+- All utilities functions are static right now, so, no need for instantiating classes. **Note: This is subject to change in future**
+
+#### TypeUtilities usage
+```js
+import { TypeUtilities } from '@smilecdr/fhirts';
+ 
+// returns all matching identifiers where Identifier.use = usual
+const identifierFilter = TypeUtilities.getIdentifiersByProperty(identifierList,"use","usual"); 
+
+const url = "http://ns.electronichealth.net.au/id/hi/ihi/1.0";
+// returns all matching extensions where Extension.use = "http://ns.electronichealth.net.au/id/hi/ihi/1.0"
+const extensionFilter = TypeUtilities.getExtensionsByUrl(extensionList, url); 
+
+// returns all matching codings where Coding.code = "abc"
+const codingFilter = TypeUtilities.getCodingsByProperty(codingList,"code","abc"); 
+```
+
+#### BundleUtilities usage
+```js
+import { BundleUtilities } from '@smilecdr/fhirts';
+ 
+// returns list of Claim resources from Bundle.entry 
+const claimsList = BundleUtilities.getResourcesFromBundle(Bundle.entry, 'Claim'); 
+```
+
+#### ResourceUtilities usage
+```js
+import { ResourceUtilities } from '@smilecdr/fhirts';
+
+// returns deserialized Patient resource
+const deserializedPatientResource = ResourceUtilities.deserializeResource(jsonPatientPayload, new Patient()); 
+
+// returns Patient.gender
+const patientGender = ResourceUtilities.getResourceProperty(jsonPatientPayload, 'gender'); 
+```
