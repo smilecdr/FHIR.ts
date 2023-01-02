@@ -10,6 +10,12 @@ on:
     paths-ignore:
       - '**.md'
       - '**.yml'
+  pull_requests:
+    branches: 
+      - master
+    paths-ignore:
+      - '**.md'
+      - '**.yml'
 
 jobs:
   release:
@@ -24,6 +30,8 @@ jobs:
         run: npm install
       - name: Compile Typescript
         run: npm run-script build
+      - name: Run run-script test
+        run: npm test
       - name: Publish to NPM
         run: npm publish --access public
         env:
