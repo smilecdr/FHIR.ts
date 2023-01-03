@@ -1,4 +1,3 @@
-import { ValidationUtilities } from "../ValidationUtilities/ValidationUtilities";
 export class ResourceUtility {
   
   /**
@@ -9,9 +8,8 @@ export class ResourceUtility {
    * @limitation currently just supports get for top level property on resource
    */
   getResourceProperty(inputJson: object, propertyName: string) {
-    const isValidJson = ValidationUtilities.isValidJson(inputJson);
     let resourcePropertyValue = null;
-    if (isValidJson && inputJson[propertyName] !== undefined) {
+    if (inputJson.hasOwnProperty(propertyName)) {
       resourcePropertyValue = inputJson[propertyName];
     }
     return resourcePropertyValue;
