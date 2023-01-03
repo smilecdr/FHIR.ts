@@ -4,7 +4,7 @@
 name: FHIR.ts Publish
 
 on:
-  push:
+  pull_request:
     branches: 
       - master
     paths-ignore:
@@ -12,7 +12,7 @@ on:
       - '**.yml'
 
 jobs:
-  release:
+  build_and_test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -26,8 +26,4 @@ jobs:
         run: npm run-script build
       - name: Run test with coverage
         run: npm run-script coverage
-      - name: Publish to NPM
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
 
