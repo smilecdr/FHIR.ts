@@ -1,23 +1,6 @@
 import { ValidationUtilities } from "../ValidationUtilities/ValidationUtilities";
 export class ResourceUtilityClass {
-  /**
-   * 
-   * @param inputJson - valid json
-   * @param castTo - valid class
-   * @returns deserialized resource 
-   */
-  deserializeResource<T>(inputJson: object, castTo: T): T | null {
-    const isValidJson = ValidationUtilities.isValidJson(inputJson);
-    let deserializedResource: T | null = null;
-    if (isValidJson) {
-      for (let propName in inputJson) {
-        castTo[propName] = inputJson[propName];
-      }
-      deserializedResource = castTo;
-    }
-    return deserializedResource;
-  }
-
+  
   /**
    * 
    * @param inputJson - valid json

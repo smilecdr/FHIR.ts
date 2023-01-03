@@ -14,34 +14,28 @@ describe("ValidationUtilities", () => {
     it("should return false if array is passed as inputJson", () => {
       // setup
       const inputPayload = [1, 2];
-      const consoleSpy = spyOn(console, 'error');
       // execute
       const actual = ValidationUtilities.isValidJson(inputPayload);
       // validate
       expect(actual).toBeFalse();
-      expect(consoleSpy).toHaveBeenCalledOnceWith("Invalid JSON input.");
     });
 
     it("should return false if array is passed as inputJson", () => {
       // setup
       const inputPayload = null;
-      const consoleSpy = spyOn(console, 'error');
       // execute
       const actual = ValidationUtilities.isValidJson(inputPayload);
       // validate
       expect(actual).toBeFalse();
-      expect(consoleSpy).toHaveBeenCalledOnceWith("Invalid JSON input.");
     });
 
     it("should return false if array is passed as inputJson", () => {
       // setup
       const inputPayload = new Date();
-      const consoleSpy = spyOn(console, 'error');
       // execute
       const actual = ValidationUtilities.isValidJson(inputPayload);
       // validate
       expect(actual).toBeFalse();
-      expect(consoleSpy).toHaveBeenCalledOnceWith("Invalid JSON input.");
     });
   });
 });

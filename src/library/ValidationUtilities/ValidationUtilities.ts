@@ -5,12 +5,7 @@ export class ValidationUtilityClass {
      * @returns boolean based on inputJson passed 
      */
     isValidJson(inputJson: object): boolean {
-        let returnValue = true;
-        if (Array.isArray(inputJson) || inputJson === null || inputJson instanceof Date) {
-            console.error("Invalid JSON input.");
-            returnValue = false;
-        }
-        return returnValue;
+        return !(Array.isArray(inputJson) || inputJson === null || inputJson instanceof Date);
     }
 }
 
