@@ -1,12 +1,12 @@
 import { ValidationUtilities } from "../ValidationUtilities/ValidationUtilities";
-export class ResourceUtilities {
+export class ResourceUtilityClass {
   /**
    * 
    * @param inputJson - valid json
    * @param castTo - valid class
    * @returns deserialized resource 
    */
-  static deserializeResource<T>(inputJson: object, castTo: T): T | null {
+  deserializeResource<T>(inputJson: object, castTo: T): T | null {
     const isValidJson = ValidationUtilities.isValidJson(inputJson);
     let deserializedResource: T | null = null;
     if (isValidJson) {
@@ -25,7 +25,7 @@ export class ResourceUtilities {
    * @returns json property if it exists
    * @limitation currently just supports get for top level property on resource
    */
-  static getResourceProperty(inputJson: object, propertyName: string) {
+  getResourceProperty(inputJson: object, propertyName: string) {
     const isValidJson = ValidationUtilities.isValidJson(inputJson);
     let resourcePropertyValue = null;
     if (isValidJson && inputJson[propertyName] !== undefined) {
@@ -34,3 +34,5 @@ export class ResourceUtilities {
     return resourcePropertyValue;
   }
 }
+
+export const ResourceUtilities = new ResourceUtilityClass();
