@@ -4,6 +4,5 @@ import * as fhirR3 from './FHIR-R3';
 import * as dstu2 from './FHIR-DSTU2';
 import { ResourceUtilities } from './library/ResourceUtilities/ResourceUtilities';
 import { BundleUtilities } from './library/BundleUtilities/BundleUtilities';
-import { TypeUtilities } from './library/TypeUtilities/TypeUtilities';
-export { fhirR4, fhirR3, IfhirR4, dstu2, ResourceUtilities, BundleUtilities, TypeUtilities };
+export { fhirR4, fhirR3, IfhirR4, dstu2, ResourceUtilities, BundleUtilities };
 

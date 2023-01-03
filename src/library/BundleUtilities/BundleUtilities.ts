@@ -1,4 +1,4 @@
-export class BundleUtilityClass {
+export class BundleUtility {
 
     /**
      * 
@@ -11,6 +11,6 @@ export class BundleUtilityClass {
     }
 }
 
-export const BundleUtilities = new BundleUtilityClass();
+export const BundleUtilities = new BundleUtility();
 
 

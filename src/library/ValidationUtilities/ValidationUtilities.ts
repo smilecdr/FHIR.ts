@@ -1,4 +1,4 @@
-export class ValidationUtilityClass {
+export class ValidationUtility {
     /**
      * 
      * @param inputJson - takes an object
@@ -9,4 +9,4 @@ export class ValidationUtilityClass {
     }
 }
 
-export const ValidationUtilities = new ValidationUtilityClass();
+export const ValidationUtilities = new ValidationUtility();

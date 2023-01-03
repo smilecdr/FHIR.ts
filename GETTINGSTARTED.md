@@ -87,28 +87,13 @@ If you try writing this out you will see that the variable `res` inside the `if`
 
 ## Utilities
 
-- There are 3 new utilities available starting `v2.0.0`.
+- There are 2 new utilities available starting `v2.0.0`.
    - BundleUtilities
    - ResourceUtilities
-   - TypeUtilities
 - All of the above mentioned classes are currently in preliminary phase and will be refined in future as per needs.
 - The above utlity classes include common functionalities used by front end applications using FHIR. 
 - All utilities functions are static right now, so, no need for instantiating classes. **Note: This is subject to change in future**
 
-#### TypeUtilities usage
-```js
-import { TypeUtilities } from '@smilecdr/fhirts';
- 
-// returns all matching identifiers where Identifier.use = usual
-const identifierFilter = TypeUtilities.getIdentifiersByProperty(identifierList,"use","usual"); 
-
-const url = "http://ns.electronichealth.net.au/id/hi/ihi/1.0";
-// returns all matching extensions where Extension.use = "http://ns.electronichealth.net.au/id/hi/ihi/1.0"
-const extensionFilter = TypeUtilities.getExtensionsByUrl(extensionList, url); 
-
-// returns all matching codings where Coding.code = "abc"
-const codingFilter = TypeUtilities.getCodingsByProperty(codingList,"code","abc"); 
-```
 
 #### BundleUtilities usage
 ```js
@@ -127,4 +112,14 @@ const deserializedPatientResource = ResourceUtilities.deserializeResource(jsonPa
 
 // returns Patient.gender
 const patientGender = ResourceUtilities.getResourceProperty(jsonPatientPayload, 'gender'); 
+
+// returns all matching identifiers where Identifier.use = usual
+const identifierFilter = ResourceUtilities.getIdentifiersByProperty(identifierList,"use","usual"); 
+
+const url = "http://ns.electronichealth.net.au/id/hi/ihi/1.0";
+// returns all matching extensions where Extension.use = "http://ns.electronichealth.net.au/id/hi/ihi/1.0"
+const extensionFilter = ResourceUtilities.getExtensionsByUrl(extensionList, url); 
+
+// returns all matching codings where Coding.code = "abc"
+const codingFilter = ResourceUtilities.getCodingsByProperty(codingList,"code","abc"); 
 ```
