@@ -20,7 +20,7 @@ describe("ValidationUtilities", () => {
       expect(actual).toBeFalse();
     });
 
-    it("should return false if array is passed as inputJson", () => {
+    it("should return false if null is passed as inputJson", () => {
       // setup
       const inputPayload = null;
       // execute
@@ -29,7 +29,7 @@ describe("ValidationUtilities", () => {
       expect(actual).toBeFalse();
     });
 
-    it("should return false if array is passed as inputJson", () => {
+    it("should return false if date is passed as inputJson", () => {
       // setup
       const inputPayload = new Date();
       // execute
