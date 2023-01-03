@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.0
+
+### Updates
+
+* Introduce utilities for generic usages. Read more about usage here [Getting Started section](GETTINGSTARTED.md).
 ## 1.5.0
 
 ### Updates (R4)

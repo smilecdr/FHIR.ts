@@ -1,0 +1,7 @@
+{
+    "exclude": [
+        "src/FHIR-R4/**/*.ts",
+        "src/FHIR-R3.ts",
+        "src/FHIR-DSTU2.ts"
+    ]
+}
