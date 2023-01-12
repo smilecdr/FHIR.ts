@@ -1274,8 +1274,8 @@ export class ValueSet extends BaseResource {
 }
 
 export class ValueSetCompose extends BackboneElement {
-  lockedDate?: string | Date;
-  inactive?: boolean;
+  lockedDate: string | Date;
+  inactive: boolean;
   include: ValueSetInclude[];
   exclude?: ValueSetInclude[];
 }
