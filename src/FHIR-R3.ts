@@ -1250,4 +1250,91 @@ export class Age extends FHIRElement {
     code: Code;
 }
 
-export type Resource = AllergyIntolerance | ClinicalImpression | Schedule | HealthcareService | Bundle | AuditEvent | CommunicationRequest | Immunization | Observation | Device | Practitioner | PractitionerRole | ProcedureRequest | Task | Communication | CarePlan | EpisodeOfCare | CareTeam | Encounter | ProcessRequest | Account | Location | Organization | AppointmentResponse | Appointment | QuestionnaireResponse | Questionnaire | Slot | Patient | DocumentReference;
+export class ValueSet extends BaseResource {
+  resourceType: "ValueSet";
+  url?: string;
+  identifier?: Identifier[];
+  version?: string;
+  name?: string;
+  title?: string;
+  status: string;
+  experimental?: boolean;
+  date?: string | Date;
+  publisher?: string;
+  contact?: ContactDetail[];
+  description?: string;
+  useContext?: UsageContext[];
+  jurisdiction?: CodeableConcept[];
+  immutable?: boolean;
+  purpose?: string;
+  copyright?: string;
+  extensible?: boolean;
+  compose?: ValueSetCompose;
+  expansion?: ValueSetExpansion;
+}
+
+export class ValueSetCompose extends BackboneElement {
+  lockedDate?: string | Date;
+  inactive?: boolean;
+  include: ValueSetInclude[];
+  exclude?: ValueSetInclude[];
+}
+
+export class ValueSetInclude extends BackboneElement {
+  system?: string;
+  version?: string;
+  concept?: ValueSetConcept[];
+  filter?: ValueSetFilter[];
+  valueSet?: string[];
+}
+
+export class ValueSetConcept extends BackboneElement {
+  code: string;
+  display?: string;
+  designation?: ValueSetDesignation[];
+}
+
+export class ValueSetDesignation extends BackboneElement {
+  language?: string;
+  use?: Coding;
+  value: string;
+}
+
+export class ValueSetFilter extends BackboneElement {
+  property: string;
+  op: string;
+  value: string;
+}
+
+export class ValueSetExpansion extends BackboneElement {
+  identifier?: string;
+  timestamp: string | Date;
+  total?: number;
+  offset?: number;
+  parameter?: ValueSetParameter[];
+  contains?: ValueSetContains[];
+}
+
+export class ValueSetParameter extends BackboneElement {
+  name: string;
+  valueString?: string;
+  valueBoolean?: boolean;
+  valueInteger?: number;
+  valueDecimal?: number;
+  valueUri?: string;
+  valueCode?: string;
+}
+
+export class ValueSetContains extends BackboneElement {
+  system?: string;
+  abstract?: boolean;
+  inactive?: boolean;
+  version?: string;
+  code?: Code;
+  display?: string;
+  designation?: ValueSetDesignation[];
+  contains?: ValueSetContains[];
+}
+
+
+export type Resource = AllergyIntolerance | ClinicalImpression | Schedule | HealthcareService | Bundle | AuditEvent | CommunicationRequest | Immunization | Observation | Device | Practitioner | PractitionerRole | ProcedureRequest | Task | Communication | CarePlan | EpisodeOfCare | CareTeam | Encounter | ProcessRequest | Account | Location | Organization | AppointmentResponse | Appointment | QuestionnaireResponse | Questionnaire | Slot | Patient | DocumentReference | ValueSet; 
