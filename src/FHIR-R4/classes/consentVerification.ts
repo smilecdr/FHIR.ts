@@ -41,5 +41,5 @@ export class ConsentVerification {
     /**
      * Date verification was collected.
      */
-    verificationDate?: Date;
+    verificationDate?: Date | string;
 }

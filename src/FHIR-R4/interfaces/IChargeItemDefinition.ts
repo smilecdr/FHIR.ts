@@ -103,7 +103,7 @@ export interface IChargeItemDefinition {
     /**
      * The date  (and optionally time) when the charge item definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the charge item definition changes.
      */
-    date?: Date;
+    date?: Date | string;
     /**
      * The name of the organization or individual that published the charge item definition.
      */

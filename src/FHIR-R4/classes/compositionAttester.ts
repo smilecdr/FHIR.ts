@@ -37,7 +37,7 @@ export class CompositionAttester {
     /**
      * When the composition was attested by the party.
      */
-    time?: Date;
+    time?: Date | string;
     /**
      * Who attested the composition in the specified way.
      */

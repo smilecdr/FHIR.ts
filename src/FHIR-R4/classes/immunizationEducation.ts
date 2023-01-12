@@ -41,9 +41,9 @@ export class ImmunizationEducation {
     /**
      * Date the educational material was published.
      */
-    publicationDate?: Date;
+    publicationDate?: Date | string;
     /**
      * Date the educational material was given to the patient.
      */
-    presentationDate?: Date;
+    presentationDate?: Date | string;
 }

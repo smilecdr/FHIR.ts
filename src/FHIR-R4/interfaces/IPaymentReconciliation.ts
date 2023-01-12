@@ -76,7 +76,7 @@ export interface IPaymentReconciliation {
     /**
      * The date when the resource was created.
      */
-    created?: Date;
+    created?: Date | string;
     /**
      * The party who generated the payment.
      */

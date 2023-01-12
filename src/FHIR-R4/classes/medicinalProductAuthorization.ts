@@ -13,7 +13,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { Identifier } from './identifier';
 import { MedicinalProductAuthorizationJurisdictionalAuthorization } from './medicinalProductAuthorizationJurisdictionalAuthorization';
 import { MedicinalProductAuthorizationProcedure } from './medicinalProductAuthorizationProcedure';
@@ -35,7 +35,7 @@ export class MedicinalProductAuthorization {
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */
-    id?: Id;
+    id?: string;
     /**
      * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
      */
@@ -83,11 +83,11 @@ export class MedicinalProductAuthorization {
     /**
      * The date at which the given status has become applicable.
      */
-    statusDate?: Date;
+    statusDate?: Date | string;
     /**
      * The date when a suspended the marketing or the marketing authorization of the product is anticipated to be restored.
      */
-    restoreDate?: Date;
+    restoreDate?: Date | string;
     /**
      * The beginning of the time period in which the marketing authorization is in the specific status shall be specified A complete date consisting of day, month and year shall be specified using the ISO 8601 date format.
      */
@@ -99,11 +99,11 @@ export class MedicinalProductAuthorization {
     /**
      * The date when the first authorization was granted by a Medicines Regulatory Agency.
      */
-    dateOfFirstAuthorization?: Date;
+    dateOfFirstAuthorization?: Date | string;
     /**
      * Date of first marketing authorization for a company's new medicinal product in any country in the World.
      */
-    internationalBirthDate?: Date;
+    internationalBirthDate?: Date | string;
     /**
      * The legal framework against which this authorization is granted.
      */

@@ -89,7 +89,7 @@ export interface IQuestionnaireResponse {
     /**
      * The date and/or time that this set of answers were last changed.
      */
-    authored?: Date;
+    authored?: Date | string;
     /**
      * Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system.
      */

@@ -111,7 +111,7 @@ export interface IRequestGroup {
     /**
      * Indicates when the request group was created.
      */
-    authoredOn?: Date;
+    authoredOn?: Date | string;
     /**
      * Provides a reference to the author of the request group.
      */

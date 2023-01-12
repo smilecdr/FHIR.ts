@@ -159,7 +159,7 @@ export interface IServiceRequest {
     /**
      * When the request transitioned to being actionable.
      */
-    authoredOn?: Date;
+    authoredOn?: Date | string;
     /**
      * The individual who initiated the request and has responsibility for its activation.
      */

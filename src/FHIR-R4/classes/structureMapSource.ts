@@ -26,7 +26,7 @@ import { Duration } from './duration';
 import { Expression } from './expression';
 import { Extension } from './extension';
 import { HumanName } from './humanName';
-import { Id } from './id';
+
 import { Identifier } from './identifier';
 import { Money } from './money';
 import { ParameterDefinition } from './parameterDefinition';
@@ -62,7 +62,7 @@ export class StructureMapSource {
     /**
      * Type or variable this rule applies to.
      */
-    context?: Id;
+    context?: string;
     /**
      * Specified minimum cardinality for the element. This is optional; if present, it acts an implicit check on the input content.
      */
@@ -282,7 +282,7 @@ export class StructureMapSource {
     /**
      * Named context for field, if a field is specified.
      */
-    variable?: Id;
+    variable?: string;
     /**
      * FHIRPath expression  - must be true or the rule does not apply.
      */

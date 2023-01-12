@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { StructureMapParameter } from './structureMapParameter';
 
 
@@ -33,7 +33,7 @@ export class StructureMapTarget {
     /**
      * Type or variable this rule applies to.
      */
-    context?: Id;
+    context?: string;
     /**
      * How to interpret the context.
      */
@@ -45,7 +45,7 @@ export class StructureMapTarget {
     /**
      * Named context for field, if desired, and a field is specified.
      */
-    variable?: Id;
+    variable?: string;
     /**
      * If field is a list, how to manage the list.
      */
@@ -53,7 +53,7 @@ export class StructureMapTarget {
     /**
      * Internal rule reference for shared list items.
      */
-    listRuleId?: Id;
+    listRuleId?: string;
     /**
      * How the data is copied / created.
      */

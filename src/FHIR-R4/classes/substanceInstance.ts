@@ -38,7 +38,7 @@ export class SubstanceInstance {
     /**
      * When the substance is no longer valid to use. For some substances, a single arbitrary date is used for expiry.
      */
-    expiry?: Date;
+    expiry?: Date | string;
     /**
      * The amount of the substance.
      */

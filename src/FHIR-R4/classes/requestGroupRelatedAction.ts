@@ -12,7 +12,7 @@
 import { Code } from './code';
 import { Duration } from './duration';
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { Range } from './range';
 
 
@@ -35,7 +35,7 @@ export class RequestGroupRelatedAction {
     /**
      * The element id of the action this is related to.
      */
-    actionId?: Id;
+    actionId?: string;
     /**
      * The relationship of this action to the related action.
      */

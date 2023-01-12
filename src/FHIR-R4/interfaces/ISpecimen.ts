@@ -84,7 +84,7 @@ export interface ISpecimen {
     /**
      * Time when specimen was received for processing or testing.
      */
-    receivedTime?: Date;
+    receivedTime?: Date | string;
     /**
      * Reference to the parent (source) specimen which is used when the specimen was either derived from or a component of another specimen.
      */

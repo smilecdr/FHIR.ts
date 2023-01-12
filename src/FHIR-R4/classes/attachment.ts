@@ -60,5 +60,5 @@ export class Attachment {
     /**
      * The date that the attachment was first created.
      */
-    creation?: Date;
+    creation?: Date | string;
 }

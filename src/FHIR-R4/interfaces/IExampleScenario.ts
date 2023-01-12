@@ -90,7 +90,7 @@ export interface IExampleScenario {
     /**
      * The date  (and optionally time) when the example scenario was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the example scenario changes. (e.g. the 'content logical definition').
      */
-    date?: Date;
+    date?: Date | string;
     /**
      * The name of the organization or individual that published the example scenario.
      */

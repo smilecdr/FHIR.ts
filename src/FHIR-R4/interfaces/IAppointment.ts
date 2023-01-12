@@ -129,7 +129,7 @@ export interface IAppointment {
     /**
      * The date that this appointment was initially created. This could be different to the meta.lastModified value on the initial entry, as this could have been before the resource was created on the FHIR server, and should remain unchanged over the lifespan of the appointment.
      */
-    created?: Date;
+    created?: Date | string;
     /**
      * Additional comments about the appointment.
      */

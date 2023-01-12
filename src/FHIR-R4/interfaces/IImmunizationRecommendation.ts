@@ -68,7 +68,7 @@ export interface IImmunizationRecommendation {
     /**
      * The date the immunization recommendation(s) were created.
      */
-    date?: Date;
+    date?: Date | string;
     /**
      * Indicates the authority who published the protocol (e.g. ACIP).
      */

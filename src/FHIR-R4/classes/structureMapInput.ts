@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import { Extension } from './extension';
-import { Id } from './id';
+
 
 
 /**
@@ -32,7 +32,7 @@ export class StructureMapInput {
     /**
      * Name for this instance of data.
      */
-    name?: Id;
+    name?: string;
     /**
      * Type for this instance of data.
      */

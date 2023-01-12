@@ -121,7 +121,7 @@ export interface IAllergyIntolerance {
     /**
      * The recordedDate represents when this particular AllergyIntolerance record was created in the system, which is often a system-generated date.
      */
-    recordedDate?: Date;
+    recordedDate?: Date | string;
     /**
      * Individual who recorded the record and takes responsibility for its content.
      */
@@ -133,7 +133,7 @@ export interface IAllergyIntolerance {
     /**
      * Represents the date and/or time of the last known occurrence of a reaction event.
      */
-    lastOccurrence?: Date;
+    lastOccurrence?: Date | string;
     /**
      * Additional narrative about the propensity for the Adverse Reaction, not captured in other fields.
      */

@@ -84,7 +84,7 @@ export interface IConsent {
     /**
      * When this  Consent was issued / created / indexed.
      */
-    dateTime?: Date;
+    dateTime?: Date | string;
     /**
      * Either the Grantor, which is the entity responsible for granting the rights listed in a Consent Directive or the Grantee, which is the entity responsible for complying with the Consent Directive, including any obligations or limitations on authorizations and enforcement of prohibitions.
      */

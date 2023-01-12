@@ -33,7 +33,7 @@ import { ElementDefinitionType } from './elementDefinitionType';
 import { Expression } from './expression';
 import { Extension } from './extension';
 import { HumanName } from './humanName';
-import { Id } from './id';
+
 import { Identifier } from './identifier';
 import { Markdown } from './markdown';
 import { Money } from './money';
@@ -816,7 +816,7 @@ export class ElementDefinition {
     /**
      * A reference to an invariant that may make additional statements about the cardinality or value in the instance.
      */
-    condition?: Array<Id>;
+    condition?: Array<string>;
     /**
      * Formal constraints such as co-occurrence and other constraints that can be computationally evaluated within the context of the instance.
      */

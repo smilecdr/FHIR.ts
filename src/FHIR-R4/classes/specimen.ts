@@ -14,7 +14,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { Identifier } from './identifier';
 import { Meta } from './meta';
 import { Narrative } from './narrative';
@@ -36,7 +36,7 @@ export class Specimen {
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */
-    id?: Id;
+    id?: string;
     /**
      * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
      */
@@ -84,7 +84,7 @@ export class Specimen {
     /**
      * Time when specimen was received for processing or testing.
      */
-    receivedTime?: Date;
+    receivedTime?: Date | string;
     /**
      * Reference to the parent (source) specimen which is used when the specimen was either derived from or a component of another specimen.
      */

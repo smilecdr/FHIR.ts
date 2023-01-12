@@ -77,7 +77,7 @@ export interface IPaymentNotice {
     /**
      * The date when this resource was created.
      */
-    created?: Date;
+    created?: Date | string;
     /**
      * The practitioner who is responsible for the services rendered to the patient.
      */

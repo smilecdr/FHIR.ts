@@ -50,7 +50,7 @@ export class VerificationResultPrimarySource {
     /**
      * When the target was validated against the primary source.
      */
-    validationDate?: Date;
+    validationDate?: Date | string;
     /**
      * Ability of the primary source to push updates/alerts (yes; no; undetermined).
      */

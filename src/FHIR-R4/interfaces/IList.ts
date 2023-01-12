@@ -90,7 +90,7 @@ export interface IList {
     /**
      * The date that the list was prepared.
      */
-    date?: Date;
+    date?: Date | string;
     /**
      * The entity responsible for deciding what the contents of the list were. Where the list was created by a human, this is the same as the author of the list.
      */

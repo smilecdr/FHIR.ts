@@ -51,7 +51,7 @@ export class ContractValuedItem {
     /**
      * Indicates the time during which this Contract ValuedItem information is effective.
      */
-    effectiveTime?: Date;
+    effectiveTime?: Date | string;
     /**
      * Specifies the units by which the Contract Valued Item is measured or counted, and quantifies the countable or measurable Contract Valued Item instances.
      */
@@ -79,7 +79,7 @@ export class ContractValuedItem {
     /**
      * When payment is due.
      */
-    paymentDate?: Date;
+    paymentDate?: Date | string;
     /**
      * Who will make payment.
      */

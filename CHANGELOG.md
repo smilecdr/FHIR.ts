@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.0.2
+
+### Updates (R4)
+
+* `Resource` Type now has `id` set to type `string`.
+* Classes and Interfaces now accept `Date` types as `Date | string`.
+
 ## 2.0.1
 
 ### Updates (R3)

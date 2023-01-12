@@ -74,7 +74,7 @@ export interface INamingSystem {
     /**
      * The date  (and optionally time) when the naming system was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the naming system changes.
      */
-    date?: Date;
+    date?: Date | string;
     /**
      * The name of the organization or individual that published the naming system.
      */

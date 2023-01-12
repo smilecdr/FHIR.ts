@@ -28,9 +28,9 @@ export class Period {
     /**
      * The start of the period. The boundary is inclusive.
      */
-    start?: Date;
+    start?: Date | string;
     /**
      * The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.
      */
-    end?: Date;
+    end?: Date | string;
 }

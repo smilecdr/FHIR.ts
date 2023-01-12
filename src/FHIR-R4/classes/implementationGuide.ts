@@ -14,7 +14,7 @@ import { CodeableConcept } from './codeableConcept';
 import { ContactDetail } from './contactDetail';
 import { DateTime } from './dateTime';
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { ImplementationGuideDefinition } from './implementationGuideDefinition';
 import { ImplementationGuideDependsOn } from './implementationGuideDependsOn';
 import { ImplementationGuideGlobal } from './implementationGuideGlobal';
@@ -37,7 +37,7 @@ export class ImplementationGuide {
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */
-    id?: Id;
+    id?: string;
     /**
      * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
      */
@@ -89,7 +89,7 @@ export class ImplementationGuide {
     /**
      * The date  (and optionally time) when the implementation guide was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes.
      */
-    date?: Date;
+    date?: Date | string;
     /**
      * The name of the organization or individual that published the implementation guide.
      */
@@ -117,7 +117,7 @@ export class ImplementationGuide {
     /**
      * The NPM package name for this Implementation Guide, used in the NPM package distribution, which is the primary mechanism by which FHIR based tooling manages IG dependencies. This value must be globally unique, and should be assigned with care.
      */
-    packageId?: Id;
+    packageId?: string;
     /**
      * The license that applies to this Implementation Guide, using an SPDX license code, or 'not-open-source'.
      */

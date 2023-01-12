@@ -43,7 +43,7 @@ export class ExplanationOfBenefitProcedure {
     /**
      * Date and optionally time the procedure was performed.
      */
-    date?: Date;
+    date?: Date | string;
     /**
      * The code or reference to a Procedure resource which identifies the clinical intervention performed.
      */

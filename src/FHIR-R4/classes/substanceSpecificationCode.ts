@@ -42,7 +42,7 @@ export class SubstanceSpecificationCode {
     /**
      * The date at which the code status is changed as part of the terminology maintenance.
      */
-    statusDate?: Date;
+    statusDate?: Date | string;
     /**
      * Any comment can be provided in this field, if necessary.
      */

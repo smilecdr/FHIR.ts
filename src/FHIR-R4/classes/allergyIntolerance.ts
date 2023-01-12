@@ -16,7 +16,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { Identifier } from './identifier';
 import { Meta } from './meta';
 import { Narrative } from './narrative';
@@ -37,7 +37,7 @@ export class AllergyIntolerance {
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */
-    id?: Id;
+    id?: string;
     /**
      * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
      */
@@ -121,7 +121,7 @@ export class AllergyIntolerance {
     /**
      * The recordedDate represents when this particular AllergyIntolerance record was created in the system, which is often a system-generated date.
      */
-    recordedDate?: Date;
+    recordedDate?: Date | string;
     /**
      * Individual who recorded the record and takes responsibility for its content.
      */
@@ -133,7 +133,7 @@ export class AllergyIntolerance {
     /**
      * Represents the date and/or time of the last known occurrence of a reaction event.
      */
-    lastOccurrence?: Date;
+    lastOccurrence?: Date | string;
     /**
      * Additional narrative about the propensity for the Adverse Reaction, not captured in other fields.
      */

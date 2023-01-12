@@ -87,7 +87,7 @@ export interface ICoverageEligibilityResponse {
     /**
      * The date this resource was created.
      */
-    created?: Date;
+    created?: Date | string;
     /**
      * The provider which is responsible for the request.
      */

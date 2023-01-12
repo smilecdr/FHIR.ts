@@ -142,7 +142,7 @@ export interface ICondition {
     /**
      * The recordedDate represents when this particular Condition record was created in the system, which is often a system-generated date.
      */
-    recordedDate?: Date;
+    recordedDate?: Date | string;
     /**
      * Individual who recorded the record and takes responsibility for its content.
      */

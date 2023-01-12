@@ -98,7 +98,7 @@ export interface IImmunization {
     /**
      * The date the occurrence of the immunization was first captured in the record - potentially significantly after the occurrence of the event.
      */
-    recorded?: Date;
+    recorded?: Date | string;
     /**
      * An indication that the content of the record is based on information from the person who administered the vaccine. This reflects the context under which the data was originally recorded.
      */

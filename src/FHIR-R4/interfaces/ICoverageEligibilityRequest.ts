@@ -92,7 +92,7 @@ export interface ICoverageEligibilityRequest {
     /**
      * The date when this resource was created.
      */
-    created?: Date;
+    created?: Date | string;
     /**
      * Person who created the request.
      */

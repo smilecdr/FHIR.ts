@@ -16,7 +16,7 @@ import { CodeableConcept } from './codeableConcept';
 import { CommunicationPayload } from './communicationPayload';
 import { DateTime } from './dateTime';
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { Identifier } from './identifier';
 import { Meta } from './meta';
 import { Narrative } from './narrative';
@@ -35,7 +35,7 @@ export class Communication {
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */
-    id?: Id;
+    id?: string;
     /**
      * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
      */
@@ -123,11 +123,11 @@ export class Communication {
     /**
      * The time when this communication was sent.
      */
-    sent?: Date;
+    sent?: Date | string;
     /**
      * The time when this communication arrived at the destination.
      */
-    received?: Date;
+    received?: Date | string;
     /**
      * The entity (e.g. person, organization, clinical information system, care team or device) which was the target of the communication. If receipts need to be tracked by an individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either receipts are not tracked (e.g. a mass mail-out) or a receipt is captured in aggregate (all emails confirmed received by a particular time).
      */

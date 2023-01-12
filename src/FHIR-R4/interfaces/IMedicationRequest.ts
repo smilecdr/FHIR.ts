@@ -121,7 +121,7 @@ export interface IMedicationRequest {
     /**
      * The date (and perhaps time) when the prescription was initially written or authored on.
      */
-    authoredOn?: Date;
+    authoredOn?: Date | string;
     /**
      * The individual, organization, or device that initiated the request and has responsibility for its activation.
      */

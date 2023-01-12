@@ -88,7 +88,7 @@ export interface IComposition {
     /**
      * The composition editing time, when the composition was last logically changed by the author.
      */
-    date?: Date;
+    date?: Date | string;
     /**
      * Identifies who is responsible for the information in the composition, not necessarily who typed it in.
      */

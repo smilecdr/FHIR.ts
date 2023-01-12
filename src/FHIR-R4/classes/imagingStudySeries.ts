@@ -12,7 +12,7 @@
 import { Coding } from './coding';
 import { DateTime } from './dateTime';
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { ImagingStudyInstance } from './imagingStudyInstance';
 import { ImagingStudyPerformer } from './imagingStudyPerformer';
 import { Reference } from './reference';
@@ -38,7 +38,7 @@ export class ImagingStudySeries {
     /**
      * The DICOM Series Instance UID for the series.
      */
-    uid?: Id;
+    uid?: string;
     /**
      * The numeric identifier of this series in the study.
      */
@@ -74,7 +74,7 @@ export class ImagingStudySeries {
     /**
      * The date and time the series was started.
      */
-    started?: Date;
+    started?: Date | string;
     /**
      * Indicates who or what performed the series and how they were involved.
      */

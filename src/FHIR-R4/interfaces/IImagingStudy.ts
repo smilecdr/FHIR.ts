@@ -84,7 +84,7 @@ export interface IImagingStudy {
     /**
      * Date and time the study started.
      */
-    started?: Date;
+    started?: Date | string;
     /**
      * A list of the diagnostic requests that resulted in this imaging study being performed.
      */

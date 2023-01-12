@@ -40,5 +40,5 @@ export class CapabilityStatementSoftware {
     /**
      * Date this version of the software was released.
      */
-    releaseDate?: Date;
+    releaseDate?: Date | string;
 }

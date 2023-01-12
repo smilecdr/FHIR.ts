@@ -127,7 +127,7 @@ export interface ICommunicationRequest {
     /**
      * For draft requests, indicates the date of initial creation.  For requests with other statuses, indicates the date of activation.
      */
-    authoredOn?: Date;
+    authoredOn?: Date | string;
     /**
      * The device, individual, or organization who initiated the request and has responsibility for its activation.
      */

@@ -12,7 +12,7 @@
 import { Canonical } from './canonical';
 import { Coding } from './coding';
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { Instant } from './instant';
 import { Uri } from './uri';
 
@@ -32,7 +32,7 @@ export class Meta {
     /**
      * The version specific identifier, as it appears in the version portion of the URL. This value changes when the resource is created, updated, or deleted.
      */
-    versionId?: Id;
+    versionId?: string;
     /**
      * When the resource last changed - e.g. when the version changed.
      */

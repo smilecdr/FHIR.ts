@@ -15,7 +15,7 @@ import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
 import { Dosage } from './dosage';
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { Identifier } from './identifier';
 import { MedicationDispensePerformer } from './medicationDispensePerformer';
 import { MedicationDispenseSubstitution } from './medicationDispenseSubstitution';
@@ -37,7 +37,7 @@ export class MedicationDispense {
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */
-    id?: Id;
+    id?: string;
     /**
      * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
      */
@@ -133,11 +133,11 @@ export class MedicationDispense {
     /**
      * The time when the dispensed product was packaged and reviewed.
      */
-    whenPrepared?: Date;
+    whenPrepared?: Date | string;
     /**
      * The time the dispensed product was provided to the patient or their representative.
      */
-    whenHandedOver?: Date;
+    whenHandedOver?: Date | string;
     /**
      * Identification of the facility/location where the medication was shipped to, as part of the dispense event.
      */

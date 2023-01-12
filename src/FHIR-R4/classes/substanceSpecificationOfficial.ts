@@ -41,5 +41,5 @@ export class SubstanceSpecificationOfficial {
     /**
      * Date of official name change.
      */
-    date?: Date;
+    date?: Date | string;
 }

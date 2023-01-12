@@ -90,7 +90,7 @@ export interface IInvoice {
     /**
      * Date/time(s) of when this Invoice was posted.
      */
-    date?: Date;
+    date?: Date | string;
     /**
      * Indicates who or what performed or participated in the charged service.
      */

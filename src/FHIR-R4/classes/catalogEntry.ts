@@ -14,7 +14,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { Identifier } from './identifier';
 import { Meta } from './meta';
 import { Narrative } from './narrative';
@@ -34,7 +34,7 @@ export class CatalogEntry {
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */
-    id?: Id;
+    id?: string;
     /**
      * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
      */
@@ -94,11 +94,11 @@ export class CatalogEntry {
     /**
      * The date until which this catalog entry is expected to be active.
      */
-    validTo?: Date;
+    validTo?: Date | string;
     /**
      * Typically date of issue is different from the beginning of the validity. This can be used to see when an item was last updated.
      */
-    lastUpdated?: Date;
+    lastUpdated?: Date | string;
     /**
      * Used for examplefor Out of Formulary, or any specifics.
      */

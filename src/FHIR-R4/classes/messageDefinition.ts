@@ -16,7 +16,7 @@ import { Coding } from './coding';
 import { ContactDetail } from './contactDetail';
 import { DateTime } from './dateTime';
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { Identifier } from './identifier';
 import { Markdown } from './markdown';
 import { MessageDefinitionAllowedResponse } from './messageDefinitionAllowedResponse';
@@ -38,7 +38,7 @@ export class MessageDefinition {
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */
-    id?: Id;
+    id?: string;
     /**
      * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
      */
@@ -98,7 +98,7 @@ export class MessageDefinition {
     /**
      * The date  (and optionally time) when the message definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the message definition changes.
      */
-    date?: Date;
+    date?: Date | string;
     /**
      * The name of the organization or individual that published the message definition.
      */

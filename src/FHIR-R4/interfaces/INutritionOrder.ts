@@ -97,7 +97,7 @@ export interface INutritionOrder {
     /**
      * The date and time that this nutrition order was requested.
      */
-    dateTime?: Date;
+    dateTime?: Date | string;
     /**
      * The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.
      */

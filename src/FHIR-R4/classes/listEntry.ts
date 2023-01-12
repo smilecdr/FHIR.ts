@@ -42,7 +42,7 @@ export class ListEntry {
     /**
      * When this item was added to the list.
      */
-    date?: Date;
+    date?: Date | string;
     /**
      * A reference to the actual resource from which data was derived.
      */

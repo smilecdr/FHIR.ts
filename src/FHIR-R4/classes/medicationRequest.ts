@@ -16,7 +16,7 @@ import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
 import { Dosage } from './dosage';
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { Identifier } from './identifier';
 import { MedicationRequestDispenseRequest } from './medicationRequestDispenseRequest';
 import { MedicationRequestSubstitution } from './medicationRequestSubstitution';
@@ -37,7 +37,7 @@ export class MedicationRequest {
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */
-    id?: Id;
+    id?: string;
     /**
      * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
      */
@@ -121,7 +121,7 @@ export class MedicationRequest {
     /**
      * The date (and perhaps time) when the prescription was initially written or authored on.
      */
-    authoredOn?: Date;
+    authoredOn?: Date | string;
     /**
      * The individual, organization, or device that initiated the request and has responsibility for its activation.
      */

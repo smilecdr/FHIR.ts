@@ -108,7 +108,7 @@ export interface ISupplyRequest {
     /**
      * When the request was made.
      */
-    authoredOn?: Date;
+    authoredOn?: Date | string;
     /**
      * The device, practitioner, etc. who initiated the request.
      */

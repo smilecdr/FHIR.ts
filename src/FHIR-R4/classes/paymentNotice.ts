@@ -13,7 +13,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { Identifier } from './identifier';
 import { Meta } from './meta';
 import { Money } from './money';
@@ -33,7 +33,7 @@ export class PaymentNotice {
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */
-    id?: Id;
+    id?: string;
     /**
      * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
      */
@@ -77,7 +77,7 @@ export class PaymentNotice {
     /**
      * The date when this resource was created.
      */
-    created?: Date;
+    created?: Date | string;
     /**
      * The practitioner who is responsible for the services rendered to the patient.
      */

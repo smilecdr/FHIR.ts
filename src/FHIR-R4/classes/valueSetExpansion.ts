@@ -39,7 +39,7 @@ export class ValueSetExpansion {
     /**
      * The time at which the expansion was produced by the expanding system.
      */
-    timestamp?: Date;
+    timestamp?: Date | string;
     /**
      * The total number of concepts in the expansion. If the number of concept nodes in this resource is less than the stated number, then the server can return more using the offset parameter.
      */
