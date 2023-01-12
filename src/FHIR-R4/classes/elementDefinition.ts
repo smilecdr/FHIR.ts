@@ -33,7 +33,7 @@ import { ElementDefinitionType } from './elementDefinitionType';
 import { Expression } from './expression';
 import { Extension } from './extension';
 import { HumanName } from './humanName';
-import { Id } from './id';
+
 import { Identifier } from './identifier';
 import { Markdown } from './markdown';
 import { Money } from './money';

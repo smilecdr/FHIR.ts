@@ -95,7 +95,7 @@ export interface IDeviceUseStatement {
     /**
      * The time at which the statement was made/recorded.
      */
-    recordedOn?: Date;
+    recordedOn?: Date | string;
     /**
      * Who reported the device was being used by the patient.
      */

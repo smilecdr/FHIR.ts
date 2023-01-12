@@ -13,7 +13,7 @@ import { Canonical } from './canonical';
 import { Code } from './code';
 import { DateTime } from './dateTime';
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { Identifier } from './identifier';
 import { Meta } from './meta';
 import { Narrative } from './narrative';
@@ -33,7 +33,7 @@ export class QuestionnaireResponse {
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */
-    id?: Id;
+    id?: string;
     /**
      * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
      */
@@ -89,7 +89,7 @@ export class QuestionnaireResponse {
     /**
      * The date and/or time that this set of answers were last changed.
      */
-    authored?: Date;
+    authored?: Date | string;
     /**
      * Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system.
      */

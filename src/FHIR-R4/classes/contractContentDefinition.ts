@@ -48,7 +48,7 @@ export class ContractContentDefinition {
     /**
      * The date (and optionally time) when the contract was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the contract changes.
      */
-    publicationDate?: Date;
+    publicationDate?: Date | string;
     /**
      * draft | active | retired | unknown.
      */

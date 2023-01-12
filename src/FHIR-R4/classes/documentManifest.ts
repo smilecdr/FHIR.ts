@@ -14,7 +14,7 @@ import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
 import { DocumentManifestRelated } from './documentManifestRelated';
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { Identifier } from './identifier';
 import { Meta } from './meta';
 import { Narrative } from './narrative';
@@ -33,7 +33,7 @@ export class DocumentManifest {
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */
-    id?: Id;
+    id?: string;
     /**
      * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
      */
@@ -81,7 +81,7 @@ export class DocumentManifest {
     /**
      * When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated, etc.).
      */
-    created?: Date;
+    created?: Date | string;
     /**
      * Identifies who is the author of the manifest. Manifest author is not necessarly the author of the references included.
      */

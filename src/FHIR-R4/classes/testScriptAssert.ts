@@ -11,7 +11,7 @@
  */
 import { Code } from './code';
 import { Extension } from './extension';
-import { Id } from './id';
+
 
 
 /**
@@ -105,11 +105,11 @@ export class TestScriptAssert {
     /**
      * Fixture to evaluate the XPath/JSONPath expression or the headerField  against.
      */
-    sourceId?: Id;
+    sourceId?: string;
     /**
      * The ID of the Profile to validate against.
      */
-    validateProfileId?: Id;
+    validateProfileId?: string;
     /**
      * The value to compare to.
      */

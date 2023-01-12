@@ -17,7 +17,7 @@ import { ConsentProvision } from './consentProvision';
 import { ConsentVerification } from './consentVerification';
 import { DateTime } from './dateTime';
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { Identifier } from './identifier';
 import { Meta } from './meta';
 import { Narrative } from './narrative';
@@ -36,7 +36,7 @@ export class Consent {
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */
-    id?: Id;
+    id?: string;
     /**
      * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
      */
@@ -84,7 +84,7 @@ export class Consent {
     /**
      * When this  Consent was issued / created / indexed.
      */
-    dateTime?: Date;
+    dateTime?: Date | string;
     /**
      * Either the Grantor, which is the entity responsible for granting the rights listed in a Consent Directive or the Grantee, which is the entity responsible for complying with the Consent Directive, including any obligations or limitations on authorizations and enforcement of prohibitions.
      */

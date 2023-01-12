@@ -33,7 +33,7 @@ export class ImmunizationReaction {
     /**
      * Date of reaction to the immunization.
      */
-    date?: Date;
+    date?: Date | string;
     /**
      * Details of the reaction.
      */

@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { Uri } from './uri';
 
 
@@ -33,7 +33,7 @@ export class StructureDefinitionMapping {
     /**
      * An Internal id that is used to identify this mapping set when specific mappings are made.
      */
-    identity?: Id;
+    identity?: string;
     /**
      * An absolute URI that identifies the specification that this mapping is expressed to.
      */

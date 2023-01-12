@@ -17,7 +17,7 @@ import { CompositionRelatesTo } from './compositionRelatesTo';
 import { CompositionSection } from './compositionSection';
 import { DateTime } from './dateTime';
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { Identifier } from './identifier';
 import { Meta } from './meta';
 import { Narrative } from './narrative';
@@ -36,7 +36,7 @@ export class Composition {
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */
-    id?: Id;
+    id?: string;
     /**
      * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
      */
@@ -88,7 +88,7 @@ export class Composition {
     /**
      * The composition editing time, when the composition was last logically changed by the author.
      */
-    date?: Date;
+    date?: Date | string;
     /**
      * Identifies who is responsible for the information in the composition, not necessarily who typed it in.
      */

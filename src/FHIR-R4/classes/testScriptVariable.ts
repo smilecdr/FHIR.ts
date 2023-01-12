@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import { Extension } from './extension';
-import { Id } from './id';
+
 
 
 /**
@@ -60,5 +60,5 @@ export class TestScriptVariable {
     /**
      * Fixture to evaluate the XPath/JSONPath expression or the headerField  against within this variable.
      */
-    sourceId?: Id;
+    sourceId?: string;
 }

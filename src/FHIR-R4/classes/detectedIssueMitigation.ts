@@ -38,7 +38,7 @@ export class DetectedIssueMitigation {
     /**
      * Indicates when the mitigating action was documented.
      */
-    date?: Date;
+    date?: Date | string;
     /**
      * Identifies the practitioner who determined the mitigation and takes responsibility for the mitigation step occurring.
      */

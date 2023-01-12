@@ -12,7 +12,7 @@
 import { Code } from './code';
 import { DateTime } from './dateTime';
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { Identifier } from './identifier';
 import { Meta } from './meta';
 import { Narrative } from './narrative';
@@ -32,7 +32,7 @@ export class VisionPrescription {
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */
-    id?: Id;
+    id?: string;
     /**
      * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
      */
@@ -68,7 +68,7 @@ export class VisionPrescription {
     /**
      * The date this resource was created.
      */
-    created?: Date;
+    created?: Date | string;
     /**
      * A resource reference to the person to whom the vision prescription applies.
      */
@@ -80,7 +80,7 @@ export class VisionPrescription {
     /**
      * The date (and perhaps time) when the prescription was written.
      */
-    dateWritten?: Date;
+    dateWritten?: Date | string;
     /**
      * The healthcare professional responsible for authorizing the prescription.
      */

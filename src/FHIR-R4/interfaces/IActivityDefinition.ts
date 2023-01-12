@@ -114,7 +114,7 @@ export interface IActivityDefinition {
     /**
      * The date  (and optionally time) when the activity definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the activity definition changes.
      */
-    date?: Date;
+    date?: Date | string;
     /**
      * The name of the organization or individual that published the activity definition.
      */

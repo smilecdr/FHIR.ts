@@ -11,7 +11,7 @@
  */
 import { Duration } from './duration';
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { Range } from './range';
 
 
@@ -34,7 +34,7 @@ export class PlanDefinitionRelatedAction {
     /**
      * The element id of the related action.
      */
-    actionId?: Id;
+    actionId?: string;
     /**
      * The relationship of this action to the related action.
      */

@@ -15,7 +15,7 @@ import { CodeableConcept } from './codeableConcept';
 import { ContactDetail } from './contactDetail';
 import { DateTime } from './dateTime';
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { Identifier } from './identifier';
 import { Markdown } from './markdown';
 import { Meta } from './meta';
@@ -37,7 +37,7 @@ export class StructureMap {
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */
-    id?: Id;
+    id?: string;
     /**
      * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
      */
@@ -93,7 +93,7 @@ export class StructureMap {
     /**
      * The date  (and optionally time) when the structure map was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the structure map changes.
      */
-    date?: Date;
+    date?: Date | string;
     /**
      * The name of the organization or individual that published the structure map.
      */

@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { StructureMapInput } from './structureMapInput';
 import { StructureMapRule } from './structureMapRule';
 
@@ -34,11 +34,11 @@ export class StructureMapGroup {
     /**
      * A unique name for the group for the convenience of human readers.
      */
-    name?: Id;
+    name?: string;
     /**
      * Another group that this group adds rules to.
      */
-    _extends?: Id;
+    _extends?: string;
     /**
      * If this is the default rule set to apply for the source type or this combination of types.
      */

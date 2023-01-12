@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { StructureMapDependent } from './structureMapDependent';
 import { StructureMapSource } from './structureMapSource';
 import { StructureMapTarget } from './structureMapTarget';
@@ -35,7 +35,7 @@ export class StructureMapRule {
     /**
      * Name of the rule for internal references.
      */
-    name?: Id;
+    name?: string;
     /**
      * Source inputs to the mapping.
      */

@@ -13,7 +13,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { Meta } from './meta';
 import { Narrative } from './narrative';
 import { Reference } from './reference';
@@ -35,7 +35,7 @@ export class VerificationResult {
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */
-    id?: Id;
+    id?: string;
     /**
      * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
      */
@@ -79,7 +79,7 @@ export class VerificationResult {
     /**
      * When the validation status was updated.
      */
-    statusDate?: Date;
+    statusDate?: Date | string;
     /**
      * What the target is validated against (nothing; primary source; multiple sources).
      */
@@ -95,7 +95,7 @@ export class VerificationResult {
     /**
      * The date/time validation was last completed (including failed validations).
      */
-    lastPerformed?: Date;
+    lastPerformed?: Date | string;
     /**
      * The date when target is next validated, if appropriate.
      */

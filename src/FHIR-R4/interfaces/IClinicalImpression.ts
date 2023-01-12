@@ -100,7 +100,7 @@ export interface IClinicalImpression {
     /**
      * Indicates when the documentation of the assessment was complete.
      */
-    date?: Date;
+    date?: Date | string;
     /**
      * The clinician performing the assessment.
      */

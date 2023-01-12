@@ -14,7 +14,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { Identifier } from './identifier';
 import { Instant } from './instant';
 import { Meta } from './meta';
@@ -37,7 +37,7 @@ export class Appointment {
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */
-    id?: Id;
+    id?: string;
     /**
      * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
      */
@@ -129,7 +129,7 @@ export class Appointment {
     /**
      * The date that this appointment was initially created. This could be different to the meta.lastModified value on the initial entry, as this could have been before the resource was created on the FHIR server, and should remain unchanged over the lifespan of the appointment.
      */
-    created?: Date;
+    created?: Date | string;
     /**
      * Additional comments about the appointment.
      */

@@ -111,7 +111,7 @@ export interface IMedicationStatement {
     /**
      * The date when the medication statement was asserted by the information source.
      */
-    dateAsserted?: Date;
+    dateAsserted?: Date | string;
     /**
      * The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g. Claim or MedicationRequest.
      */

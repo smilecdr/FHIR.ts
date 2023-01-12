@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { Uri } from './uri';
 
 
@@ -33,7 +33,7 @@ export class Expression {
     /**
      * A short name assigned to the expression to allow for multiple reuse of the expression in the context where it is defined.
      */
-    name?: Id;
+    name?: string;
     /**
      * The media type of the language for the expression.
      */

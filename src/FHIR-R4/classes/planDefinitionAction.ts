@@ -16,7 +16,7 @@ import { CodeableConcept } from './codeableConcept';
 import { DataRequirement } from './dataRequirement';
 import { Duration } from './duration';
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { Period } from './period';
 import { PlanDefinitionCondition } from './planDefinitionCondition';
 import { PlanDefinitionDynamicValue } from './planDefinitionDynamicValue';

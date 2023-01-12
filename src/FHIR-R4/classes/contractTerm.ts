@@ -44,7 +44,7 @@ export class ContractTerm {
     /**
      * When this Contract Provision was issued.
      */
-    issued?: Date;
+    issued?: Date | string;
     /**
      * Relevant time or time-period when this Contract Provision is applicable.
      */

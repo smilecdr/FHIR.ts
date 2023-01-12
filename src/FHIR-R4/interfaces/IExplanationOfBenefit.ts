@@ -106,7 +106,7 @@ export interface IExplanationOfBenefit {
     /**
      * The date this resource was created.
      */
-    created?: Date;
+    created?: Date | string;
     /**
      * Individual who created the claim, predetermination or preauthorization.
      */

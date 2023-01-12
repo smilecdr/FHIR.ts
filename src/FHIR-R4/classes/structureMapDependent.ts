@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import { Extension } from './extension';
-import { Id } from './id';
+
 
 
 /**
@@ -32,7 +32,7 @@ export class StructureMapDependent {
     /**
      * Name of a rule or group to apply.
      */
-    name?: Id;
+    name?: string;
     /**
      * Variable to pass to the rule or group.
      */

@@ -100,7 +100,7 @@ export interface IContract {
     /**
      * When this  Contract was issued.
      */
-    issued?: Date;
+    issued?: Date | string;
     /**
      * Relevant time or time-period when this Contract is applicable.
      */

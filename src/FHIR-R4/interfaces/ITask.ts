@@ -134,11 +134,11 @@ export interface ITask {
     /**
      * The date and time this task was created.
      */
-    authoredOn?: Date;
+    authoredOn?: Date | string;
     /**
      * The date and time of last modification to this task.
      */
-    lastModified?: Date;
+    lastModified?: Date | string;
     /**
      * The creator of the task.
      */

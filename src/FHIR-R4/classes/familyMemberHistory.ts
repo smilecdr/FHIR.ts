@@ -17,7 +17,7 @@ import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
 import { Extension } from './extension';
 import { FamilyMemberHistoryCondition } from './familyMemberHistoryCondition';
-import { Id } from './id';
+
 import { Identifier } from './identifier';
 import { Meta } from './meta';
 import { Narrative } from './narrative';
@@ -38,7 +38,7 @@ export class FamilyMemberHistory {
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */
-    id?: Id;
+    id?: string;
     /**
      * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
      */
@@ -90,7 +90,7 @@ export class FamilyMemberHistory {
     /**
      * The date (and possibly time) when the family member history was recorded or last updated.
      */
-    date?: Date;
+    date?: Date | string;
     /**
      * This will either be a name or a description; e.g. \"Aunt Susan\", \"my cousin with the red hair\".
      */

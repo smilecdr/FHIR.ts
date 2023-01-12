@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { Reference } from './reference';
 
 
@@ -57,5 +57,5 @@ export class ImplementationGuideResource {
     /**
      * Reference to the id of the grouping this resource appears in.
      */
-    groupingId?: Id;
+    groupingId?: string;
 }

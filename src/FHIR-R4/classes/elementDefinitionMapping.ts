@@ -11,7 +11,7 @@
  */
 import { Code } from './code';
 import { Extension } from './extension';
-import { Id } from './id';
+
 
 
 /**
@@ -33,7 +33,7 @@ export class ElementDefinitionMapping {
     /**
      * An internal reference to the definition of a mapping.
      */
-    identity?: Id;
+    identity?: string;
     /**
      * Identifies the computable language in which mapping.map is expressed.
      */

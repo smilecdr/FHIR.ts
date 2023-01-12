@@ -10,14 +10,14 @@
  * Do not edit the class manually.
  */
 import { Code } from './code';
-import { Id } from './id';
+
 import { Meta } from './meta';
 import { Uri } from './uri';
 
 
 class BaseResource {
   resourceType: string;
-  id?: Id;
+  id?: string;
   meta?: Meta;
   implicitRules?: Uri;
   language?: Code;

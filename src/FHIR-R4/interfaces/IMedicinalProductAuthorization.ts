@@ -83,11 +83,11 @@ export interface IMedicinalProductAuthorization {
     /**
      * The date at which the given status has become applicable.
      */
-    statusDate?: Date;
+    statusDate?: Date | string;
     /**
      * The date when a suspended the marketing or the marketing authorization of the product is anticipated to be restored.
      */
-    restoreDate?: Date;
+    restoreDate?: Date | string;
     /**
      * The beginning of the time period in which the marketing authorization is in the specific status shall be specified A complete date consisting of day, month and year shall be specified using the ISO 8601 date format.
      */
@@ -99,11 +99,11 @@ export interface IMedicinalProductAuthorization {
     /**
      * The date when the first authorization was granted by a Medicines Regulatory Agency.
      */
-    dateOfFirstAuthorization?: Date;
+    dateOfFirstAuthorization?: Date | string;
     /**
      * Date of first marketing authorization for a company's new medicinal product in any country in the World.
      */
-    internationalBirthDate?: Date;
+    internationalBirthDate?: Date | string;
     /**
      * The legal framework against which this authorization is granted.
      */

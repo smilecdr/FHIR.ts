@@ -68,7 +68,7 @@ export interface IVisionPrescription {
     /**
      * The date this resource was created.
      */
-    created?: Date;
+    created?: Date | string;
     /**
      * A resource reference to the person to whom the vision prescription applies.
      */
@@ -80,7 +80,7 @@ export interface IVisionPrescription {
     /**
      * The date (and perhaps time) when the prescription was written.
      */
-    dateWritten?: Date;
+    dateWritten?: Date | string;
     /**
      * The healthcare professional responsible for authorizing the prescription.
      */

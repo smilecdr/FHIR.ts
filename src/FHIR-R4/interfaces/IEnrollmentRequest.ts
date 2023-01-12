@@ -67,7 +67,7 @@ export interface IEnrollmentRequest {
     /**
      * The date when this resource was created.
      */
-    created?: Date;
+    created?: Date | string;
     /**
      * The Insurer who is target  of the request.
      */

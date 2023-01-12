@@ -38,7 +38,7 @@ export class Annotation {
     /**
      * Indicates when this particular annotation was made.
      */
-    time?: Date;
+    time?: Date | string;
     /**
      * The text of the annotation in markdown format.
      */

@@ -14,7 +14,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { Identifier } from './identifier';
 import { Meta } from './meta';
 import { Narrative } from './narrative';
@@ -33,7 +33,7 @@ export class AdverseEvent {
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */
-    id?: Id;
+    id?: string;
     /**
      * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
      */
@@ -85,15 +85,15 @@ export class AdverseEvent {
     /**
      * The date (and perhaps time) when the adverse event occurred.
      */
-    date?: Date;
+    date?: Date | string;
     /**
      * Estimated or actual date the AdverseEvent began, in the opinion of the reporter.
      */
-    detected?: Date;
+    detected?: Date | string;
     /**
      * The date on which the existence of the AdverseEvent was first recorded.
      */
-    recordedDate?: Date;
+    recordedDate?: Date | string;
     /**
      * Includes information about the reaction that occurred as a result of exposure to a substance (for example, a drug or a chemical).
      */

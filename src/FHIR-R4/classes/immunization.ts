@@ -14,7 +14,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { Identifier } from './identifier';
 import { ImmunizationEducation } from './immunizationEducation';
 import { ImmunizationPerformer } from './immunizationPerformer';
@@ -38,7 +38,7 @@ export class Immunization {
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */
-    id?: Id;
+    id?: string;
     /**
      * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
      */
@@ -98,7 +98,7 @@ export class Immunization {
     /**
      * The date the occurrence of the immunization was first captured in the record - potentially significantly after the occurrence of the event.
      */
-    recorded?: Date;
+    recorded?: Date | string;
     /**
      * An indication that the content of the record is based on information from the person who administered the vaccine. This reflects the context under which the data was originally recorded.
      */

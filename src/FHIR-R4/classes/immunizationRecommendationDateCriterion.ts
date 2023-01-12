@@ -37,5 +37,5 @@ export class ImmunizationRecommendationDateCriterion {
     /**
      * The date whose meaning is specified by dateCriterion.code.
      */
-    value?: Date;
+    value?: Date | string;
 }

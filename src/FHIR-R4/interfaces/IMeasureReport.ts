@@ -83,7 +83,7 @@ export interface IMeasureReport {
     /**
      * The date this measure report was generated.
      */
-    date?: Date;
+    date?: Date | string;
     /**
      * The individual, location, or organization that is reporting the data.
      */

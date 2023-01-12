@@ -152,7 +152,7 @@ export interface IChargeItem {
     /**
      * Date the charge item was entered.
      */
-    enteredDate?: Date;
+    enteredDate?: Date | string;
     /**
      * Describes why the event occurred in coded or textual form.
      */

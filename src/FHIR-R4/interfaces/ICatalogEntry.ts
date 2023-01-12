@@ -94,11 +94,11 @@ export interface ICatalogEntry {
     /**
      * The date until which this catalog entry is expected to be active.
      */
-    validTo?: Date;
+    validTo?: Date | string;
     /**
      * Typically date of issue is different from the beginning of the validity. This can be used to see when an item was last updated.
      */
-    lastUpdated?: Date;
+    lastUpdated?: Date | string;
     /**
      * Used for examplefor Out of Formulary, or any specifics.
      */

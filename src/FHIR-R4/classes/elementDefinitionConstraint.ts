@@ -11,7 +11,7 @@
  */
 import { Canonical } from './canonical';
 import { Extension } from './extension';
-import { Id } from './id';
+
 
 
 /**
@@ -33,7 +33,7 @@ export class ElementDefinitionConstraint {
     /**
      * Allows identification of which elements have their cardinalities impacted by the constraint.  Will not be referenced for constraints that do not affect cardinality.
      */
-    key?: Id;
+    key?: string;
     /**
      * Description of why this constraint is necessary or appropriate.
      */

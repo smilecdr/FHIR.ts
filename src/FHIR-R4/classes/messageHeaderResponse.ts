@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { Reference } from './reference';
 
 
@@ -33,7 +33,7 @@ export class MessageHeaderResponse {
     /**
      * The MessageHeader.id of the message to which this message is a response.
      */
-    identifier?: Id;
+    identifier?: string;
     /**
      * Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.
      */

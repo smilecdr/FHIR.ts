@@ -90,7 +90,7 @@ export interface IFamilyMemberHistory {
     /**
      * The date (and possibly time) when the family member history was recorded or last updated.
      */
-    date?: Date;
+    date?: Date | string;
     /**
      * This will either be a name or a description; e.g. \"Aunt Susan\", \"my cousin with the red hair\".
      */

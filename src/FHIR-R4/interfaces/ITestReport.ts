@@ -92,7 +92,7 @@ export interface ITestReport {
     /**
      * When the TestScript was executed and this TestReport was generated.
      */
-    issued?: Date;
+    issued?: Date | string;
     /**
      * A participant in the test execution, either the execution engine, a client, or a server.
      */

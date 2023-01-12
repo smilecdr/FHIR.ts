@@ -59,7 +59,7 @@ export class MedicinalProductSpecialDesignation {
     /**
      * Date when the designation was granted.
      */
-    date?: Date;
+    date?: Date | string;
     /**
      * Animal species for which this applies.
      */

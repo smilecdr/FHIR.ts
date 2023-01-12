@@ -12,7 +12,7 @@
 import { Code } from './code';
 import { Coding } from './coding';
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { TestScriptRequestHeader } from './testScriptRequestHeader';
 
 
@@ -83,19 +83,19 @@ export class TestScriptOperation {
     /**
      * The fixture id (maybe new) to map to the request.
      */
-    requestId?: Id;
+    requestId?: string;
     /**
      * The fixture id (maybe new) to map to the response.
      */
-    responseId?: Id;
+    responseId?: string;
     /**
      * The id of the fixture used as the body of a PUT or POST request.
      */
-    sourceId?: Id;
+    sourceId?: string;
     /**
      * Id of fixture used for extracting the [id],  [type], and [vid] for GET requests.
      */
-    targetId?: Id;
+    targetId?: string;
     /**
      * Complete request URL.
      */

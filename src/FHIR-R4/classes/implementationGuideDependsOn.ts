@@ -11,7 +11,7 @@
  */
 import { Canonical } from './canonical';
 import { Extension } from './extension';
-import { Id } from './id';
+
 
 
 /**
@@ -37,7 +37,7 @@ export class ImplementationGuideDependsOn {
     /**
      * The NPM package name for the Implementation Guide that this IG depends on.
      */
-    packageId?: Id;
+    packageId?: string;
     /**
      * The version of the IG that is depended on, when the correct version is required to understand the IG correctly.
      */

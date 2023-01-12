@@ -36,5 +36,5 @@ export class MedicationBatch {
     /**
      * When this specific batch of product will expire.
      */
-    expirationDate?: Date;
+    expirationDate?: Date | string;
 }

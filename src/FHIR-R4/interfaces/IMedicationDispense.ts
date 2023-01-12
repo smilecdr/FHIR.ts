@@ -133,11 +133,11 @@ export interface IMedicationDispense {
     /**
      * The time when the dispensed product was packaged and reviewed.
      */
-    whenPrepared?: Date;
+    whenPrepared?: Date | string;
     /**
      * The time the dispensed product was provided to the patient or their representative.
      */
-    whenHandedOver?: Date;
+    whenHandedOver?: Date | string;
     /**
      * Identification of the facility/location where the medication was shipped to, as part of the dispense event.
      */

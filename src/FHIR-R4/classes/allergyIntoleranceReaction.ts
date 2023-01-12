@@ -46,7 +46,7 @@ export class AllergyIntoleranceReaction {
     /**
      * Record of the date and/or time of the onset of the Reaction.
      */
-    onset?: Date;
+    onset?: Date | string;
     /**
      * Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations.
      */

@@ -43,7 +43,7 @@ export class MedicinalProductManufacturingBusinessOperation {
     /**
      * Regulatory authorization date.
      */
-    effectiveDate?: Date;
+    effectiveDate?: Date | string;
     /**
      * To indicate if this proces is commercially confidential.
      */

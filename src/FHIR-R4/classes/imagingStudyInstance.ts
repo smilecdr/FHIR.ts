@@ -11,7 +11,7 @@
  */
 import { Coding } from './coding';
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { UnsignedInt } from './unsignedInt';
 
 
@@ -34,7 +34,7 @@ export class ImagingStudyInstance {
     /**
      * The DICOM SOP Instance UID for this image or other DICOM content.
      */
-    uid?: Id;
+    uid?: string;
     /**
      * DICOM instance  type.
      */

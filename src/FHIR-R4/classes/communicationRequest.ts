@@ -15,7 +15,7 @@ import { CodeableConcept } from './codeableConcept';
 import { CommunicationRequestPayload } from './communicationRequestPayload';
 import { DateTime } from './dateTime';
 import { Extension } from './extension';
-import { Id } from './id';
+
 import { Identifier } from './identifier';
 import { Meta } from './meta';
 import { Narrative } from './narrative';
@@ -35,7 +35,7 @@ export class CommunicationRequest {
     /**
      * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
      */
-    id?: Id;
+    id?: string;
     /**
      * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
      */
@@ -127,7 +127,7 @@ export class CommunicationRequest {
     /**
      * For draft requests, indicates the date of initial creation.  For requests with other statuses, indicates the date of activation.
      */
-    authoredOn?: Date;
+    authoredOn?: Date | string;
     /**
      * The device, individual, or organization who initiated the request and has responsibility for its activation.
      */

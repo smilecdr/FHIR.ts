@@ -120,7 +120,7 @@ export interface ICarePlan {
     /**
      * Represents when this particular CarePlan record was created in the system, which is often a system-generated date.
      */
-    created?: Date;
+    created?: Date | string;
     /**
      * When populated, the author is responsible for the care plan.  The care plan is attributed to the author.
      */

@@ -94,7 +94,7 @@ export interface IClaimResponse {
     /**
      * The date this resource was created.
      */
-    created?: Date;
+    created?: Date | string;
     /**
      * The party responsible for authorization, adjudication and reimbursement.
      */

@@ -123,11 +123,11 @@ export interface ICommunication {
     /**
      * The time when this communication was sent.
      */
-    sent?: Date;
+    sent?: Date | string;
     /**
      * The time when this communication arrived at the destination.
      */
-    received?: Date;
+    received?: Date | string;
     /**
      * The entity (e.g. person, organization, clinical information system, care team or device) which was the target of the communication. If receipts need to be tracked by an individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either receipts are not tracked (e.g. a mass mail-out) or a receipt is captured in aggregate (all emails confirmed received by a particular time).
      */

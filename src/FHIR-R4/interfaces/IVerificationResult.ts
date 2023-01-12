@@ -79,7 +79,7 @@ export interface IVerificationResult {
     /**
      * When the validation status was updated.
      */
-    statusDate?: Date;
+    statusDate?: Date | string;
     /**
      * What the target is validated against (nothing; primary source; multiple sources).
      */
@@ -95,7 +95,7 @@ export interface IVerificationResult {
     /**
      * The date/time validation was last completed (including failed validations).
      */
-    lastPerformed?: Date;
+    lastPerformed?: Date | string;
     /**
      * The date when target is next validated, if appropriate.
      */

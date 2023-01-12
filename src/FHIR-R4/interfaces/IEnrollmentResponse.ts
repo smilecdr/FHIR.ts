@@ -79,7 +79,7 @@ export interface IEnrollmentResponse {
     /**
      * The date when the enclosed suite of services were performed or completed.
      */
-    created?: Date;
+    created?: Date | string;
     /**
      * The Insurer who produced this adjudicated response.
      */

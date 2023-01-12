@@ -85,15 +85,15 @@ export interface IAdverseEvent {
     /**
      * The date (and perhaps time) when the adverse event occurred.
      */
-    date?: Date;
+    date?: Date | string;
     /**
      * Estimated or actual date the AdverseEvent began, in the opinion of the reporter.
      */
-    detected?: Date;
+    detected?: Date | string;
     /**
      * The date on which the existence of the AdverseEvent was first recorded.
      */
-    recordedDate?: Date;
+    recordedDate?: Date | string;
     /**
      * Includes information about the reaction that occurred as a result of exposure to a substance (for example, a drug or a chemical).
      */

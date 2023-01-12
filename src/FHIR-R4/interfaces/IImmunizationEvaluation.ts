@@ -72,7 +72,7 @@ export interface IImmunizationEvaluation {
     /**
      * The date the evaluation of the vaccine administration event was performed.
      */
-    date?: Date;
+    date?: Date | string;
     /**
      * Indicates the authority who published the protocol (e.g. ACIP).
      */

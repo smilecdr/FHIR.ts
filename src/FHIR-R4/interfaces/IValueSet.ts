@@ -92,7 +92,7 @@ export interface IValueSet {
     /**
      * The date (and optionally time) when the value set was created or revised (e.g. the 'content logical definition').
      */
-    date?: Date;
+    date?: Date | string;
     /**
      * The name of the organization or individual that published the value set.
      */

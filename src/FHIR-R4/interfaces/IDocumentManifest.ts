@@ -81,7 +81,7 @@ export interface IDocumentManifest {
     /**
      * When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated, etc.).
      */
-    created?: Date;
+    created?: Date | string;
     /**
      * Identifies who is the author of the manifest. Manifest author is not necessarly the author of the references included.
      */
