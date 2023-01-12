@@ -816,7 +816,7 @@ export class ElementDefinition {
     /**
      * A reference to an invariant that may make additional statements about the cardinality or value in the instance.
      */
-    condition?: Array<Id>;
+    condition?: Array<string>;
     /**
      * Formal constraints such as co-occurrence and other constraints that can be computationally evaluated within the context of the instance.
      */

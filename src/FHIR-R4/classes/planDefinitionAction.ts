@@ -80,7 +80,7 @@ export class PlanDefinitionAction {
     /**
      * Identifies goals that this action supports. The reference must be to a goal element defined within this plan definition.
      */
-    goalId?: Array<Id>;
+    goalId?: Array<string>;
     /**
      * A code or group definition that describes the intended subject of the action and its children, if any.
      */
