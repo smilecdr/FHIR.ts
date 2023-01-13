@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.3
+
+### Updates (R4)
+
+* `Bundle` class now has `id` set to type `string`.
+
 ## 2.0.2
 
 ### Updates (R4)

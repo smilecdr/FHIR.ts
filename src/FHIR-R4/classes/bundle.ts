@@ -22,6 +22,10 @@ import { UnsignedInt } from './unsignedInt';
  */
 export class Bundle { 
     /**
+    * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+    */
+   id?: string;
+    /**
      * This is a Bundle resource
      */
     resourceType: 'Bundle';
