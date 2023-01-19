@@ -1,4 +1,3 @@
-import { Patient } from "../../FHIR-R4/classes/patient";
 import { BundleUtilities } from "./BundleUtilities";
 
 const inputPayload = require("./../../test-resources/Bundle-R4.json");
