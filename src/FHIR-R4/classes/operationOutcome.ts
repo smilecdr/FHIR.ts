@@ -20,6 +20,10 @@ export class OperationOutcome {
      * This is a OperationOutcome resource
      */
     resourceType: 'OperationOutcome';
+     /**
+     * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
+     */
+     id?: string;
     /**
      * An error, warning, or information message that results from a system action.
      */
