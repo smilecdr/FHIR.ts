@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.4
+
+### Updates (R4)
+
+* `OperationOutcome` class now has `id` set to type `string`. `Resource` class should now support `id`.
+
 ## 2.0.3
 
 ### Updates (R4)
