@@ -83,7 +83,7 @@ function getResourceType(resource:Resource){
    } 
 }
 ```
-If you try writing this out you will see that the variable `res` inside the `if` block is of type `CarePlan`. This was inferred automatically using the `if` condition (since as per the specification the only resources which can have `resourceType:"CarePlan"` are `CarePlan` resources).
+If you try writing this out you will see that the variable `resource` inside the `if` block is of type `CarePlan`. This was inferred automatically using the `if` condition (since as per the specification the only resources which can have `resourceType:"CarePlan"` are `CarePlan` resources).
 
 ## Utilities
 
