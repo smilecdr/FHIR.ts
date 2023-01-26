@@ -813,10 +813,50 @@ export class ProcessRequest extends BaseResource {
 export class Encounter extends BaseResource {
   resourceType: "Encounter";
   identifier: Identifier[];
-  status: string;
+  status: 'planned' | 'arrived' | 'triaged' | 'in-progress' | 'onleave' | 'finished' | 'cancelled' | 'entered-in-error' | 'unknown';
+  statusHistory: {
+    status:'planned' | 'arrived' | 'triaged' | 'in-progress' | 'onleave' | 'finished' | 'cancelled' | 'entered-in-error' | 'unknown';
+    period: Period;
+  }[];
+  class:Coding;
+  classHistory:{
+    class:Coding;
+    period:Period;
+  }[];
+  type:CodeableConcept[];
+  priority:CodeableConcept;
   episodeOfCare: Reference[];
   subject: Reference;
+  incomingReferral:Reference[];
   participant: EncounterParticipant[];
+  appointment:Reference;
+  period:Period;
+  length:Quantity;
+  reason:CodeableConcept[];
+  diagnosis:{
+    condition:Reference;
+    role:CodeableConcept;
+    rank:number
+  }[];
+  account:Reference[];
+  hospitalization:{
+    preAdmissionIdentifer:Identifier;
+    origin:Reference;
+    admitSource:CodeableConcept;
+    reAdmission:CodeableConcept;
+    dietPreference:CodeableConcept[];
+    specialCourtesy:CodeableConcept[];
+    specialArrangement:CodeableConcept[];
+    destination:Reference;
+    dischargeDiposition:CodeableConcept;
+  };
+  location:{
+    location:Reference;
+    status: 'planned' | 'active' | 'reserved' | 'completed';
+    period: Period
+  }[];
+  serviceProvider:Reference;
+  partOf:Reference;
 }
 
 export class CareTeamParticipant extends BackboneElement {

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.5
+
+### Updates (R3)
+
+* `Encounter` class now has all properties defined.
+
 ## 2.0.4
 
 ### Updates (R4)
