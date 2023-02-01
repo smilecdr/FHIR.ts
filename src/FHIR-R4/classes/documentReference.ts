@@ -71,7 +71,7 @@ export class DocumentReference {
     /**
      * The status of this document reference.
      */
-    status?: DocumentReference.StatusEnum;
+    status: DocumentReference.StatusEnum;
     /**
      * The status of the underlying document.
      */
