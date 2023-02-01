@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.0.6
+
+### Updates (R3)
+
+* `DocumentReference.docStatus` and `DocumentReference.status` properties have codes defined.
+
+### Updates (R4)
+
+* `DocumentReference.docStatus` has codes defined and `DocumentReference.status` is a required property (as per the spec).
+
 ## 2.0.5
 
 ### Updates (R3)
