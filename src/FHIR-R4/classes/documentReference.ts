@@ -127,5 +127,16 @@ export class DocumentReference {
 }
 export namespace DocumentReference {
     export type StatusEnum = 'current' | 'superseded' | 'entered-in-error';
+    export const StatusEnum = {
+        Current: 'current' as StatusEnum,
+        Superseded: 'superseded' as StatusEnum,
+        EnteredInError: 'entered-in-error' as StatusEnum
+    };
     export type DocStatusEnum =  'preliminary' | 'final' | 'amended' | 'entered-in-error';
+    export const DocStatusEnum = {
+        Preliminary: 'preliminary' as DocStatusEnum,
+        Final: 'final' as DocStatusEnum,
+        Amended: 'amended' as DocStatusEnum,
+        EnteredInError: 'entered-in-error' as DocStatusEnum
+    };
 }
