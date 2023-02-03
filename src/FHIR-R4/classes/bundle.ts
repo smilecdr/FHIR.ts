@@ -11,10 +11,13 @@
  */
 import { BundleEntry } from './bundleEntry';
 import { BundleLink } from './bundleLink';
+import { Code } from './code';
 import { Identifier } from './identifier';
 import { Instant } from './instant';
+import { Meta } from './meta';
 import { Signature } from './signature';
 import { UnsignedInt } from './unsignedInt';
+import { Uri } from './uri';
 
 
 /**
