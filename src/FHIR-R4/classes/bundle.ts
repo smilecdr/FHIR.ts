@@ -26,6 +26,18 @@ export class Bundle {
     */
    id?: string;
     /**
+     * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
+     */
+    meta?: Meta;
+    /**
+     * A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.
+     */
+    implicitRules?: Uri;
+    /**
+     * The base language in which the resource is written.
+     */
+    language?: Code;
+    /**
      * This is a Bundle resource
      */
     resourceType: 'Bundle';
@@ -36,7 +48,7 @@ export class Bundle {
     /**
      * Indicates the purpose of this bundle - how it is intended to be used.
      */
-    type?: Bundle.TypeEnum;
+    type: Bundle.TypeEnum;
     /**
      * The date/time that the bundle was assembled - i.e. when the resources were placed in the bundle.
      */
