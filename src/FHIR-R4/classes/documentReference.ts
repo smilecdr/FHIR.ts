@@ -71,11 +71,11 @@ export class DocumentReference {
     /**
      * The status of this document reference.
      */
-    status?: DocumentReference.StatusEnum;
+    status: DocumentReference.StatusEnum;
     /**
      * The status of the underlying document.
      */
-    docStatus?: Code;
+    docStatus?: DocumentReference.DocStatusEnum;
     /**
      * Specifies the particular kind of document referenced  (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the document referenced.
      */
@@ -131,5 +131,12 @@ export namespace DocumentReference {
         Current: 'current' as StatusEnum,
         Superseded: 'superseded' as StatusEnum,
         EnteredInError: 'entered-in-error' as StatusEnum
+    };
+    export type DocStatusEnum =  'preliminary' | 'final' | 'amended' | 'entered-in-error';
+    export const DocStatusEnum = {
+        Preliminary: 'preliminary' as DocStatusEnum,
+        Final: 'final' as DocStatusEnum,
+        Amended: 'amended' as DocStatusEnum,
+        EnteredInError: 'entered-in-error' as DocStatusEnum
     };
 }
