@@ -696,8 +696,8 @@ export class DocumentReference extends BaseResource {
   resourceType: "DocumentReference";
   masterIdentifier: Identifier;
   identifier: Identifier[];
-  status: string;
-  docStatus: string;
+  status: 'current' | 'superseded' | 'entered-in-error';
+  docStatus: 'preliminary' | 'final' | 'amended' | 'entered-in-error';
   type: CodeableConcept;
   subject: Reference;
   created: Date;
