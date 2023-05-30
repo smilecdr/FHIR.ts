@@ -83,6 +83,10 @@
               {
                 "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
                 "code": "C"
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0132",
+                "code": "D"
               }
             ]
           }

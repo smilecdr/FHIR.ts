@@ -25,4 +25,11 @@ describe("BundleUtilities", () => {
             expect(actual.length).toEqual(27);
         });
     });
+
+    describe("#filterBundleWithCriterias", () => {
+        
+        it('should return no results if match not found', () => {});
+        it('should return results if match found', () => {});
+        it('should return no results if invalid path applied', () => {});
+    })
 });
