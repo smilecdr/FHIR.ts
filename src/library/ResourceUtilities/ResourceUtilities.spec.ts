@@ -284,8 +284,9 @@ describe("ResourceUtilities", () => {
       // execute
       const pathValues = ResourceUtilities.getValuesAtResourcePath(inputPayload, "Patient.contact.relationship.coding.system");
       // validate
-      expect(pathValues.length).toEqual(1);
+      expect(pathValues.length).toEqual(2);
       expect(pathValues[0]).toEqual("http://terminology.hl7.org/CodeSystem/v2-0131");
+      expect(pathValues[1]).toEqual("http://terminology.hl7.org/CodeSystem/v2-0132");
     });
 
     it("should return array with values if path exists for a deep json element", () => {

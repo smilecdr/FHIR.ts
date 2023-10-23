@@ -113,10 +113,13 @@ export class ResourceUtility {
         } else if (Array.isArray(resourcePathValue) && resourcePathValue.length > 0) {
           // loop over ??? 
           // figure out nested set
-          values.push(...this.getValuesAtResourcePath(
-              resourcePathValue[0],
-              pathSections.slice(index).join(".")
+          for (let nestedIndex = 0; nestedIndex < resourcePathValue.length; nestedIndex++) {
+            const element = resourcePathValue[nestedIndex];
+            values.push(...this.getValuesAtResourcePath(
+              element,
+              pathSections.slice(nestedIndex).join(".")
             ));
+          }
         } else if (typeof(resourcePathValue) === 'object') {
           // array is a object find out for {}
           values.push(...this.getValuesAtResourcePath(
