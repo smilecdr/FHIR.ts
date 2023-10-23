@@ -111,8 +111,6 @@ export class ResourceUtility {
         if (this.isPrimitive(resourcePathValue)) {
           values.push(resourcePathValue);
         } else if (Array.isArray(resourcePathValue) && resourcePathValue.length > 0) {
-          // loop over ??? 
-          // figure out nested set
           for (let nestedIndex = 0; nestedIndex < resourcePathValue.length; nestedIndex++) {
             const element = resourcePathValue[nestedIndex];
             values.push(...this.getValuesAtResourcePath(
