@@ -1,5 +1,16 @@
+import * as DSTU2 from "../../FHIR-DSTU2"
+import * as R3 from "../../FHIR-R3"
+import { Coding as r4Coding } from "../../FHIR-R4/classes/coding"
+import { Extension as r4Extension } from "../../FHIR-R4/classes/extension"
+import { Identifier as r4Identifier } from "../../FHIR-R4/classes/identifier"
+
+type Identifier = r4Identifier & R3.Identifier & DSTU2.Identifier
+type IdentifierKeys = keyof Identifier
+type Extension = r4Extension & R3.Extension & DSTU2.Extension
+type Coding = r4Coding & R3.Coding & DSTU2.Coding
+type CodingKeys = keyof Coding
 export class ResourceUtility {
-  
+
   /**
    * 
    * @param inputJson - valid json
@@ -8,11 +19,11 @@ export class ResourceUtility {
    * @limitation currently just supports get for top level property on resource
    */
   getResourceProperty(inputJson: object, propertyName: string) {
-    let resourcePropertyValue = null;
+    let resourcePropertyValue = null
     if (inputJson.hasOwnProperty(propertyName)) {
-      resourcePropertyValue = inputJson[propertyName];
+      resourcePropertyValue = inputJson[propertyName]
     }
-    return resourcePropertyValue;
+    return resourcePropertyValue
   }
 
   /**
@@ -23,8 +34,8 @@ export class ResourceUtility {
    * @returns array of matches
    * @limitations currently does not work with identifier.type, identifier.period & identifier.assigner
    */
-  getIdentifiersByProperty(identifierList: any[], propertyToCompare: string, propertyValue: string): any[] {
-    return identifierList?.length ? identifierList.filter(x => x[propertyToCompare] === propertyValue): [];
+  getIdentifiersByProperty(identifierList: Identifier[], propertyToCompare: IdentifierKeys, propertyValue: Identifier[IdentifierKeys]): Identifier[] {
+    return identifierList?.length ? identifierList.filter(x => x[propertyToCompare] === propertyValue) : []
   }
 
   /**
@@ -33,8 +44,8 @@ export class ResourceUtility {
    * @param extensionUrl Extension.url to compare
    * @returns array of matches
    */
-  getExtensionsByUrl(extensionList: any[], extensionUrl: string): any[] {
-    return extensionList?.length ? extensionList.filter(x => x['url'] === extensionUrl) : [];
+  getExtensionsByUrl(extensionList: Extension[], extensionUrl: string): Extension[] {
+    return extensionList?.length ? extensionList.filter(x => x.url === extensionUrl) : []
   }
 
   /**
@@ -44,9 +55,9 @@ export class ResourceUtility {
    * @param propertyValue value we want to compare against string or boolean
    * @returns array of matches
    */
-  getCodingsByProperty(codingList: any[], propertyToCompare: string, propertyValue: string | boolean): any[] {
-    return codingList?.length ? codingList.filter(x => x[propertyToCompare] === propertyValue) : [];
+  getCodingsByProperty(codingList: Coding[], propertyToCompare: CodingKeys, propertyValue: Coding[CodingKeys]): Coding[] {
+    return codingList?.length ? codingList.filter(x => x[propertyToCompare] === propertyValue) : []
   }
 }
 
-export const ResourceUtilities = new ResourceUtility();
+export const ResourceUtilities = new ResourceUtility()
