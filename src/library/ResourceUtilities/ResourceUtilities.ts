@@ -103,33 +103,30 @@ export class ResourceUtility {
    */
   getValuesAtResourcePath(resource: any, elementPath: string): string[] {
     const pathSections = elementPath.split(".");
-    let values = [];
+    let resourcePathValue;
     for (let index = 1; index < pathSections.length; index++) {
       const subPaths = pathSections[index];
-      const resourcePathValue = resource[subPaths];
+      resourcePathValue = resourcePathValue ? resourcePathValue[subPaths] : resource[subPaths];
       if (resourcePathValue) {
         if (this.isPrimitive(resourcePathValue)) {
-          values.push(resourcePathValue);
+          return [resourcePathValue];
         } else if (Array.isArray(resourcePathValue) && resourcePathValue.length > 0) {
-          for (let nestedIndex = 0; nestedIndex < resourcePathValue.length; nestedIndex++) {
-            const element = resourcePathValue[nestedIndex];
-            values.push(...this.getValuesAtResourcePath(
-              element,
-              pathSections.slice(nestedIndex).join(".")
-            ));
-          }
+           let resultSet = [];
+           for (let subPathIndex = 0; subPathIndex < resourcePathValue.length; subPathIndex++) {
+              const subPathValue = resourcePathValue[subPathIndex];
+              resultSet.push(...this.getValuesAtResourcePath(subPathValue,
+                 pathSections.slice(index).join(".")));
+           }
+           return resultSet;
         } else if (typeof(resourcePathValue) === 'object') {
-          // array is a object find out for {}
-          values.push(...this.getValuesAtResourcePath(
-              resourcePathValue,
-              pathSections.slice(index).join(".")
-            ));
+          return this.getValuesAtResourcePath(resourcePathValue,
+            pathSections.slice(index).join("."));
         }
       } else {
         break;
       }
     }
-    return values;
+    return [];
   }
 
   private isPrimitive(value: any) {
