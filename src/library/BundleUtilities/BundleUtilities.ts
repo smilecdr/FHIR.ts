@@ -10,6 +10,16 @@ export class BundleUtility {
         return bundleEntry?.length ? bundleEntry.filter(x => x['resource']['resourceType'] === resourceTypeToFilter) : [];
     }
 
+    /**
+     * 
+     * @param bundleEntry Bundle.entry[] i.e. the bundle entries to filter
+     * @param resourceId Resource ID to filter from bundle entries
+     * @returns single resource
+     */
+    getResourceFromBundle(bundleEntry: any[], resourceId: string): any {
+        return bundleEntry?.length ? bundleEntry.find(x => x['resource']['id'] === resourceId) : null;
+    }
+
 }
 
 export const BundleUtilities = new BundleUtility();
