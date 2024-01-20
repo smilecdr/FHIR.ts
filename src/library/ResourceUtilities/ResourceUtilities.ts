@@ -67,40 +67,6 @@ export class ResourceUtility {
    * @param elementPath path to validate in resource
    * @returns true or false if the path exists or not
    */
-  resourcePathExists(resource: any, elementPath: string): boolean {
-    const pathSections = elementPath.split(".");
-    for (let index = 1; index < pathSections.length; index++) {
-      const subPaths = pathSections[index];
-      const resourcePathValue = resource[subPaths];
-      if (resourcePathValue) {
-        if (this.isPrimitive(resourcePathValue)) {
-          return true;
-        } else if (Array.isArray(resourcePathValue) && resourcePathValue.length > 0) {
-          // loop over ???
-          return this.resourcePathExists(
-              resourcePathValue[0],
-              pathSections.slice(index).join(".")
-            );
-        } else if (resourcePathValue.constructor === ({}).constructor) {
-          // array is a object find out for {}
-          return this.resourcePathExists(
-              resourcePathValue,
-              pathSections.slice(index).join(".")
-            );
-        }
-      } else {
-        break;
-      }
-    }
-    return false;
-  }
-
-  /**
-   *
-   * @param resource resource for which path needs to be validated
-   * @param elementPath path to validate in resource
-   * @returns true or false if the path exists or not
-   */
   getValuesAtResourcePath(resource: any, elementPath: string): string[] {
     const pathSections = elementPath.split(".");
     let resourcePathValue;

@@ -239,37 +239,6 @@ describe("ResourceUtilities", () => {
     });
   });
 
-  describe("#validateResourcePathExists()", () => {
-    
-    it("should return true if path exists for a top level element", () => {
-      // execute
-      const pathExists = ResourceUtilities.resourcePathExists(inputPayload, "Patient.gender");
-      // validate
-      expect(pathExists).toBeTrue();
-    });
-
-    it("should return true if path exists for a deep array element", () => {
-      // execute
-      const pathExists = ResourceUtilities.resourcePathExists(inputPayload, "Patient.contact.relationship.coding.system");
-      // validate
-      expect(pathExists).toBeTrue();
-    });
-
-    it("should return true if path exists for a deep json element", () => {
-      // execute
-      const pathExists = ResourceUtilities.resourcePathExists(inputPayload, "Patient.maritalStatus.coding.system");
-      // validate
-      expect(pathExists).toBeTrue();
-    });
-
-    it("should return false if path does not exist", () => {
-      // execute
-      const pathExists = ResourceUtilities.resourcePathExists(inputPayload, "Patient.contact.relationship.coding.abcd");
-      // validate
-      expect(pathExists).toBeFalse();
-    });
-  });
-
   describe("#getValuesAtResourcePath()", () => {
     
     it("should return array with values if path exists for a top level element", () => {
