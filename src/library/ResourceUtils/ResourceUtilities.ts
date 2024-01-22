@@ -1,4 +1,4 @@
-export class ResourceUtility {
+export class ResourceUtils {
   /**
    *
    * @param inputJson - valid json
@@ -123,4 +123,4 @@ export class ResourceUtility {
   }
 }
 
-export const ResourceUtilities = new ResourceUtility();
+export const ResourceUtilities = new ResourceUtils();
