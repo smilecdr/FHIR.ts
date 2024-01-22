@@ -65,9 +65,9 @@ export class ResourceUtils {
    *
    * @param resource resource for which path needs to be validated
    * @param elementPath path to validate in resource
-   * @returns true or false if the path exists or not
+   * @returns array of elements found at the provided path
    */
-  getValuesAtResourcePath(resource: any, elementPath: string): string[] {
+  getValuesAtResourcePath(resource: any, elementPath: string): any[] {
     const pathSections = elementPath.split(".");
     let resourcePathValue;
     for (let index = 1; index < pathSections.length; index++) {
