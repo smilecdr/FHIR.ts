@@ -22,6 +22,5 @@ export class BundleUtils {
 
 }
 
-export const BundleUtilities = new BundleUtils();
 
 

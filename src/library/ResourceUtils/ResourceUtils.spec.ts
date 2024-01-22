@@ -1,12 +1,15 @@
-import { ResourceUtilities } from "./ResourceUtils";
+import { ResourceUtils } from "./ResourceUtils";
 
 const patientPayload = require("./../../test-resources/Patient-R4.json");
 const careTeamPayload = require("./../../test-resources/CareTeam-R4.json");
-describe("ResourceUtilities", () => {
+describe("ResourceUtils", () => {
+
+  let resourceUtils = new ResourceUtils();
+
   describe("#getResourceProperty()", () => {
     it("should return property if property exists in valid inputJson", () => {
       // execute
-      const actual = ResourceUtilities.getResourceProperty(
+      const actual = resourceUtils.getResourceProperty(
         patientPayload,
         "deceasedBoolean"
       );
@@ -16,7 +19,7 @@ describe("ResourceUtilities", () => {
 
     it("should return null if property exists in valid inputJson", () => {
       // execute
-      const actual = ResourceUtilities.getResourceProperty(
+      const actual = resourceUtils.getResourceProperty(
         patientPayload,
         "abcd"
       );
@@ -28,7 +31,7 @@ describe("ResourceUtilities", () => {
       // setup
       const inputPayload = [1, 2];
       // execute
-      const actual = ResourceUtilities.getResourceProperty(
+      const actual = resourceUtils.getResourceProperty(
         inputPayload,
         "deceasedBoolean"
       );
@@ -55,7 +58,7 @@ describe("ResourceUtilities", () => {
       // setup
       const value = "abc";
       // execute
-      const actual = ResourceUtilities.getIdentifiersByProperty(
+      const actual = resourceUtils.getIdentifiersByProperty(
         null,
         "abc",
         value
@@ -68,7 +71,7 @@ describe("ResourceUtilities", () => {
       // setup
       const value = "abc";
       // execute
-      const actual = ResourceUtilities.getIdentifiersByProperty(
+      const actual = resourceUtils.getIdentifiersByProperty(
         identifierList,
         "abc",
         value
@@ -81,7 +84,7 @@ describe("ResourceUtilities", () => {
       // setup
       const systemUrl = "http://somesystem.com";
       // execute
-      const actual = ResourceUtilities.getIdentifiersByProperty(
+      const actual = resourceUtils.getIdentifiersByProperty(
         identifierList,
         "system",
         systemUrl
@@ -94,7 +97,7 @@ describe("ResourceUtilities", () => {
       // setup
       const value = "abc";
       // execute
-      const actual = ResourceUtilities.getIdentifiersByProperty(
+      const actual = resourceUtils.getIdentifiersByProperty(
         identifierList,
         "value",
         value
@@ -118,7 +121,7 @@ describe("ResourceUtilities", () => {
 
     it("should return empty array if null is passed as extension list", () => {
       // execute
-      const actual = ResourceUtilities.getExtensionsByUrl(null, "url");
+      const actual = resourceUtils.getExtensionsByUrl(null, "url");
       // validate
       expect(actual.length).toEqual(0);
     });
@@ -134,7 +137,7 @@ describe("ResourceUtilities", () => {
       ];
       const url = "http://ns.electronichealth.net.au/id/hi/ihi/1.0";
       // execute
-      const actual = ResourceUtilities.getExtensionsByUrl(
+      const actual = resourceUtils.getExtensionsByUrl(
         extensionListInvalid,
         url
       );
@@ -146,7 +149,7 @@ describe("ResourceUtilities", () => {
       // setup
       const url = "http://somesystem.com";
       // execute
-      const actual = ResourceUtilities.getExtensionsByUrl(extensionList, url);
+      const actual = resourceUtils.getExtensionsByUrl(extensionList, url);
       // validate
       expect(actual.length).toEqual(0);
     });
@@ -155,7 +158,7 @@ describe("ResourceUtilities", () => {
       // setup
       const url = "http://ns.electronichealth.net.au/id/hi/ihi/1.0";
       // execute
-      const actual = ResourceUtilities.getExtensionsByUrl(extensionList, url);
+      const actual = resourceUtils.getExtensionsByUrl(extensionList, url);
       // validate
       expect(actual.length).toEqual(1);
     });
@@ -182,7 +185,7 @@ describe("ResourceUtilities", () => {
       // setup
       const value = "abc";
       // execute
-      const actual = ResourceUtilities.getCodingsByProperty(null, "abc", value);
+      const actual = resourceUtils.getCodingsByProperty(null, "abc", value);
       // validate
       expect(actual.length).toEqual(0);
     });
@@ -191,7 +194,7 @@ describe("ResourceUtilities", () => {
       // setup
       const value = "abc";
       // execute
-      const actual = ResourceUtilities.getCodingsByProperty(
+      const actual = resourceUtils.getCodingsByProperty(
         codingList,
         "abc",
         value
@@ -204,7 +207,7 @@ describe("ResourceUtilities", () => {
       // setup
       const systemUrl = "http://somesystem.com";
       // execute
-      const actual = ResourceUtilities.getCodingsByProperty(
+      const actual = resourceUtils.getCodingsByProperty(
         codingList,
         "system",
         systemUrl
@@ -217,7 +220,7 @@ describe("ResourceUtilities", () => {
       // setup
       const value = "abc";
       // execute
-      const actual = ResourceUtilities.getCodingsByProperty(
+      const actual = resourceUtils.getCodingsByProperty(
         codingList,
         "code",
         value
@@ -230,7 +233,7 @@ describe("ResourceUtilities", () => {
       // setup
       const value = false;
       // execute
-      const actual = ResourceUtilities.getCodingsByProperty(
+      const actual = resourceUtils.getCodingsByProperty(
         codingList,
         "userSelected",
         value
@@ -244,7 +247,7 @@ describe("ResourceUtilities", () => {
     
     it("should return array with values if path exists for a top level element", () => {
       // execute
-      const pathValues = ResourceUtilities.getValuesAtResourcePath(patientPayload, "Patient.gender");
+      const pathValues = resourceUtils.getValuesAtResourcePath(patientPayload, "Patient.gender");
       // validate
       expect(pathValues.length).toEqual(1);
       expect(pathValues[0]).toEqual("male");
@@ -252,7 +255,7 @@ describe("ResourceUtilities", () => {
 
     it("should return array with values if path exists for a deep array element", () => {
       // execute
-      const pathValues = ResourceUtilities.getValuesAtResourcePath(patientPayload, "Patient.contact.relationship.coding.system");
+      const pathValues = resourceUtils.getValuesAtResourcePath(patientPayload, "Patient.contact.relationship.coding.system");
       // validate
       expect(pathValues.length).toEqual(2);
       expect(pathValues[0]).toEqual("http://terminology.hl7.org/CodeSystem/v2-0131");
@@ -261,7 +264,7 @@ describe("ResourceUtilities", () => {
 
     it("should return array with values if path exists for a deep json element", () => {
       // execute
-      const pathValues = ResourceUtilities.getValuesAtResourcePath(patientPayload, "Patient.maritalStatus.coding.system");
+      const pathValues = resourceUtils.getValuesAtResourcePath(patientPayload, "Patient.maritalStatus.coding.system");
       // validate
       expect(pathValues.length).toEqual(1);
       expect(pathValues[0]).toEqual("http://terminology.hl7.org/CodeSystem/v3-MaritalStatus");
@@ -269,7 +272,7 @@ describe("ResourceUtilities", () => {
 
     it("should return empty array if path does not exist", () => {
       // execute
-      const pathValues = ResourceUtilities.getValuesAtResourcePath(patientPayload, "Patient.contact.relationship.coding.abcd");
+      const pathValues = resourceUtils.getValuesAtResourcePath(patientPayload, "Patient.contact.relationship.coding.abcd");
       // validate
       expect(pathValues.length).toEqual(0);
     });
@@ -279,7 +282,7 @@ describe("ResourceUtilities", () => {
 
     it("should return array of all references in a resource when references found", () => {
       // execute
-      const actual = ResourceUtilities.getAllReferencesFromResource(careTeamPayload);
+      const actual = resourceUtils.getAllReferencesFromResource(careTeamPayload);
       // validate
       expect(actual.length).toEqual(6);
     });
@@ -290,7 +293,7 @@ describe("ResourceUtilities", () => {
         "resourceType": "Patient"
       };
       // execute
-      const actual = ResourceUtilities.getAllReferencesFromResource(input);
+      const actual = resourceUtils.getAllReferencesFromResource(input);
       // validate
       expect(actual.length).toEqual(0);
     });

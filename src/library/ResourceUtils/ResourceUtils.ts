@@ -122,5 +122,3 @@ export class ResourceUtils {
     return references;
   }
 }
-
-export const ResourceUtilities = new ResourceUtils();
