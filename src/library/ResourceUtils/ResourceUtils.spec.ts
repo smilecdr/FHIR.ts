@@ -1,4 +1,4 @@
-import { ResourceUtilities } from "./ResourceUtilities";
+import { ResourceUtilities } from "./ResourceUtils";
 
 const patientPayload = require("./../../test-resources/Patient-R4.json");
 const careTeamPayload = require("./../../test-resources/CareTeam-R4.json");
