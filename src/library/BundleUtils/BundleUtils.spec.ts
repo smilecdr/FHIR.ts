@@ -1,4 +1,4 @@
-import { BundleUtilities } from "./BundleUtilities";
+import { BundleUtilities } from "./BundleUtils";
 
 const inputPayload = require("./../../test-resources/Bundle-R4.json");
 describe("BundleUtilities", () => {
