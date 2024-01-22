@@ -1,12 +1,13 @@
 import { ResourceUtilities } from "./ResourceUtilities";
 
-const inputPayload = require("./../../test-resources/Patient-R4.json");
+const patientPayload = require("./../../test-resources/Patient-R4.json");
+const careTeamPayload = require("./../../test-resources/CareTeam-R4.json");
 describe("ResourceUtilities", () => {
   describe("#getResourceProperty()", () => {
     it("should return property if property exists in valid inputJson", () => {
       // execute
       const actual = ResourceUtilities.getResourceProperty(
-        inputPayload,
+        patientPayload,
         "deceasedBoolean"
       );
       // validate
@@ -16,7 +17,7 @@ describe("ResourceUtilities", () => {
     it("should return null if property exists in valid inputJson", () => {
       // execute
       const actual = ResourceUtilities.getResourceProperty(
-        inputPayload,
+        patientPayload,
         "abcd"
       );
       // validate
@@ -243,7 +244,7 @@ describe("ResourceUtilities", () => {
     
     it("should return array with values if path exists for a top level element", () => {
       // execute
-      const pathValues = ResourceUtilities.getValuesAtResourcePath(inputPayload, "Patient.gender");
+      const pathValues = ResourceUtilities.getValuesAtResourcePath(patientPayload, "Patient.gender");
       // validate
       expect(pathValues.length).toEqual(1);
       expect(pathValues[0]).toEqual("male");
@@ -251,7 +252,7 @@ describe("ResourceUtilities", () => {
 
     it("should return array with values if path exists for a deep array element", () => {
       // execute
-      const pathValues = ResourceUtilities.getValuesAtResourcePath(inputPayload, "Patient.contact.relationship.coding.system");
+      const pathValues = ResourceUtilities.getValuesAtResourcePath(patientPayload, "Patient.contact.relationship.coding.system");
       // validate
       expect(pathValues.length).toEqual(2);
       expect(pathValues[0]).toEqual("http://terminology.hl7.org/CodeSystem/v2-0131");
@@ -260,7 +261,7 @@ describe("ResourceUtilities", () => {
 
     it("should return array with values if path exists for a deep json element", () => {
       // execute
-      const pathValues = ResourceUtilities.getValuesAtResourcePath(inputPayload, "Patient.maritalStatus.coding.system");
+      const pathValues = ResourceUtilities.getValuesAtResourcePath(patientPayload, "Patient.maritalStatus.coding.system");
       // validate
       expect(pathValues.length).toEqual(1);
       expect(pathValues[0]).toEqual("http://terminology.hl7.org/CodeSystem/v3-MaritalStatus");
@@ -268,9 +269,31 @@ describe("ResourceUtilities", () => {
 
     it("should return empty array if path does not exist", () => {
       // execute
-      const pathValues = ResourceUtilities.getValuesAtResourcePath(inputPayload, "Patient.contact.relationship.coding.abcd");
+      const pathValues = ResourceUtilities.getValuesAtResourcePath(patientPayload, "Patient.contact.relationship.coding.abcd");
       // validate
       expect(pathValues.length).toEqual(0);
     });
+  });
+
+  describe("#getAllResourceReferences()", () => {
+
+    it("should return array of all references in a resource when references found", () => {
+      // execute
+      const actual = ResourceUtilities.getAllReferencesFromResource(careTeamPayload);
+      // validate
+      expect(actual.length).toEqual(6);
+    });
+
+    it("should return empty array if references in a resource not found", () => {
+      // setup
+      const input = {
+        "resourceType": "Patient"
+      };
+      // execute
+      const actual = ResourceUtilities.getAllReferencesFromResource(input);
+      // validate
+      expect(actual.length).toEqual(0);
+    });
+
   });
 });

@@ -98,6 +98,29 @@ export class ResourceUtility {
   private isPrimitive(value: any) {
     return typeof(value) === "boolean" || typeof(value) === "string";
   }
+
+  /**
+   * @param resource resource to pull out references from
+   * @returns array of references inside a resource
+   */
+  getAllReferencesFromResource(resource: any): string[] {
+    const stringifiedResource = JSON.stringify(resource);
+    const referenceJsonString = '"reference":';
+    let references = [];
+    let cursor = stringifiedResource.indexOf(referenceJsonString, 0);
+    while (cursor > -1) {
+      const referenceStart = stringifiedResource.indexOf(referenceJsonString, cursor) + referenceJsonString.length;
+      const referenceEnd = stringifiedResource.indexOf('"', referenceStart + 1);
+      const reference = stringifiedResource.substring(referenceStart, referenceEnd);
+      // this means the reference ends started reading from start again
+      if(referenceEnd < cursor) {
+        break;
+      }
+      references.push(reference);
+      cursor = referenceEnd;
+    }
+    return references;
+  }
 }
 
 export const ResourceUtilities = new ResourceUtility();
