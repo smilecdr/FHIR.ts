@@ -6,7 +6,7 @@ export class BundleUtils {
      * @param resourceTypeToFilter ResourceType to filter from bundle entries
      * @returns array of resources
      */
-    getResourcesFromBundle(bundleEntry: any[], resourceTypeToFilter: string): any[] {
+    getResources(bundleEntry: any[], resourceTypeToFilter: string): any[] {
         return bundleEntry?.length ? bundleEntry.filter(x => x['resource']['resourceType'] === resourceTypeToFilter) : [];
     }
 
@@ -16,7 +16,7 @@ export class BundleUtils {
      * @param resourceId Resource ID to filter from bundle entries
      * @returns single resource
      */
-    getResourceFromBundle(bundleEntry: any[], resourceId: string): any {
+    getResource(bundleEntry: any[], resourceId: string): any {
         return bundleEntry?.length ? bundleEntry.find(x => x['resource']['id'] === resourceId) : null;
     }
 

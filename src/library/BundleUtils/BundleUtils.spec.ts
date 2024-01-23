@@ -5,17 +5,17 @@ describe("BundleUtils", () => {
 
   let bundleUtils = new BundleUtils();
   
-  describe("#getResourcesFromBundle()", () => {
+  describe("#getResources()", () => {
     it("should return empty array if null is passed as bundle entries", () => {
       // execute
-      const actual = bundleUtils.getResourcesFromBundle(null, "Patient");
+      const actual = bundleUtils.getResources(null, "Patient");
       // validate
       expect(actual.length).toEqual(0);
     });
 
     it("should return empty array if invalid resourceType is passed", () => {
       // execute
-      const actual = bundleUtils.getResourcesFromBundle(
+      const actual = bundleUtils.getResources(
         inputPayload.entry,
         "patient"
       );
@@ -25,7 +25,7 @@ describe("BundleUtils", () => {
 
     it("should return all matches array", () => {
       // execute
-      const actual = bundleUtils.getResourcesFromBundle(
+      const actual = bundleUtils.getResources(
         inputPayload.entry,
         "Claim"
       );
@@ -34,17 +34,17 @@ describe("BundleUtils", () => {
     });
   });
 
-  describe("#getResourceFromBundle()", () => {
+  describe("#getResource()", () => {
     it("should return null if null is passed as bundle entries", () => {
       // execute
-      const actual = bundleUtils.getResourceFromBundle(null, "123");
+      const actual = bundleUtils.getResource(null, "123");
       // validate
       expect(actual).toBeNull();
     });
 
     it("should return undefined if resourceId is not found", () => {
       // execute
-      const actual = bundleUtils.getResourceFromBundle(
+      const actual = bundleUtils.getResource(
         inputPayload.entry,
         "123"
       );
@@ -54,7 +54,7 @@ describe("BundleUtils", () => {
 
     it("should return resource if resource is found", () => {
       // execute
-      const actual = bundleUtils.getResourceFromBundle(
+      const actual = bundleUtils.getResource(
         inputPayload.entry,
         "ec0bb1b3-b229-36cf-7e34-3f5fec9d3afe"
       );
