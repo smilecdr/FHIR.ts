@@ -97,7 +97,7 @@ If you try writing this out you will see that the variable `resource` inside the
 ### `v2.1.0`
 #### BundleUtils usage
 ```js
-import { BundleUtils } from '@smilecdr/fhirts';
+import { BundleUtils } from '@smile-cdr/fhirts';
  
 const bundleUtils = new BundleUtils();
 // returns arrayof Claim resources from Bundle.entry 
@@ -108,7 +108,7 @@ const resource = bundleUtils.getResourceFromBundle(Bundle.entry, '123');
 
 #### ResourceUtils usage
 ```js
-import { ResourceUtils } from '@smilecdr/fhirts';
+import { ResourceUtils } from '@smile-cdr/fhirts';
 const resourceUtils = new ResourceUtils();
 // returns deserialized Patient resource
 const deserializedPatientResource = resourceUtils.deserializeResource(jsonPatientPayload, new Patient()); 
@@ -136,7 +136,7 @@ const references = resourceUtils.getAllReferencesFromResource(resourcePayload);
 ### `v2.0.0`
 #### BundleUtilities usage
 ```js
-import { BundleUtilities } from '@smilecdr/fhirts';
+import { BundleUtilities } from '@smile-cdr/fhirts';
  
 // returns arrayof Claim resources from Bundle.entry 
 const claimsList = BundleUtilities.getResourcesFromBundle(Bundle.entry, 'Claim'); 
@@ -144,7 +144,7 @@ const claimsList = BundleUtilities.getResourcesFromBundle(Bundle.entry, 'Claim')
 
 #### ResourceUtilities usage
 ```js
-import { ResourceUtilities } from '@smilecdr/fhirts';
+import { ResourceUtilities } from '@smile-cdr/fhirts';
 
 // returns deserialized Patient resource
 const deserializedPatientResource = ResourceUtilities.deserializeResource(jsonPatientPayload, new Patient()); 
