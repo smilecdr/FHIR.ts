@@ -253,7 +253,7 @@ describe("ResourceUtils", () => {
       expect(pathValues[0]).toEqual("male");
     });
 
-    fit("should return array with values for a array under object", () => {
+    it("should return array with values for a array under object", () => {
       // execute
       const pathValues = resourceUtils.getValuesAtResourcePath(patientPayload, "Patient.name.given");
       // validate
