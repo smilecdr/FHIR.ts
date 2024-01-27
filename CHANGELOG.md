@@ -2,7 +2,7 @@
 
 ## 2.1.1
 
-* Fix issue with `BundleUtil.getResourceFromBundle` not being able get the values inside nested array under array of objects.
+* Fix issue with `BundleUtils.getResourceFromBundle` not being able get the values inside nested array under array of objects.
 
 ## 2.0.7
 
