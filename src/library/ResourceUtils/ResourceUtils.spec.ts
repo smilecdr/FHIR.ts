@@ -253,6 +253,16 @@ describe("ResourceUtils", () => {
       expect(pathValues[0]).toEqual("male");
     });
 
+    fit("should return array with values for a array under object", () => {
+      // execute
+      const pathValues = resourceUtils.getValuesAtResourcePath(patientPayload, "Patient.name.given");
+      // validate
+      expect(pathValues.length).toEqual(3);
+      expect(pathValues[0]).toEqual("Pieter");
+      expect(pathValues[1]).toEqual("Peter");
+      expect(pathValues[2]).toEqual("Pieter");
+    });
+
     it("should return array with values if path exists for a deep array element", () => {
       // execute
       const pathValues = resourceUtils.getValuesAtResourcePath(patientPayload, "Patient.contact.relationship.coding.system");
