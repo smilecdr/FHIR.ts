@@ -80,8 +80,12 @@ export class ResourceUtils {
            let resultSet = [];
            for (let subPathIndex = 0; subPathIndex < resourcePathValue.length; subPathIndex++) {
               const subPathValue = resourcePathValue[subPathIndex];
-              resultSet.push(...this.getValuesAtResourcePath(subPathValue,
-                 pathSections.slice(index).join(".")));
+              if(this.isPrimitive(subPathValue)) {
+                resultSet.push(subPathValue);
+              } else {
+                resultSet.push(...this.getValuesAtResourcePath(subPathValue,
+                  pathSections.slice(index).join(".")));
+              }
            }
            return resultSet;
         } else if (typeof(resourcePathValue) === 'object') {
