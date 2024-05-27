@@ -1,4 +1,4 @@
-export class QueryUtils {
+export class QueryBuilder {
 
   readonly REV_INCLUDE_KEYWORD = "_revinclude";
   readonly INCLUDE_KEYWORD = "_include";
