@@ -4,5 +4,6 @@ import * as fhirR3 from './FHIR-R3';
 import * as dstu2 from './FHIR-DSTU2';
 import { ResourceUtils } from './library/ResourceUtils/ResourceUtils';
 import { BundleUtils } from './library/BundleUtils/BundleUtils';
-export { fhirR4, fhirR3, IfhirR4, dstu2, ResourceUtils, BundleUtils };
+import { QueryBuilder } from './library/QueryBuilder/QueryBuilder';
+export { fhirR4, fhirR3, IfhirR4, dstu2, ResourceUtils, BundleUtils, QueryBuilder };
 

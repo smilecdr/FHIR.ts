@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.2
+
+* Add `QueryBuilder` for ease of generating queries.
+
 ## 2.1.1
 
 * Fix issue with `BundleUtils.getResourceFromBundle` not being able get the values inside nested array under array of objects.
