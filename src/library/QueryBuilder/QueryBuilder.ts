@@ -92,10 +92,11 @@ export class QueryBuilder {
    */
   getCompleteUrl(): String {
     let completeUrl = this.baseResource + "?";
-    if(this.singularQueries.length > 0) {
+    const singularQueriesLength = this.singularQueries.length;
+    if(singularQueriesLength > 0) {
       completeUrl +=  this.singularQueries.join(this.QUERY_DELIMETER);
     }
-    completeUrl += this.createSortQuery();
+    completeUrl += this.createSortQuery(singularQueriesLength);
     return completeUrl; 
   }
 
@@ -106,9 +107,9 @@ export class QueryBuilder {
     return decodeURIComponent(this.getCompleteUrl().toString()); 
   }
   
-  private createSortQuery(): String {
+  private createSortQuery(singularQueriesLength: number): String {
     let sortQuery = "";
-    const sortDelimeter = this.singularQueries.length > 0 ? this.QUERY_DELIMETER : "";
+    const sortDelimeter = singularQueriesLength > 0 ? this.QUERY_DELIMETER : "";
     if(this.sortQueries.length > 0) {
       sortQuery += sortDelimeter + this.SORT_KEYWORD + this.EQUALS + encodeURIComponent(this.sortQueries.join(this.COMMA));
     }
