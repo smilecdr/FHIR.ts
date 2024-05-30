@@ -20,7 +20,7 @@ describe("QueryBuilder", () => {
 
   it('include() should make query for _include', () => {
     // setup
-    const expected: String = "Patient?_include=Patient:organization"
+    const expected: String = "Patient?_include=Patient%3Aorganization"
     // execute
     queryBuilder.setBaseResource("Patient").include("organization");
     // validate
@@ -29,7 +29,7 @@ describe("QueryBuilder", () => {
 
   it('include() should make query for multiple _include', () => {
     // setup
-    const expected: String = "Patient?_include=Patient:organization&_include=Patient:link"
+    const expected: String = "Patient?_include=Patient%3Aorganization&_include=Patient%3Alink"
     // execute
     queryBuilder.setBaseResource("Patient")
                 .include("organization")
@@ -40,7 +40,7 @@ describe("QueryBuilder", () => {
 
   it('revinclude() should make query for _revinclude', () => {
     // setup
-    const expected: String = "MedicationRequest?_revinclude=CarePlan:activity-reference"
+    const expected: String = "MedicationRequest?_revinclude=CarePlan%3Aactivity-reference"
     // execute
     queryBuilder.setBaseResource("MedicationRequest")
                 .revinclude("CarePlan", "activity-reference");
@@ -50,7 +50,7 @@ describe("QueryBuilder", () => {
 
   it('revinclude() should make query for multiple _revinclude', () => {
     // setup
-    const expected: String = "MedicationRequest?_revinclude=CarePlan:activity-reference&_revinclude=Observation:based-on"
+    const expected: String = "MedicationRequest?_revinclude=CarePlan%3Aactivity-reference&_revinclude=Observation%3Abased-on"
     // execute
     queryBuilder.setBaseResource("MedicationRequest")
                 .revinclude("CarePlan", "activity-reference")
@@ -61,7 +61,7 @@ describe("QueryBuilder", () => {
 
   it('include() and revinclude() should make query for _include & _revinclude', () => {
     // setup
-    const expected: String = "MedicationRequest?_revinclude=CarePlan:activity-reference&_include=MedicationRequest:encounter"
+    const expected: String = "MedicationRequest?_revinclude=CarePlan%3Aactivity-reference&_include=MedicationRequest%3Aencounter"
     // execute
     queryBuilder.setBaseResource("MedicationRequest")
                 .revinclude("CarePlan", "activity-reference")
@@ -101,7 +101,7 @@ describe("QueryBuilder", () => {
 
   it('sort() should make query for _sort', () => {
     // setup
-    const expected: String = "Observation?_sort=status,-date"
+    const expected: String = "Observation?_sort=status%2C-date"
     // execute
     queryBuilder.setBaseResource("Observation")
                 .sort("status", SORT_ORDER.ASCENDING)
@@ -112,7 +112,7 @@ describe("QueryBuilder", () => {
 
   it('sort(), include() and revincludeAll() should make query for _sort, _include & _revinclude', () => {
     // setup
-    const expected: String = "Observation?_revinclude=*&_include=Observation:based-on&_sort=status"
+    const expected: String = "Observation?_revinclude=*&_include=Observation%3Abased-on&_sort=status"
     // execute
     queryBuilder.setBaseResource("Observation")
                 .revincludeAll()
@@ -133,5 +133,17 @@ describe("QueryBuilder", () => {
     queryBuilder.resetQuery();
     // validate
     expect(queryBuilder.getBaseResource()).toEqual(expected);
+  });
+
+  it('getCompleteUrlDecoded() should get uri decoded query', () => {
+    // setup
+    const expected: String = "Observation?_revinclude=*&_include=Observation:based-on&_sort=status"
+    // execute
+    queryBuilder.setBaseResource("Observation")
+                .revincludeAll()
+                .include("based-on")
+                .sort("status", SORT_ORDER.ASCENDING);
+    // validate
+    expect(queryBuilder.getCompleteUrlDecoded()).toEqual(expected);
   });
 });

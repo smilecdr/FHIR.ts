@@ -35,7 +35,7 @@ export class QueryBuilder {
    * @param searchParameter SearchParameter reference to targeted resource
    */
   include(searchParameter: String) {
-    this.singularQueries.push(this.INCLUDE_KEYWORD + this.EQUALS + this.baseResource + this.COLON + searchParameter);
+    this.singularQueries.push(this.INCLUDE_KEYWORD + this.EQUALS + encodeURIComponent(this.baseResource + this.COLON + searchParameter));
     return this;
   }
 
@@ -44,7 +44,7 @@ export class QueryBuilder {
    * @param searchParameter SearchParameter reference from target resource to baseResource
    */
   revinclude(resourceType: String, searchParameter: String) {
-    this.singularQueries.push(this.REV_INCLUDE_KEYWORD + this.EQUALS + resourceType + this.COLON + searchParameter);
+    this.singularQueries.push(this.REV_INCLUDE_KEYWORD + this.EQUALS +  encodeURIComponent(resourceType + this.COLON + searchParameter));
     return this;
   }
 
@@ -88,7 +88,7 @@ export class QueryBuilder {
   }
 
   /**
-   * @returns complete generated query 
+   * @returns complete generated query with encoded parameter values
    */
   getCompleteUrl(): String {
     let completeUrl = this.baseResource + "?";
@@ -98,12 +98,19 @@ export class QueryBuilder {
     completeUrl += this.createSortQuery();
     return completeUrl; 
   }
+
+  /**
+   * @returns complete generated query with decoded parameter values
+   */
+  getCompleteUrlDecoded(): String {
+    return decodeURIComponent(this.getCompleteUrl().toString()); 
+  }
   
   private createSortQuery(): String {
     let sortQuery = "";
     const sortDelimeter = this.singularQueries.length > 0 ? this.QUERY_DELIMETER : "";
     if(this.sortQueries.length > 0) {
-      sortQuery += sortDelimeter + this.SORT_KEYWORD + this.EQUALS + this.sortQueries.join(this.COMMA);
+      sortQuery += sortDelimeter + this.SORT_KEYWORD + this.EQUALS + encodeURIComponent(this.sortQueries.join(this.COMMA));
     }
     return sortQuery;
   }
