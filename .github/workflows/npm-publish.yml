@@ -6,7 +6,7 @@ name: FHIR.ts Publish
 on:
   push:
     branches: 
-      - master
+      - main
     paths-ignore:
       - '**.md'
       - '**.yml'
