@@ -45,7 +45,7 @@ import { UsageContext } from './usageContext';
 /**
  * Optional Extension Element - found in all resources.
  */
-export class Extension { 
+export class Extension {
     /**
      * Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.
      */
@@ -57,7 +57,7 @@ export class Extension {
     /**
      * Source of the definition for the extension code - a logical name or a URL.
      */
-    url?: Uri;
+    url: Uri;
     /**
      * Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).
      */

@@ -1,8 +1,13 @@
 # Changelog
 
-## 2.1.3
+## 2.2.1
 
 * Added resource definitions for FHIR R5.
+
+## 2.2.0
+
+* Update `ResourceUtils` with strong typing to catch incorrect input data types for all FHIR versions.
+* Update some cardinalities for base data types and structures
 
 ## 2.1.2
 
