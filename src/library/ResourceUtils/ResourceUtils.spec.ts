@@ -1,4 +1,5 @@
-import { Coding, Extension, Identifier, ResourceUtils } from "./ResourceUtils";
+import { ResourceUtils } from "./ResourceUtils";
+import { Coding, Extension, Identifier, } from "../dataTypes";
 
 const patientPayload = require("./../../test-resources/Patient-R4.json");
 const careTeamPayload = require("./../../test-resources/CareTeam-R4.json");

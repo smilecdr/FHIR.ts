@@ -1,13 +1,5 @@
-import * as DSTU2 from "../../FHIR-DSTU2";
-import * as R3 from "../../FHIR-R3";
-import { Coding as r4Coding } from "../../FHIR-R4/classes/coding";
-import { Extension as r4Extension } from "../../FHIR-R4/classes/extension";
-import { Identifier as r4Identifier } from "../../FHIR-R4/classes/identifier";
-export type Identifier = r4Identifier & R3.Identifier & DSTU2.Identifier;
-type IdentifierKeys = keyof Identifier;
-export type Extension = r4Extension & R3.Extension & DSTU2.Extension;
-export type Coding = r4Coding & R3.Coding & DSTU2.Coding;
-type CodingKeys = keyof Coding;
+import { Coding, CodingKeys, Extension, Identifier, IdentifierKeys } from "../dataTypes";
+
 export class ResourceUtils {
   /**
    *
