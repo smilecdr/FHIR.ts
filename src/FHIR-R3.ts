@@ -1,7 +1,7 @@
 /* This is base class from which other elements are derived */
 export class FHIRElement {
-  id: string;
-  extension: Extension[];
+  id?: string;
+  extension?: Extension[];
 }
 
 export class BackboneElement extends FHIRElement {
@@ -9,7 +9,7 @@ export class BackboneElement extends FHIRElement {
 }
 /* FHIR classes used in resources */
 
-export class DomainResource  {
+export class DomainResource {
   text: Narrative;
   contained: Resource[];
   extension: Extension[];
@@ -60,13 +60,12 @@ export class Code extends FHIRElement {
 }
 
 export class Coding extends FHIRElement {
-  system: string;
-  version: string;
+  system?: string;
+  version?: string;
   // should be of type Code
-  code: string;
-  display: string;
-  userSelected: boolean;
-  value: string;
+  code?: string;
+  display?: string;
+  userSelected?: boolean;
 }
 
 export class DoseCoding extends FHIRElement {
@@ -87,16 +86,16 @@ export class HumanName extends FHIRElement {
 
 export class Extension {
   url: string;
-  valueString: string;
-  valueCode: string;
-  valueAddress: Address;
+  valueString?: string;
+  valueCode?: string;
+  valueAddress?: Address;
   valueBoolean?: boolean;
-  valueHumanName: HumanName;
-  valueReference: Reference;
-  valueDate: Date;
-  valueIdentifier: string;
+  valueHumanName?: HumanName;
+  valueReference?: Reference;
+  valueDate?: Date;
+  valueIdentifier?: string;
   valueDecimal?: number;
-  valueInteger: number;
+  valueInteger?: number;
 }
 
 export class Address extends FHIRElement {
@@ -256,12 +255,12 @@ export class Reference extends FHIRElement {
 }
 
 export class Identifier extends FHIRElement {
-  use: string;
-  type: CodeableConcept;
-  system: string;
-  value: string;
-  period: Period;
-  assigner: Reference;
+  use?: string;
+  type?: CodeableConcept;
+  system?: string;
+  value?: string;
+  period?: Period;
+  assigner?: Reference;
 }
 
 export class Payload extends BackboneElement {
@@ -815,48 +814,48 @@ export class Encounter extends BaseResource {
   identifier: Identifier[];
   status: 'planned' | 'arrived' | 'triaged' | 'in-progress' | 'onleave' | 'finished' | 'cancelled' | 'entered-in-error' | 'unknown';
   statusHistory: {
-    status:'planned' | 'arrived' | 'triaged' | 'in-progress' | 'onleave' | 'finished' | 'cancelled' | 'entered-in-error' | 'unknown';
+    status: 'planned' | 'arrived' | 'triaged' | 'in-progress' | 'onleave' | 'finished' | 'cancelled' | 'entered-in-error' | 'unknown';
     period: Period;
   }[];
-  class:Coding;
-  classHistory:{
-    class:Coding;
-    period:Period;
+  class: Coding;
+  classHistory: {
+    class: Coding;
+    period: Period;
   }[];
-  type:CodeableConcept[];
-  priority:CodeableConcept;
+  type: CodeableConcept[];
+  priority: CodeableConcept;
   episodeOfCare: Reference[];
   subject: Reference;
-  incomingReferral:Reference[];
+  incomingReferral: Reference[];
   participant: EncounterParticipant[];
-  appointment:Reference;
-  period:Period;
-  length:Quantity;
-  reason:CodeableConcept[];
-  diagnosis:{
-    condition:Reference;
-    role:CodeableConcept;
-    rank:number
+  appointment: Reference;
+  period: Period;
+  length: Quantity;
+  reason: CodeableConcept[];
+  diagnosis: {
+    condition: Reference;
+    role: CodeableConcept;
+    rank: number
   }[];
-  account:Reference[];
-  hospitalization:{
-    preAdmissionIdentifer:Identifier;
-    origin:Reference;
-    admitSource:CodeableConcept;
-    reAdmission:CodeableConcept;
-    dietPreference:CodeableConcept[];
-    specialCourtesy:CodeableConcept[];
-    specialArrangement:CodeableConcept[];
-    destination:Reference;
-    dischargeDiposition:CodeableConcept;
+  account: Reference[];
+  hospitalization: {
+    preAdmissionIdentifer: Identifier;
+    origin: Reference;
+    admitSource: CodeableConcept;
+    reAdmission: CodeableConcept;
+    dietPreference: CodeableConcept[];
+    specialCourtesy: CodeableConcept[];
+    specialArrangement: CodeableConcept[];
+    destination: Reference;
+    dischargeDiposition: CodeableConcept;
   };
-  location:{
-    location:Reference;
+  location: {
+    location: Reference;
     status: 'planned' | 'active' | 'reserved' | 'completed';
     period: Period
   }[];
-  serviceProvider:Reference;
-  partOf:Reference;
+  serviceProvider: Reference;
+  partOf: Reference;
 }
 
 export class CareTeamParticipant extends BackboneElement {
@@ -1283,11 +1282,11 @@ export class AllergyIntoleranceReaction extends BackboneElement {
 }
 
 export class Age extends FHIRElement {
-    value: number;
-    comparator: '<' | '<=' | '>=' | '>';
-    unit: string;
-    system: string;
-    code: Code;
+  value: number;
+  comparator: '<' | '<=' | '>=' | '>';
+  unit: string;
+  system: string;
+  code: Code;
 }
 
 export class ValueSet extends BaseResource {

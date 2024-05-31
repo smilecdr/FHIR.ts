@@ -1,3 +1,5 @@
+import { Coding, CodingKeys, Extension, Identifier, IdentifierKeys } from "../dataTypes";
+
 export class ResourceUtils {
   /**
    *
@@ -23,10 +25,10 @@ export class ResourceUtils {
    * @limitations currently does not work with identifier.type, identifier.period & identifier.assigner
    */
   getIdentifiersByProperty(
-    identifierList: any[],
-    propertyToCompare: string,
-    propertyValue: string
-  ): any[] {
+    identifierList: Identifier[],
+    propertyToCompare: IdentifierKeys,
+    propertyValue: Identifier[IdentifierKeys]
+  ): Identifier[] {
     return identifierList?.length
       ? identifierList.filter((x) => x[propertyToCompare] === propertyValue)
       : [];
@@ -38,7 +40,7 @@ export class ResourceUtils {
    * @param extensionUrl Extension.url to compare
    * @returns array of matches
    */
-  getExtensionsByUrl(extensionList: any[], extensionUrl: string): any[] {
+  getExtensionsByUrl(extensionList: Extension[], extensionUrl: string): Extension[] {
     return extensionList?.length
       ? extensionList.filter((x) => x["url"] === extensionUrl)
       : [];
@@ -52,10 +54,10 @@ export class ResourceUtils {
    * @returns array of matches
    */
   getCodingsByProperty(
-    codingList: any[],
-    propertyToCompare: string,
-    propertyValue: string | boolean
-  ): any[] {
+    codingList: Coding[],
+    propertyToCompare: CodingKeys,
+    propertyValue: Coding[CodingKeys]
+  ): Coding[] {
     return codingList?.length
       ? codingList.filter((x) => x[propertyToCompare] === propertyValue)
       : [];
@@ -77,18 +79,18 @@ export class ResourceUtils {
         if (this.isPrimitive(resourcePathValue)) {
           return [resourcePathValue];
         } else if (Array.isArray(resourcePathValue) && resourcePathValue.length > 0) {
-           let resultSet = [];
-           for (let subPathIndex = 0; subPathIndex < resourcePathValue.length; subPathIndex++) {
-              const subPathValue = resourcePathValue[subPathIndex];
-              if(this.isPrimitive(subPathValue)) {
-                resultSet.push(subPathValue);
-              } else {
-                resultSet.push(...this.getValuesAtResourcePath(subPathValue,
-                  pathSections.slice(index).join(".")));
-              }
-           }
-           return resultSet;
-        } else if (typeof(resourcePathValue) === 'object') {
+          let resultSet = [];
+          for (let subPathIndex = 0; subPathIndex < resourcePathValue.length; subPathIndex++) {
+            const subPathValue = resourcePathValue[subPathIndex];
+            if (this.isPrimitive(subPathValue)) {
+              resultSet.push(subPathValue);
+            } else {
+              resultSet.push(...this.getValuesAtResourcePath(subPathValue,
+                pathSections.slice(index).join(".")));
+            }
+          }
+          return resultSet;
+        } else if (typeof (resourcePathValue) === 'object') {
           return this.getValuesAtResourcePath(resourcePathValue,
             pathSections.slice(index).join("."));
         }
@@ -100,7 +102,7 @@ export class ResourceUtils {
   }
 
   private isPrimitive(value: any) {
-    return typeof(value) === "boolean" || typeof(value) === "string";
+    return typeof (value) === "boolean" || typeof (value) === "string";
   }
 
   /**
@@ -117,7 +119,7 @@ export class ResourceUtils {
       const referenceEnd = stringifiedResource.indexOf('"', referenceStart + 1);
       const reference = stringifiedResource.substring(referenceStart, referenceEnd);
       // this means the reference ends started reading from start again
-      if(referenceEnd < cursor) {
+      if (referenceEnd < cursor) {
         break;
       }
       references.push(reference);

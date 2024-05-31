@@ -1,7 +1,7 @@
 /* This is base class from which other elements are derived */
 export class FHIRElement {
-  id: string;
-  extension: Extension[];
+  id?: string;
+  extension?: Extension[];
 }
 
 export class BackboneElement extends FHIRElement {
@@ -22,7 +22,7 @@ export class Id {
   }
 }
 
-export class DomainResource  {
+export class DomainResource {
   text: Narrative;
   contained: Resource[];
   extension: Extension[];
@@ -56,12 +56,12 @@ export class CodeableConcept extends FHIRElement {
 }
 
 export class Identifier extends FHIRElement {
-  use: string;
-  type: CodeableConcept;
-  system: string;
-  value: string;
-  period: Period;
-  assigner: Reference;
+  use?: string;
+  type?: CodeableConcept;
+  system?: string;
+  value?: string;
+  period?: Period;
+  assigner?: Reference;
 }
 
 export class Reference extends FHIRElement {
@@ -83,25 +83,25 @@ export class HumanName extends FHIRElement {
 
 export class Extension {
   url: string;
-  valueString: string;
-  valueCode: string;
-  valueAddress: Address;
+  valueString?: string;
+  valueCode?: string;
+  valueAddress?: Address;
   valueBoolean?: boolean;
-  valueHumanName: HumanName;
-  valueReference: Reference;
-  valueDate: Date;
-  valueIdentifier: string;
+  valueHumanName?: HumanName;
+  valueReference?: Reference;
+  valueDate?: Date;
+  valueIdentifier?: string;
   valueDecimal?: number;
-  valueInteger: number;
-  valuePeriod: Period;
+  valueInteger?: number;
+  valuePeriod?: Period;
 }
 
 export class Coding extends FHIRElement {
-  system: string;
-  version: string;
-  code: string;
-  display: string;
-  userSelected: boolean;
+  system?: string;
+  version?: string;
+  code?: string;
+  display?: string;
+  userSelected?: boolean;
 }
 
 export class Period extends FHIRElement {

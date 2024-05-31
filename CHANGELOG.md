@@ -1,6 +1,11 @@
 # Changelog
 
-## 2.2.2
+## 2.2.0
+
+* Update `ResourceUtils` with strong typing to catch incorrect input data types for all FHIR versions.
+* Update some cardinalities for base data types and structures
+
+## 2.1.2
 
 * Add `QueryBuilder` for ease of generating queries.
 
