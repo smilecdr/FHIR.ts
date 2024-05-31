@@ -1,6 +1,10 @@
 # Changelog
 
-## 2.2.2
+## 2.1.3
+
+* Added resource definitions for FHIR R5.
+
+## 2.1.2
 
 * Add `QueryBuilder` for ease of generating queries.
 
