@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.2.2
+
+* Add `QueryBuilder` for ease of generating queries.
+
+## 2.1.1
+
+* Fix issue with `BundleUtils.getResourceFromBundle` not being able get the values inside nested array under array of objects.
+
+## 2.1.0
+
+* Remove static classes for `BundleUtilities` & `ResourceUtilities` to non static classes `BundleUtils` & `ResourceUtils.`
+
 ## 2.0.7
 
 ### Updates (R4)

@@ -22,7 +22,8 @@
         "use": "usual",
         "family": "van de Heuvel",
         "given": [
-          "Pieter"
+          "Pieter",
+          "Peter"
         ],
         "suffix": [
           "MSc"
@@ -83,6 +84,10 @@
               {
                 "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
                 "code": "C"
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0132",
+                "code": "D"
               }
             ]
           }

@@ -94,18 +94,57 @@ If you try writing this out you will see that the variable `resource` inside the
 - The above utlity classes include common functionalities used by front end applications using FHIR. 
 - All utilities functions are static right now, so, no need for instantiating classes. **Note: This is subject to change in future**
 
+### `v2.1.0`
+#### BundleUtils usage
+```js
+import { BundleUtils } from '@smile-cdr/fhirts';
+ 
+const bundleUtils = new BundleUtils();
+// returns arrayof Claim resources from Bundle.entry 
+const claimsList = bundleUtils.getResourcesFromBundle(Bundle.entry, 'Claim');
+// returns a single resource with ID 123 from Bundle.entry
+const resource = bundleUtils.getResourceFromBundle(Bundle.entry, '123'); 
+```
 
+#### ResourceUtils usage
+```js
+import { ResourceUtils } from '@smile-cdr/fhirts';
+const resourceUtils = new ResourceUtils();
+// returns deserialized Patient resource
+const deserializedPatientResource = resourceUtils.deserializeResource(jsonPatientPayload, new Patient()); 
+
+// returns Patient.gender
+const patientGender = resourceUtils.getResourceProperty(jsonPatientPayload, 'gender'); 
+
+// returns all matching identifiers where Identifier.use = usual
+const identifierFilter = resourceUtils.getIdentifiersByProperty(identifierList,"use","usual"); 
+
+const url = "http://ns.electronichealth.net.au/id/hi/ihi/1.0";
+// returns all matching extensions where Extension.use = "http://ns.electronichealth.net.au/id/hi/ihi/1.0"
+const extensionFilter = resourceUtils.getExtensionsByUrl(extensionList, url); 
+
+// returns all matching codings where Coding.code = "abc"
+const codingFilter = resourceUtils.getCodingsByProperty(codingList,"code","abc"); 
+// returns array of elements found at provided path and returns empty array if no values found 
+const values = resourceUtils.getValuesAtResourcePath(jsonPatientPayload, "Patient.contact.relationship.coding.system");
+// returns array of references found in a resource
+const references = resourceUtils.getAllReferencesFromResource(resourcePayload);
+```
+
+
+
+### `v2.0.0`
 #### BundleUtilities usage
 ```js
-import { BundleUtilities } from '@smilecdr/fhirts';
+import { BundleUtilities } from '@smile-cdr/fhirts';
  
-// returns list of Claim resources from Bundle.entry 
+// returns arrayof Claim resources from Bundle.entry 
 const claimsList = BundleUtilities.getResourcesFromBundle(Bundle.entry, 'Claim'); 
 ```
 
 #### ResourceUtilities usage
 ```js
-import { ResourceUtilities } from '@smilecdr/fhirts';
+import { ResourceUtilities } from '@smile-cdr/fhirts';
 
 // returns deserialized Patient resource
 const deserializedPatientResource = ResourceUtilities.deserializeResource(jsonPatientPayload, new Patient()); 
