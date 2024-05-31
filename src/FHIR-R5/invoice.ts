@@ -35,7 +35,7 @@ export interface Invoice {
     /**
      * This is a Invoice resource
      */
-    resourceType: any;
+    resourceType: 'Invoice';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

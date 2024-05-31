@@ -32,7 +32,7 @@ export interface BiologicallyDerivedProduct {
     /**
      * This is a BiologicallyDerivedProduct resource
      */
-    resourceType: any;
+    resourceType: 'BiologicallyDerivedProduct';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

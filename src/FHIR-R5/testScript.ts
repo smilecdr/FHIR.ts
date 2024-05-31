@@ -41,7 +41,7 @@ export interface TestScript {
     /**
      * This is a TestScript resource
      */
-    resourceType: any;
+    resourceType: 'TestScript';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

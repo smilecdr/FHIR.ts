@@ -48,7 +48,7 @@ export interface ExplanationOfBenefit {
     /**
      * This is a ExplanationOfBenefit resource
      */
-    resourceType: any;
+    resourceType: 'ExplanationOfBenefit';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

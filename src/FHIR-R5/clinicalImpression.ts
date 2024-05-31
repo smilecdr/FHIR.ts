@@ -31,7 +31,7 @@ export interface ClinicalImpression {
     /**
      * This is a ClinicalImpression resource
      */
-    resourceType: any;
+    resourceType: 'ClinicalImpression';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

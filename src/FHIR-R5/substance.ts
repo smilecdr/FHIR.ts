@@ -31,7 +31,7 @@ export interface Substance {
     /**
      * This is a Substance resource
      */
-    resourceType: any;
+    resourceType: 'Substance';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

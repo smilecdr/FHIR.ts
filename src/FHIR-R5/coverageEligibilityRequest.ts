@@ -33,7 +33,7 @@ export interface CoverageEligibilityRequest {
     /**
      * This is a CoverageEligibilityRequest resource
      */
-    resourceType: any;
+    resourceType: 'CoverageEligibilityRequest';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

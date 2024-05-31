@@ -34,7 +34,7 @@ export interface NutritionOrder {
     /**
      * This is a NutritionOrder resource
      */
-    resourceType: any;
+    resourceType: 'NutritionOrder';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

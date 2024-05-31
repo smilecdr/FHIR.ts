@@ -22,7 +22,7 @@ export interface Parameters {
     /**
      * This is a Parameters resource
      */
-    resourceType: any;
+    resourceType: 'Parameters';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

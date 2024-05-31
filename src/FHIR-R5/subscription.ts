@@ -35,7 +35,7 @@ export interface Subscription {
     /**
      * This is a Subscription resource
      */
-    resourceType: any;
+    resourceType: 'Subscription';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

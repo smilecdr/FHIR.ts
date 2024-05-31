@@ -28,7 +28,7 @@ export interface VisionPrescription {
     /**
      * This is a VisionPrescription resource
      */
-    resourceType: any;
+    resourceType: 'VisionPrescription';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

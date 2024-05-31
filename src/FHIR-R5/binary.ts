@@ -23,7 +23,7 @@ export interface Binary {
     /**
      * This is a Binary resource
      */
-    resourceType: any;
+    resourceType: 'Binary';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

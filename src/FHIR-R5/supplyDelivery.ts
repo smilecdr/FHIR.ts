@@ -30,7 +30,7 @@ export interface SupplyDelivery {
     /**
      * This is a SupplyDelivery resource
      */
-    resourceType: any;
+    resourceType: 'SupplyDelivery';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

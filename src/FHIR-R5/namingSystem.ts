@@ -34,7 +34,7 @@ export interface NamingSystem {
     /**
      * This is a NamingSystem resource
      */
-    resourceType: any;
+    resourceType: 'NamingSystem';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

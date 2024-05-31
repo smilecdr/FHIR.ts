@@ -39,7 +39,7 @@ export interface ClaimResponse {
     /**
      * This is a ClaimResponse resource
      */
-    resourceType: any;
+    resourceType: 'ClaimResponse';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

@@ -37,7 +37,7 @@ export interface ObservationDefinition {
     /**
      * This is a ObservationDefinition resource
      */
-    resourceType: any;
+    resourceType: 'ObservationDefinition';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

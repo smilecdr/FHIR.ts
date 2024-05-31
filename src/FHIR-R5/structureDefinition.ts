@@ -36,7 +36,7 @@ export interface StructureDefinition {
     /**
      * This is a StructureDefinition resource
      */
-    resourceType: any;
+    resourceType: 'StructureDefinition';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

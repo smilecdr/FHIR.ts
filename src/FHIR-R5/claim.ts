@@ -40,7 +40,7 @@ export interface Claim {
     /**
      * This is a Claim resource
      */
-    resourceType: any;
+    resourceType: 'Claim';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

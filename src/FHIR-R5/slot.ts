@@ -29,7 +29,7 @@ export interface Slot {
     /**
      * This is a Slot resource
      */
-    resourceType: any;
+    resourceType: 'Slot';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

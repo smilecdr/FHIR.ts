@@ -31,7 +31,7 @@ export interface BiologicallyDerivedProductDispense {
     /**
      * This is a BiologicallyDerivedProductDispense resource
      */
-    resourceType: any;
+    resourceType: 'BiologicallyDerivedProductDispense';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

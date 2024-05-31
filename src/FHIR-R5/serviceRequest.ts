@@ -38,7 +38,7 @@ export interface ServiceRequest {
     /**
      * This is a ServiceRequest resource
      */
-    resourceType: any;
+    resourceType: 'ServiceRequest';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

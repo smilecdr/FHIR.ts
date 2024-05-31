@@ -30,7 +30,7 @@ export interface Ingredient {
     /**
      * This is a Ingredient resource
      */
-    resourceType: any;
+    resourceType: 'Ingredient';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

@@ -31,7 +31,7 @@ export interface InventoryReport {
     /**
      * This is a InventoryReport resource
      */
-    resourceType: any;
+    resourceType: 'InventoryReport';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

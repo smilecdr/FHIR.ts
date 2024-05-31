@@ -29,7 +29,7 @@ export interface Permission {
     /**
      * This is a Permission resource
      */
-    resourceType: any;
+    resourceType: 'Permission';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

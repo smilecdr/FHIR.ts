@@ -31,7 +31,7 @@ export interface Practitioner {
     /**
      * This is a Practitioner resource
      */
-    resourceType: any;
+    resourceType: 'Practitioner';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

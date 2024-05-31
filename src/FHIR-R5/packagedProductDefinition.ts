@@ -34,7 +34,7 @@ export interface PackagedProductDefinition {
     /**
      * This is a PackagedProductDefinition resource
      */
-    resourceType: any;
+    resourceType: 'PackagedProductDefinition';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

@@ -38,7 +38,7 @@ export interface EvidenceReport {
     /**
      * This is a EvidenceReport resource
      */
-    resourceType: any;
+    resourceType: 'EvidenceReport';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

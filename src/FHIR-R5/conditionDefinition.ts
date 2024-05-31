@@ -39,7 +39,7 @@ export interface ConditionDefinition {
     /**
      * This is a ConditionDefinition resource
      */
-    resourceType: any;
+    resourceType: 'ConditionDefinition';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

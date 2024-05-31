@@ -40,7 +40,7 @@ export interface ResearchStudy {
     /**
      * This is a ResearchStudy resource
      */
-    resourceType: any;
+    resourceType: 'ResearchStudy';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

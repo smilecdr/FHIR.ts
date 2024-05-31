@@ -34,7 +34,7 @@ export interface OperationDefinition {
     /**
      * This is a OperationDefinition resource
      */
-    resourceType: any;
+    resourceType: 'OperationDefinition';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

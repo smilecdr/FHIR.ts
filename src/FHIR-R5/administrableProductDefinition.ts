@@ -30,7 +30,7 @@ export interface AdministrableProductDefinition {
     /**
      * This is a AdministrableProductDefinition resource
      */
-    resourceType: any;
+    resourceType: 'AdministrableProductDefinition';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

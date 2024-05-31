@@ -26,7 +26,7 @@ export interface SubstanceNucleicAcid {
     /**
      * This is a SubstanceNucleicAcid resource
      */
-    resourceType: any;
+    resourceType: 'SubstanceNucleicAcid';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

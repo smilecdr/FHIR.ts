@@ -30,7 +30,7 @@ export interface Goal {
     /**
      * This is a Goal resource
      */
-    resourceType: any;
+    resourceType: 'Goal';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

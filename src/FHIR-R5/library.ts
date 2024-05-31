@@ -37,7 +37,7 @@ export interface Library {
     /**
      * This is a Library resource
      */
-    resourceType: any;
+    resourceType: 'Library';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

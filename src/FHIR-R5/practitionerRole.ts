@@ -30,7 +30,7 @@ export interface PractitionerRole {
     /**
      * This is a PractitionerRole resource
      */
-    resourceType: any;
+    resourceType: 'PractitionerRole';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

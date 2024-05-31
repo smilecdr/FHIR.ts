@@ -32,7 +32,7 @@ export interface AuditEvent {
     /**
      * This is a AuditEvent resource
      */
-    resourceType: any;
+    resourceType: 'AuditEvent';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

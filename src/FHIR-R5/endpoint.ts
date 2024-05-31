@@ -31,7 +31,7 @@ export interface Endpoint {
     /**
      * This is a Endpoint resource
      */
-    resourceType: any;
+    resourceType: 'Endpoint';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

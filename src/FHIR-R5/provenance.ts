@@ -32,7 +32,7 @@ export interface Provenance {
     /**
      * This is a Provenance resource
      */
-    resourceType: any;
+    resourceType: 'Provenance';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

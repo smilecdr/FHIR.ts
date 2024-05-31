@@ -37,7 +37,7 @@ export interface Procedure {
     /**
      * This is a Procedure resource
      */
-    resourceType: any;
+    resourceType: 'Procedure';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

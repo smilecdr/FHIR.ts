@@ -35,7 +35,7 @@ export interface Condition {
     /**
      * This is a Condition resource
      */
-    resourceType: any;
+    resourceType: 'Condition';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

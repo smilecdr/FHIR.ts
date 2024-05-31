@@ -33,7 +33,7 @@ export interface SearchParameter {
     /**
      * This is a SearchParameter resource
      */
-    resourceType: any;
+    resourceType: 'SearchParameter';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

@@ -33,7 +33,7 @@ export interface GraphDefinition {
     /**
      * This is a GraphDefinition resource
      */
-    resourceType: any;
+    resourceType: 'GraphDefinition';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

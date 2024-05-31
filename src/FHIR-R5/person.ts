@@ -33,7 +33,7 @@ export interface Person {
     /**
      * This is a Person resource
      */
-    resourceType: any;
+    resourceType: 'Person';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

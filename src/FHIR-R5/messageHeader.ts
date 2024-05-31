@@ -31,7 +31,7 @@ export interface MessageHeader {
     /**
      * This is a MessageHeader resource
      */
-    resourceType: any;
+    resourceType: 'MessageHeader';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

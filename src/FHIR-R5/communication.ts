@@ -32,7 +32,7 @@ export interface Communication {
     /**
      * This is a Communication resource
      */
-    resourceType: any;
+    resourceType: 'Communication';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

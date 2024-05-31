@@ -45,7 +45,7 @@ export interface DeviceDefinition {
     /**
      * This is a DeviceDefinition resource
      */
-    resourceType: any;
+    resourceType: 'DeviceDefinition';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

@@ -30,7 +30,7 @@ export interface ManufacturedItemDefinition {
     /**
      * This is a ManufacturedItemDefinition resource
      */
-    resourceType: any;
+    resourceType: 'ManufacturedItemDefinition';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

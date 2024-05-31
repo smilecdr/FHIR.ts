@@ -26,7 +26,7 @@ export interface FormularyItem {
     /**
      * This is a FormularyItem resource
      */
-    resourceType: any;
+    resourceType: 'FormularyItem';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

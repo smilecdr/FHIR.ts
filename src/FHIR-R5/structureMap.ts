@@ -35,7 +35,7 @@ export interface StructureMap {
     /**
      * This is a StructureMap resource
      */
-    resourceType: any;
+    resourceType: 'StructureMap';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

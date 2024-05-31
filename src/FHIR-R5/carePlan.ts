@@ -33,7 +33,7 @@ export interface CarePlan {
     /**
      * This is a CarePlan resource
      */
-    resourceType: any;
+    resourceType: 'CarePlan';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

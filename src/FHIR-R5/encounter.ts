@@ -37,7 +37,7 @@ export interface Encounter {
     /**
      * This is a Encounter resource
      */
-    resourceType: any;
+    resourceType: 'Encounter';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

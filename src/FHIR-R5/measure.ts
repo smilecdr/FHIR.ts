@@ -38,7 +38,7 @@ export interface Measure {
     /**
      * This is a Measure resource
      */
-    resourceType: any;
+    resourceType: 'Measure';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

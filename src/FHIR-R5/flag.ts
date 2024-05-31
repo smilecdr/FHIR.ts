@@ -28,7 +28,7 @@ export interface Flag {
     /**
      * This is a Flag resource
      */
-    resourceType: any;
+    resourceType: 'Flag';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

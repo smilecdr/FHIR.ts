@@ -29,7 +29,7 @@ export interface QuestionnaireResponse {
     /**
      * This is a QuestionnaireResponse resource
      */
-    resourceType: any;
+    resourceType: 'QuestionnaireResponse';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

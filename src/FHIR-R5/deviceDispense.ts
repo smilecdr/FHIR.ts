@@ -33,7 +33,7 @@ export interface DeviceDispense {
     /**
      * This is a DeviceDispense resource
      */
-    resourceType: any;
+    resourceType: 'DeviceDispense';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

@@ -34,7 +34,7 @@ export interface DeviceRequest {
     /**
      * This is a DeviceRequest resource
      */
-    resourceType: any;
+    resourceType: 'DeviceRequest';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

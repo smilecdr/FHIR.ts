@@ -26,7 +26,7 @@ export interface SubstanceProtein {
     /**
      * This is a SubstanceProtein resource
      */
-    resourceType: any;
+    resourceType: 'SubstanceProtein';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

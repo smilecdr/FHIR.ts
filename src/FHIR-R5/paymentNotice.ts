@@ -29,7 +29,7 @@ export interface PaymentNotice {
     /**
      * This is a PaymentNotice resource
      */
-    resourceType: any;
+    resourceType: 'PaymentNotice';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

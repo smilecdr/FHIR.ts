@@ -36,7 +36,7 @@ export interface ValueSet {
     /**
      * This is a ValueSet resource
      */
-    resourceType: any;
+    resourceType: 'ValueSet';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

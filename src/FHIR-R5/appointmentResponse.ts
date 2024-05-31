@@ -30,7 +30,7 @@ export interface AppointmentResponse {
     /**
      * This is a AppointmentResponse resource
      */
-    resourceType: any;
+    resourceType: 'AppointmentResponse';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

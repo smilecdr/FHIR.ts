@@ -30,7 +30,7 @@ export interface List {
     /**
      * This is a List resource
      */
-    resourceType: any;
+    resourceType: 'List';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

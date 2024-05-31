@@ -32,7 +32,7 @@ export interface ImagingStudy {
     /**
      * This is a ImagingStudy resource
      */
-    resourceType: any;
+    resourceType: 'ImagingStudy';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

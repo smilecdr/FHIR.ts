@@ -31,7 +31,7 @@ export interface EpisodeOfCare {
     /**
      * This is a EpisodeOfCare resource
      */
-    resourceType: any;
+    resourceType: 'EpisodeOfCare';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

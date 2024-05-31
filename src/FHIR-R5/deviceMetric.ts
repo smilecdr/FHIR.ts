@@ -29,7 +29,7 @@ export interface DeviceMetric {
     /**
      * This is a DeviceMetric resource
      */
-    resourceType: any;
+    resourceType: 'DeviceMetric';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

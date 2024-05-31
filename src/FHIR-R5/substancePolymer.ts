@@ -28,7 +28,7 @@ export interface SubstancePolymer {
     /**
      * This is a SubstancePolymer resource
      */
-    resourceType: any;
+    resourceType: 'SubstancePolymer';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

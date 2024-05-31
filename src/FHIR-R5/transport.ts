@@ -34,7 +34,7 @@ export interface Transport {
     /**
      * This is a Transport resource
      */
-    resourceType: any;
+    resourceType: 'Transport';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

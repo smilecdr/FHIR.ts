@@ -33,7 +33,7 @@ export interface GenomicStudy {
     /**
      * This is a GenomicStudy resource
      */
-    resourceType: any;
+    resourceType: 'GenomicStudy';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

@@ -35,7 +35,7 @@ export interface NutritionIntake {
     /**
      * This is a NutritionIntake resource
      */
-    resourceType: any;
+    resourceType: 'NutritionIntake';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

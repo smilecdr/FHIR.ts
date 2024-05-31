@@ -36,7 +36,7 @@ export interface SpecimenDefinition {
     /**
      * This is a SpecimenDefinition resource
      */
-    resourceType: any;
+    resourceType: 'SpecimenDefinition';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

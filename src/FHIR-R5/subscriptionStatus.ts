@@ -29,7 +29,7 @@ export interface SubscriptionStatus {
     /**
      * This is a SubscriptionStatus resource
      */
-    resourceType: any;
+    resourceType: 'SubscriptionStatus';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

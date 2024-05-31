@@ -29,7 +29,7 @@ export interface ArtifactAssessment {
     /**
      * This is a ArtifactAssessment resource
      */
-    resourceType: any;
+    resourceType: 'ArtifactAssessment';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

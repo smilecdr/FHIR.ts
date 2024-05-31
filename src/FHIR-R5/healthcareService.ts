@@ -32,7 +32,7 @@ export interface HealthcareService {
     /**
      * This is a HealthcareService resource
      */
-    resourceType: any;
+    resourceType: 'HealthcareService';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

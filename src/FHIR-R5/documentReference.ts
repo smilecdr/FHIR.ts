@@ -34,7 +34,7 @@ export interface DocumentReference {
     /**
      * This is a DocumentReference resource
      */
-    resourceType: any;
+    resourceType: 'DocumentReference';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

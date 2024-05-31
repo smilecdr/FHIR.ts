@@ -35,7 +35,7 @@ export interface EventDefinition {
     /**
      * This is a EventDefinition resource
      */
-    resourceType: any;
+    resourceType: 'EventDefinition';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

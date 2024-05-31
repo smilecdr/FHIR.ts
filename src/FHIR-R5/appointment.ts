@@ -36,7 +36,7 @@ export interface Appointment {
     /**
      * This is a Appointment resource
      */
-    resourceType: any;
+    resourceType: 'Appointment';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

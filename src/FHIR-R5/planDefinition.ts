@@ -38,7 +38,7 @@ export interface PlanDefinition {
     /**
      * This is a PlanDefinition resource
      */
-    resourceType: any;
+    resourceType: 'PlanDefinition';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

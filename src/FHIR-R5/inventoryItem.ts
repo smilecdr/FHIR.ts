@@ -34,7 +34,7 @@ export interface InventoryItem {
     /**
      * This is a InventoryItem resource
      */
-    resourceType: any;
+    resourceType: 'InventoryItem';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

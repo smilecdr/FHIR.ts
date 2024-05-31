@@ -33,7 +33,7 @@ export interface SupplyRequest {
     /**
      * This is a SupplyRequest resource
      */
-    resourceType: any;
+    resourceType: 'SupplyRequest';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

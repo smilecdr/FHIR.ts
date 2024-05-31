@@ -32,7 +32,7 @@ export interface CompartmentDefinition {
     /**
      * This is a CompartmentDefinition resource
      */
-    resourceType: any;
+    resourceType: 'CompartmentDefinition';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

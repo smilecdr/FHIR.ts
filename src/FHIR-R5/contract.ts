@@ -36,7 +36,7 @@ export interface Contract {
     /**
      * This is a Contract resource
      */
-    resourceType: any;
+    resourceType: 'Contract';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

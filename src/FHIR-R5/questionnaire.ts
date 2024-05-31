@@ -35,7 +35,7 @@ export interface Questionnaire {
     /**
      * This is a Questionnaire resource
      */
-    resourceType: any;
+    resourceType: 'Questionnaire';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

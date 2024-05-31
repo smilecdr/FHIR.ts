@@ -34,7 +34,7 @@ export interface Composition {
     /**
      * This is a Composition resource
      */
-    resourceType: any;
+    resourceType: 'Composition';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

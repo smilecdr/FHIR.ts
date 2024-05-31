@@ -30,7 +30,7 @@ export interface Schedule {
     /**
      * This is a Schedule resource
      */
-    resourceType: any;
+    resourceType: 'Schedule';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

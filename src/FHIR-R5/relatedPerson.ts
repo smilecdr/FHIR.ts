@@ -33,7 +33,7 @@ export interface RelatedPerson {
     /**
      * This is a RelatedPerson resource
      */
-    resourceType: any;
+    resourceType: 'RelatedPerson';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

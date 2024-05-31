@@ -28,7 +28,7 @@ export interface ResearchSubject {
     /**
      * This is a ResearchSubject resource
      */
-    resourceType: any;
+    resourceType: 'ResearchSubject';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

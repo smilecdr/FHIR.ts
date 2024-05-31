@@ -29,7 +29,7 @@ export interface SubstanceSourceMaterial {
     /**
      * This is a SubstanceSourceMaterial resource
      */
-    resourceType: any;
+    resourceType: 'SubstanceSourceMaterial';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

@@ -29,7 +29,7 @@ export interface ImmunizationEvaluation {
     /**
      * This is a ImmunizationEvaluation resource
      */
-    resourceType: any;
+    resourceType: 'ImmunizationEvaluation';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

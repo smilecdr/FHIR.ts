@@ -32,7 +32,7 @@ export interface Consent {
     /**
      * This is a Consent resource
      */
-    resourceType: any;
+    resourceType: 'Consent';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

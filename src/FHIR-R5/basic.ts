@@ -28,7 +28,7 @@ export interface Basic {
     /**
      * This is a Basic resource
      */
-    resourceType: any;
+    resourceType: 'Basic';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

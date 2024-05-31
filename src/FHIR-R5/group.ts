@@ -31,7 +31,7 @@ export interface Group {
     /**
      * This is a Group resource
      */
-    resourceType: any;
+    resourceType: 'Group';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

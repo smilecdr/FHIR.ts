@@ -27,7 +27,7 @@ export interface SubstanceReferenceInformation {
     /**
      * This is a SubstanceReferenceInformation resource
      */
-    resourceType: any;
+    resourceType: 'SubstanceReferenceInformation';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

@@ -25,7 +25,7 @@ export interface OperationOutcome {
     /**
      * This is a OperationOutcome resource
      */
-    resourceType: any;
+    resourceType: 'OperationOutcome';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

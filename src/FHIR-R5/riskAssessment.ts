@@ -31,7 +31,7 @@ export interface RiskAssessment {
     /**
      * This is a RiskAssessment resource
      */
-    resourceType: any;
+    resourceType: 'RiskAssessment';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

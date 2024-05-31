@@ -28,7 +28,7 @@ export interface MolecularSequence {
     /**
      * This is a MolecularSequence resource
      */
-    resourceType: any;
+    resourceType: 'MolecularSequence';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

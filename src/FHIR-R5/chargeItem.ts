@@ -36,7 +36,7 @@ export interface ChargeItem {
     /**
      * This is a ChargeItem resource
      */
-    resourceType: any;
+    resourceType: 'ChargeItem';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

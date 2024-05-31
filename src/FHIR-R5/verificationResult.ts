@@ -31,7 +31,7 @@ export interface VerificationResult {
     /**
      * This is a VerificationResult resource
      */
-    resourceType: any;
+    resourceType: 'VerificationResult';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

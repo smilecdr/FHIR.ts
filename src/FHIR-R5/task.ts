@@ -36,7 +36,7 @@ export interface Task {
     /**
      * This is a Task resource
      */
-    resourceType: any;
+    resourceType: 'Task';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

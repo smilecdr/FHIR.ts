@@ -35,7 +35,7 @@ export interface MedicationRequest {
     /**
      * This is a MedicationRequest resource
      */
-    resourceType: any;
+    resourceType: 'MedicationRequest';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

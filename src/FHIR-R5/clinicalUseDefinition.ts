@@ -33,7 +33,7 @@ export interface ClinicalUseDefinition {
     /**
      * This is a ClinicalUseDefinition resource
      */
-    resourceType: any;
+    resourceType: 'ClinicalUseDefinition';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

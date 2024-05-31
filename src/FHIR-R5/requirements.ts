@@ -34,7 +34,7 @@ export interface Requirements {
     /**
      * This is a Requirements resource
      */
-    resourceType: any;
+    resourceType: 'Requirements';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

@@ -34,7 +34,7 @@ export interface AllergyIntolerance {
     /**
      * This is a AllergyIntolerance resource
      */
-    resourceType: any;
+    resourceType: 'AllergyIntolerance';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

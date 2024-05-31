@@ -34,7 +34,7 @@ export interface MessageDefinition {
     /**
      * This is a MessageDefinition resource
      */
-    resourceType: any;
+    resourceType: 'MessageDefinition';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

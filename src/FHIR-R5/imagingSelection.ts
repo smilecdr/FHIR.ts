@@ -32,7 +32,7 @@ export interface ImagingSelection {
     /**
      * This is a ImagingSelection resource
      */
-    resourceType: any;
+    resourceType: 'ImagingSelection';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

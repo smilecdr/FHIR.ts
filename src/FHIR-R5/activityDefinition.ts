@@ -44,7 +44,7 @@ export interface ActivityDefinition {
     /**
      * This is a ActivityDefinition resource
      */
-    resourceType: any;
+    resourceType: 'ActivityDefinition';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

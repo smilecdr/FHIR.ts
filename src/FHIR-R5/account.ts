@@ -36,7 +36,7 @@ export interface Account {
     /**
      * This is a Account resource
      */
-    resourceType: any;
+    resourceType: 'Account';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

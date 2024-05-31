@@ -27,7 +27,7 @@ export interface EnrollmentResponse {
     /**
      * This is a EnrollmentResponse resource
      */
-    resourceType: any;
+    resourceType: 'EnrollmentResponse';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

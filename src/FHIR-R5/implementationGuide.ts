@@ -35,7 +35,7 @@ export interface ImplementationGuide {
     /**
      * This is a ImplementationGuide resource
      */
-    resourceType: any;
+    resourceType: 'ImplementationGuide';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

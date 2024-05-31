@@ -34,7 +34,7 @@ export interface TestPlan {
     /**
      * This is a TestPlan resource
      */
-    resourceType: any;
+    resourceType: 'TestPlan';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

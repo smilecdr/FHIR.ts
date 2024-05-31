@@ -34,7 +34,7 @@ export interface Location {
     /**
      * This is a Location resource
      */
-    resourceType: any;
+    resourceType: 'Location';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

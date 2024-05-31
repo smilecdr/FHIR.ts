@@ -28,7 +28,7 @@ export interface Bundle {
     /**
      * This is a Bundle resource
      */
-    resourceType: any;
+    resourceType: 'Bundle';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

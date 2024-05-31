@@ -31,7 +31,7 @@ export interface DetectedIssue {
     /**
      * This is a DetectedIssue resource
      */
-    resourceType: any;
+    resourceType: 'DetectedIssue';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

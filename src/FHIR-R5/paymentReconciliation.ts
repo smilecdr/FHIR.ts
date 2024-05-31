@@ -32,7 +32,7 @@ export interface PaymentReconciliation {
     /**
      * This is a PaymentReconciliation resource
      */
-    resourceType: any;
+    resourceType: 'PaymentReconciliation';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

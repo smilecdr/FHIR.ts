@@ -33,7 +33,7 @@ export interface Specimen {
     /**
      * This is a Specimen resource
      */
-    resourceType: any;
+    resourceType: 'Specimen';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

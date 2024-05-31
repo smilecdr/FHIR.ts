@@ -37,7 +37,7 @@ export interface FamilyMemberHistory {
     /**
      * This is a FamilyMemberHistory resource
      */
-    resourceType: any;
+    resourceType: 'FamilyMemberHistory';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

@@ -37,7 +37,7 @@ export interface AdverseEvent {
     /**
      * This is a AdverseEvent resource
      */
-    resourceType: any;
+    resourceType: 'AdverseEvent';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

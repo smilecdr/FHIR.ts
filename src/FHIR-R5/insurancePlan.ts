@@ -31,7 +31,7 @@ export interface InsurancePlan {
     /**
      * This is a InsurancePlan resource
      */
-    resourceType: any;
+    resourceType: 'InsurancePlan';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

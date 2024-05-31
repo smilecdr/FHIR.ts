@@ -32,7 +32,7 @@ export interface CareTeam {
     /**
      * This is a CareTeam resource
      */
-    resourceType: any;
+    resourceType: 'CareTeam';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

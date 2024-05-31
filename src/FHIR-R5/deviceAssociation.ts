@@ -29,7 +29,7 @@ export interface DeviceAssociation {
     /**
      * This is a DeviceAssociation resource
      */
-    resourceType: any;
+    resourceType: 'DeviceAssociation';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

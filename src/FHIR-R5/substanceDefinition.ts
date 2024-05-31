@@ -38,7 +38,7 @@ export interface SubstanceDefinition {
     /**
      * This is a SubstanceDefinition resource
      */
-    resourceType: any;
+    resourceType: 'SubstanceDefinition';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

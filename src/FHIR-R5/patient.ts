@@ -34,7 +34,7 @@ export interface Patient {
     /**
      * This is a Patient resource
      */
-    resourceType: any;
+    resourceType: 'Patient';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

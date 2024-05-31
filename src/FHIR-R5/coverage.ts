@@ -32,7 +32,7 @@ export interface Coverage {
     /**
      * This is a Coverage resource
      */
-    resourceType: any;
+    resourceType: 'Coverage';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

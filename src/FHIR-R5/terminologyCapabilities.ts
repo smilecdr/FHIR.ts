@@ -38,7 +38,7 @@ export interface TerminologyCapabilities {
     /**
      * This is a TerminologyCapabilities resource
      */
-    resourceType: any;
+    resourceType: 'TerminologyCapabilities';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

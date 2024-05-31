@@ -34,7 +34,7 @@ export interface ExampleScenario {
     /**
      * This is a ExampleScenario resource
      */
-    resourceType: any;
+    resourceType: 'ExampleScenario';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

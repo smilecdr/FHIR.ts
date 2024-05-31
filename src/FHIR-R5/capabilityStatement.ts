@@ -37,7 +37,7 @@ export interface CapabilityStatement {
     /**
      * This is a CapabilityStatement resource
      */
-    resourceType: any;
+    resourceType: 'CapabilityStatement';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

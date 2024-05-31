@@ -32,7 +32,7 @@ export interface NutritionProduct {
     /**
      * This is a NutritionProduct resource
      */
-    resourceType: any;
+    resourceType: 'NutritionProduct';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

@@ -37,7 +37,7 @@ export interface SubscriptionTopic {
     /**
      * This is a SubscriptionTopic resource
      */
-    resourceType: any;
+    resourceType: 'SubscriptionTopic';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

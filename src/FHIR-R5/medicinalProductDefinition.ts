@@ -37,7 +37,7 @@ export interface MedicinalProductDefinition {
     /**
      * This is a MedicinalProductDefinition resource
      */
-    resourceType: any;
+    resourceType: 'MedicinalProductDefinition';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

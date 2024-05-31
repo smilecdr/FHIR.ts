@@ -26,7 +26,7 @@ export interface Linkage {
     /**
      * This is a Linkage resource
      */
-    resourceType: any;
+    resourceType: 'Linkage';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

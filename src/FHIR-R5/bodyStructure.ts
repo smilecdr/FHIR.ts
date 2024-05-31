@@ -30,7 +30,7 @@ export interface BodyStructure {
     /**
      * This is a BodyStructure resource
      */
-    resourceType: any;
+    resourceType: 'BodyStructure';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

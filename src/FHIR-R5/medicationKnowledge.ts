@@ -44,7 +44,7 @@ export interface MedicationKnowledge {
     /**
      * This is a MedicationKnowledge resource
      */
-    resourceType: any;
+    resourceType: 'MedicationKnowledge';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

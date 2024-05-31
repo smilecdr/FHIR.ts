@@ -39,7 +39,7 @@ export interface Observation {
     /**
      * This is a Observation resource
      */
-    resourceType: any;
+    resourceType: 'Observation';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

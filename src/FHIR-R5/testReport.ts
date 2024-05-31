@@ -32,7 +32,7 @@ export interface TestReport {
     /**
      * This is a TestReport resource
      */
-    resourceType: any;
+    resourceType: 'TestReport';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

@@ -30,7 +30,7 @@ export interface Organization {
     /**
      * This is a Organization resource
      */
-    resourceType: any;
+    resourceType: 'Organization';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

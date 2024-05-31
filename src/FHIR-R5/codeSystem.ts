@@ -38,7 +38,7 @@ export interface CodeSystem {
     /**
      * This is a CodeSystem resource
      */
-    resourceType: any;
+    resourceType: 'CodeSystem';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

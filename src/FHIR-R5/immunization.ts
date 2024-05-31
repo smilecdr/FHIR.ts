@@ -34,7 +34,7 @@ export interface Immunization {
     /**
      * This is a Immunization resource
      */
-    resourceType: any;
+    resourceType: 'Immunization';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

@@ -34,7 +34,7 @@ export interface DiagnosticReport {
     /**
      * This is a DiagnosticReport resource
      */
-    resourceType: any;
+    resourceType: 'DiagnosticReport';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

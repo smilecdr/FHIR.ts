@@ -36,7 +36,7 @@ export interface EvidenceVariable {
     /**
      * This is a EvidenceVariable resource
      */
-    resourceType: any;
+    resourceType: 'EvidenceVariable';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

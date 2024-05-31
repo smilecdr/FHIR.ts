@@ -33,7 +33,7 @@ export interface ActorDefinition {
     /**
      * This is a ActorDefinition resource
      */
-    resourceType: any;
+    resourceType: 'ActorDefinition';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

@@ -38,7 +38,7 @@ export interface Device {
     /**
      * This is a Device resource
      */
-    resourceType: any;
+    resourceType: 'Device';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

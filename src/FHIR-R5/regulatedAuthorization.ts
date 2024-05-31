@@ -32,7 +32,7 @@ export interface RegulatedAuthorization {
     /**
      * This is a RegulatedAuthorization resource
      */
-    resourceType: any;
+    resourceType: 'RegulatedAuthorization';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

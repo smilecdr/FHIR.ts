@@ -32,7 +32,7 @@ export interface RequestOrchestration {
     /**
      * This is a RequestOrchestration resource
      */
-    resourceType: any;
+    resourceType: 'RequestOrchestration';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

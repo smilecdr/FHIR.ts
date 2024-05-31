@@ -36,7 +36,7 @@ export interface ConceptMap {
     /**
      * This is a ConceptMap resource
      */
-    resourceType: any;
+    resourceType: 'ConceptMap';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

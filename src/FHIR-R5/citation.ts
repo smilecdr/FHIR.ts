@@ -38,7 +38,7 @@ export interface Citation {
     /**
      * This is a Citation resource
      */
-    resourceType: any;
+    resourceType: 'Citation';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

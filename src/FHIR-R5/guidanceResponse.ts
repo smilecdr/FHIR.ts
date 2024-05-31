@@ -31,7 +31,7 @@ export interface GuidanceResponse {
     /**
      * This is a GuidanceResponse resource
      */
-    resourceType: any;
+    resourceType: 'GuidanceResponse';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

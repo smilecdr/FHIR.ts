@@ -29,7 +29,7 @@ export interface OrganizationAffiliation {
     /**
      * This is a OrganizationAffiliation resource
      */
-    resourceType: any;
+    resourceType: 'OrganizationAffiliation';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

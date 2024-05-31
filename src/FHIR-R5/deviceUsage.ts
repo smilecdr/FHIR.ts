@@ -33,7 +33,7 @@ export interface DeviceUsage {
     /**
      * This is a DeviceUsage resource
      */
-    resourceType: any;
+    resourceType: 'DeviceUsage';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;

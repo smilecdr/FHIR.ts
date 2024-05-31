@@ -32,7 +32,7 @@ export interface EncounterHistory {
     /**
      * This is a EncounterHistory resource
      */
-    resourceType: any;
+    resourceType: 'EncounterHistory';
     id?: Id;
     meta?: Meta;
     implicitRules?: Uri;
