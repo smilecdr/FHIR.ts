@@ -1,4 +1,4 @@
-import { ResourceUtils } from "./ResourceUtils";
+import { Coding, Extension, Identifier, ResourceUtils } from "./ResourceUtils";
 
 const patientPayload = require("./../../test-resources/Patient-R4.json");
 const careTeamPayload = require("./../../test-resources/CareTeam-R4.json");
@@ -41,7 +41,7 @@ describe("ResourceUtils", () => {
   });
 
   describe("#getIdentifiersByProperty()", () => {
-    const identifierList = [
+    const identifierList: Identifier[] = [
       {
         use: "temp",
         system: "http://hl7.org/fhir/sid/us-ssn",
@@ -56,11 +56,11 @@ describe("ResourceUtils", () => {
 
     it("should return empty array if null is passed as identifier list", () => {
       // setup
-      const value = "abc";
+      const value = "shouldBeIgnored";
       // execute
       const actual = resourceUtils.getIdentifiersByProperty(
         null,
-        "abc",
+        "id",
         value
       );
       // validate
@@ -73,7 +73,7 @@ describe("ResourceUtils", () => {
       // execute
       const actual = resourceUtils.getIdentifiersByProperty(
         identifierList,
-        "abc",
+        "extension", // no extensions in test data
         value
       );
       // validate
@@ -108,7 +108,7 @@ describe("ResourceUtils", () => {
   });
 
   describe("#getExtensionsByUrl()", () => {
-    const extensionList = [
+    const extensionList: Extension[] = [
       {
         url: "http://hl7.org/fhir/sid/us-ssn",
         valueBoolean: true,
@@ -130,11 +130,12 @@ describe("ResourceUtils", () => {
       // setup
       const extensionListInvalid = [
         {
+          // @ts-ignore
           use: "temp",
           system: "http://hl7.org/fhir/sid/us-ssn",
           value: "abc",
         },
-      ];
+      ] as Extension[]; // disabling compiler warning for the test
       const url = "http://ns.electronichealth.net.au/id/hi/ihi/1.0";
       // execute
       const actual = resourceUtils.getExtensionsByUrl(
@@ -165,7 +166,7 @@ describe("ResourceUtils", () => {
   });
 
   describe("#getCodingsByProperty()", () => {
-    const codingList = [
+    const codingList: Coding[] = [
       {
         version: "1.0",
         system: "http://hl7.org/fhir/sid/us-ssn",
@@ -183,9 +184,9 @@ describe("ResourceUtils", () => {
 
     it("should return empty array if null is passed as coding list", () => {
       // setup
-      const value = "abc";
+      const value = "shouldBeIgnored";
       // execute
-      const actual = resourceUtils.getCodingsByProperty(null, "abc", value);
+      const actual = resourceUtils.getCodingsByProperty(null, "extension", value);
       // validate
       expect(actual.length).toEqual(0);
     });
@@ -196,7 +197,7 @@ describe("ResourceUtils", () => {
       // execute
       const actual = resourceUtils.getCodingsByProperty(
         codingList,
-        "abc",
+        "id", // expect no ID in codingList
         value
       );
       // validate
@@ -244,7 +245,7 @@ describe("ResourceUtils", () => {
   });
 
   describe("#getValuesAtResourcePath()", () => {
-    
+
     it("should return array with values if path exists for a top level element", () => {
       // execute
       const pathValues = resourceUtils.getValuesAtResourcePath(patientPayload, "Patient.gender");
