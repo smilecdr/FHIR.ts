@@ -29,6 +29,9 @@ import { fhirR4 } from '@smile-cdr/fhirts';
 
 // if using FHIR R4 interfaces
 import { IfhirR4 } from '@smile-cdr/fhirts';
+
+// if using FHIR R5 interfaces
+import { fhirR5 } from '@smile-cdr/fhirts';
 ```
 
 Next, depending on the library & whether you're using classes or interfaces, the way you initialize resources might look a bit different:
@@ -45,6 +48,11 @@ let patient = new fhirR4.Patient();
 
 // if using FHIR R4 interfaces
 let patient: IfhirR4.Patient = {
+    resourceType: 'Patient'
+};
+
+// if using FHIR R4 interfaces
+let patient: fhirR5.Patient = {
     resourceType: 'Patient'
 };
 ```
