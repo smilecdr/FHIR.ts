@@ -6,4 +6,5 @@ import * as dstu2 from './FHIR-DSTU2';
 import { ResourceUtils } from './library/ResourceUtils/ResourceUtils';
 import { BundleUtils } from './library/BundleUtils/BundleUtils';
 import { QueryBuilder } from './library/QueryBuilder/QueryBuilder';
-export { fhirR5, fhirR4, fhirR3, IfhirR4, dstu2, ResourceUtils, BundleUtils, QueryBuilder };
+import { PatchUtils } from './library/PatchUtils/PatchUtils';
+export { fhirR5, fhirR4, fhirR3, IfhirR4, dstu2, ResourceUtils, BundleUtils, QueryBuilder, PatchUtils };
