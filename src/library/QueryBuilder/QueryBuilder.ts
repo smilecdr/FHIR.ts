@@ -1,4 +1,4 @@
-import { SORT_ORDER } from "../constants";
+import { SortOrder } from "../constants";
 
 export class QueryBuilder {
 
@@ -68,8 +68,8 @@ export class QueryBuilder {
    * @param searchParameter search parameter for the element to sort on
    * @param sortOrder ASCENDING or DESCENDING
    */
-  sort(searchParameter: String, sortOrder: SORT_ORDER) {
-    if(sortOrder === SORT_ORDER.ASCENDING) {
+  sort(searchParameter: String, sortOrder: SortOrder) {
+    if(sortOrder === SortOrder.ASCENDING) {
       this.sortQueries.push(searchParameter);
     } else {
       this.sortQueries.push("-" + searchParameter);

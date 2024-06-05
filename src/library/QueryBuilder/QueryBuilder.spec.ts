@@ -1,4 +1,4 @@
-import { SORT_ORDER } from "../constants";
+import { SortOrder } from "../constants";
 import { QueryBuilder } from "./QueryBuilder";
 
 describe("QueryBuilder", () => {
@@ -104,8 +104,8 @@ describe("QueryBuilder", () => {
     const expected: String = "Observation?_sort=status%2C-date"
     // execute
     queryBuilder.setBaseResource("Observation")
-                .sort("status", SORT_ORDER.ASCENDING)
-                .sort("date", SORT_ORDER.DESCENDING);
+                .sort("status", SortOrder.ASCENDING)
+                .sort("date", SortOrder.DESCENDING);
     // validate
     expect(queryBuilder.getCompleteUrl()).toEqual(expected);
   });
@@ -117,7 +117,7 @@ describe("QueryBuilder", () => {
     queryBuilder.setBaseResource("Observation")
                 .revincludeAll()
                 .include("based-on")
-                .sort("status", SORT_ORDER.ASCENDING);
+                .sort("status", SortOrder.ASCENDING);
     // validate
     expect(queryBuilder.getCompleteUrl()).toEqual(expected);
   });
@@ -128,7 +128,7 @@ describe("QueryBuilder", () => {
     queryBuilder.setBaseResource("Observation")
                 .revincludeAll()
                 .include("based-on")
-                .sort("status", SORT_ORDER.ASCENDING);
+                .sort("status", SortOrder.ASCENDING);
     // execute
     queryBuilder.resetQuery();
     // validate
@@ -142,7 +142,7 @@ describe("QueryBuilder", () => {
     queryBuilder.setBaseResource("Observation")
                 .revincludeAll()
                 .include("based-on")
-                .sort("status", SORT_ORDER.ASCENDING);
+                .sort("status", SortOrder.ASCENDING);
     // validate
     expect(queryBuilder.getCompleteUrlDecoded()).toEqual(expected);
   });
