@@ -1,4 +1,4 @@
-import { PatchDatatype } from "../constants";
+import { PATCH_DATATYPE } from "../constants";
 
 /**
  * This a simple utility to create Parameters resource for FHIR patch operation
@@ -21,7 +21,7 @@ export class PatchUtils {
   createReplaceParameters(
     path: string,
     value: any,
-    valueDataType: PatchDatatype
+    valueDataType: PATCH_DATATYPE
   ) {
     return {
       resourceType: "Parameters",
@@ -120,7 +120,7 @@ export class PatchUtils {
     path: string,
     name: string,
     value: any,
-    valueDataType: PatchDatatype
+    valueDataType: PATCH_DATATYPE
   ) {
     return {
       resourceType: "Parameters",
@@ -161,7 +161,7 @@ export class PatchUtils {
   createInsertParameters(
     path: string,
     value: any,
-    valueDataType: PatchDatatype,
+    valueDataType: PATCH_DATATYPE,
     index: number
   ) {
     return {

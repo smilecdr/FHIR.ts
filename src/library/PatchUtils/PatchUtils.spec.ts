@@ -1,4 +1,4 @@
-import { PatchDatatype } from "../constants";
+import { PATCH_DATATYPE } from "../constants";
 import { PatchUtils } from "./PatchUtils";
 describe("PatchUtils", () => {
 
@@ -23,7 +23,7 @@ describe("PatchUtils", () => {
       } ]
     };
     // execute
-    const actual = patchUtils.createReplaceParameters("Patient.birthDate", "1930-01-01", PatchDatatype.DATE);
+    const actual = patchUtils.createReplaceParameters("Patient.birthDate", "1930-01-01", PATCH_DATATYPE.DATE);
     // validate
     expect(actual).toEqual(expected);
   });
@@ -98,7 +98,7 @@ describe("PatchUtils", () => {
       } ]
     };
     // execute
-    const actual = patchUtils.createAddParameters("Patient", "birthDate", "1930-01-01", PatchDatatype.DATE);
+    const actual = patchUtils.createAddParameters("Patient", "birthDate", "1930-01-01", PATCH_DATATYPE.DATE);
     // validate
     expect(actual).toEqual(expected);
   });
@@ -129,7 +129,7 @@ describe("PatchUtils", () => {
       } ]
     };
     // execute
-    const actual = patchUtils.createInsertParameters("Patient.identifier", identifier, PatchDatatype.IDENTIFIER, 1);
+    const actual = patchUtils.createInsertParameters("Patient.identifier", identifier, PATCH_DATATYPE.IDENTIFIER, 1);
     // validate
     expect(actual).toEqual(expected);
   });

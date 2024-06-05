@@ -1,9 +1,9 @@
-export enum SortOrder {
+export enum SORT_ORDER {
     ASCENDING,
     DESCENDING
 }
 
-export enum PatchDatatype {
+export enum PATCH_DATATYPE {
     CODE = "valueCode",
     DATE = "valueDate",
     DATE_TIME = "valueDateTime",
