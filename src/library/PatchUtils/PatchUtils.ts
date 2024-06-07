@@ -1,4 +1,4 @@
-import { PATCH_DATATYPE } from "../constants";
+import { PATCH_DATATYPE, PatchAddValueParams, PatchAddBackboneElementParams } from "../constants";
 
 /**
  * This a simple utility to create Parameters resource for FHIR patch operation
@@ -10,20 +10,11 @@ export class PatchUtils {
   private MOVE_OPERATION_NAME = "move";
   private ADD_OPERATION_NAME = "add";
   private INSERT_OPERATION_NAME = "insert";
-  private readonly PARAMETER_PROPERTY_NAME = 'parameter';
+  private readonly PARAMETER_PROPERTY_NAME = "parameter";
   private baseParameters = {
-      resourceType: "Parameters",
-      parameter: [],
+    resourceType: "Parameters",
+    parameter: [],
   };
-  
-
-  /**
-   * Resets the parameter property in PATCH parameters resource
-   */
-  resetPatchParameters() {
-    this.baseParameters.parameter = [];
-    return this;
-  }
 
   /**
    *
@@ -117,34 +108,21 @@ export class PatchUtils {
   /**
    * @param path the path at which to add the content
    * @param name name of the property to add
-   * @param value the value to replace with
-   * @param valueDataType the data type of value
+   * @param patchAddValueParams  the value to replace with & the data type of value
    * @returns Parameters resource for FHIR patch add operation
    */
   createAddParameters(
     path: string,
     name: string,
-    value: any,
-    valueDataType: PATCH_DATATYPE
+    patchAddValueParams: PatchAddValueParams
   ) {
     const addParameters = {
       name: "operation",
       part: [
-        {
-          name: "type",
-          valueCode: this.ADD_OPERATION_NAME,
-        },
-        {
-          name: "path",
-          valueString: path,
-        },
-        {
-          name: "name",
-          valueString: name,
-        },
+        ...this.getCommonAddParameters(path, name),
         {
           name: "value",
-          [valueDataType]: value,
+          [patchAddValueParams.valueDataType]: patchAddValueParams.value,
         },
       ],
     };
@@ -154,6 +132,39 @@ export class PatchUtils {
 
   /**
    * 
+   * @param path the path at which to add the content
+   * @param name name of the property to add
+   * @param patchAddValueParams  the value to replace with, the data type of value & the backbone element property
+   * @returns 
+   */
+  createAddParametersForBackboneElement(
+    path: string,
+    name: string,
+    patchAddValueParams: PatchAddBackboneElementParams[]
+  ) {
+    const parts = [];
+    patchAddValueParams.forEach((x) => {
+      parts.push({
+        name: x.backBoneElementProperty,
+        [x.valueDataType]: x.value,
+      });
+    });
+    const addParameters = {
+      name: "operation",
+      part: [
+        ...this.getCommonAddParameters(path, name),
+        {
+          name: "value",
+          part: parts,
+        },
+      ],
+    };
+    this.baseParameters[this.PARAMETER_PROPERTY_NAME].push(addParameters);
+    return this;
+  }
+
+  /**
+   *
    * @param path the path at which to insert the value
    * @param value the value to insert
    * @param valueDataType the datatype of the value
@@ -197,5 +208,29 @@ export class PatchUtils {
   getPatchParameters() {
     return this.baseParameters;
   }
-}
 
+  /**
+   * Resets the parameter property in PATCH parameters resource
+   */
+  resetPatchParameters() {
+    this.baseParameters.parameter = [];
+    return this;
+  }
+
+  private getCommonAddParameters(path: string, name: string) {
+    return [
+      {
+        name: "type",
+        valueCode: this.ADD_OPERATION_NAME,
+      },
+      {
+        name: "path",
+        valueString: path,
+      },
+      {
+        name: "name",
+        valueString: name,
+      },
+    ];
+  }
+}

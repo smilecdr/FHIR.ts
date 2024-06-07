@@ -16,3 +16,12 @@ export enum PATCH_DATATYPE {
     ADDRESS = "valueAddress",
     REFERENCE = "valueReference"
 }
+
+export interface PatchAddValueParams {
+    value: any;
+    valueDataType: PATCH_DATATYPE;
+}
+
+export interface PatchAddBackboneElementParams extends PatchAddValueParams {
+    backBoneElementProperty: string;
+}

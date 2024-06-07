@@ -1,8 +1,8 @@
-import { PATCH_DATATYPE } from "../constants";
+import { PATCH_DATATYPE, PatchAddValueParams, PatchAddBackboneElementParams } from "../constants";
 import { PatchUtils } from "./PatchUtils";
 describe("PatchUtils", () => {
 
-  let patchUtils;
+  let patchUtils: PatchUtils;
 
   beforeEach(() => {
     patchUtils = new PatchUtils();
@@ -101,8 +101,72 @@ describe("PatchUtils", () => {
         }]
       } ]
     };
+    const params: PatchAddValueParams = {
+      "value": "1930-01-01",
+      "valueDataType": PATCH_DATATYPE.DATE
+    };
     // execute
-    const actual = patchUtils.createAddParameters("Patient", "birthDate", "1930-01-01", PATCH_DATATYPE.DATE);
+    const actual = patchUtils.createAddParameters("Patient", "birthDate", params);
+    // validate
+    expect(actual.getPatchParameters()).toEqual(expected);
+  });
+
+  it('createAddParametersForBackboneElement() should create Parameters for FHIR patch add operation', () => {
+    // setup
+    const expected = {
+      "resourceType": "Parameters",
+      "parameter": [
+        {
+          "name": "operation",
+          "part": [
+            {
+              "name": "type",
+              "valueCode": "add"
+            },
+            {
+              "name": "path",
+              "valueString": "Patient"
+            },
+            {
+              "name": "name",
+              "valueString": "contact"
+            },
+            {
+              "name": "value",
+              "part": [
+                {
+                  "name": "address",
+                  "valueAddress": {
+                    "use": "work"
+                  }
+                },
+                {
+                  "name": "name",
+                  "valueHumanName": {
+                    "use": "official"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+      ]
+    };
+    const params: PatchAddBackboneElementParams[] = [{
+      "value": {
+        "use": "work"
+      },
+      "valueDataType": PATCH_DATATYPE.ADDRESS,
+      "backBoneElementProperty": "address"
+    }, {
+      "value": {
+        "use": "official"
+      },
+      "valueDataType": PATCH_DATATYPE.HUMAN_NAME,
+      "backBoneElementProperty": "name"
+    }]
+    // execute
+    const actual = patchUtils.createAddParametersForBackboneElement("Patient", "contact", params);
     // validate
     expect(actual.getPatchParameters()).toEqual(expected);
   });
