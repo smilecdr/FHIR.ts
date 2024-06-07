@@ -7,9 +7,12 @@ export enum PATCH_DATATYPE {
     CODE = "valueCode",
     DATE = "valueDate",
     DATE_TIME = "valueDateTime",
-    boolean = "valueBoolean",
+    BOOLEAN = "valueBoolean",
     CODEABLE_CONCEPT = "valueCodeableConcept",
     CODING = "valueCoding",
     IDENTIFIER = "valueIdentifier",
-    HUMAN_NAME = "valueHumanName"
+    HUMAN_NAME = "valueHumanName",
+    STRING = "valueString",
+    ADDRESS = "valueAddress",
+    REFERENCE = "valueReference"
 }

@@ -5,11 +5,25 @@ import { PATCH_DATATYPE } from "../constants";
  * https://www.hl7.org/fhir/fhirpatch.html
  */
 export class PatchUtils {
-  private replaceOperation = "replace";
-  private deleteOperation = "delete";
-  private moveOperation = "move";
-  private addOperation = "add";
-  private insertOperation = "insert";
+  private REPLACE_OPERATION_NAME = "replace";
+  private DELETE_OPERATION_NAME = "delete";
+  private MOVE_OPERATION_NAME = "move";
+  private ADD_OPERATION_NAME = "add";
+  private INSERT_OPERATION_NAME = "insert";
+  private readonly PARAMETER_PROPERTY_NAME = 'parameter';
+  private baseParameters = {
+      resourceType: "Parameters",
+      parameter: [],
+  };
+  
+
+  /**
+   * Resets the parameter property in PATCH parameters resource
+   */
+  resetPatchParameters() {
+    this.baseParameters.parameter = [];
+    return this;
+  }
 
   /**
    *
@@ -23,28 +37,25 @@ export class PatchUtils {
     value: any,
     valueDataType: PATCH_DATATYPE
   ) {
-    return {
-      resourceType: "Parameters",
-      parameter: [
+    const replaceParameters = {
+      name: "operation",
+      part: [
         {
-          name: "operation",
-          part: [
-            {
-              name: "type",
-              valueCode: this.replaceOperation,
-            },
-            {
-              name: "path",
-              valueString: path,
-            },
-            {
-              name: "value",
-              [valueDataType]: value,
-            },
-          ],
+          name: "type",
+          valueCode: this.REPLACE_OPERATION_NAME,
+        },
+        {
+          name: "path",
+          valueString: path,
+        },
+        {
+          name: "value",
+          [valueDataType]: value,
         },
       ],
     };
+    this.baseParameters[this.PARAMETER_PROPERTY_NAME].push(replaceParameters);
+    return this;
   }
 
   /**
@@ -53,24 +64,21 @@ export class PatchUtils {
    * @returns Parameters resource for FHIR patch delete operation
    */
   createDeleteParameters(path: string) {
-    return {
-      resourceType: "Parameters",
-      parameter: [
+    const deleteParameters = {
+      name: "operation",
+      part: [
         {
-          name: "operation",
-          part: [
-            {
-              name: "type",
-              valueCode: this.deleteOperation,
-            },
-            {
-              name: "path",
-              valueString: path,
-            },
-          ],
+          name: "type",
+          valueCode: this.DELETE_OPERATION_NAME,
+        },
+        {
+          name: "path",
+          valueString: path,
         },
       ],
     };
+    this.baseParameters[this.PARAMETER_PROPERTY_NAME].push(deleteParameters);
+    return this;
   }
 
   /**
@@ -81,32 +89,29 @@ export class PatchUtils {
    * @returns Parameters resource for FHIR patch move operation
    */
   createMoveParameters(path: string, source: number, destination: number) {
-    return {
-      resourceType: "Parameters",
-      parameter: [
+    const moveParameters = {
+      name: "operation",
+      part: [
         {
-          name: "operation",
-          part: [
-            {
-              name: "type",
-              valueCode: this.moveOperation,
-            },
-            {
-              name: "path",
-              valueString: path,
-            },
-            {
-              name: "source",
-              valueInteger: source,
-            },
-            {
-              name: "destination",
-              valueInteger: destination,
-            },
-          ],
+          name: "type",
+          valueCode: this.MOVE_OPERATION_NAME,
+        },
+        {
+          name: "path",
+          valueString: path,
+        },
+        {
+          name: "source",
+          valueInteger: source,
+        },
+        {
+          name: "destination",
+          valueInteger: destination,
         },
       ],
     };
+    this.baseParameters[this.PARAMETER_PROPERTY_NAME].push(moveParameters);
+    return this;
   }
 
   /**
@@ -122,32 +127,29 @@ export class PatchUtils {
     value: any,
     valueDataType: PATCH_DATATYPE
   ) {
-    return {
-      resourceType: "Parameters",
-      parameter: [
+    const addParameters = {
+      name: "operation",
+      part: [
         {
-          name: "operation",
-          part: [
-            {
-              name: "type",
-              valueCode: this.addOperation,
-            },
-            {
-              name: "path",
-              valueString: path,
-            },
-            {
-              name: "name",
-              valueString: name,
-            },
-            {
-              name: "value",
-              [valueDataType]: value,
-            },
-          ],
+          name: "type",
+          valueCode: this.ADD_OPERATION_NAME,
+        },
+        {
+          name: "path",
+          valueString: path,
+        },
+        {
+          name: "name",
+          valueString: name,
+        },
+        {
+          name: "value",
+          [valueDataType]: value,
         },
       ],
     };
+    this.baseParameters[this.PARAMETER_PROPERTY_NAME].push(addParameters);
+    return this;
   }
 
   /**
@@ -164,31 +166,36 @@ export class PatchUtils {
     valueDataType: PATCH_DATATYPE,
     index: number
   ) {
-    return {
-      resourceType: "Parameters",
-      parameter: [
+    const insertParameters = {
+      name: "operation",
+      part: [
         {
-          name: "operation",
-          part: [
-            {
-              name: "type",
-              valueCode: this.insertOperation,
-            },
-            {
-              name: "path",
-              valueString: path,
-            },
-            {
-              name: "index",
-              valueInteger: index,
-            },
-            {
-              name: "value",
-              [valueDataType]: value,
-            },
-          ],
+          name: "type",
+          valueCode: this.INSERT_OPERATION_NAME,
+        },
+        {
+          name: "path",
+          valueString: path,
+        },
+        {
+          name: "index",
+          valueInteger: index,
+        },
+        {
+          name: "value",
+          [valueDataType]: value,
         },
       ],
     };
+    this.baseParameters[this.PARAMETER_PROPERTY_NAME].push(insertParameters);
+    return this;
+  }
+
+  /**
+   * @returns the parameters resource created for FHIR PATCH operation
+   */
+  getPatchParameters() {
+    return this.baseParameters;
   }
 }
+
