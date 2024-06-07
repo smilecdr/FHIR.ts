@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.2
+
+* Added `PatchUtils` for generating Parameters resource for `FHIR Patch`.
+
 ## 2.2.1
 
 * Added resource definitions for FHIR R5.
