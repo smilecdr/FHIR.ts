@@ -1,13 +1,5 @@
 # Getting Started
 
-## Installing FHIR.ts
-
-Navigate to your project and install the library using `npm`
-
-```shell
-$ npm i @smile-cdr/fhirts
-```
-
 ## Setting Up Your First FHIR Resource
 
 FHIR.ts offers both classes & interfaces for various FHIR resources - which one(s) you choose to use will depend on what your use case is. 

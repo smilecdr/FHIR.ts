@@ -1,4 +1,4 @@
-import { Coding, CodingKeys, Extension, Identifier, IdentifierKeys } from "../dataTypes";
+import { CodingKeys, IdentifierKeys } from "../dataTypes";
 
 export class ResourceUtils {
   /**
@@ -25,10 +25,10 @@ export class ResourceUtils {
    * @limitations currently does not work with identifier.type, identifier.period & identifier.assigner
    */
   getIdentifiersByProperty(
-    identifierList: Identifier[],
+    identifierList: any[],
     propertyToCompare: IdentifierKeys,
-    propertyValue: Identifier[IdentifierKeys]
-  ): Identifier[] {
+    propertyValue: any[IdentifierKeys]
+  ): any[] {
     return identifierList?.length
       ? identifierList.filter((x) => x[propertyToCompare] === propertyValue)
       : [];
@@ -40,7 +40,7 @@ export class ResourceUtils {
    * @param extensionUrl Extension.url to compare
    * @returns array of matches
    */
-  getExtensionsByUrl(extensionList: Extension[], extensionUrl: string): Extension[] {
+  getExtensionsByUrl(extensionList: any[], extensionUrl: string): any[] {
     return extensionList?.length
       ? extensionList.filter((x) => x["url"] === extensionUrl)
       : [];
@@ -54,10 +54,10 @@ export class ResourceUtils {
    * @returns array of matches
    */
   getCodingsByProperty(
-    codingList: Coding[],
+    codingList: any[],
     propertyToCompare: CodingKeys,
-    propertyValue: Coding[CodingKeys]
-  ): Coding[] {
+    propertyValue: any[CodingKeys]
+  ): any[] {
     return codingList?.length
       ? codingList.filter((x) => x[propertyToCompare] === propertyValue)
       : [];
