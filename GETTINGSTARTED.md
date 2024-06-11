@@ -2,11 +2,23 @@
 
 ## Setting Up Your First FHIR Resource
 
-FHIR.ts offers both classes & interfaces for various FHIR resources - which one(s) you choose to use will depend on what your use case is. 
 
-> At the moment, the fhirR3 library only supports classes
+> NOTE: At the moment, the fhirR3 library only supports classes
 
-To start, you'll need to first import the library:
+#### Table of Contents
+
+- [Class and Interface usage](#models-usage)
+- [Resource Narrowing](#resource-narrowing)
+- [Utilities](#utilities)
+   - [PatchUtils](#patchutils)
+   - [QueryBuilder](#querybuilder)
+   - [BundleUtils](#bundleutilities)
+   - [ResourceUtils](#resourceutilities)
+   - [Bundle Utilities (static BundleUtils)](#bundleutilities)
+   - [Resource Utilities (static ResourceUtils)](#resourceutilities)
+
+
+### Class and Interface usage
 
 ```js
 
@@ -51,29 +63,8 @@ let patient: fhirR5.Patient = {
 
 Fields in FHIR.ts have strict typing to them. For example, in `Patient`, you can only select a `gender` that's in the list of accepted values.
 
-## Example
 
-Here's an example of setting up a `Patient` resource in R4 using classes:
-
-```js
-import { fhirR4 } from '@smile-cdr/fhirts';
-
-const patient = new fhirR4.Patient();
-const identifer = new fhirR4.Identifier();
-const humanName = new fhirR4.HumanName();
-
-humanName.family = 'Doe'
-humanName.given = ['John', 'Edward'];
-
-identifer.system = 'https://smilecdr.com';
-identifer.value = '123';
-
-patient.resourceType = 'Patient';
-patient.identifier = [identifer];
-patient.name = [humanName]
-```
-
-## Type / Resource [Narrowing](https://www.typescriptlang.org/docs/handbook/2/narrowing.html)
+### Resource Narrowing
 
 When working with Resources from a Bundle, by investigating the values and properties of those Resources Typescript will automatically infer the correct type. For example take the following code:
 ```js
@@ -85,17 +76,73 @@ function getResourceType(resource:Resource){
 ```
 If you try writing this out you will see that the variable `resource` inside the `if` block is of type `CarePlan`. This was inferred automatically using the `if` condition (since as per the specification the only resources which can have `resourceType:"CarePlan"` are `CarePlan` resources).
 
-## Utilities
+Read more about resource narrowing here : https://www.typescriptlang.org/docs/handbook/2/narrowing.html
 
-- There are 2 new utilities available starting `v2.0.0`.
+### Utilities
+
+- There are 4 new utilities available : 
    - BundleUtilities
    - ResourceUtilities
+   - PatchUtilities
+   - QueryBuilder
 - All of the above mentioned classes are currently in preliminary phase and will be refined in future as per needs.
 - The above utlity classes include common functionalities used by front end applications using FHIR. 
-- All utilities functions are static right now, so, no need for instantiating classes. **Note: This is subject to change in future**
 
-### `v2.1.0`
-#### BundleUtils usage
+#### PatchUtils 
+- Published in `v2.2.0`.
+- Example usage demonstrated below.
+```js
+import { PatchUtils } from '@smile-cdr/fhirts';
+ 
+const patchUtils = new PatchUtils();
+// returns patch parameters
+const patchParameters = patchUtils.createDeleteParameters("Patient.identifier[3]").getPatchParameters();
+console.log(patchParameters) 
+// console logs 
+/*
+ * {
+      "resourceType": "Parameters",
+      "parameter": [
+         {
+            "name": "operation",
+            "part": [
+               {
+                  "name": "type",
+                  "valueCode": "delete"
+               },
+               {
+                  "name": "path",
+                  "valueString": "Patient.identifier[3]"
+               }
+            ]
+         }
+	   ]
+   }
+ * 
+```
+
+#### QueryBuilder
+- Published in `v2.1.2`.
+- Example usage demonstrated below.
+```js
+import { QueryBuilder } from '@smile-cdr/fhirts';
+ 
+const queryBuilder = new QueryBuilder();
+// returns encoded url
+const query = queryBuilder.setBaseResource("Observation")
+                .revincludeAll()
+                .include("based-on")
+                .sort("status", SORT_ORDER.ASCENDING)
+                .getCompleteUrl();
+console.log(query) 
+// console logs 
+// "Observation?_revinclude=*&_include=Observation%3Abased-on&_sort=status"
+```
+
+
+#### BundleUtils
+- Published in `v2.1.0`.
+- Example usage demonstrated below.
 ```js
 import { BundleUtils } from '@smile-cdr/fhirts';
  
@@ -106,7 +153,9 @@ const claimsList = bundleUtils.getResourcesFromBundle(Bundle.entry, 'Claim');
 const resource = bundleUtils.getResourceFromBundle(Bundle.entry, '123'); 
 ```
 
-#### ResourceUtils usage
+#### ResourceUtils
+- Published in `v2.1.0`.
+- Example usage demonstrated below.
 ```js
 import { ResourceUtils } from '@smile-cdr/fhirts';
 const resourceUtils = new ResourceUtils();
@@ -133,8 +182,9 @@ const references = resourceUtils.getAllReferencesFromResource(resourcePayload);
 
 
 
-### `v2.0.0`
-#### BundleUtilities usage
+#### BundleUtilities
+- Published in `v2.0.0`.
+- Example usage demonstrated below.
 ```js
 import { BundleUtilities } from '@smile-cdr/fhirts';
  
@@ -142,7 +192,9 @@ import { BundleUtilities } from '@smile-cdr/fhirts';
 const claimsList = BundleUtilities.getResourcesFromBundle(Bundle.entry, 'Claim'); 
 ```
 
-#### ResourceUtilities usage
+#### ResourceUtilities
+- Published in `v2.0.0`.
+- Example usage demonstrated below.
 ```js
 import { ResourceUtilities } from '@smile-cdr/fhirts';
 
