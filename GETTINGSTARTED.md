@@ -159,8 +159,6 @@ const resource = bundleUtils.getResourceFromBundle(Bundle.entry, '123');
 ```js
 import { ResourceUtils } from '@smile-cdr/fhirts';
 const resourceUtils = new ResourceUtils();
-// returns deserialized Patient resource
-const deserializedPatientResource = resourceUtils.deserializeResource(jsonPatientPayload, new Patient()); 
 
 // returns Patient.gender
 const patientGender = resourceUtils.getResourceProperty(jsonPatientPayload, 'gender'); 
@@ -197,9 +195,6 @@ const claimsList = BundleUtilities.getResourcesFromBundle(Bundle.entry, 'Claim')
 - Example usage demonstrated below.
 ```js
 import { ResourceUtilities } from '@smile-cdr/fhirts';
-
-// returns deserialized Patient resource
-const deserializedPatientResource = ResourceUtilities.deserializeResource(jsonPatientPayload, new Patient()); 
 
 // returns Patient.gender
 const patientGender = ResourceUtilities.getResourceProperty(jsonPatientPayload, 'gender'); 
