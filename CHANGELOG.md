@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.2.3
+
+### Updates (R3)
+
+* Added `Condition` resource definition.
+
 ## 2.2.2
 
 * Added `PatchUtils` for generating Parameters resource for `FHIR Patch`.
