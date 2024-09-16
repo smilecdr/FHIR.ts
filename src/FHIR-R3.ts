@@ -809,6 +809,41 @@ export class ProcessRequest extends BaseResource {
   request: Reference;
 }
 
+export class Condition extends BaseResource {
+  resourceType: "Condition";
+  identifier?: Identifier[];
+  clinicalStatus?: "active" | "recurrence" | "inactive" | "remission" | "resolved";
+  verificationStatus?: "provisional" | "differential" | "confirmed" | "refuted" | "entered-in-error" | "unknown";
+  category?: CodeableConcept[];
+  severity?: CodeableConcept;
+  code?: CodeableConcept;
+  bodySite?: CodeableConcept[];
+  subject: Reference;
+  context?: Reference;
+  onsetDateTime?: string | Date;
+  onsetAge?: Age;
+  onsetPeriod?: Period;
+  onsetRange?: Range;
+  onsetString?: string;
+  abatementDateTime?: string | Date;
+  abatementAge?: Age;
+  abatementBoolean?: boolean;
+  abatementPeriod?: Period;
+  abatementRange?: Range;
+  abatementString?: string;
+  assertedDate?: string | Date;
+  asserter?: Reference;
+  stage?: {
+    summary?: CodeableConcept;
+    assessment?: Reference[];
+  };
+  evidence?: {
+    code?: CodeableConcept[];
+    detail?: Reference[];
+  }[];
+  note?: Annotation[]
+}
+
 export class Encounter extends BaseResource {
   resourceType: "Encounter";
   identifier: Identifier[];
@@ -1376,4 +1411,4 @@ export class ValueSetContains extends BackboneElement {
 }
 
 
-export type Resource = AllergyIntolerance | ClinicalImpression | Schedule | HealthcareService | Bundle | AuditEvent | CommunicationRequest | Immunization | Observation | Device | Practitioner | PractitionerRole | ProcedureRequest | Task | Communication | CarePlan | EpisodeOfCare | CareTeam | Encounter | ProcessRequest | Account | Location | Organization | AppointmentResponse | Appointment | QuestionnaireResponse | Questionnaire | Slot | Patient | DocumentReference | ValueSet; 
+export type Resource = AllergyIntolerance | ClinicalImpression | Condition | Schedule | HealthcareService | Bundle | AuditEvent | CommunicationRequest | Immunization | Observation | Device | Practitioner | PractitionerRole | ProcedureRequest | Task | Communication | CarePlan | EpisodeOfCare | CareTeam | Encounter | ProcessRequest | Account | Location | Organization | AppointmentResponse | Appointment | QuestionnaireResponse | Questionnaire | Slot | Patient | DocumentReference | ValueSet; 
