@@ -12,8 +12,8 @@
 - [Utilities](#utilities)
    - [PatchUtils](#patchutils)
    - [QueryBuilder](#querybuilder)
-   - [BundleUtils](#bundleutilities)
-   - [ResourceUtils](#resourceutilities)
+   - [BundleUtils](#bundleutils)
+   - [ResourceUtils](#resourceutils)
    - [Bundle Utilities (static BundleUtils)](#bundleutilities)
    - [Resource Utilities (static ResourceUtils)](#resourceutilities)
 
@@ -88,7 +88,7 @@ Read more about resource narrowing here : https://www.typescriptlang.org/docs/ha
 - All of the above mentioned classes are currently in preliminary phase and will be refined in future as per needs.
 - The above utlity classes include common functionalities used by front end applications using FHIR. 
 
-#### PatchUtils 
+#### PatchUtils
 - Published in `v2.2.0`.
 - Example usage demonstrated below.
 ```js
@@ -118,7 +118,7 @@ console.log(patchParameters)
          }
 	   ]
    }
- * 
+ */ 
 ```
 
 #### QueryBuilder
@@ -148,9 +148,9 @@ import { BundleUtils } from '@smile-cdr/fhirts';
  
 const bundleUtils = new BundleUtils();
 // returns arrayof Claim resources from Bundle.entry 
-const claimsList = bundleUtils.getResourcesFromBundle(Bundle.entry, 'Claim');
+const claimsList = bundleUtils.getResources(Bundle.entry, 'Claim');
 // returns a single resource with ID 123 from Bundle.entry
-const resource = bundleUtils.getResourceFromBundle(Bundle.entry, '123'); 
+const resource = bundleUtils.getResource(Bundle.entry, '123'); 
 ```
 
 #### ResourceUtils
