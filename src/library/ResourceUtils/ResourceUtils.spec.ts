@@ -255,6 +255,32 @@ describe("ResourceUtils", () => {
       expect(pathValues[0]).toEqual("male");
     });
 
+    it("should return array with values if path exists for a top level element and is a array", () => {
+      // setup
+      const expected = [
+        {
+          use: "usual",
+          family: "van de Heuvel",
+          given: ["Pieter", "Peter"],
+          suffix: ["MSc"],
+        },
+        {
+          use: "usual",
+          family: "van de Heuvel",
+          given: ["Pieter"],
+          suffix: ["MSc"],
+        },
+      ];
+      // execute
+      const actual = resourceUtils.getValuesAtResourcePath(
+        patientPayload,
+        "Patient.name"
+      );
+      // validate
+      expect(actual.length).toEqual(2);
+      expect(actual).toEqual(expected);
+    });
+
     it("should return array with values for a array under object", () => {
       // execute
       const pathValues = resourceUtils.getValuesAtResourcePath(patientPayload, "Patient.name.given");
