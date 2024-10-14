@@ -82,9 +82,10 @@ export class ResourceUtils {
           let resultSet = [];
           for (let subPathIndex = 0; subPathIndex < resourcePathValue.length; subPathIndex++) {
             const subPathValue = resourcePathValue[subPathIndex];
-            if (this.isPrimitive(subPathValue)) {
+            if (this.isPrimitive(subPathValue) || pathSections.length === 2) {
               resultSet.push(subPathValue);
-            } else {
+            }
+            else {
               resultSet.push(...this.getValuesAtResourcePath(subPathValue,
                 pathSections.slice(index).join(".")));
             }
