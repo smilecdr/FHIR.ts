@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.2.6
+
+* Fixed issue with `ResourceUtils.getValuesAtResourcePath` not being able to get an array with values if path exists for a top level element and is an object.
+
+
 ## 2.2.5
 
 * Fixed issue with `ResourceUtils.getValuesAtResourcePath` not being able to get an array with values if path exists for a top level element and is an array.
