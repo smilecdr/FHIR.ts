@@ -255,7 +255,30 @@ describe("ResourceUtils", () => {
       expect(pathValues[0]).toEqual("male");
     });
 
-    it("should return array with values if path exists for a top level element and is a array", () => {
+    it('should return array with values if path exists for a top level element and is an object', () => {
+      const expected = [
+        {
+          coding: [
+            {
+              system: "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+              code: "M",
+              display: "Married"
+            }
+          ],
+          text: "Getrouwd",
+        }
+      ];
+      // execute
+      const actual = resourceUtils.getValuesAtResourcePath(
+        patientPayload,
+        "Patient.maritalStatus"
+      );
+      // validate
+      expect(actual.length).toEqual(1);
+      expect(actual).toEqual(expected);
+    });
+
+    it("should return array with values if path exists for a top level element and is an array", () => {
       // setup
       const expected = [
         {

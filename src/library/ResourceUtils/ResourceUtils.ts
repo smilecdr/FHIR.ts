@@ -76,13 +76,13 @@ export class ResourceUtils {
       const subPaths = pathSections[index];
       resourcePathValue = resourcePathValue ? resourcePathValue[subPaths] : resource[subPaths];
       if (resourcePathValue) {
-        if (this.isPrimitive(resourcePathValue)) {
-          return [resourcePathValue];
+        if (this.isPrimitive(resourcePathValue) || pathSections.length === 2) {
+          return Array.isArray(resourcePathValue) ? [...resourcePathValue] : [resourcePathValue];
         } else if (Array.isArray(resourcePathValue) && resourcePathValue.length > 0) {
           let resultSet = [];
           for (let subPathIndex = 0; subPathIndex < resourcePathValue.length; subPathIndex++) {
             const subPathValue = resourcePathValue[subPathIndex];
-            if (this.isPrimitive(subPathValue) || pathSections.length === 2) {
+            if (this.isPrimitive(subPathValue)) {
               resultSet.push(subPathValue);
             }
             else {
