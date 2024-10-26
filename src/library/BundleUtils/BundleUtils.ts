@@ -20,6 +20,15 @@ export class BundleUtils {
         return bundleEntry?.length ? bundleEntry.find(x => x['resource']['id'] === resourceId) : null;
     }
 
+    /**
+     *
+     * @param bundleEntry Bundle.entry[] i.e. the bundle entries to filter
+     * @param fullUrl Full Url to filter from bundle entries
+     * @returns single resource
+     */
+    getResourceByFullUrl(bundleEntry: any[], fullUrl: string): any {
+        return bundleEntry?.length ? bundleEntry.find(x => x['fullUrl'] === fullUrl) : null;
+    }
 }
 
 

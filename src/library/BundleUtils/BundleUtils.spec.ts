@@ -59,7 +59,36 @@ describe("BundleUtils", () => {
         "ec0bb1b3-b229-36cf-7e34-3f5fec9d3afe"
       );
       // validate
-      expect(actual).not.toBeNull();
+      expect(actual).not.toBeUndefined();
     });
   });
+
+  describe("#getResourceByFullUrl()", () => {
+    it("should return null if null is passed as bundle entries", () => {
+      // execute
+      const actual = bundleUtils.getResourceByFullUrl(null, "123");
+      // validate
+      expect(actual).toBeNull();
+    });
+
+    it("should return undefined if fullUrl is not found", () => {
+      // execute
+      const actual = bundleUtils.getResourceByFullUrl(
+        inputPayload.entry,
+        "123"
+      );
+      // validate
+      expect(actual).toBeUndefined();
+    });
+
+    it("should return resource if resource is found", () => {
+      // execute
+      const actual = bundleUtils.getResourceByFullUrl(
+        inputPayload.entry,
+        "urn:uuid:7c52dd91-73f8-83e1-cab2-2ffdd7a34601"
+      );
+      // validate
+      expect(actual).not.toBeUndefined();
+    });
+  })
 });

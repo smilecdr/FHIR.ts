@@ -151,6 +151,8 @@ const bundleUtils = new BundleUtils();
 const claimsList = bundleUtils.getResources(Bundle.entry, 'Claim');
 // returns a single resource with ID 123 from Bundle.entry
 const resource = bundleUtils.getResource(Bundle.entry, '123'); 
+// returns a single resource with full url 123 from Bundle.entry
+const resource = bundleUtils.getResourceByFullUrl(Bundle.entry, 'http://server-host/fhir/Patient/123'); 
 ```
 
 #### ResourceUtils
