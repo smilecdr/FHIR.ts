@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.8
+
+* Fixed issue with `ResourceUtils.getValuesAtResourcePath` not checking if the root of the path matches the resource type.
+
 ## 2.2.7
 
 * Added `BundleUtils.getResourceByFullUrl` to get a resource by its full url from a bundle.
@@ -7,7 +11,6 @@
 ## 2.2.6
 
 * Fixed issue with `ResourceUtils.getValuesAtResourcePath` not being able to get an array with values if path exists for a top level element and is an object.
-
 
 ## 2.2.5
 
