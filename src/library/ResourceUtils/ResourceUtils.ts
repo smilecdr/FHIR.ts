@@ -72,11 +72,10 @@ export class ResourceUtils {
   getValuesAtResourcePath(resource: any, elementPath: string): any[] {
     const pathSections = elementPath.split('.');
     if (!resource || (resource.resourceType !== pathSections[0])) return [];
-    return this.getValuesAtResourcePathInner(resource, elementPath);
+    return this.getValuesAtResourcePathInner(resource, pathSections);
   }
 
-  private getValuesAtResourcePathInner(resource: any, elementPath: string): any[] {
-    const pathSections = elementPath.split(".");
+  private getValuesAtResourcePathInner(resource: any, pathSections: string[]): any[] {
     let resourcePathValue;
     for (let index = 1; index < pathSections.length; index++) {
       const subPaths = pathSections[index];
@@ -92,14 +91,12 @@ export class ResourceUtils {
               resultSet.push(subPathValue);
             }
             else {
-              resultSet.push(...this.getValuesAtResourcePathInner(subPathValue,
-                pathSections.slice(index).join(".")));
+              resultSet.push(...this.getValuesAtResourcePathInner(subPathValue, pathSections.slice(index)));
             }
           }
           return resultSet;
         } else if (typeof (resourcePathValue) === 'object') {
-          return this.getValuesAtResourcePathInner(resourcePathValue,
-            pathSections.slice(index).join("."));
+          return this.getValuesAtResourcePathInner(resourcePathValue, pathSections.slice(index));
         }
       } else {
         break;
