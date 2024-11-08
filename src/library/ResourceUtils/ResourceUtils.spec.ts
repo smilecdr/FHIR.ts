@@ -247,6 +247,13 @@ describe("ResourceUtils", () => {
 
   describe("#getValuesAtResourcePath()", () => {
 
+    it("should return empty array if the root of the path path does not match the resource type", () => {
+      // execute
+      const pathValues = resourceUtils.getValuesAtResourcePath(patientPayload, "Practitioner.name.given");
+      // validate
+      expect(pathValues.length).toEqual(0);
+    });
+
     it("should return array with values if path exists for a top level element", () => {
       // execute
       const pathValues = resourceUtils.getValuesAtResourcePath(patientPayload, "Patient.gender");
