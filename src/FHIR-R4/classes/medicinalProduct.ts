@@ -12,6 +12,7 @@
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { Coding } from './coding';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -28,7 +29,7 @@ import { Uri } from './uri';
 /**
  * Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use).
  */
-export class MedicinalProduct { 
+export class MedicinalProduct extends DomainResource { 
     /**
      * This is a MedicinalProduct resource
      */

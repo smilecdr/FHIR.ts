@@ -14,6 +14,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { Coding } from './coding';
 import { ContactPoint } from './contactPoint';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -28,7 +29,7 @@ import { Uri } from './uri';
 /**
  * Details and position information for a physical place where services are provided and resources and participants may be stored, found, contained, or accommodated.
  */
-export class Location { 
+export class Location extends DomainResource { 
     /**
      * This is a Location resource
      */

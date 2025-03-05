@@ -13,6 +13,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
 import { DocumentManifestRelated } from './documentManifestRelated';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -25,7 +26,7 @@ import { Uri } from './uri';
 /**
  * A collection of documents compiled for a purpose together with metadata that applies to the collection.
  */
-export class DocumentManifest { 
+export class DocumentManifest extends DomainResource { 
     /**
      * This is a DocumentManifest resource
      */

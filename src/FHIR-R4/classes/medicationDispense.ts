@@ -13,6 +13,7 @@ import { Annotation } from './annotation';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Dosage } from './dosage';
 import { Extension } from './extension';
 
@@ -29,7 +30,7 @@ import { Uri } from './uri';
 /**
  * Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order.
  */
-export class MedicationDispense { 
+export class MedicationDispense extends DomainResource { 
     /**
      * This is a MedicationDispense resource
      */

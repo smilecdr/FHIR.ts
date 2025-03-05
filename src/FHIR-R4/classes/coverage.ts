@@ -13,6 +13,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { CoverageClass } from './coverageClass';
 import { CoverageCostToBeneficiary } from './coverageCostToBeneficiary';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -27,7 +28,7 @@ import { Uri } from './uri';
 /**
  * Financial instrument which may be used to reimburse or pay for health care products and services. Includes both insurance and self-payment.
  */
-export class Coverage { 
+export class Coverage extends DomainResource { 
     /**
      * This is a Coverage resource
      */

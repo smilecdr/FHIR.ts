@@ -14,6 +14,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { ContactDetail } from './contactDetail';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Markdown } from './markdown';
@@ -29,7 +30,7 @@ import { UsageContext } from './usageContext';
 /**
  * A formal computable definition of an operation (on the RESTful class) or a named query (using the search interaction).
  */
-export class OperationDefinition {
+export class OperationDefinition extends DomainResource {
     /**
      * This is a OperationDefinition resource
      */

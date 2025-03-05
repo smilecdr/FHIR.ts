@@ -12,6 +12,7 @@
 import { Annotation } from './annotation';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -26,7 +27,7 @@ import { Uri } from './uri';
 /**
  * An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.
  */
-export class RiskAssessment { 
+export class RiskAssessment extends DomainResource { 
     /**
      * This is a RiskAssessment resource
      */

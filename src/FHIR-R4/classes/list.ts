@@ -13,6 +13,7 @@ import { Annotation } from './annotation';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -26,7 +27,7 @@ import { Uri } from './uri';
 /**
  * A list is a curated collection of resources.
  */
-export class List { 
+export class List extends DomainResource { 
     /**
      * This is a List resource
      */

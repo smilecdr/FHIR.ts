@@ -19,6 +19,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { ContactDetail } from './contactDetail';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Markdown } from './markdown';
@@ -31,7 +32,7 @@ import { UsageContext } from './usageContext';
 /**
  * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
  */
-export class CapabilityStatement { 
+export class CapabilityStatement extends DomainResource { 
     /**
      * This is a CapabilityStatement resource
      */

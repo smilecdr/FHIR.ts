@@ -14,6 +14,7 @@ import { Attachment } from './attachment';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { ContactPoint } from './contactPoint';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 import { HumanName } from './humanName';
 
@@ -27,7 +28,7 @@ import { Uri } from './uri';
 /**
  * A person who is directly or indirectly involved in the provisioning of healthcare.
  */
-export class Practitioner { 
+export class Practitioner extends DomainResource { 
     /**
      * This is a Practitioner resource
      */

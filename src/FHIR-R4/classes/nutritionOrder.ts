@@ -14,6 +14,7 @@ import { Canonical } from './canonical';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -29,7 +30,7 @@ import { Uri } from './uri';
 /**
  * A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.
  */
-export class NutritionOrder { 
+export class NutritionOrder extends DomainResource { 
     /**
      * This is a NutritionOrder resource
      */

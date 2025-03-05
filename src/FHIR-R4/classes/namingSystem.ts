@@ -13,6 +13,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { ContactDetail } from './contactDetail';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Markdown } from './markdown';
@@ -26,7 +27,7 @@ import { UsageContext } from './usageContext';
 /**
  * A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a \"System\" used within the Identifier and Coding data types.
  */
-export class NamingSystem { 
+export class NamingSystem extends DomainResource { 
     /**
      * This is a NamingSystem resource
      */

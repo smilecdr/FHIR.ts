@@ -11,6 +11,7 @@
  */
 import { Code } from './code';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -23,7 +24,7 @@ import { Uri } from './uri';
 /**
  * This resource provides the insurance enrollment details to the insurer regarding a specified coverage.
  */
-export class EnrollmentRequest { 
+export class EnrollmentRequest extends DomainResource { 
     /**
      * This is a EnrollmentRequest resource
      */

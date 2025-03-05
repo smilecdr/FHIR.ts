@@ -12,6 +12,7 @@
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -28,7 +29,7 @@ import { Uri } from './uri';
 /**
  * This resource provides the details including amount of a payment and allocates the payment items being paid.
  */
-export class PaymentReconciliation { 
+export class PaymentReconciliation extends DomainResource { 
     /**
      * This is a PaymentReconciliation resource
      */

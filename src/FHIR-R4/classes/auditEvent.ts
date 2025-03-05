@@ -15,6 +15,7 @@ import { AuditEventSource } from './auditEventSource';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { Coding } from './coding';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Instant } from './instant';
@@ -27,7 +28,7 @@ import { Uri } from './uri';
 /**
  * A record of an event made for purposes of maintaining a security log. Typical uses include detection of intrusion attempts and monitoring for inappropriate usage.
  */
-export class AuditEvent { 
+export class AuditEvent extends DomainResource { 
     /**
      * This is a AuditEvent resource
      */

@@ -11,6 +11,7 @@
  */
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -26,7 +27,7 @@ import { Uri } from './uri';
 /**
  * This resource is primarily used for the identification and definition of a medication for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use.
  */
-export class Medication { 
+export class Medication extends DomainResource { 
     /**
      * This is a Medication resource
      */

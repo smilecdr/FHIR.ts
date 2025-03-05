@@ -13,6 +13,7 @@ import { AdverseEventSuspectEntity } from './adverseEventSuspectEntity';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -25,7 +26,7 @@ import { Uri } from './uri';
 /**
  * Actual or  potential/avoided event causing unintended physical injury resulting from or contributed to by medical care, a research study or other healthcare setting factors that requires additional monitoring, treatment, or hospitalization, or that results in death.
  */
-export class AdverseEvent { 
+export class AdverseEvent extends DomainResource { 
     /**
      * This is a AdverseEvent resource
      */

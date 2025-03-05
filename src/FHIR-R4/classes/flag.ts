@@ -11,6 +11,7 @@
  */
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -24,7 +25,7 @@ import { Uri } from './uri';
 /**
  * Prospective warnings of potential issues when providing care to the patient.
  */
-export class Flag { 
+export class Flag extends DomainResource { 
     /**
      * This is a Flag resource
      */

@@ -14,6 +14,7 @@ import { Attachment } from './attachment';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { Decimal } from './decimal';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -29,7 +30,7 @@ import { Uri } from './uri';
 /**
  * A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference.
  */
-export class Media { 
+export class Media extends DomainResource { 
     /**
      * This is a Media resource
      */

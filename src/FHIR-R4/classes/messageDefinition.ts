@@ -15,6 +15,7 @@ import { CodeableConcept } from './codeableConcept';
 import { Coding } from './coding';
 import { ContactDetail } from './contactDetail';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -30,7 +31,7 @@ import { UsageContext } from './usageContext';
 /**
  * Defines the characteristics of a message that can be shared between systems, including the type of event that initiates the message, the content to be transmitted and what response(s), if any, are permitted.
  */
-export class MessageDefinition {
+export class MessageDefinition extends DomainResource {
     /**
      * This is a MessageDefinition resource
      */

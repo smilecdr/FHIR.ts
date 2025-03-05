@@ -14,6 +14,7 @@ import { Canonical } from './canonical';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -31,7 +32,7 @@ import { Uri } from './uri';
 /**
  * A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.
  */
-export class ServiceRequest { 
+export class ServiceRequest extends DomainResource { 
     /**
      * This is a ServiceRequest resource
      */

@@ -9,13 +9,14 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { DomainResource } from './domainResource';
 import { OperationOutcomeIssue } from './operationOutcomeIssue';
 
 
 /**
  * A collection of error, warning, or information messages that result from a system action.
  */
-export class OperationOutcome { 
+export class OperationOutcome extends DomainResource { 
     /**
      * This is a OperationOutcome resource
      */

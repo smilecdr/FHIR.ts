@@ -15,6 +15,7 @@ import { CarePlanActivity } from './carePlanActivity';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -28,7 +29,7 @@ import { Uri } from './uri';
 /**
  * Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.
  */
-export class CarePlan { 
+export class CarePlan extends DomainResource { 
     /**
      * This is a CarePlan resource
      */

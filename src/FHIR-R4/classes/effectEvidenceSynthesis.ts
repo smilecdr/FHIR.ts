@@ -14,6 +14,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { ContactDetail } from './contactDetail';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { EffectEvidenceSynthesisCertainty } from './effectEvidenceSynthesisCertainty';
 import { EffectEvidenceSynthesisEffectEstimate } from './effectEvidenceSynthesisEffectEstimate';
 import { EffectEvidenceSynthesisResultsByExposure } from './effectEvidenceSynthesisResultsByExposure';
@@ -34,7 +35,7 @@ import { UsageContext } from './usageContext';
 /**
  * The EffectEvidenceSynthesis resource describes the difference in an outcome between exposures states in a population where the effect estimate is derived from a combination of research studies.
  */
-export class EffectEvidenceSynthesis { 
+export class EffectEvidenceSynthesis extends DomainResource { 
     /**
      * This is a EffectEvidenceSynthesis resource
      */

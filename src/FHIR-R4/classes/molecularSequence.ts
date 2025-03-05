@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import { Code } from './code';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -28,7 +29,7 @@ import { Uri } from './uri';
 /**
  * Raw data describing a biological sequence.
  */
-export class MolecularSequence { 
+export class MolecularSequence extends DomainResource { 
     /**
      * This is a MolecularSequence resource
      */

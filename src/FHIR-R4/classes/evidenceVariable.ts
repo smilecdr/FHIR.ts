@@ -14,6 +14,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { ContactDetail } from './contactDetail';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { EvidenceVariableCharacteristic } from './evidenceVariableCharacteristic';
 import { Extension } from './extension';
 
@@ -30,7 +31,7 @@ import { UsageContext } from './usageContext';
 /**
  * The EvidenceVariable resource describes a \"PICO\" element that knowledge (evidence, assertion, recommendation) is about.
  */
-export class EvidenceVariable { 
+export class EvidenceVariable extends DomainResource { 
     /**
      * This is a EvidenceVariable resource
      */

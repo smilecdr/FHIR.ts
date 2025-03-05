@@ -11,6 +11,7 @@
  */
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -27,7 +28,7 @@ import { Uri } from './uri';
 /**
  * Details of a Health Insurance product/plan provided by an organization.
  */
-export class InsurancePlan { 
+export class InsurancePlan extends DomainResource { 
     /**
      * This is a InsurancePlan resource
      */

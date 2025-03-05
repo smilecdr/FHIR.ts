@@ -14,6 +14,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { ContactDetail } from './contactDetail';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 import { GraphDefinitionLink } from './graphDefinitionLink';
 
@@ -28,7 +29,7 @@ import { UsageContext } from './usageContext';
 /**
  * A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references. The Graph Definition resource defines a set and makes rules about the set.
  */
-export class GraphDefinition {
+export class GraphDefinition extends DomainResource {
     /**
      * This is a GraphDefinition resource
      */

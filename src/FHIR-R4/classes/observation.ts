@@ -12,6 +12,7 @@
 import { Annotation } from './annotation';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -33,7 +34,7 @@ import { Uri } from './uri';
 /**
  * Measurements and simple assertions made about a patient, device or other subject.
  */
-export class Observation { 
+export class Observation extends DomainResource { 
     /**
      * This is a Observation resource
      */

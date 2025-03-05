@@ -13,6 +13,7 @@ import { CatalogEntryRelatedEntry } from './catalogEntryRelatedEntry';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -26,7 +27,7 @@ import { Uri } from './uri';
 /**
  * Catalog entries are wrappers that contextualize items included in a catalog.
  */
-export class CatalogEntry { 
+export class CatalogEntry extends DomainResource { 
     /**
      * This is a CatalogEntry resource
      */

@@ -12,6 +12,7 @@
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { ContactPoint } from './contactPoint';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -25,7 +26,7 @@ import { Uri } from './uri';
 /**
  * Defines an affiliation/assotiation/relationship between 2 distinct oganizations, that is not a part-of relationship/sub-division relationship.
  */
-export class OrganizationAffiliation { 
+export class OrganizationAffiliation extends DomainResource { 
     /**
      * This is a OrganizationAffiliation resource
      */

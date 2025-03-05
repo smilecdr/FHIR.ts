@@ -15,6 +15,7 @@ import { CoverageEligibilityRequestInsurance } from './coverageEligibilityReques
 import { CoverageEligibilityRequestItem } from './coverageEligibilityRequestItem';
 import { CoverageEligibilityRequestSupportingInfo } from './coverageEligibilityRequestSupportingInfo';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -28,7 +29,7 @@ import { Uri } from './uri';
 /**
  * The CoverageEligibilityRequest provides patient and insurance coverage information to an insurer for them to respond, in the form of an CoverageEligibilityResponse, with information regarding whether the stated coverage is valid and in-force and optionally to provide the insurance details of the policy.
  */
-export class CoverageEligibilityRequest { 
+export class CoverageEligibilityRequest extends DomainResource { 
     /**
      * This is a CoverageEligibilityRequest resource
      */

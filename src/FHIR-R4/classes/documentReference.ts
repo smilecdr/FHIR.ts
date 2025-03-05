@@ -14,6 +14,7 @@ import { CodeableConcept } from './codeableConcept';
 import { DocumentReferenceContent } from './documentReferenceContent';
 import { DocumentReferenceContext } from './documentReferenceContext';
 import { DocumentReferenceRelatesTo } from './documentReferenceRelatesTo';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -27,7 +28,7 @@ import { Uri } from './uri';
 /**
  * A reference to a document of any kind for any purpose. Provides metadata about the document so that the document can be discovered and managed. The scope of a document is any seralized object with a mime-type, so includes formal patient centric documents (CDA), cliical notes, scanned paper, and non-patient specific documents like policy text.
  */
-export class DocumentReference { 
+export class DocumentReference extends DomainResource { 
     /**
      * This is a DocumentReference resource
      */

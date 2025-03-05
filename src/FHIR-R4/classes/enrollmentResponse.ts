@@ -11,6 +11,7 @@
  */
 import { Code } from './code';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -23,7 +24,7 @@ import { Uri } from './uri';
 /**
  * This resource provides enrollment and plan details from the processing of an EnrollmentRequest resource.
  */
-export class EnrollmentResponse { 
+export class EnrollmentResponse extends DomainResource { 
     /**
      * This is a EnrollmentResponse resource
      */

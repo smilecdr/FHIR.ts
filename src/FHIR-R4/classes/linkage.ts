@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import { Code } from './code';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { LinkageItem } from './linkageItem';
@@ -22,7 +23,7 @@ import { Uri } from './uri';
 /**
  * Identifies two or more records (resource instances) that refer to the same real-world \"occurrence\".
  */
-export class Linkage { 
+export class Linkage extends DomainResource { 
     /**
      * This is a Linkage resource
      */

@@ -12,6 +12,7 @@
 import { Canonical } from './canonical';
 import { Code } from './code';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -25,7 +26,7 @@ import { Uri } from './uri';
 /**
  * A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to.
  */
-export class QuestionnaireResponse { 
+export class QuestionnaireResponse extends DomainResource { 
     /**
      * This is a QuestionnaireResponse resource
      */

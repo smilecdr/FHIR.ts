@@ -13,6 +13,7 @@ import { Attachment } from './attachment';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { ContactPoint } from './contactPoint';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 import { HealthcareServiceAvailableTime } from './healthcareServiceAvailableTime';
 import { HealthcareServiceEligibility } from './healthcareServiceEligibility';
@@ -29,7 +30,7 @@ import { Uri } from './uri';
 /**
  * The details of a healthcare service available at a location.
  */
-export class HealthcareService { 
+export class HealthcareService extends DomainResource { 
     /**
      * This is a HealthcareService resource
      */

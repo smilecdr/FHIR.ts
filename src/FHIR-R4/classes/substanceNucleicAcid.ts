@@ -11,6 +11,7 @@
  */
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Meta } from './meta';
@@ -22,7 +23,7 @@ import { Uri } from './uri';
 /**
  * Nucleic acids are defined by three distinct elements: the base, sugar and linkage. Individual substance/moiety IDs will be created for each of these elements. The nucleotide sequence will be always entered in the 5’-3’ direction.
  */
-export class SubstanceNucleicAcid { 
+export class SubstanceNucleicAcid extends DomainResource { 
     /**
      * This is a SubstanceNucleicAcid resource
      */

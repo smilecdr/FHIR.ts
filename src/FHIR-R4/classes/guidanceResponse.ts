@@ -14,6 +14,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DataRequirement } from './dataRequirement';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -26,7 +27,7 @@ import { Uri } from './uri';
 /**
  * A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.
  */
-export class GuidanceResponse { 
+export class GuidanceResponse extends DomainResource { 
     /**
      * This is a GuidanceResponse resource
      */

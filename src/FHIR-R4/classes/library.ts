@@ -15,6 +15,7 @@ import { CodeableConcept } from './codeableConcept';
 import { ContactDetail } from './contactDetail';
 import { DataRequirement } from './dataRequirement';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -32,7 +33,7 @@ import { UsageContext } from './usageContext';
 /**
  * The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.
  */
-export class Library { 
+export class Library extends DomainResource { 
     /**
      * This is a Library resource
      */

@@ -12,6 +12,7 @@
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { Coding } from './coding';
+import { DomainResource } from './domainResource';
 import { Duration } from './duration';
 import { EncounterClassHistory } from './encounterClassHistory';
 import { EncounterDiagnosis } from './encounterDiagnosis';
@@ -32,7 +33,7 @@ import { Uri } from './uri';
 /**
  * An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.
  */
-export class Encounter { 
+export class Encounter extends DomainResource { 
     /**
      * This is a Encounter resource
      */

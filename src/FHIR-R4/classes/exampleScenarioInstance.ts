@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import { Code } from './code';
+import { DomainResource } from './domainResource';
 import { ExampleScenarioContainedInstance } from './exampleScenarioContainedInstance';
 import { ExampleScenarioVersion } from './exampleScenarioVersion';
 import { Extension } from './extension';
@@ -20,7 +21,7 @@ import { ResourceList } from './resourceList';
 /**
  * Example of workflow instance.
  */
-export class ExampleScenarioInstance {
+export class ExampleScenarioInstance extends DomainResource {
     /**
      * Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.
      */

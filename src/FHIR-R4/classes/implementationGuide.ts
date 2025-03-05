@@ -13,6 +13,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { ContactDetail } from './contactDetail';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { ImplementationGuideDefinition } from './implementationGuideDefinition';
@@ -29,7 +30,7 @@ import { UsageContext } from './usageContext';
 /**
  * A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
  */
-export class ImplementationGuide { 
+export class ImplementationGuide extends DomainResource { 
     /**
      * This is a ImplementationGuide resource
      */

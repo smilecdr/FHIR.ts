@@ -11,6 +11,7 @@
  */
 import { Code } from './code';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -24,7 +25,7 @@ import { Uri } from './uri';
 /**
  * A patient's point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification.
  */
-export class ImmunizationRecommendation { 
+export class ImmunizationRecommendation extends DomainResource { 
     /**
      * This is a ImmunizationRecommendation resource
      */

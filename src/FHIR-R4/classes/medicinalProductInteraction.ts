@@ -11,6 +11,7 @@
  */
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { MedicinalProductInteractionInteractant } from './medicinalProductInteractionInteractant';
@@ -23,7 +24,7 @@ import { Uri } from './uri';
 /**
  * The interactions of the medicinal product with other medicinal products, or other forms of interactions.
  */
-export class MedicinalProductInteraction { 
+export class MedicinalProductInteraction extends DomainResource { 
     /**
      * This is a MedicinalProductInteraction resource
      */

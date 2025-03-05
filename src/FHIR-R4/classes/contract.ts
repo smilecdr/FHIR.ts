@@ -19,6 +19,7 @@ import { ContractRule } from './contractRule';
 import { ContractSigner } from './contractSigner';
 import { ContractTerm } from './contractTerm';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -32,7 +33,7 @@ import { Uri } from './uri';
 /**
  * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy or agreement.
  */
-export class Contract { 
+export class Contract extends DomainResource { 
     /**
      * This is a Contract resource
      */

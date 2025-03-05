@@ -13,6 +13,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { ContactDetail } from './contactDetail';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Markdown } from './markdown';
@@ -32,7 +33,7 @@ import { UsageContext } from './usageContext';
 /**
  * A TerminologyCapabilities resource documents a set of capabilities (behaviors) of a FHIR Terminology Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
  */
-export class TerminologyCapabilities { 
+export class TerminologyCapabilities extends DomainResource { 
     /**
      * This is a TerminologyCapabilities resource
      */

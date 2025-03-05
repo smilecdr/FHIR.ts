@@ -11,6 +11,7 @@
  */
 import { Code } from './code';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -24,7 +25,7 @@ import { VisionPrescriptionLensSpecification } from './visionPrescriptionLensSpe
 /**
  * An authorization for the provision of glasses and/or contact lenses to a patient.
  */
-export class VisionPrescription { 
+export class VisionPrescription extends DomainResource { 
     /**
      * This is a VisionPrescription resource
      */

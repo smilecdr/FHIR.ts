@@ -14,6 +14,7 @@ import { Canonical } from './canonical';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -27,7 +28,7 @@ import { Uri } from './uri';
 /**
  * A group of related requests that can be used to capture intended activities that have inter-dependencies such as \"give this medication after that one\".
  */
-export class RequestGroup { 
+export class RequestGroup extends DomainResource { 
     /**
      * This is a RequestGroup resource
      */

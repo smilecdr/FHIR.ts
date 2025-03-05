@@ -14,6 +14,7 @@ import { Attachment } from './attachment';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { ContactPoint } from './contactPoint';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 import { HumanName } from './humanName';
 
@@ -29,7 +30,7 @@ import { Uri } from './uri';
 /**
  * Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.
  */
-export class RelatedPerson { 
+export class RelatedPerson extends DomainResource { 
     /**
      * This is a RelatedPerson resource
      */

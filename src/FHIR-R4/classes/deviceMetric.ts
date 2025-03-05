@@ -12,6 +12,7 @@
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DeviceMetricCalibration } from './deviceMetricCalibration';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -25,7 +26,7 @@ import { Uri } from './uri';
 /**
  * Describes a measurement, calculation or setting capability of a medical device.
  */
-export class DeviceMetric { 
+export class DeviceMetric extends DomainResource { 
     /**
      * This is a DeviceMetric resource
      */

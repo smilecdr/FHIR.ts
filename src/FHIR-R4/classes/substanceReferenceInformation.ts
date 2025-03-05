@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import { Code } from './code';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Meta } from './meta';
@@ -24,7 +25,7 @@ import { Uri } from './uri';
 /**
  * Todo.
  */
-export class SubstanceReferenceInformation { 
+export class SubstanceReferenceInformation extends DomainResource { 
     /**
      * This is a SubstanceReferenceInformation resource
      */

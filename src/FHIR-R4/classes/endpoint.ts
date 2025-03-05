@@ -13,6 +13,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { Coding } from './coding';
 import { ContactPoint } from './contactPoint';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -27,7 +28,7 @@ import { Url } from './url';
 /**
  * The technical details of an endpoint that can be used for electronic services, such as for web services providing XDS.b or a REST endpoint for another FHIR server. This may include any security context information.
  */
-export class Endpoint { 
+export class Endpoint extends DomainResource { 
     /**
      * This is a Endpoint resource
      */

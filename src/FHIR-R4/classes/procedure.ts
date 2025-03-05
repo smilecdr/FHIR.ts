@@ -14,6 +14,7 @@ import { Annotation } from './annotation';
 import { Canonical } from './canonical';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -30,7 +31,7 @@ import { Uri } from './uri';
 /**
  * An action that is or was performed on or for a patient. This can be a physical intervention like an operation, or less invasive like long term services, counseling, or hypnotherapy.
  */
-export class Procedure { 
+export class Procedure extends DomainResource { 
     /**
      * This is a Procedure resource
      */

@@ -16,6 +16,7 @@ import { CodeableConcept } from './codeableConcept';
 import { ConditionEvidence } from './conditionEvidence';
 import { ConditionStage } from './conditionStage';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -30,7 +31,7 @@ import { Uri } from './uri';
 /**
  * A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.
  */
-export class Condition { 
+export class Condition extends DomainResource { 
     /**
      * This is a Condition resource
      */

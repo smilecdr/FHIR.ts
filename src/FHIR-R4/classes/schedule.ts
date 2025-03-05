@@ -11,6 +11,7 @@
  */
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -24,7 +25,7 @@ import { Uri } from './uri';
 /**
  * A container for slots of time that may be available for booking appointments.
  */
-export class Schedule { 
+export class Schedule extends DomainResource { 
     /**
      * This is a Schedule resource
      */

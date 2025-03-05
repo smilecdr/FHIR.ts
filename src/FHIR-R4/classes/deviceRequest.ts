@@ -15,6 +15,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
 import { DeviceRequestParameter } from './deviceRequestParameter';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -29,7 +30,7 @@ import { Uri } from './uri';
 /**
  * Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.
  */
-export class DeviceRequest { 
+export class DeviceRequest extends DomainResource { 
     /**
      * This is a DeviceRequest resource
      */

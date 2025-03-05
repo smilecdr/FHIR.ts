@@ -14,6 +14,7 @@ import { Canonical } from './canonical';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Dosage } from './dosage';
 import { Extension } from './extension';
 
@@ -29,7 +30,7 @@ import { Uri } from './uri';
 /**
  * An order or request for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called \"MedicationRequest\" rather than \"MedicationPrescription\" or \"MedicationOrder\" to generalize the use across inpatient and outpatient settings, including care plans, etc., and to harmonize with workflow patterns.
  */
-export class MedicationRequest { 
+export class MedicationRequest extends DomainResource { 
     /**
      * This is a MedicationRequest resource
      */

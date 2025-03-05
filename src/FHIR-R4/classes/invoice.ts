@@ -13,6 +13,7 @@ import { Annotation } from './annotation';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -30,7 +31,7 @@ import { Uri } from './uri';
 /**
  * Invoice containing collected ChargeItems from an Account with calculated individual and total price for Billing purpose.
  */
-export class Invoice { 
+export class Invoice extends DomainResource { 
     /**
      * This is a Invoice resource
      */

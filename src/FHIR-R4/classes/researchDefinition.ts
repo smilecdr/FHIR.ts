@@ -14,6 +14,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { ContactDetail } from './contactDetail';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -30,7 +31,7 @@ import { UsageContext } from './usageContext';
 /**
  * The ResearchDefinition resource describes the conditional state (population and any exposures being compared within the population) and outcome (if specified) that the knowledge (evidence, assertion, recommendation) is about.
  */
-export class ResearchDefinition { 
+export class ResearchDefinition extends DomainResource { 
     /**
      * This is a ResearchDefinition resource
      */

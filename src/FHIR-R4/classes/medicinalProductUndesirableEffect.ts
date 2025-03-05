@@ -11,6 +11,7 @@
  */
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Meta } from './meta';
@@ -23,7 +24,7 @@ import { Uri } from './uri';
 /**
  * Describe the undesirable effects of the medicinal product.
  */
-export class MedicinalProductUndesirableEffect { 
+export class MedicinalProductUndesirableEffect extends DomainResource { 
     /**
      * This is a MedicinalProductUndesirableEffect resource
      */

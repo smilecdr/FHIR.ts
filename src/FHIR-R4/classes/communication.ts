@@ -15,6 +15,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { CommunicationPayload } from './communicationPayload';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -27,7 +28,7 @@ import { Uri } from './uri';
 /**
  * An occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency that was notified about a reportable condition.
  */
-export class Communication { 
+export class Communication extends DomainResource { 
     /**
      * This is a Communication resource
      */

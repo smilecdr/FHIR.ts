@@ -13,6 +13,7 @@ import { Canonical } from './canonical';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -27,7 +28,7 @@ import { Uri } from './uri';
 /**
  * The MeasureReport resource contains the results of the calculation of a measure; and optionally a reference to the resources involved in that calculation.
  */
-export class MeasureReport { 
+export class MeasureReport extends DomainResource { 
     /**
      * This is a MeasureReport resource
      */
