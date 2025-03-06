@@ -13,6 +13,7 @@ import { AccountCoverage } from './accountCoverage';
 import { AccountGuarantor } from './accountGuarantor';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -26,7 +27,7 @@ import { Uri } from './uri';
 /**
  * A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centers, etc.
  */
-export class Account { 
+export class Account extends DomainResource { 
     /**
      * This is a Account resource
      */

@@ -13,6 +13,7 @@ import { Code } from './code';
 import { CompartmentDefinitionResource } from './compartmentDefinitionResource';
 import { ContactDetail } from './contactDetail';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Markdown } from './markdown';
@@ -25,7 +26,7 @@ import { UsageContext } from './usageContext';
 /**
  * A compartment definition that defines how resources are accessed on a server.
  */
-export class CompartmentDefinition { 
+export class CompartmentDefinition extends DomainResource { 
     /**
      * This is a CompartmentDefinition resource
      */

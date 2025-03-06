@@ -11,6 +11,7 @@
  */
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { MedicinalProductIndicationOtherTherapy } from './medicinalProductIndicationOtherTherapy';
@@ -25,7 +26,7 @@ import { Uri } from './uri';
 /**
  * Indication for the Medicinal Product.
  */
-export class MedicinalProductIndication { 
+export class MedicinalProductIndication extends DomainResource { 
     /**
      * This is a MedicinalProductIndication resource
      */

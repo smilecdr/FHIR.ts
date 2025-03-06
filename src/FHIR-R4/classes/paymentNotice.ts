@@ -12,6 +12,7 @@
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -25,7 +26,7 @@ import { Uri } from './uri';
 /**
  * This resource provides the status of the payment for goods and services rendered, and the request and response resource references.
  */
-export class PaymentNotice { 
+export class PaymentNotice extends DomainResource { 
     /**
      * This is a PaymentNotice resource
      */

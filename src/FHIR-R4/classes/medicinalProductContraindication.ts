@@ -11,6 +11,7 @@
  */
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { MedicinalProductContraindicationOtherTherapy } from './medicinalProductContraindicationOtherTherapy';
@@ -24,7 +25,7 @@ import { Uri } from './uri';
 /**
  * The clinical particulars - indications, contraindications etc. of a medicinal product, including for regulatory purposes.
  */
-export class MedicinalProductContraindication { 
+export class MedicinalProductContraindication extends DomainResource { 
     /**
      * This is a MedicinalProductContraindication resource
      */

@@ -14,6 +14,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { ContactDetail } from './contactDetail';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -32,7 +33,7 @@ import { UsageContext } from './usageContext';
 /**
  * The Measure resource provides the definition of a quality measure.
  */
-export class Measure { 
+export class Measure extends DomainResource { 
     /**
      * This is a Measure resource
      */

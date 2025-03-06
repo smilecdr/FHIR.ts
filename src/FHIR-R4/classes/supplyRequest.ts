@@ -12,6 +12,7 @@
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -28,7 +29,7 @@ import { Uri } from './uri';
 /**
  * A record of a request for a medication, substance or device used in the healthcare setting.
  */
-export class SupplyRequest { 
+export class SupplyRequest extends DomainResource { 
     /**
      * This is a SupplyRequest resource
      */

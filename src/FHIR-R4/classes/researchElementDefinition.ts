@@ -14,6 +14,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { ContactDetail } from './contactDetail';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -31,7 +32,7 @@ import { UsageContext } from './usageContext';
 /**
  * The ResearchElementDefinition resource describes a \"PICO\" element that knowledge (evidence, assertion, recommendation) is about.
  */
-export class ResearchElementDefinition { 
+export class ResearchElementDefinition extends DomainResource { 
     /**
      * This is a ResearchElementDefinition resource
      */

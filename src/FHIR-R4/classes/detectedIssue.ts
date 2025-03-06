@@ -13,6 +13,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DetectedIssueEvidence } from './detectedIssueEvidence';
 import { DetectedIssueMitigation } from './detectedIssueMitigation';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -26,7 +27,7 @@ import { Uri } from './uri';
 /**
  * Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.
  */
-export class DetectedIssue { 
+export class DetectedIssue extends DomainResource { 
     /**
      * This is a DetectedIssue resource
      */

@@ -14,6 +14,7 @@ import { CodeableConcept } from './codeableConcept';
 import { ConceptMapGroup } from './conceptMapGroup';
 import { ContactDetail } from './contactDetail';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -27,7 +28,7 @@ import { UsageContext } from './usageContext';
 /**
  * A statement of relationships from one set of concepts to one or more other concepts - either concepts in code systems, or data element/data element concepts, or classes in class models.
  */
-export class ConceptMap { 
+export class ConceptMap extends DomainResource { 
     /**
      * This is a ConceptMap resource
      */

@@ -19,6 +19,7 @@ import { DeviceProperty } from './deviceProperty';
 import { DeviceSpecialization } from './deviceSpecialization';
 import { DeviceUdiCarrier } from './deviceUdiCarrier';
 import { DeviceVersion } from './deviceVersion';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -31,7 +32,7 @@ import { Uri } from './uri';
 /**
  * A type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.
  */
-export class Device { 
+export class Device extends DomainResource { 
     /**
      * This is a Device resource
      */

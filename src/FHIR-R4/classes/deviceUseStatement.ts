@@ -13,6 +13,7 @@ import { Annotation } from './annotation';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -27,7 +28,7 @@ import { Uri } from './uri';
 /**
  * A record of a device being used by a patient where the record is the result of a report from the patient or another clinician.
  */
-export class DeviceUseStatement { 
+export class DeviceUseStatement extends DomainResource { 
     /**
      * This is a DeviceUseStatement resource
      */

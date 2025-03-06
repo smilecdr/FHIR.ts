@@ -11,6 +11,7 @@
  */
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -24,7 +25,7 @@ import { Uri } from './uri';
 /**
  * A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.
  */
-export class AppointmentResponse { 
+export class AppointmentResponse extends DomainResource { 
     /**
      * This is a AppointmentResponse resource
      */

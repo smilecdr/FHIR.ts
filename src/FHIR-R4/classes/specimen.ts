@@ -13,6 +13,7 @@ import { Annotation } from './annotation';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -28,7 +29,7 @@ import { Uri } from './uri';
 /**
  * A sample to be used for analysis.
  */
-export class Specimen { 
+export class Specimen extends DomainResource { 
     /**
      * This is a Specimen resource
      */

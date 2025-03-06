@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import { Code } from './code';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -23,7 +24,7 @@ import { Uri } from './uri';
 /**
  * A physical entity which is the primary unit of operational and/or administrative interest in a study.
  */
-export class ResearchSubject { 
+export class ResearchSubject extends DomainResource { 
     /**
      * This is a ResearchSubject resource
      */

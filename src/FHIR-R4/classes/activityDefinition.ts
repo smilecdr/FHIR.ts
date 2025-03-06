@@ -17,6 +17,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { ContactDetail } from './contactDetail';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Dosage } from './dosage';
 import { Duration } from './duration';
 import { Extension } from './extension';
@@ -38,7 +39,7 @@ import { UsageContext } from './usageContext';
 /**
  * This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.
  */
-export class ActivityDefinition { 
+export class ActivityDefinition extends DomainResource { 
     /**
      * This is a ActivityDefinition resource
      */

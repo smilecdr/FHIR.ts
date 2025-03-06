@@ -12,6 +12,7 @@
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -27,7 +28,7 @@ import { Uri } from './uri';
 /**
  * The regulatory authorization of a medicinal product.
  */
-export class MedicinalProductAuthorization { 
+export class MedicinalProductAuthorization extends DomainResource { 
     /**
      * This is a MedicinalProductAuthorization resource
      */

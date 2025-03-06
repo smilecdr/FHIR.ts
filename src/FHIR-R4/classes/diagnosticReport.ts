@@ -13,6 +13,7 @@ import { Attachment } from './attachment';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DiagnosticReportMedia } from './diagnosticReportMedia';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -27,7 +28,7 @@ import { Uri } from './uri';
 /**
  * The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.
  */
-export class DiagnosticReport { 
+export class DiagnosticReport extends DomainResource { 
     /**
      * This is a DiagnosticReport resource
      */

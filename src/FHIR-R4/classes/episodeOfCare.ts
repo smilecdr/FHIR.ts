@@ -11,6 +11,7 @@
  */
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
+import { DomainResource } from './domainResource';
 import { EpisodeOfCareDiagnosis } from './episodeOfCareDiagnosis';
 import { EpisodeOfCareStatusHistory } from './episodeOfCareStatusHistory';
 import { Extension } from './extension';
@@ -26,7 +27,7 @@ import { Uri } from './uri';
 /**
  * An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.
  */
-export class EpisodeOfCare { 
+export class EpisodeOfCare extends DomainResource { 
     /**
      * This is a EpisodeOfCare resource
      */

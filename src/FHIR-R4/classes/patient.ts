@@ -14,6 +14,7 @@ import { Attachment } from './attachment';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { ContactPoint } from './contactPoint';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 import { HumanName } from './humanName';
 
@@ -30,7 +31,7 @@ import { Uri } from './uri';
 /**
  * Demographics and other administrative information about an individual or animal receiving care or other health-related services.
  */
-export class Patient { 
+export class Patient extends DomainResource { 
     /**
      * This is a Patient resource
      */

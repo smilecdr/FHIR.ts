@@ -14,6 +14,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { ContactDetail } from './contactDetail';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -29,7 +30,7 @@ import { UsageContext } from './usageContext';
 /**
  * A Map of relationships between 2 structures that can be used to transform data.
  */
-export class StructureMap { 
+export class StructureMap extends DomainResource { 
     /**
      * This is a StructureMap resource
      */

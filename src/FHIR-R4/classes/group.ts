@@ -11,6 +11,7 @@
  */
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 import { GroupCharacteristic } from './groupCharacteristic';
 import { GroupMember } from './groupMember';
@@ -26,7 +27,7 @@ import { Uri } from './uri';
 /**
  * Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively, and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.
  */
-export class Group { 
+export class Group extends DomainResource { 
     /**
      * This is a Group resource
      */

@@ -17,6 +17,7 @@ import { CodeSystemProperty } from './codeSystemProperty';
 import { CodeableConcept } from './codeableConcept';
 import { ContactDetail } from './contactDetail';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -31,7 +32,7 @@ import { UsageContext } from './usageContext';
 /**
  * The CodeSystem resource is used to declare the existence of and describe a code system or code system supplement and its key properties, and optionally define a part or all of its content.
  */
-export class CodeSystem { 
+export class CodeSystem extends DomainResource { 
     /**
      * This is a CodeSystem resource
      */

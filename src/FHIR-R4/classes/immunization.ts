@@ -13,6 +13,7 @@ import { Annotation } from './annotation';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -30,7 +31,7 @@ import { Uri } from './uri';
 /**
  * Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party.
  */
-export class Immunization { 
+export class Immunization extends DomainResource { 
     /**
      * This is a Immunization resource
      */

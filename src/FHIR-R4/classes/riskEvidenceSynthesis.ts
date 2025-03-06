@@ -14,6 +14,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { ContactDetail } from './contactDetail';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -33,7 +34,7 @@ import { UsageContext } from './usageContext';
 /**
  * The RiskEvidenceSynthesis resource describes the likelihood of an outcome in a population plus exposure state where the risk estimate is derived from a combination of research studies.
  */
-export class RiskEvidenceSynthesis { 
+export class RiskEvidenceSynthesis extends DomainResource { 
     /**
      * This is a RiskEvidenceSynthesis resource
      */

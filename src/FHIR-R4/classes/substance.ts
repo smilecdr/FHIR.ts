@@ -11,6 +11,7 @@
  */
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -24,7 +25,7 @@ import { Uri } from './uri';
 /**
  * A homogeneous material with a definite composition.
  */
-export class Substance { 
+export class Substance extends DomainResource { 
     /**
      * This is a Substance resource
      */

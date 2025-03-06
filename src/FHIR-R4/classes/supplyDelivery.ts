@@ -11,6 +11,7 @@
  */
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -26,7 +27,7 @@ import { Uri } from './uri';
 /**
  * Record of delivery of what is supplied.
  */
-export class SupplyDelivery { 
+export class SupplyDelivery extends DomainResource { 
     /**
      * This is a SupplyDelivery resource
      */

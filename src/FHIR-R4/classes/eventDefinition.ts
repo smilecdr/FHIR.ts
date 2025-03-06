@@ -13,6 +13,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { ContactDetail } from './contactDetail';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -30,7 +31,7 @@ import { UsageContext } from './usageContext';
 /**
  * The EventDefinition resource provides a reusable description of when a particular event can occur.
  */
-export class EventDefinition { 
+export class EventDefinition extends DomainResource { 
     /**
      * This is a EventDefinition resource
      */

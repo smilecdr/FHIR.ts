@@ -12,6 +12,7 @@
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Meta } from './meta';
@@ -27,7 +28,7 @@ import { VerificationResultValidator } from './verificationResultValidator';
 /**
  * Describes validation requirements, source(s), status and dates for one or more elements.
  */
-export class VerificationResult { 
+export class VerificationResult extends DomainResource { 
     /**
      * This is a VerificationResult resource
      */

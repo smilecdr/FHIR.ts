@@ -16,6 +16,7 @@ import { ConsentPolicy } from './consentPolicy';
 import { ConsentProvision } from './consentProvision';
 import { ConsentVerification } from './consentVerification';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -28,7 +29,7 @@ import { Uri } from './uri';
 /**
  * A record of a healthcare consumer’s  choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.
  */
-export class Consent { 
+export class Consent extends DomainResource { 
     /**
      * This is a Consent resource
      */

@@ -12,6 +12,7 @@
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -24,7 +25,7 @@ import { Uri } from './uri';
 /**
  * Describes a comparison of an immunization event against published recommendations to determine if the administration is \"valid\" in relation to those  recommendations.
  */
-export class ImmunizationEvaluation { 
+export class ImmunizationEvaluation extends DomainResource { 
     /**
      * This is a ImmunizationEvaluation resource
      */

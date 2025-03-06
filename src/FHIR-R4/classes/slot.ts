@@ -11,6 +11,7 @@
  */
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -24,7 +25,7 @@ import { Uri } from './uri';
 /**
  * A slot of time on a schedule that may be available for booking appointments.
  */
-export class Slot { 
+export class Slot extends DomainResource { 
     /**
      * This is a Slot resource
      */

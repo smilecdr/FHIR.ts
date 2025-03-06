@@ -13,6 +13,7 @@ import { AppointmentParticipant } from './appointmentParticipant';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -29,7 +30,7 @@ import { Uri } from './uri';
 /**
  * A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s).
  */
-export class Appointment { 
+export class Appointment extends DomainResource { 
     /**
      * This is a Appointment resource
      */

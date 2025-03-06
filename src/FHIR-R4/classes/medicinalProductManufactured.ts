@@ -11,6 +11,7 @@
  */
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Meta } from './meta';
@@ -24,7 +25,7 @@ import { Uri } from './uri';
 /**
  * The manufactured item as contained in the packaged medicinal product.
  */
-export class MedicinalProductManufactured { 
+export class MedicinalProductManufactured extends DomainResource { 
     /**
      * This is a MedicinalProductManufactured resource
      */

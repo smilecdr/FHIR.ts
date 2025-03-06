@@ -21,6 +21,7 @@ import { ClaimResponseTotal } from './claimResponseTotal';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -34,7 +35,7 @@ import { Uri } from './uri';
 /**
  * This resource provides the adjudication details from the processing of a Claim resource.
  */
-export class ClaimResponse { 
+export class ClaimResponse extends DomainResource { 
     /**
      * This is a ClaimResponse resource
      */

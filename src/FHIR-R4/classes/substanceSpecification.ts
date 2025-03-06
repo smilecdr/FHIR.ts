@@ -11,6 +11,7 @@
  */
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -30,7 +31,7 @@ import { Uri } from './uri';
 /**
  * The detailed description of a substance, typically at a level beyond what is used for prescribing.
  */
-export class SubstanceSpecification { 
+export class SubstanceSpecification extends DomainResource { 
     /**
      * This is a SubstanceSpecification resource
      */

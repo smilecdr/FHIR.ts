@@ -19,6 +19,7 @@ import { DeviceDefinitionMaterial } from './deviceDefinitionMaterial';
 import { DeviceDefinitionProperty } from './deviceDefinitionProperty';
 import { DeviceDefinitionSpecialization } from './deviceDefinitionSpecialization';
 import { DeviceDefinitionUdiDeviceIdentifier } from './deviceDefinitionUdiDeviceIdentifier';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -34,7 +35,7 @@ import { Uri } from './uri';
 /**
  * The characteristics, operational status and capabilities of a medical-related component of a medical device.
  */
-export class DeviceDefinition { 
+export class DeviceDefinition extends DomainResource { 
     /**
      * This is a DeviceDefinition resource
      */

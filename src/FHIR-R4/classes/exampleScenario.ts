@@ -14,6 +14,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { ContactDetail } from './contactDetail';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { ExampleScenarioActor } from './exampleScenarioActor';
 import { ExampleScenarioInstance } from './exampleScenarioInstance';
 import { ExampleScenarioProcess } from './exampleScenarioProcess';
@@ -30,7 +31,7 @@ import { UsageContext } from './usageContext';
 /**
  * Example of workflow instance.
  */
-export class ExampleScenario { 
+export class ExampleScenario extends DomainResource { 
     /**
      * This is a ExampleScenario resource
      */

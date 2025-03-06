@@ -13,6 +13,7 @@ import { Attachment } from './attachment';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { ExplanationOfBenefitAccident } from './explanationOfBenefitAccident';
 import { ExplanationOfBenefitAddItem } from './explanationOfBenefitAddItem';
 import { ExplanationOfBenefitAdjudication } from './explanationOfBenefitAdjudication';
@@ -42,7 +43,7 @@ import { Uri } from './uri';
 /**
  * This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.
  */
-export class ExplanationOfBenefit { 
+export class ExplanationOfBenefit extends DomainResource { 
     /**
      * This is a ExplanationOfBenefit resource
      */

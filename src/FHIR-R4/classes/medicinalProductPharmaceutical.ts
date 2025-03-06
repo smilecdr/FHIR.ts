@@ -11,6 +11,7 @@
  */
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -25,7 +26,7 @@ import { Uri } from './uri';
 /**
  * A pharmaceutical product described in terms of its composition and dose form.
  */
-export class MedicinalProductPharmaceutical { 
+export class MedicinalProductPharmaceutical extends DomainResource { 
     /**
      * This is a MedicinalProductPharmaceutical resource
      */

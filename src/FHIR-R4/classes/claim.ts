@@ -21,6 +21,7 @@ import { ClaimSupportingInfo } from './claimSupportingInfo';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -35,7 +36,7 @@ import { Uri } from './uri';
 /**
  * A provider issued list of professional services and products which have been provided, or are to be provided, to a patient which is sent to an insurer for reimbursement.
  */
-export class Claim { 
+export class Claim extends DomainResource { 
     /**
      * This is a Claim resource
      */

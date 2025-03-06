@@ -13,6 +13,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { ContactDetail } from './contactDetail';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -35,7 +36,7 @@ import { UsageContext } from './usageContext';
 /**
  * A structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification.
  */
-export class TestScript { 
+export class TestScript extends DomainResource { 
     /**
      * This is a TestScript resource
      */

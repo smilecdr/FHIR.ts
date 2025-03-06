@@ -15,6 +15,7 @@ import { CodeableConcept } from './codeableConcept';
 import { Coding } from './coding';
 import { ContactDetail } from './contactDetail';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -32,7 +33,7 @@ import { UsageContext } from './usageContext';
 /**
  * A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions and constraints on resources and data types.
  */
-export class StructureDefinition { 
+export class StructureDefinition extends DomainResource { 
     /**
      * This is a StructureDefinition resource
      */

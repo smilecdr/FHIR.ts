@@ -15,6 +15,7 @@ import { BiologicallyDerivedProductProcessing } from './biologicallyDerivedProdu
 import { BiologicallyDerivedProductStorage } from './biologicallyDerivedProductStorage';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -27,7 +28,7 @@ import { Uri } from './uri';
 /**
  * A material substance originating from a biological entity intended to be transplanted or infused into another (possibly the same) biological entity.
  */
-export class BiologicallyDerivedProduct { 
+export class BiologicallyDerivedProduct extends DomainResource { 
     /**
      * This is a BiologicallyDerivedProduct resource
      */

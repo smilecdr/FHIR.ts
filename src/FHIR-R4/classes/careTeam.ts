@@ -14,6 +14,7 @@ import { CareTeamParticipant } from './careTeamParticipant';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { ContactPoint } from './contactPoint';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -27,7 +28,7 @@ import { Uri } from './uri';
 /**
  * The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.
  */
-export class CareTeam { 
+export class CareTeam extends DomainResource { 
     /**
      * This is a CareTeam resource
      */

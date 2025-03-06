@@ -12,6 +12,7 @@
 import { Code } from './code';
 import { DateTime } from './dateTime';
 import { Decimal } from './decimal';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -28,7 +29,7 @@ import { Uri } from './uri';
 /**
  * A summary of information based on the results of executing a TestScript.
  */
-export class TestReport { 
+export class TestReport extends DomainResource { 
     /**
      * This is a TestReport resource
      */

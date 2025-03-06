@@ -14,6 +14,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { ContactDetail } from './contactDetail';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Markdown } from './markdown';
@@ -28,7 +29,7 @@ import { UsageContext } from './usageContext';
 /**
  * A search parameter that defines a named search item that can be used to search/filter on a resource.
  */
-export class SearchParameter {
+export class SearchParameter extends DomainResource {
     /**
      * This is a SearchParameter resource
      */

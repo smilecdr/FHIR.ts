@@ -11,6 +11,7 @@
  */
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -25,7 +26,7 @@ import { Uri } from './uri';
 /**
  * Set of definitional characteristics for a kind of observation or measurement produced or consumed by an orderable health care service.
  */
-export class ObservationDefinition { 
+export class ObservationDefinition extends DomainResource { 
     /**
      * This is a ObservationDefinition resource
      */

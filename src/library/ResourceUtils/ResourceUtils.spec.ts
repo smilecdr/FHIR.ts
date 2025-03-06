@@ -1,8 +1,10 @@
 import { ResourceUtils } from "./ResourceUtils";
 import { Coding, Extension, Identifier, } from "../dataTypes";
+import { CareTeam } from "../../FHIR-R4/classes/careTeam";
 
 const patientPayload = require("./../../test-resources/Patient-R4.json");
 const careTeamPayload = require("./../../test-resources/CareTeam-R4.json");
+const careTeamContainedPayload = require("./../../test-resources/CareTeam-R4-contained.json");
 describe("ResourceUtils", () => {
 
   let resourceUtils = new ResourceUtils();
@@ -366,5 +368,15 @@ describe("ResourceUtils", () => {
       expect(actual.length).toEqual(0);
     });
 
+    it("should return array of all references in a resource when references found in contained resource", () => {
+      // setup
+      const input = careTeamContainedPayload as CareTeam;
+      expect(input.contained).toHaveSize(1);
+      // execute
+      const actual = resourceUtils.getAllReferencesFromResource(input.contained[0]);
+      // validate
+      expect(actual.length).toEqual(1);
+    });
   });
+
 });

@@ -13,6 +13,7 @@ import { Canonical } from './canonical';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { Coding } from './coding';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { MessageHeaderDestination } from './messageHeaderDestination';
@@ -27,7 +28,7 @@ import { Uri } from './uri';
 /**
  * The header for a message exchange that is either requesting or responding to an action.  The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.
  */
-export class MessageHeader { 
+export class MessageHeader extends DomainResource { 
     /**
      * This is a MessageHeader resource
      */

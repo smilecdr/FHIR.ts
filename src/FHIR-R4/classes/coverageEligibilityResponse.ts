@@ -14,6 +14,7 @@ import { CodeableConcept } from './codeableConcept';
 import { CoverageEligibilityResponseError } from './coverageEligibilityResponseError';
 import { CoverageEligibilityResponseInsurance } from './coverageEligibilityResponseInsurance';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -27,7 +28,7 @@ import { Uri } from './uri';
 /**
  * This resource provides eligibility and plan details from the processing of an CoverageEligibilityRequest resource.
  */
-export class CoverageEligibilityResponse { 
+export class CoverageEligibilityResponse extends DomainResource { 
     /**
      * This is a CoverageEligibilityResponse resource
      */

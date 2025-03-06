@@ -13,6 +13,7 @@ import { Address } from './address';
 import { Attachment } from './attachment';
 import { Code } from './code';
 import { ContactPoint } from './contactPoint';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 import { HumanName } from './humanName';
 
@@ -27,7 +28,7 @@ import { Uri } from './uri';
 /**
  * Demographics and administrative information about a person independent of a specific health-related context.
  */
-export class Person { 
+export class Person extends DomainResource { 
     /**
      * This is a Person resource
      */

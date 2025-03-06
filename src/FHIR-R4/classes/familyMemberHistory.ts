@@ -15,6 +15,7 @@ import { Canonical } from './canonical';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 import { FamilyMemberHistoryCondition } from './familyMemberHistoryCondition';
 
@@ -30,7 +31,7 @@ import { Uri } from './uri';
 /**
  * Significant health conditions for a person related to the patient relevant in the context of care for the patient.
  */
-export class FamilyMemberHistory { 
+export class FamilyMemberHistory extends DomainResource { 
     /**
      * This is a FamilyMemberHistory resource
      */

@@ -12,6 +12,7 @@
 import { Annotation } from './annotation';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 import { GoalTarget } from './goalTarget';
 
@@ -25,7 +26,7 @@ import { Uri } from './uri';
 /**
  * Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.
  */
-export class Goal { 
+export class Goal extends DomainResource { 
     /**
      * This is a Goal resource
      */

@@ -16,6 +16,7 @@ import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { ContactDetail } from './contactDetail';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -31,7 +32,7 @@ import { UsageContext } from './usageContext';
 /**
  * The ChargeItemDefinition resource provides the properties that apply to the (billing) codes necessary to calculate costs and prices. The properties may differ largely depending on type and realm, therefore this resource gives only a rough structure and requires profiling for each type of billing code system.
  */
-export class ChargeItemDefinition { 
+export class ChargeItemDefinition extends DomainResource { 
     /**
      * This is a ChargeItemDefinition resource
      */

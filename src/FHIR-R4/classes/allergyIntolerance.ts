@@ -15,6 +15,7 @@ import { Annotation } from './annotation';
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
 import { DateTime } from './dateTime';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Identifier } from './identifier';
@@ -29,7 +30,7 @@ import { Uri } from './uri';
 /**
  * Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.
  */
-export class AllergyIntolerance { 
+export class AllergyIntolerance extends DomainResource { 
     /**
      * This is a AllergyIntolerance resource
      */

@@ -11,6 +11,7 @@
  */
 import { Code } from './code';
 import { CodeableConcept } from './codeableConcept';
+import { DomainResource } from './domainResource';
 import { Extension } from './extension';
 
 import { Markdown } from './markdown';
@@ -35,7 +36,7 @@ import { Uri } from './uri';
 /**
  * Information about a medication that is used to support knowledge.
  */
-export class MedicationKnowledge { 
+export class MedicationKnowledge extends DomainResource { 
     /**
      * This is a MedicationKnowledge resource
      */
