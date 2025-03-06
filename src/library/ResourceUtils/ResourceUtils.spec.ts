@@ -368,7 +368,7 @@ describe("ResourceUtils", () => {
       expect(actual.length).toEqual(0);
     });
 
-    it("should return empty array all references in a resource when references found", () => {
+    it("should return array of all references in a resource when references found in contained resource", () => {
       // setup
       const input = careTeamContainedPayload as CareTeam;
       expect(input.contained).toHaveSize(1);
