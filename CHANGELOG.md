@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.3.0
+
+* Added support for `contained` property for classes of R4.
+
 ## 2.2.8
 
 * Fixed issue with `ResourceUtils.getValuesAtResourcePath` not checking if the root of the path matches the resource type.
