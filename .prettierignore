@@ -9,6 +9,8 @@ coverage/
 .nyc_output/
 
 # Auto-generated FHIR files
+src/FHIR-DSTU2.ts
+src/FHIR-R3.ts
 src/FHIR-R4/classes/
 src/FHIR-R4/interfaces/
 src/FHIR-R5/
