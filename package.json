@@ -10,14 +10,24 @@
     "build": "tsc",
     "test": "tsx --tsconfig ./tsconfig.json node_modules/jasmine/bin/jasmine --config=spec/support/jasmine.json",
     "coverage": "nyc npm run test",
-    "audit": "better-npm-audit audit"
+    "audit": "better-npm-audit audit",
+    "lint": "eslint \"src/library/**/*.ts\" \"src/index.ts\"",
+    "lint:fix": "eslint \"src/library/**/*.ts\" \"src/index.ts\" --fix",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\""
   },
   "devDependencies": {
     "@types/jasmine": "^4.3.1",
     "@types/node": "^25.2.3",
+    "@typescript-eslint/eslint-plugin": "^8.55.0",
+    "@typescript-eslint/parser": "^8.55.0",
     "better-npm-audit": "^3.7.3",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
     "jasmine": "^4.5.0",
     "nyc": "^15.1.0",
+    "prettier": "^3.8.1",
     "ts-node": "^10.9.1",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"

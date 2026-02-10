@@ -1,4 +1,4 @@
-import { CodingKeys, IdentifierKeys } from "../dataTypes";
+import { CodingKeys, IdentifierKeys } from '../dataTypes';
 
 export class ResourceUtils {
   /**
@@ -10,7 +10,7 @@ export class ResourceUtils {
    */
   getResourceProperty(inputJson: Record<string, any>, propertyName: string) {
     let resourcePropertyValue = null;
-    if (inputJson.hasOwnProperty(propertyName)) {
+    if (Object.prototype.hasOwnProperty.call(inputJson, propertyName)) {
       resourcePropertyValue = inputJson[propertyName];
     }
     return resourcePropertyValue;
@@ -45,9 +45,7 @@ export class ResourceUtils {
    * @returns array of matches
    */
   getExtensionsByUrl<T = any>(extensionList: any[] | null | undefined, extensionUrl: string): T[] {
-    return extensionList?.length
-      ? extensionList.filter((x) => x["url"] === extensionUrl)
-      : [];
+    return extensionList?.length ? extensionList.filter((x) => x['url'] === extensionUrl) : [];
   }
 
   /**
@@ -79,7 +77,9 @@ export class ResourceUtils {
    */
   getValuesAtResourcePath<T = any>(resource: any, elementPath: string): T[] {
     const pathSections = elementPath.split('.');
-    if (!resource || (resource.resourceType !== pathSections[0])) return [];
+    if (!resource || resource.resourceType !== pathSections[0]) {
+      return [];
+    }
     return this.getValuesAtResourcePathInner(resource, pathSections);
   }
 
@@ -92,18 +92,19 @@ export class ResourceUtils {
         if (this.isPrimitive(resourcePathValue) || pathSections.length === 2) {
           return Array.isArray(resourcePathValue) ? [...resourcePathValue] : [resourcePathValue];
         } else if (Array.isArray(resourcePathValue) && resourcePathValue.length > 0) {
-          let resultSet = [];
+          const resultSet = [];
           for (let subPathIndex = 0; subPathIndex < resourcePathValue.length; subPathIndex++) {
             const subPathValue = resourcePathValue[subPathIndex];
             if (this.isPrimitive(subPathValue)) {
               resultSet.push(subPathValue);
-            }
-            else {
-              resultSet.push(...this.getValuesAtResourcePathInner(subPathValue, pathSections.slice(index)));
+            } else {
+              resultSet.push(
+                ...this.getValuesAtResourcePathInner(subPathValue, pathSections.slice(index))
+              );
             }
           }
           return resultSet;
-        } else if (typeof (resourcePathValue) === 'object') {
+        } else if (typeof resourcePathValue === 'object') {
           return this.getValuesAtResourcePathInner(resourcePathValue, pathSections.slice(index));
         }
       } else {
@@ -114,7 +115,7 @@ export class ResourceUtils {
   }
 
   private isPrimitive(value: any) {
-    return typeof (value) === "boolean" || typeof (value) === "string";
+    return typeof value === 'boolean' || typeof value === 'string';
   }
 
   /**
@@ -124,10 +125,11 @@ export class ResourceUtils {
   getAllReferencesFromResource(resource: any): string[] {
     const stringifiedResource = JSON.stringify(resource);
     const referenceJsonString = '"reference":';
-    let references = [];
+    const references = [];
     let cursor = stringifiedResource.indexOf(referenceJsonString, 0);
     while (cursor > -1) {
-      const referenceStart = stringifiedResource.indexOf(referenceJsonString, cursor) + referenceJsonString.length;
+      const referenceStart =
+        stringifiedResource.indexOf(referenceJsonString, cursor) + referenceJsonString.length;
       const referenceEnd = stringifiedResource.indexOf('"', referenceStart + 1);
       const reference = stringifiedResource.substring(referenceStart, referenceEnd);
       // this means the reference ends started reading from start again

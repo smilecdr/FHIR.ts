@@ -8,4 +8,15 @@ import { BundleUtils } from './library/BundleUtils/BundleUtils';
 import { QueryBuilder } from './library/QueryBuilder/QueryBuilder';
 import { PatchUtils } from './library/PatchUtils/PatchUtils';
 import * as fhirtsConstants from './library/constants';
-export { fhirR5, fhirR4, fhirR3, IfhirR4, dstu2, ResourceUtils, BundleUtils, QueryBuilder, PatchUtils, fhirtsConstants};
+export {
+  fhirR5,
+  fhirR4,
+  fhirR3,
+  IfhirR4,
+  dstu2,
+  ResourceUtils,
+  BundleUtils,
+  QueryBuilder,
+  PatchUtils,
+  fhirtsConstants,
+};

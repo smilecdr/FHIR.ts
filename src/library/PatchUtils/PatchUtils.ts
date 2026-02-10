@@ -1,18 +1,18 @@
-import { PATCH_DATATYPE, PatchAddValueParams, PatchAddBackboneElementParams } from "../constants";
+import { PATCH_DATATYPE, PatchAddValueParams, PatchAddBackboneElementParams } from '../constants';
 
 /**
  * This a simple utility to create Parameters resource for FHIR patch operation
  * https://www.hl7.org/fhir/fhirpatch.html
  */
 export class PatchUtils {
-  private REPLACE_OPERATION_NAME = "replace";
-  private DELETE_OPERATION_NAME = "delete";
-  private MOVE_OPERATION_NAME = "move";
-  private ADD_OPERATION_NAME = "add";
-  private INSERT_OPERATION_NAME = "insert";
-  private readonly PARAMETER_PROPERTY_NAME = "parameter";
+  private REPLACE_OPERATION_NAME = 'replace';
+  private DELETE_OPERATION_NAME = 'delete';
+  private MOVE_OPERATION_NAME = 'move';
+  private ADD_OPERATION_NAME = 'add';
+  private INSERT_OPERATION_NAME = 'insert';
+  private readonly PARAMETER_PROPERTY_NAME = 'parameter';
   private baseParameters: { resourceType: string; parameter: any[] } = {
-    resourceType: "Parameters",
+    resourceType: 'Parameters',
     parameter: [],
   };
 
@@ -23,24 +23,20 @@ export class PatchUtils {
    * @param valueDataType the data type of value
    * @returns Parameters resource for FHIR patch replace operation
    */
-  createReplaceParameters(
-    path: string,
-    value: any,
-    valueDataType: PATCH_DATATYPE
-  ) {
+  createReplaceParameters(path: string, value: any, valueDataType: PATCH_DATATYPE) {
     const replaceParameters = {
-      name: "operation",
+      name: 'operation',
       part: [
         {
-          name: "type",
+          name: 'type',
           valueCode: this.REPLACE_OPERATION_NAME,
         },
         {
-          name: "path",
+          name: 'path',
           valueString: path,
         },
         {
-          name: "value",
+          name: 'value',
           [valueDataType]: value,
         },
       ],
@@ -56,14 +52,14 @@ export class PatchUtils {
    */
   createDeleteParameters(path: string) {
     const deleteParameters = {
-      name: "operation",
+      name: 'operation',
       part: [
         {
-          name: "type",
+          name: 'type',
           valueCode: this.DELETE_OPERATION_NAME,
         },
         {
-          name: "path",
+          name: 'path',
           valueString: path,
         },
       ],
@@ -81,22 +77,22 @@ export class PatchUtils {
    */
   createMoveParameters(path: string, source: number, destination: number) {
     const moveParameters = {
-      name: "operation",
+      name: 'operation',
       part: [
         {
-          name: "type",
+          name: 'type',
           valueCode: this.MOVE_OPERATION_NAME,
         },
         {
-          name: "path",
+          name: 'path',
           valueString: path,
         },
         {
-          name: "source",
+          name: 'source',
           valueInteger: source,
         },
         {
-          name: "destination",
+          name: 'destination',
           valueInteger: destination,
         },
       ],
@@ -111,17 +107,13 @@ export class PatchUtils {
    * @param patchAddValueParams  the value to replace with & the data type of value
    * @returns Parameters resource for FHIR patch add operation
    */
-  createAddParameters(
-    path: string,
-    name: string,
-    patchAddValueParams: PatchAddValueParams
-  ) {
+  createAddParameters(path: string, name: string, patchAddValueParams: PatchAddValueParams) {
     const addParameters = {
-      name: "operation",
+      name: 'operation',
       part: [
         ...this.getCommonAddParameters(path, name),
         {
-          name: "value",
+          name: 'value',
           [patchAddValueParams.valueDataType]: patchAddValueParams.value,
         },
       ],
@@ -131,11 +123,11 @@ export class PatchUtils {
   }
 
   /**
-   * 
+   *
    * @param path the path at which to add the content
    * @param name name of the property to add
    * @param patchAddValueParams  the value to replace with, the data type of value & the backbone element property
-   * @returns 
+   * @returns
    */
   createAddParametersForBackboneElement(
     path: string,
@@ -150,11 +142,11 @@ export class PatchUtils {
       });
     });
     const addParameters = {
-      name: "operation",
+      name: 'operation',
       part: [
         ...this.getCommonAddParameters(path, name),
         {
-          name: "value",
+          name: 'value',
           part: parts,
         },
       ],
@@ -171,29 +163,24 @@ export class PatchUtils {
    * @param index the index at which the value should be inserted
    * @returns Parameters resource for FHIR patch insert operation
    */
-  createInsertParameters(
-    path: string,
-    value: any,
-    valueDataType: PATCH_DATATYPE,
-    index: number
-  ) {
+  createInsertParameters(path: string, value: any, valueDataType: PATCH_DATATYPE, index: number) {
     const insertParameters = {
-      name: "operation",
+      name: 'operation',
       part: [
         {
-          name: "type",
+          name: 'type',
           valueCode: this.INSERT_OPERATION_NAME,
         },
         {
-          name: "path",
+          name: 'path',
           valueString: path,
         },
         {
-          name: "index",
+          name: 'index',
           valueInteger: index,
         },
         {
-          name: "value",
+          name: 'value',
           [valueDataType]: value,
         },
       ],
@@ -220,15 +207,15 @@ export class PatchUtils {
   private getCommonAddParameters(path: string, name: string) {
     return [
       {
-        name: "type",
+        name: 'type',
         valueCode: this.ADD_OPERATION_NAME,
       },
       {
-        name: "path",
+        name: 'path',
         valueString: path,
       },
       {
-        name: "name",
+        name: 'name',
         valueString: name,
       },
     ];

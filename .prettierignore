@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Coverage
+coverage/
+.nyc_output/
+
+# Auto-generated FHIR files
+src/FHIR-R4/classes/
+src/FHIR-R4/interfaces/
+src/FHIR-R5/
+
+# Lock files
+package-lock.json
+
+# Logs
+*.log
