@@ -17,59 +17,67 @@ export class ResourceUtils {
   }
 
   /**
+   * Get identifiers from a list filtered by property value
    *
+   * @template T - The identifier type to return (defaults to any for backward compatibility)
    * @param identifierList list of identifiers
    * @param propertyToCompare identifier property to compare
    * @param propertyValue value we want to compare against
    * @returns array of matches
    * @limitations currently does not work with identifier.type, identifier.period & identifier.assigner
    */
-  getIdentifiersByProperty(
+  getIdentifiersByProperty<T = any>(
     identifierList: any[] | null | undefined,
     propertyToCompare: IdentifierKeys,
     propertyValue: any[IdentifierKeys]
-  ): any[] {
+  ): T[] {
     return identifierList?.length
       ? identifierList.filter((x) => x[propertyToCompare] === propertyValue)
       : [];
   }
 
   /**
+   * Get extensions from a list filtered by URL
    *
+   * @template T - The extension type to return (defaults to any for backward compatibility)
    * @param extensionList list of extensions
    * @param extensionUrl Extension.url to compare
    * @returns array of matches
    */
-  getExtensionsByUrl(extensionList: any[] | null | undefined, extensionUrl: string): any[] {
+  getExtensionsByUrl<T = any>(extensionList: any[] | null | undefined, extensionUrl: string): T[] {
     return extensionList?.length
       ? extensionList.filter((x) => x["url"] === extensionUrl)
       : [];
   }
 
   /**
+   * Get codings from a list filtered by property value
    *
+   * @template T - The coding type to return (defaults to any for backward compatibility)
    * @param codingList list of codings
    * @param propertyToCompare coding property to compare
    * @param propertyValue value we want to compare against string or boolean
    * @returns array of matches
    */
-  getCodingsByProperty(
+  getCodingsByProperty<T = any>(
     codingList: any[] | null | undefined,
     propertyToCompare: CodingKeys,
     propertyValue: any[CodingKeys]
-  ): any[] {
+  ): T[] {
     return codingList?.length
       ? codingList.filter((x) => x[propertyToCompare] === propertyValue)
       : [];
   }
 
   /**
+   * Get values at a specific path in a FHIR resource
    *
+   * @template T - The value type to return (defaults to any for backward compatibility)
    * @param resource resource for which path needs to be validated
-   * @param elementPath path to validate in resource
+   * @param elementPath path to validate in resource (e.g., "Patient.name.given")
    * @returns array of elements found at the provided path
    */
-  getValuesAtResourcePath(resource: any, elementPath: string): any[] {
+  getValuesAtResourcePath<T = any>(resource: any, elementPath: string): T[] {
     const pathSections = elementPath.split('.');
     if (!resource || (resource.resourceType !== pathSections[0])) return [];
     return this.getValuesAtResourcePathInner(resource, pathSections);
