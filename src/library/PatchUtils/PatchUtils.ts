@@ -11,7 +11,7 @@ export class PatchUtils {
   private ADD_OPERATION_NAME = "add";
   private INSERT_OPERATION_NAME = "insert";
   private readonly PARAMETER_PROPERTY_NAME = "parameter";
-  private baseParameters = {
+  private baseParameters: { resourceType: string; parameter: any[] } = {
     resourceType: "Parameters",
     parameter: [],
   };
@@ -142,7 +142,7 @@ export class PatchUtils {
     name: string,
     patchAddValueParams: PatchAddBackboneElementParams[]
   ) {
-    const parts = [];
+    const parts: any[] = [];
     patchAddValueParams.forEach((x) => {
       parts.push({
         name: x.backBoneElementProperty,

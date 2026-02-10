@@ -14,7 +14,7 @@ export class Id {
   constructor(input?: string) {
     const re = new RegExp('[A-Za-z0-9\\-\\.]{1,64}');
 
-    if (re.test(input)) {
+    if (input && re.test(input)) {
       this.id = input;
     } else {
       throw new RangeError('Not a valid Id string - must match reg exp [A-Za-z0-9\\-\\.]{1,64} Was provided: ' + input);

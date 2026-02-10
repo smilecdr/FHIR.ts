@@ -8,7 +8,7 @@ export class ResourceUtils {
    * @returns json property if it exists
    * @limitation currently just supports get for top level property on resource
    */
-  getResourceProperty(inputJson: object, propertyName: string) {
+  getResourceProperty(inputJson: Record<string, any>, propertyName: string) {
     let resourcePropertyValue = null;
     if (inputJson.hasOwnProperty(propertyName)) {
       resourcePropertyValue = inputJson[propertyName];
@@ -25,7 +25,7 @@ export class ResourceUtils {
    * @limitations currently does not work with identifier.type, identifier.period & identifier.assigner
    */
   getIdentifiersByProperty(
-    identifierList: any[],
+    identifierList: any[] | null | undefined,
     propertyToCompare: IdentifierKeys,
     propertyValue: any[IdentifierKeys]
   ): any[] {
@@ -40,7 +40,7 @@ export class ResourceUtils {
    * @param extensionUrl Extension.url to compare
    * @returns array of matches
    */
-  getExtensionsByUrl(extensionList: any[], extensionUrl: string): any[] {
+  getExtensionsByUrl(extensionList: any[] | null | undefined, extensionUrl: string): any[] {
     return extensionList?.length
       ? extensionList.filter((x) => x["url"] === extensionUrl)
       : [];
@@ -54,7 +54,7 @@ export class ResourceUtils {
    * @returns array of matches
    */
   getCodingsByProperty(
-    codingList: any[],
+    codingList: any[] | null | undefined,
     propertyToCompare: CodingKeys,
     propertyValue: any[CodingKeys]
   ): any[] {
@@ -76,9 +76,9 @@ export class ResourceUtils {
   }
 
   private getValuesAtResourcePathInner(resource: any, pathSections: string[]): any[] {
-    let resourcePathValue;
+    let resourcePathValue: any;
     for (let index = 1; index < pathSections.length; index++) {
-      const subPaths = pathSections[index];
+      const subPaths: string = pathSections[index] ?? '';
       resourcePathValue = resourcePathValue ? resourcePathValue[subPaths] : resource[subPaths];
       if (resourcePathValue) {
         if (this.isPrimitive(resourcePathValue) || pathSections.length === 2) {

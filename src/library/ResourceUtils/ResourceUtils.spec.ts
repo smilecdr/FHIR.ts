@@ -373,7 +373,7 @@ describe("ResourceUtils", () => {
       const input = careTeamContainedPayload as CareTeam;
       expect(input.contained).toHaveSize(1);
       // execute
-      const actual = resourceUtils.getAllReferencesFromResource(input.contained[0]);
+      const actual = resourceUtils.getAllReferencesFromResource(input.contained?.[0]);
       // validate
       expect(actual.length).toEqual(1);
     });
