@@ -159,7 +159,7 @@ const claimsList = bundleUtils.getResources<fhirR4.Claim>(Bundle.entry, 'Claim')
 // Backward compatible - returns any
 const resource = bundleUtils.getResource(Bundle.entry, '123');
 
-// Type-safe with generics (v2.4.0+) - returns Patient | undefined | null
+// Type-safe with generics (v2.4.0+) - returns Patient | null
 const patient = bundleUtils.getResource<fhirR4.Patient>(Bundle.entry, '123');
 
 // Type-safe example with full URL (v2.4.0+)

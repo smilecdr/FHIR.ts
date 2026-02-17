@@ -7,7 +7,7 @@ export class BundleUtils {
    * @param resourceTypeToFilter ResourceType to filter from bundle entries
    * @returns array of resources
    */
-  getResources<T = any>(bundleEntry: any[] | null | undefined, resourceTypeToFilter: string): T[] {
+  getResources<T = any>(bundleEntry: any[] | null, resourceTypeToFilter: string): T[] {
     return bundleEntry?.length
       ? bundleEntry
           .filter((x) => x['resource']['resourceType'] === resourceTypeToFilter)
@@ -23,10 +23,7 @@ export class BundleUtils {
    * @param resourceId Resource ID to filter from bundle entries
    * @returns single resource, undefined if not found, or null if input is null
    */
-  getResource<T = any>(
-    bundleEntry: any[] | null | undefined,
-    resourceId: string
-  ): T | undefined | null {
+  getResource<T = any>(bundleEntry: any[] | null, resourceId: string): T | null {
     if (!bundleEntry) {
       return null;
     }
@@ -40,12 +37,9 @@ export class BundleUtils {
    * @template T - The resource type to return (defaults to any for backward compatibility)
    * @param bundleEntry Bundle.entry[] i.e. the bundle entries to filter
    * @param fullUrl Full Url to filter from bundle entries
-   * @returns single resource, undefined if not found, or null if input is null
+   * @returns single resource if not found, or null if input is null
    */
-  getResourceByFullUrl<T = any>(
-    bundleEntry: any[] | null | undefined,
-    fullUrl: string
-  ): T | undefined | null {
+  getResourceByFullUrl<T = any>(bundleEntry: any[] | null, fullUrl: string): T | null {
     if (!bundleEntry) {
       return null;
     }

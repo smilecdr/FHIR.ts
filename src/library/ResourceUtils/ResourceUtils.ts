@@ -27,7 +27,7 @@ export class ResourceUtils {
    * @limitations currently does not work with identifier.type, identifier.period & identifier.assigner
    */
   getIdentifiersByProperty<T = any>(
-    identifierList: any[] | null | undefined,
+    identifierList: any[] | null,
     propertyToCompare: IdentifierKeys,
     propertyValue: any[IdentifierKeys]
   ): T[] {
@@ -44,7 +44,7 @@ export class ResourceUtils {
    * @param extensionUrl Extension.url to compare
    * @returns array of matches
    */
-  getExtensionsByUrl<T = any>(extensionList: any[] | null | undefined, extensionUrl: string): T[] {
+  getExtensionsByUrl<T = any>(extensionList: any[] | null, extensionUrl: string): T[] {
     return extensionList?.length ? extensionList.filter((x) => x['url'] === extensionUrl) : [];
   }
 
@@ -58,7 +58,7 @@ export class ResourceUtils {
    * @returns array of matches
    */
   getCodingsByProperty<T = any>(
-    codingList: any[] | null | undefined,
+    codingList: any[] | null,
     propertyToCompare: CodingKeys,
     propertyValue: any[CodingKeys]
   ): T[] {
