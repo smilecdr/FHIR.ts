@@ -35,7 +35,9 @@ export class Code extends FHIRElement {
 
   constructor(input?: string) {
     super();
-    this.setCode(input);
+    if (input) {
+      this.setCode(input);
+    }
   }
 
   private setCode(input: string) {

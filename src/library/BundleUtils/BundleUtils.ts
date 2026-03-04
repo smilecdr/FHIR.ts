@@ -1,35 +1,49 @@
 export class BundleUtils {
+  /**
+   * Get resources from bundle entries filtered by resource type
+   *
+   * @template T - The resource type to return (defaults to any for backward compatibility)
+   * @param bundleEntry Bundle.entry[] i.e. the bundle entries to filter
+   * @param resourceTypeToFilter ResourceType to filter from bundle entries
+   * @returns array of resources
+   */
+  getResources<T = any>(bundleEntry: any[] | null, resourceTypeToFilter: string): T[] {
+    return bundleEntry?.length
+      ? bundleEntry
+          .filter((x) => x['resource']['resourceType'] === resourceTypeToFilter)
+          .map((x) => x['resource'])
+      : [];
+  }
 
-    /**
-     * 
-     * @param bundleEntry Bundle.entry[] i.e. the bundle entries to filter
-     * @param resourceTypeToFilter ResourceType to filter from bundle entries
-     * @returns array of resources
-     */
-    getResources(bundleEntry: any[], resourceTypeToFilter: string): any[] {
-        return bundleEntry?.length ? bundleEntry.filter(x => x['resource']['resourceType'] === resourceTypeToFilter) : [];
+  /**
+   * Get a single resource from bundle entries by resource ID
+   *
+   * @template T - The resource type to return (defaults to any for backward compatibility)
+   * @param bundleEntry Bundle.entry[] i.e. the bundle entries to filter
+   * @param resourceId Resource ID to filter from bundle entries
+   * @returns single resource, undefined if not found, or null if input is null
+   */
+  getResource<T = any>(bundleEntry: any[] | null, resourceId: string): T | null {
+    if (!bundleEntry) {
+      return null;
     }
+    const entry = bundleEntry.find((x) => x['resource']?.['id'] === resourceId);
+    return entry?.['resource'];
+  }
 
-    /**
-     * 
-     * @param bundleEntry Bundle.entry[] i.e. the bundle entries to filter
-     * @param resourceId Resource ID to filter from bundle entries
-     * @returns single resource
-     */
-    getResource(bundleEntry: any[], resourceId: string): any {
-        return bundleEntry?.length ? bundleEntry.find(x => x['resource']['id'] === resourceId) : null;
+  /**
+   * Get a single resource from bundle entries by full URL
+   *
+   * @template T - The resource type to return (defaults to any for backward compatibility)
+   * @param bundleEntry Bundle.entry[] i.e. the bundle entries to filter
+   * @param fullUrl Full Url to filter from bundle entries
+   * @returns single resource if not found, or null if input is null
+   */
+  getResourceByFullUrl<T = any>(bundleEntry: any[] | null, fullUrl: string): T | null {
+    if (!bundleEntry) {
+      return null;
     }
-
-    /**
-     *
-     * @param bundleEntry Bundle.entry[] i.e. the bundle entries to filter
-     * @param fullUrl Full Url to filter from bundle entries
-     * @returns single resource
-     */
-    getResourceByFullUrl(bundleEntry: any[], fullUrl: string): any {
-        return bundleEntry?.length ? bundleEntry.find(x => x['fullUrl'] === fullUrl) : null;
-    }
+    const entry = bundleEntry.find((x) => x['fullUrl'] === fullUrl);
+    return entry?.['resource'];
+  }
 }
-
-
-

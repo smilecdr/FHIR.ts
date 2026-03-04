@@ -1,7 +1,6 @@
-import { PATCH_DATATYPE, PatchAddValueParams, PatchAddBackboneElementParams } from "../constants";
-import { PatchUtils } from "./PatchUtils";
-describe("PatchUtils", () => {
-
+import { PATCH_DATATYPE, PatchAddValueParams, PatchAddBackboneElementParams } from '../constants';
+import { PatchUtils } from './PatchUtils';
+describe('PatchUtils', () => {
   let patchUtils: PatchUtils;
 
   beforeEach(() => {
@@ -11,23 +10,33 @@ describe("PatchUtils", () => {
   it('createReplaceParameters() should create Parameters for FHIR patch replace operation', () => {
     // setup
     const expected = {
-      "resourceType": "Parameters",
-      "parameter": [ {
-        "name": "operation",
-        "part": [ {
-          "name": "type",
-          "valueCode": "replace"
-        }, {
-          "name": "path",
-          "valueString": "Patient.birthDate"
-        }, {
-          "name": "value",
-          "valueDate": "1930-01-01"
-        } ]
-      } ]
+      resourceType: 'Parameters',
+      parameter: [
+        {
+          name: 'operation',
+          part: [
+            {
+              name: 'type',
+              valueCode: 'replace',
+            },
+            {
+              name: 'path',
+              valueString: 'Patient.birthDate',
+            },
+            {
+              name: 'value',
+              valueDate: '1930-01-01',
+            },
+          ],
+        },
+      ],
     };
     // execute
-    const actual = patchUtils.createReplaceParameters("Patient.birthDate", "1930-01-01", PATCH_DATATYPE.DATE);
+    const actual = patchUtils.createReplaceParameters(
+      'Patient.birthDate',
+      '1930-01-01',
+      PATCH_DATATYPE.DATE
+    );
     // validate
     expect(actual.getPatchParameters()).toEqual(expected);
   });
@@ -35,20 +44,25 @@ describe("PatchUtils", () => {
   it('createDeleteParameters() should create Parameters for FHIR patch delete operation', () => {
     // setup
     const expected = {
-      "resourceType": "Parameters",
-      "parameter": [ {
-        "name": "operation",
-        "part": [ {
-          "name": "type",
-          "valueCode": "delete"
-        }, {
-          "name": "path",
-          "valueString": "Patient.status"
-        }]
-      } ]
+      resourceType: 'Parameters',
+      parameter: [
+        {
+          name: 'operation',
+          part: [
+            {
+              name: 'type',
+              valueCode: 'delete',
+            },
+            {
+              name: 'path',
+              valueString: 'Patient.status',
+            },
+          ],
+        },
+      ],
     };
     // execute
-    const actual = patchUtils.createDeleteParameters("Patient.status");
+    const actual = patchUtils.createDeleteParameters('Patient.status');
     // validate
     expect(actual.getPatchParameters()).toEqual(expected);
   });
@@ -56,26 +70,33 @@ describe("PatchUtils", () => {
   it('createMoveParameters() should create Parameters for FHIR patch move operation', () => {
     // setup
     const expected = {
-      "resourceType": "Parameters",
-      "parameter": [ {
-        "name": "operation",
-        "part": [ {
-          "name": "type",
-          "valueCode": "move"
-        }, {
-          "name": "path",
-          "valueString": "Patient.identifier"
-        }, {
-          "name": "source",
-          "valueInteger": 0
-        }, {
-          "name": "destination",
-          "valueInteger": 1
-        }]
-      } ]
+      resourceType: 'Parameters',
+      parameter: [
+        {
+          name: 'operation',
+          part: [
+            {
+              name: 'type',
+              valueCode: 'move',
+            },
+            {
+              name: 'path',
+              valueString: 'Patient.identifier',
+            },
+            {
+              name: 'source',
+              valueInteger: 0,
+            },
+            {
+              name: 'destination',
+              valueInteger: 1,
+            },
+          ],
+        },
+      ],
     };
     // execute
-    const actual = patchUtils.createMoveParameters("Patient.identifier", 0, 1);
+    const actual = patchUtils.createMoveParameters('Patient.identifier', 0, 1);
     // validate
     expect(actual.getPatchParameters()).toEqual(expected);
   });
@@ -83,30 +104,37 @@ describe("PatchUtils", () => {
   it('createAddParameters() should create Parameters for FHIR patch add operation', () => {
     // setup
     const expected = {
-      "resourceType": "Parameters",
-      "parameter": [ {
-        "name": "operation",
-        "part": [ {
-          "name": "type",
-          "valueCode": "add"
-        }, {
-          "name": "path",
-          "valueString": "Patient"
-        }, {
-          "name": "name",
-          "valueString": "birthDate"
-        }, {
-          "name": "value",
-          "valueDate": "1930-01-01"
-        }]
-      } ]
+      resourceType: 'Parameters',
+      parameter: [
+        {
+          name: 'operation',
+          part: [
+            {
+              name: 'type',
+              valueCode: 'add',
+            },
+            {
+              name: 'path',
+              valueString: 'Patient',
+            },
+            {
+              name: 'name',
+              valueString: 'birthDate',
+            },
+            {
+              name: 'value',
+              valueDate: '1930-01-01',
+            },
+          ],
+        },
+      ],
     };
     const params: PatchAddValueParams = {
-      "value": "1930-01-01",
-      "valueDataType": PATCH_DATATYPE.DATE
+      value: '1930-01-01',
+      valueDataType: PATCH_DATATYPE.DATE,
     };
     // execute
-    const actual = patchUtils.createAddParameters("Patient", "birthDate", params);
+    const actual = patchUtils.createAddParameters('Patient', 'birthDate', params);
     // validate
     expect(actual.getPatchParameters()).toEqual(expected);
   });
@@ -114,59 +142,62 @@ describe("PatchUtils", () => {
   it('createAddParametersForBackboneElement() should create Parameters for FHIR patch add operation', () => {
     // setup
     const expected = {
-      "resourceType": "Parameters",
-      "parameter": [
+      resourceType: 'Parameters',
+      parameter: [
         {
-          "name": "operation",
-          "part": [
+          name: 'operation',
+          part: [
             {
-              "name": "type",
-              "valueCode": "add"
+              name: 'type',
+              valueCode: 'add',
             },
             {
-              "name": "path",
-              "valueString": "Patient"
+              name: 'path',
+              valueString: 'Patient',
             },
             {
-              "name": "name",
-              "valueString": "contact"
+              name: 'name',
+              valueString: 'contact',
             },
             {
-              "name": "value",
-              "part": [
+              name: 'value',
+              part: [
                 {
-                  "name": "address",
-                  "valueAddress": {
-                    "use": "work"
-                  }
+                  name: 'address',
+                  valueAddress: {
+                    use: 'work',
+                  },
                 },
                 {
-                  "name": "name",
-                  "valueHumanName": {
-                    "use": "official"
-                  }
-                }
-              ]
-            }
-          ]
+                  name: 'name',
+                  valueHumanName: {
+                    use: 'official',
+                  },
+                },
+              ],
+            },
+          ],
         },
-      ]
+      ],
     };
-    const params: PatchAddBackboneElementParams[] = [{
-      "value": {
-        "use": "work"
+    const params: PatchAddBackboneElementParams[] = [
+      {
+        value: {
+          use: 'work',
+        },
+        valueDataType: PATCH_DATATYPE.ADDRESS,
+        backBoneElementProperty: 'address',
       },
-      "valueDataType": PATCH_DATATYPE.ADDRESS,
-      "backBoneElementProperty": "address"
-    }, {
-      "value": {
-        "use": "official"
+      {
+        value: {
+          use: 'official',
+        },
+        valueDataType: PATCH_DATATYPE.HUMAN_NAME,
+        backBoneElementProperty: 'name',
       },
-      "valueDataType": PATCH_DATATYPE.HUMAN_NAME,
-      "backBoneElementProperty": "name"
-    }]
+    ];
     // execute
-    const actual = patchUtils.createAddParametersForBackboneElement("Patient", "contact", params);
+    const actual = patchUtils.createAddParametersForBackboneElement('Patient', 'contact', params);
     // validate
     expect(actual.getPatchParameters()).toEqual(expected);
   });
@@ -174,30 +205,42 @@ describe("PatchUtils", () => {
   it('createInsertParameters() should create Parameters for FHIR patch add operation', () => {
     // setup
     const identifier = {
-      "system": "http://some-system.com",
-      "value": "someValue"
-    }
+      system: 'http://some-system.com',
+      value: 'someValue',
+    };
     const expected = {
-      "resourceType": "Parameters",
-      "parameter": [ {
-        "name": "operation",
-        "part": [ {
-          "name": "type",
-          "valueCode": "insert"
-        }, {
-          "name": "path",
-          "valueString": "Patient.identifier"
-        }, {
-          "name": "index",
-          "valueInteger": 1
-        }, {
-          "name": "value",
-          "valueIdentifier": identifier
-        }]
-      } ]
+      resourceType: 'Parameters',
+      parameter: [
+        {
+          name: 'operation',
+          part: [
+            {
+              name: 'type',
+              valueCode: 'insert',
+            },
+            {
+              name: 'path',
+              valueString: 'Patient.identifier',
+            },
+            {
+              name: 'index',
+              valueInteger: 1,
+            },
+            {
+              name: 'value',
+              valueIdentifier: identifier,
+            },
+          ],
+        },
+      ],
     };
     // execute
-    const actual = patchUtils.createInsertParameters("Patient.identifier", identifier, PATCH_DATATYPE.IDENTIFIER, 1);
+    const actual = patchUtils.createInsertParameters(
+      'Patient.identifier',
+      identifier,
+      PATCH_DATATYPE.IDENTIFIER,
+      1
+    );
     // validate
     expect(actual.getPatchParameters()).toEqual(expected);
   });
@@ -205,11 +248,12 @@ describe("PatchUtils", () => {
   it('resetPatchParameters() should reset Parameter property inside Parameters resource for PATCH operation', () => {
     // setup
     // validate delete params are present
-    expect(patchUtils.createDeleteParameters("Patient.status").getPatchParameters().parameter).toHaveSize(1);
+    expect(
+      patchUtils.createDeleteParameters('Patient.status').getPatchParameters().parameter
+    ).toHaveSize(1);
     // execute
     const actual = patchUtils.resetPatchParameters().getPatchParameters();
     // validate
     expect(actual.parameter).toHaveSize(0);
   });
-  
 });

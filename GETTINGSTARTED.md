@@ -142,40 +142,82 @@ console.log(query)
 
 #### BundleUtils
 - Published in `v2.1.0`.
+- Enhanced in `v2.4.0` with optional generic type parameters for better type safety.
 - Example usage demonstrated below.
 ```js
 import { BundleUtils } from '@smile-cdr/fhirts';
- 
+import { fhirR4 } from '@smile-cdr/fhirts';
+
 const bundleUtils = new BundleUtils();
-// returns arrayof Claim resources from Bundle.entry 
+
+// Backward compatible - returns any[]
 const claimsList = bundleUtils.getResources(Bundle.entry, 'Claim');
-// returns a single resource with ID 123 from Bundle.entry
-const resource = bundleUtils.getResource(Bundle.entry, '123'); 
-// returns a single resource with full url 123 from Bundle.entry
-const resource = bundleUtils.getResourceByFullUrl(Bundle.entry, 'http://server-host/fhir/Patient/123'); 
+
+// Type-safe with generics (v2.4.0+) - returns Claim[]
+const claimsList = bundleUtils.getResources<fhirR4.Claim>(Bundle.entry, 'Claim');
+
+// Backward compatible - returns any
+const resource = bundleUtils.getResource(Bundle.entry, '123');
+
+// Type-safe with generics (v2.4.0+) - returns Patient | null
+const patient = bundleUtils.getResource<fhirR4.Patient>(Bundle.entry, '123');
+
+// Type-safe example with full URL (v2.4.0+)
+const patient = bundleUtils.getResourceByFullUrl<fhirR4.Patient>(
+  Bundle.entry,
+  'http://server-host/fhir/Patient/123'
+);
 ```
 
 #### ResourceUtils
 - Published in `v2.1.0`.
+- Enhanced in `v2.4.0` with optional generic type parameters for better type safety.
 - Example usage demonstrated below.
 ```js
 import { ResourceUtils } from '@smile-cdr/fhirts';
+import { fhirR4 } from '@smile-cdr/fhirts';
+
 const resourceUtils = new ResourceUtils();
 
 // returns Patient.gender
-const patientGender = resourceUtils.getResourceProperty(jsonPatientPayload, 'gender'); 
+const patientGender = resourceUtils.getResourceProperty(jsonPatientPayload, 'gender');
 
-// returns all matching identifiers where Identifier.use = usual
-const identifierFilter = resourceUtils.getIdentifiersByProperty(identifierList,"use","usual"); 
+// Backward compatible - returns any[]
+const identifierFilter = resourceUtils.getIdentifiersByProperty(identifierList, "use", "usual");
+
+// Type-safe with generics (v2.4.0+) - returns Identifier[]
+const identifierFilter = resourceUtils.getIdentifiersByProperty<fhirR4.Identifier>(
+  identifierList,
+  "use",
+  "usual"
+);
 
 const url = "http://ns.electronichealth.net.au/id/hi/ihi/1.0";
-// returns all matching extensions where Extension.use = "http://ns.electronichealth.net.au/id/hi/ihi/1.0"
-const extensionFilter = resourceUtils.getExtensionsByUrl(extensionList, url); 
 
-// returns all matching codings where Coding.code = "abc"
-const codingFilter = resourceUtils.getCodingsByProperty(codingList,"code","abc"); 
-// returns array of elements found at provided path and returns empty array if no values found 
-const values = resourceUtils.getValuesAtResourcePath(jsonPatientPayload, "Patient.contact.relationship.coding.system");
+// Backward compatible - returns any[]
+const extensionFilter = resourceUtils.getExtensionsByUrl(extensionList, url);
+
+// Type-safe with generics (v2.4.0+) - returns Extension[]
+const extensionFilter = resourceUtils.getExtensionsByUrl<fhirR4.Extension>(extensionList, url);
+
+// Backward compatible - returns any[]
+const codingFilter = resourceUtils.getCodingsByProperty(codingList, "code", "abc");
+
+// Type-safe with generics (v2.4.0+) - returns Coding[]
+const codingFilter = resourceUtils.getCodingsByProperty<fhirR4.Coding>(codingList, "code", "abc");
+
+// Backward compatible - returns any[]
+const values = resourceUtils.getValuesAtResourcePath(
+  jsonPatientPayload,
+  "Patient.contact.relationship.coding.system"
+);
+
+// Type-safe with generics (v2.4.0+) - returns string[]
+const systemValues = resourceUtils.getValuesAtResourcePath<string>(
+  jsonPatientPayload,
+  "Patient.contact.relationship.coding.system"
+);
+
 // returns array of references found in a resource
 const references = resourceUtils.getAllReferencesFromResource(resourcePayload);
 ```
