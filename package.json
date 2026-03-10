@@ -1,7 +1,7 @@
 {
   "name": "@smile-cdr/fhirts",
   "version": "2.4.0",
-  "description": "Fhir ts/js library for frontend apps",
+  "description": "Fhir ts/js library for frontend applications.",
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
