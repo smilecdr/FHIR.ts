@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.4.1
+
+* Added `Parameters` and `Basic` to the R4 `Resource` union type.
+
 ## 2.3.0
 
 * Added support for `contained` property for classes of R4.
