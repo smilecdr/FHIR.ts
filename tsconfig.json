@@ -3,11 +3,12 @@
     "module": "commonjs",
     "target": "ES6",
     "declaration": true,
+    "rootDir": "./src",
     "outDir": "./dist",
     "lib": [
       "es2017"
     ],
-    "moduleResolution": "node",
+    "types": ["node"],
     "esModuleInterop": true,
     "skipLibCheck": true,
     /* Strict Type-Checking Options */

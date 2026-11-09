@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, it } from 'vitest';
 import { PATCH_DATATYPE, PatchAddValueParams, PatchAddBackboneElementParams } from '../constants';
 import { PatchUtils } from './PatchUtils';
 describe('PatchUtils', () => {
@@ -250,10 +251,10 @@ describe('PatchUtils', () => {
     // validate delete params are present
     expect(
       patchUtils.createDeleteParameters('Patient.status').getPatchParameters().parameter
-    ).toHaveSize(1);
+    ).toHaveLength(1);
     // execute
     const actual = patchUtils.resetPatchParameters().getPatchParameters();
     // validate
-    expect(actual.parameter).toHaveSize(0);
+    expect(actual.parameter).toHaveLength(0);
   });
 });

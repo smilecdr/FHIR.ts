@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest';
 import { ResourceUtils } from './ResourceUtils';
 import { Coding, Extension, Identifier } from '../dataTypes';
 import { CareTeam } from '../../FHIR-R4/classes/careTeam';
@@ -13,7 +14,7 @@ describe('ResourceUtils', () => {
       // execute
       const actual = resourceUtils.getResourceProperty(patientPayload, 'deceasedBoolean');
       // validate
-      expect(actual).toBeFalse();
+      expect(actual).toBe(false);
     });
 
     it('should return null if property exists in valid inputJson', () => {
@@ -341,7 +342,7 @@ describe('ResourceUtils', () => {
     it('should return array of all references in a resource when references found in contained resource', () => {
       // setup
       const input = careTeamContainedPayload as CareTeam;
-      expect(input.contained).toHaveSize(1);
+      expect(input.contained).toHaveLength(1);
       // execute
       const actual = resourceUtils.getAllReferencesFromResource(input.contained?.[0]);
       // validate
