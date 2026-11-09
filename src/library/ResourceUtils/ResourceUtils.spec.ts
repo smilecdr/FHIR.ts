@@ -1,7 +1,7 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, expectTypeOf, it } from 'vitest';
 import { ResourceUtils } from './ResourceUtils';
-import { Coding, Extension, Identifier } from '../dataTypes';
-import { CareTeam } from '../../FHIR-R4/classes/careTeam';
+import type { Coding, Extension, Identifier, Patient } from '../../FHIR-R4/classes/models-r4';
+import * as fhirR4Model from '../../FHIR-R4/model';
 
 const patientPayload = require('./../../test-resources/Patient-R4.json');
 const careTeamPayload = require('./../../test-resources/CareTeam-R4.json');
@@ -63,7 +63,8 @@ describe('ResourceUtils', () => {
       // execute
       const actual = resourceUtils.getIdentifiersByProperty(
         identifierList,
-        'extension', // no extensions in test data
+        // @ts-expect-error only primitive elements of Identifier can be compared
+        'extension',
         value
       );
       // validate
@@ -112,12 +113,11 @@ describe('ResourceUtils', () => {
       // setup
       const extensionListInvalid = [
         {
-          // @ts-ignore
           use: 'temp',
           system: 'http://hl7.org/fhir/sid/us-ssn',
           value: 'abc',
         },
-      ] as Extension[]; // disabling compiler warning for the test
+      ] as unknown as Extension[]; // not extensions at all
       const url = 'http://ns.electronichealth.net.au/id/hi/ihi/1.0';
       // execute
       const actual = resourceUtils.getExtensionsByUrl(extensionListInvalid, url);
@@ -165,7 +165,7 @@ describe('ResourceUtils', () => {
       // setup
       const value = 'shouldBeIgnored';
       // execute
-      const actual = resourceUtils.getCodingsByProperty(null, 'extension', value);
+      const actual = resourceUtils.getCodingsByProperty(null, 'display', value);
       // validate
       expect(actual.length).toEqual(0);
     });
@@ -339,14 +339,145 @@ describe('ResourceUtils', () => {
       expect(actual.length).toEqual(0);
     });
 
-    it('should return array of all references in a resource when references found in contained resource', () => {
-      // setup
-      const input = careTeamContainedPayload as CareTeam;
-      expect(input.contained).toHaveLength(1);
+    it('should return the reference of a contained resource', () => {
       // execute
-      const actual = resourceUtils.getAllReferencesFromResource(input.contained?.[0]);
+      const actual = resourceUtils.getAllReferencesFromResource(
+        careTeamContainedPayload.contained[0]
+      );
       // validate
-      expect(actual.length).toEqual(1);
+      expect(actual).toEqual(['CarePlan/123']);
+    });
+
+    it('should return each reference exactly as written, in document order', () => {
+      // setup
+      const input = {
+        resourceType: 'Observation',
+        subject: { reference: 'Patient/123', display: 'the "reference": of the subject' },
+        performer: [{ reference: 'Practitioner/7' }, { reference: 'urn:uuid:9f2c' }],
+        contained: [{ resourceType: 'Specimen', subject: { reference: '#patient-1' } }],
+        hasMember: [{ identifier: { value: 'no literal reference' } }],
+      };
+      // execute
+      const actual = resourceUtils.getAllReferencesFromResource(input);
+      // validate
+      expect(actual).toEqual(['Patient/123', 'Practitioner/7', 'urn:uuid:9f2c', '#patient-1']);
+    });
+
+    it('should return empty array for a missing resource', () => {
+      expect(resourceUtils.getAllReferencesFromResource(undefined)).toEqual([]);
+      expect(resourceUtils.getAllReferencesFromResource(null)).toEqual([]);
+    });
+
+    it('should read references from a model class instance', () => {
+      // setup
+      const patient = new fhirR4Model.Patient();
+      patient.getManagingOrganization().setReference('Organization/1');
+      patient.addGeneralPractitioner().setReference('Practitioner/2');
+      // execute
+      const actual = resourceUtils.getAllReferencesFromResource(patient);
+      // validate
+      expect(actual).toEqual(['Practitioner/2', 'Organization/1']);
+    });
+  });
+
+  describe('values that are false or zero', () => {
+    it('should return false and 0 at a path instead of dropping them', () => {
+      const observation = {
+        resourceType: 'Observation',
+        valueBoolean: false,
+        valueInteger: 0,
+        component: [{ valueInteger: 0 }, { valueInteger: 12 }, { valueBoolean: false }],
+      };
+      expect(
+        resourceUtils.getValuesAtResourcePath(observation, 'Observation.valueBoolean')
+      ).toEqual([false]);
+      expect(
+        resourceUtils.getValuesAtResourcePath(observation, 'Observation.valueInteger')
+      ).toEqual([0]);
+      expect(
+        resourceUtils.getValuesAtResourcePath(observation, 'Observation.component.valueInteger')
+      ).toEqual([0, 12]);
+      expect(
+        resourceUtils.getValuesAtResourcePath(observation, 'Observation.component.valueBoolean')
+      ).toEqual([false]);
+    });
+
+    it('should return numbers held in an array', () => {
+      const sampledData = {
+        resourceType: 'Basic',
+        extension: [{ valueSampledData: { dimensions: 2, offsets: [0, 5, 10] } }],
+      };
+      expect(
+        resourceUtils.getValuesAtResourcePath<number>(
+          sampledData,
+          'Basic.extension.valueSampledData.offsets'
+        )
+      ).toEqual([0, 5, 10]);
+    });
+
+    it('should return nothing when the path continues past a primitive', () => {
+      expect(resourceUtils.getValuesAtResourcePath(patientPayload, 'Patient.gender.code')).toEqual(
+        []
+      );
+    });
+
+    it('should read a path from a model class instance', () => {
+      const patient = new fhirR4Model.Patient().setActive(false);
+      patient.addName().addGiven('Peter').addGiven('James');
+      expect(resourceUtils.getValuesAtResourcePath(patient, 'Patient.name.given')).toEqual([
+        'Peter',
+        'James',
+      ]);
+      expect(resourceUtils.getValuesAtResourcePath(patient, 'Patient.active')).toEqual([false]);
+    });
+  });
+
+  describe('types', () => {
+    const typedPatient: Patient = { resourceType: 'Patient', gender: 'female', active: true };
+
+    it('should type a top level property from the resource type', () => {
+      expectTypeOf(resourceUtils.getResourceProperty(typedPatient, 'gender')).toEqualTypeOf<
+        Patient['gender'] | null
+      >();
+      expectTypeOf(
+        resourceUtils.getResourceProperty(typedPatient, 'notAnElement')
+      ).toEqualTypeOf<unknown>();
+      expect(resourceUtils.getResourceProperty(typedPatient, 'gender')).toBe('female');
+    });
+
+    it('should return the type of the list it was given', () => {
+      const identifiers: Identifier[] = [{ system: 'urn:example', value: '1' }];
+      const codings: Coding[] = [{ code: 'M', userSelected: true }];
+      const extensions: Extension[] = [{ url: 'http://example.org/a' }];
+      expectTypeOf(resourceUtils.getIdentifiersByProperty(identifiers, 'value', '1')).toEqualTypeOf<
+        Identifier[]
+      >();
+      expectTypeOf(resourceUtils.getCodingsByProperty(codings, 'userSelected', true)).toEqualTypeOf<
+        Coding[]
+      >();
+      expectTypeOf(
+        resourceUtils.getExtensionsByUrl(extensions, 'http://example.org/a')
+      ).toEqualTypeOf<Extension[]>();
+      expectTypeOf(
+        resourceUtils.getValuesAtResourcePath(typedPatient, 'Patient.gender')
+      ).toEqualTypeOf<unknown[]>();
+      expectTypeOf(
+        resourceUtils.getValuesAtResourcePath<string>(typedPatient, 'Patient.gender')
+      ).toEqualTypeOf<string[]>();
+      expect(resourceUtils.getCodingsByProperty(codings, 'userSelected', true)).toEqual(codings);
+    });
+
+    it('should filter lists of model class instances', () => {
+      const patient = new fhirR4Model.Patient();
+      patient.addIdentifier().setSystem('urn:example').setValue('1');
+      patient.addIdentifier().setSystem('urn:other').setValue('2');
+      const matches = resourceUtils.getIdentifiersByProperty(
+        patient.getIdentifier(),
+        'system',
+        'urn:other'
+      );
+      expectTypeOf(matches).toEqualTypeOf<fhirR4Model.Identifier[]>();
+      expect(matches.map((identifier) => identifier.getValue())).toEqual(['2']);
     });
   });
 });

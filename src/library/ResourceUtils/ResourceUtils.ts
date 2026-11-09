@@ -1,144 +1,161 @@
-import { CodingKeys, IdentifierKeys } from '../dataTypes';
+import type {
+  CodingKeys,
+  CodingLike,
+  ExtensionLike,
+  IdentifierKeys,
+  IdentifierLike,
+  ResourceLike,
+} from '../dataTypes';
+
+const REFERENCE_PROPERTY_NAME = 'reference';
+
+function isJsonObject(candidateValue: unknown): candidateValue is Record<string, unknown> {
+  return (
+    typeof candidateValue === 'object' && candidateValue !== null && !Array.isArray(candidateValue)
+  );
+}
 
 export class ResourceUtils {
   /**
+   * Get a top level property of a resource.
    *
-   * @param inputJson - valid json
-   * @param propertyName - top level property for resource
-   * @returns json property if it exists
-   * @limitation currently just supports get for top level property on resource
+   * @param resource the resource, or any JSON object
+   * @param propertyName top level property of the resource
+   * @returns the value of the property, or null when the resource does not have it
    */
-  getResourceProperty(inputJson: Record<string, any>, propertyName: string) {
-    let resourcePropertyValue = null;
-    if (Object.prototype.hasOwnProperty.call(inputJson, propertyName)) {
-      resourcePropertyValue = inputJson[propertyName];
-    }
-    return resourcePropertyValue;
+  getResourceProperty<ResourceType extends object, PropertyName extends keyof ResourceType>(
+    resource: ResourceType,
+    propertyName: PropertyName
+  ): ResourceType[PropertyName] | null;
+  /** Get a top level property that the type of the resource does not declare. */
+  getResourceProperty(resource: object, propertyName: string): unknown;
+  getResourceProperty(resource: object, propertyName: PropertyKey): unknown {
+    return Object.prototype.hasOwnProperty.call(resource, propertyName)
+      ? (resource as Record<PropertyKey, unknown>)[propertyName]
+      : null;
   }
 
   /**
-   * Get identifiers from a list filtered by property value
+   * Get identifiers from a list filtered by the value of one of their primitive elements.
    *
-   * @template T - The identifier type to return (defaults to any for backward compatibility)
    * @param identifierList list of identifiers
-   * @param propertyToCompare identifier property to compare
-   * @param propertyValue value we want to compare against
+   * @param propertyToCompare identifier element to compare: id, use, system or value
+   * @param propertyValue value the element must have
    * @returns array of matches
-   * @limitations currently does not work with identifier.type, identifier.period & identifier.assigner
    */
-  getIdentifiersByProperty<T = any>(
-    identifierList: any[] | null,
+  getIdentifiersByProperty<IdentifierType extends IdentifierLike>(
+    identifierList: readonly IdentifierType[] | null | undefined,
     propertyToCompare: IdentifierKeys,
-    propertyValue: any[IdentifierKeys]
-  ): T[] {
-    return identifierList?.length
-      ? identifierList.filter((x) => x[propertyToCompare] === propertyValue)
-      : [];
+    propertyValue: string
+  ): IdentifierType[] {
+    return (identifierList ?? []).filter(
+      (identifier) => identifier?.[propertyToCompare] === propertyValue
+    );
   }
 
   /**
-   * Get extensions from a list filtered by URL
+   * Get extensions from a list filtered by URL.
    *
-   * @template T - The extension type to return (defaults to any for backward compatibility)
    * @param extensionList list of extensions
    * @param extensionUrl Extension.url to compare
    * @returns array of matches
    */
-  getExtensionsByUrl<T = any>(extensionList: any[] | null, extensionUrl: string): T[] {
-    return extensionList?.length ? extensionList.filter((x) => x['url'] === extensionUrl) : [];
+  getExtensionsByUrl<ExtensionType extends ExtensionLike>(
+    extensionList: readonly ExtensionType[] | null | undefined,
+    extensionUrl: string
+  ): ExtensionType[] {
+    return (extensionList ?? []).filter((extension) => extension?.url === extensionUrl);
   }
 
   /**
-   * Get codings from a list filtered by property value
+   * Get codings from a list filtered by the value of one of their elements.
    *
-   * @template T - The coding type to return (defaults to any for backward compatibility)
    * @param codingList list of codings
-   * @param propertyToCompare coding property to compare
-   * @param propertyValue value we want to compare against string or boolean
+   * @param propertyToCompare coding element to compare
+   * @param propertyValue value the element must have (a boolean for userSelected)
    * @returns array of matches
    */
-  getCodingsByProperty<T = any>(
-    codingList: any[] | null,
+  getCodingsByProperty<CodingType extends CodingLike>(
+    codingList: readonly CodingType[] | null | undefined,
     propertyToCompare: CodingKeys,
-    propertyValue: any[CodingKeys]
-  ): T[] {
-    return codingList?.length
-      ? codingList.filter((x) => x[propertyToCompare] === propertyValue)
+    propertyValue: string | boolean
+  ): CodingType[] {
+    return (codingList ?? []).filter((coding) => coding?.[propertyToCompare] === propertyValue);
+  }
+
+  /**
+   * Get the values at a path in a FHIR resource. Repeating elements along the
+   * path are followed into every repetition.
+   *
+   * @template ValueType - the type of the values at the path
+   * @param resource resource to read from
+   * @param elementPath path starting with the resource type (e.g. "Patient.name.given")
+   * @returns array of the values found at the path, empty when there are none
+   */
+  getValuesAtResourcePath<ValueType = unknown>(
+    resource: ResourceLike | null | undefined,
+    elementPath: string
+  ): ValueType[] {
+    const [resourceTypeName, ...elementNames] = elementPath.split('.');
+    if (!resource || resource.resourceType !== resourceTypeName) {
+      return [];
+    }
+    return this.collectValuesAtPath(resource, elementNames) as ValueType[];
+  }
+
+  private collectValuesAtPath(currentValue: unknown, remainingElementNames: string[]): unknown[] {
+    if (currentValue === undefined || currentValue === null) {
+      return [];
+    }
+    if (Array.isArray(currentValue)) {
+      const valuesOfAllRepetitions: unknown[] = [];
+      for (const repetition of currentValue) {
+        valuesOfAllRepetitions.push(...this.collectValuesAtPath(repetition, remainingElementNames));
+      }
+      return valuesOfAllRepetitions;
+    }
+    const [nextElementName, ...elementNamesAfterNext] = remainingElementNames;
+    if (nextElementName === undefined) {
+      return [currentValue];
+    }
+    return isJsonObject(currentValue)
+      ? this.collectValuesAtPath(currentValue[nextElementName], elementNamesAfterNext)
       : [];
   }
 
   /**
-   * Get values at a specific path in a FHIR resource
+   * Get every literal reference in a resource: the `reference` of each
+   * Reference element, wherever it is, including in contained resources.
    *
-   * @template T - The value type to return (defaults to any for backward compatibility)
-   * @param resource resource for which path needs to be validated
-   * @param elementPath path to validate in resource (e.g., "Patient.name.given")
-   * @returns array of elements found at the provided path
+   * @param resource resource to pull references out of
+   * @returns array of references such as "Patient/123", in document order
    */
-  getValuesAtResourcePath<T = any>(resource: any, elementPath: string): T[] {
-    const pathSections = elementPath.split('.');
-    if (!resource || resource.resourceType !== pathSections[0]) {
+  getAllReferencesFromResource(resource: unknown): string[] {
+    if (resource === undefined) {
       return [];
     }
-    return this.getValuesAtResourcePathInner(resource, pathSections);
-  }
-
-  private getValuesAtResourcePathInner(resource: any, pathSections: string[]): any[] {
-    let resourcePathValue: any;
-    for (let index = 1; index < pathSections.length; index++) {
-      const subPaths: string = pathSections[index] ?? '';
-      resourcePathValue = resourcePathValue ? resourcePathValue[subPaths] : resource[subPaths];
-      if (resourcePathValue) {
-        if (this.isPrimitive(resourcePathValue) || pathSections.length === 2) {
-          return Array.isArray(resourcePathValue) ? [...resourcePathValue] : [resourcePathValue];
-        } else if (Array.isArray(resourcePathValue) && resourcePathValue.length > 0) {
-          const resultSet = [];
-          for (let subPathIndex = 0; subPathIndex < resourcePathValue.length; subPathIndex++) {
-            const subPathValue = resourcePathValue[subPathIndex];
-            if (this.isPrimitive(subPathValue)) {
-              resultSet.push(subPathValue);
-            } else {
-              resultSet.push(
-                ...this.getValuesAtResourcePathInner(subPathValue, pathSections.slice(index))
-              );
-            }
-          }
-          return resultSet;
-        } else if (typeof resourcePathValue === 'object') {
-          return this.getValuesAtResourcePathInner(resourcePathValue, pathSections.slice(index));
-        }
-      } else {
-        break;
-      }
-    }
-    return [];
-  }
-
-  private isPrimitive(value: any) {
-    return typeof value === 'boolean' || typeof value === 'string';
-  }
-
-  /**
-   * @param resource resource to pull out references from
-   * @returns array of references inside a resource
-   */
-  getAllReferencesFromResource(resource: any): string[] {
-    const stringifiedResource = JSON.stringify(resource);
-    const referenceJsonString = '"reference":';
-    const references = [];
-    let cursor = stringifiedResource.indexOf(referenceJsonString, 0);
-    while (cursor > -1) {
-      const referenceStart =
-        stringifiedResource.indexOf(referenceJsonString, cursor) + referenceJsonString.length;
-      const referenceEnd = stringifiedResource.indexOf('"', referenceStart + 1);
-      const reference = stringifiedResource.substring(referenceStart, referenceEnd);
-      // this means the reference ends started reading from start again
-      if (referenceEnd < cursor) {
-        break;
-      }
-      references.push(reference);
-      cursor = referenceEnd;
-    }
+    // Serialising first turns model class instances into plain FHIR JSON.
+    const resourceJson: unknown = JSON.parse(JSON.stringify(resource));
+    const references: string[] = [];
+    this.collectReferences(resourceJson, references);
     return references;
+  }
+
+  private collectReferences(currentValue: unknown, references: string[]): void {
+    if (Array.isArray(currentValue)) {
+      currentValue.forEach((arrayItem) => this.collectReferences(arrayItem, references));
+      return;
+    }
+    if (!isJsonObject(currentValue)) {
+      return;
+    }
+    for (const propertyName of Object.keys(currentValue)) {
+      const propertyValue = currentValue[propertyName];
+      if (propertyName === REFERENCE_PROPERTY_NAME && typeof propertyValue === 'string') {
+        references.push(propertyValue);
+      } else {
+        this.collectReferences(propertyValue, references);
+      }
+    }
   }
 }

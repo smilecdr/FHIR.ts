@@ -232,6 +232,7 @@ Read more about resource narrowing here : https://www.typescriptlang.org/docs/ha
 
 #### PatchUtils
 - Published in `v2.2.0`.
+- Since `v3.0.0` `PATCH_DATATYPE` (in `fhirtsConstants`) has a member for every FHIR data type, and `getPatchParameters()` returns a typed `Parameters` resource that can be assigned to `fhirR3`, `fhirR4` or `fhirR5` `Parameters`.
 - Example usage demonstrated below.
 ```js
 import { PatchUtils } from '@smile-cdr/fhirts';
@@ -284,82 +285,57 @@ console.log(query)
 
 #### BundleUtils
 - Published in `v2.1.0`.
-- Enhanced in `v2.4.0` with optional generic type parameters for better type safety.
+- Since `v3.0.0` the results are typed from the entries you pass in, for the data types and model classes of every FHIR version. Entries without a resource are skipped.
 - Example usage demonstrated below.
-```js
-import { BundleUtils } from '@smile-cdr/fhirts';
-import { fhirR4 } from '@smile-cdr/fhirts';
+```ts
+import { BundleUtils } from '@smile-cdr/fhirts/utils';
+import type { Bundle, Patient } from '@smile-cdr/fhirts/r4';
 
 const bundleUtils = new BundleUtils();
+declare const bundle: Bundle;
 
-// Backward compatible - returns any[]
-const claimsList = bundleUtils.getResources(Bundle.entry, 'Claim');
+// returns Claim[], inferred from the resource type name
+const claimsList = bundleUtils.getResources(bundle.entry, 'Claim');
 
-// Type-safe with generics (v2.4.0+) - returns Claim[]
-const claimsList = bundleUtils.getResources<fhirR4.Claim>(Bundle.entry, 'Claim');
+// returns the resource with that id, undefined when there is none, null when the entries are null
+const resource = bundleUtils.getResource(bundle.entry, '123');
 
-// Backward compatible - returns any
-const resource = bundleUtils.getResource(Bundle.entry, '123');
+// same, by Bundle.entry.fullUrl
+const resourceByUrl = bundleUtils.getResourceByFullUrl(bundle.entry, 'http://server-host/fhir/Patient/123');
 
-// Type-safe with generics (v2.4.0+) - returns Patient | null
-const patient = bundleUtils.getResource<fhirR4.Patient>(Bundle.entry, '123');
-
-// Type-safe example with full URL (v2.4.0+)
-const patient = bundleUtils.getResourceByFullUrl<fhirR4.Patient>(
-  Bundle.entry,
-  'http://server-host/fhir/Patient/123'
-);
+// entries that are not typed (for example parsed JSON): name the result type yourself
+const patients = bundleUtils.getResources<Patient>(untypedEntries, 'Patient');
 ```
 
 #### ResourceUtils
 - Published in `v2.1.0`.
-- Enhanced in `v2.4.0` with optional generic type parameters for better type safety.
+- Since `v3.0.0` every method returns the type of what you pass in, and works on model class instances as well as plain JSON.
 - Example usage demonstrated below.
-```js
-import { ResourceUtils } from '@smile-cdr/fhirts';
-import { fhirR4 } from '@smile-cdr/fhirts';
+```ts
+import { ResourceUtils } from '@smile-cdr/fhirts/utils';
 
 const resourceUtils = new ResourceUtils();
 
-// returns Patient.gender
-const patientGender = resourceUtils.getResourceProperty(jsonPatientPayload, 'gender');
+// returns Patient.gender, typed from the resource; null when the resource does not have it
+const patientGender = resourceUtils.getResourceProperty(patient, 'gender');
 
-// Backward compatible - returns any[]
-const identifierFilter = resourceUtils.getIdentifiersByProperty(identifierList, "use", "usual");
+// returns the identifiers whose `use` is "usual". Comparable elements: id, use, system, value
+const identifierFilter = resourceUtils.getIdentifiersByProperty(patient.identifier, 'use', 'usual');
 
-// Type-safe with generics (v2.4.0+) - returns Identifier[]
-const identifierFilter = resourceUtils.getIdentifiersByProperty<fhirR4.Identifier>(
-  identifierList,
-  "use",
-  "usual"
-);
+// returns the extensions with that URL
+const url = 'http://ns.electronichealth.net.au/id/hi/ihi/1.0';
+const extensionFilter = resourceUtils.getExtensionsByUrl(patient.extension, url);
 
-const url = "http://ns.electronichealth.net.au/id/hi/ihi/1.0";
+// returns the codings whose `code` is "abc". Comparable elements: id, system, version, code, display, userSelected
+const codingFilter = resourceUtils.getCodingsByProperty(codingList, 'code', 'abc');
 
-// Backward compatible - returns any[]
-const extensionFilter = resourceUtils.getExtensionsByUrl(extensionList, url);
-
-// Type-safe with generics (v2.4.0+) - returns Extension[]
-const extensionFilter = resourceUtils.getExtensionsByUrl<fhirR4.Extension>(extensionList, url);
-
-// Backward compatible - returns any[]
-const codingFilter = resourceUtils.getCodingsByProperty(codingList, "code", "abc");
-
-// Type-safe with generics (v2.4.0+) - returns Coding[]
-const codingFilter = resourceUtils.getCodingsByProperty<fhirR4.Coding>(codingList, "code", "abc");
-
-// Backward compatible - returns any[]
-const values = resourceUtils.getValuesAtResourcePath(
-  jsonPatientPayload,
-  "Patient.contact.relationship.coding.system"
-);
-
-// Type-safe with generics (v2.4.0+) - returns string[]
+// returns every value at the path, following repeating elements. The values are `unknown`
+// unless you name their type
 const systemValues = resourceUtils.getValuesAtResourcePath<string>(
-  jsonPatientPayload,
-  "Patient.contact.relationship.coding.system"
+  patient,
+  'Patient.contact.relationship.coding.system'
 );
 
-// returns array of references found in a resource
-const references = resourceUtils.getAllReferencesFromResource(resourcePayload);
+// returns every literal reference in the resource, e.g. ['Organization/1', 'Practitioner/2']
+const references = resourceUtils.getAllReferencesFromResource(patient);
 ```
