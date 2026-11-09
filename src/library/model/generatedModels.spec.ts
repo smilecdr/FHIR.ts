@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import * as fs from 'fs';
 import * as path from 'path';
-import * as ts from 'typescript';
 import * as fhirR3Model from '../../FHIR-R3/model';
 import * as fhirR4Model from '../../FHIR-R4/model';
 import * as fhirR5Model from '../../FHIR-R5/model';
@@ -162,41 +161,6 @@ function buildSampleValue(
   return Object.keys(nestedSample).length === 0 ? undefined : nestedSample;
 }
 
-function shortIdentifiersIn(sourceFilePath: string): string[] {
-  const sourceFile = ts.createSourceFile(
-    sourceFilePath,
-    fs.readFileSync(sourceFilePath, 'utf8'),
-    ts.ScriptTarget.ES2017,
-    true
-  );
-  const shortIdentifiers: string[] = [];
-  const visitNode = (syntaxNode: ts.Node): void => {
-    const declaresName =
-      ts.isVariableDeclaration(syntaxNode) ||
-      ts.isParameter(syntaxNode) ||
-      ts.isBindingElement(syntaxNode) ||
-      ts.isPropertyDeclaration(syntaxNode) ||
-      ts.isMethodDeclaration(syntaxNode) ||
-      ts.isFunctionDeclaration(syntaxNode);
-    if (declaresName && syntaxNode.name !== undefined && ts.isIdentifier(syntaxNode.name)) {
-      const declaredName = syntaxNode.name.text;
-      if (declaredName.replace(/^_+/, '').length <= 1) {
-        shortIdentifiers.push(`${path.basename(sourceFilePath)}: ${declaredName}`);
-      }
-    }
-    ts.forEachChild(syntaxNode, visitNode);
-  };
-  visitNode(sourceFile);
-  return shortIdentifiers;
-}
-
-function typeScriptFilesIn(directoryPath: string): string[] {
-  return fs
-    .readdirSync(directoryPath)
-    .filter((fileName) => fileName.endsWith('.ts'))
-    .map((fileName) => path.join(directoryPath, fileName));
-}
-
 describe('generated FHIR model classes', () => {
   for (const modelVersion of MODEL_VERSIONS) {
     describe(modelVersion.versionLabel, () => {
@@ -299,22 +263,6 @@ describe('generated FHIR model classes', () => {
         /CareTeam\.contained\[0\]\.basedOn: this element repeats/
       );
       expect(() => fhirR4Model.parseResource(fixtureJson)).toThrowError(FhirModelError);
-    });
-  });
-
-  describe('naming', () => {
-    it('uses descriptive names for every variable, parameter and member', () => {
-      const checkedDirectories = [
-        path.join(REPOSITORY_ROOT, 'src', 'FHIR-R3', 'model'),
-        path.join(REPOSITORY_ROOT, 'src', 'FHIR-R4', 'model'),
-        path.join(REPOSITORY_ROOT, 'src', 'FHIR-R5', 'model'),
-        path.join(REPOSITORY_ROOT, 'src', 'library', 'model'),
-        path.join(REPOSITORY_ROOT, 'tools', 'generator'),
-      ];
-      const shortIdentifiers = checkedDirectories
-        .flatMap(typeScriptFilesIn)
-        .flatMap(shortIdentifiersIn);
-      expect(shortIdentifiers).toEqual([]);
     });
   });
 });

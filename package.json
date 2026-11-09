@@ -92,25 +92,20 @@
     "test": "vitest run",
     "coverage": "vitest run --coverage",
     "audit": "better-npm-audit audit",
-    "lint": "eslint \"src/library/**/*.ts\" \"src/index.ts\"",
-    "lint:fix": "eslint \"src/library/**/*.ts\" \"src/index.ts\" --fix",
+    "lint": "oxlint src/index.ts src/library src/FHIR-R3/model src/FHIR-R4/model src/FHIR-R5/model tools",
+    "lint:fix": "oxlint --fix src/index.ts src/library src/FHIR-R3/model src/FHIR-R4/model src/FHIR-R5/model tools",
     "format": "prettier --write \"src/**/*.ts\"",
     "format:check": "prettier --check \"src/**/*.ts\"",
     "generate": "tsx tools/generator/generate.ts"
   },
   "devDependencies": {
     "@types/node": "^25.2.3",
-    "@typescript-eslint/eslint-plugin": "^8.55.0",
-    "@typescript-eslint/parser": "^8.55.0",
     "@vitest/coverage-v8": "^5.1.0",
     "better-npm-audit": "^3.7.3",
-    "eslint": "^9.39.2",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.5",
+    "oxlint": "^1.93.0",
     "prettier": "^3.8.1",
-    "ts-node": "^10.9.1",
     "tsx": "^4.21.0",
-    "typescript": "^6.0.3",
+    "typescript": "^7.0.2",
     "vitest": "^5.1.0"
   }
 }

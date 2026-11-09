@@ -9,7 +9,14 @@
 * Added runtime checks on the model classes. Setters throw a `FhirModelError` for malformed primitives, codes outside a required value set, values of the wrong class, disallowed reference targets and too many repetitions. `validate()` reports required elements, cardinality, choice exclusivity and everything the setters check, with the path of each issue.
 * Added entry points so an application only bundles what it uses: `@smile-cdr/fhirts/utils` for the utilities, `/r3`, `/r4`, `/r4/interfaces`, `/r5` and `/dstu2` for the data types of one version, and `/r3/model`, `/r4/model`, `/r5/model` for the model classes. The package root still exports the data types of every version and the utilities, but not the model classes.
 * The specs run on Vitest instead of Jasmine, with coverage from Vitest in place of nyc. The test run also type-checks the specs, so type-level assertions (`expectTypeOf`) fail it. Developing the library now needs Node 22.12 or later; using the published package does not.
-* Upgraded TypeScript from 5.9 to 6.0. `tsconfig.json` now sets `rootDir` and `types` explicitly and no longer sets `moduleResolution`, which also makes it valid for TypeScript 7. The published type definitions still work for consumers on TypeScript 5.
+* The library is now compiled and type-checked with TypeScript 7 (it was 5.9). `tsconfig.json` sets `rootDir` and `types` explicitly and no longer sets `moduleResolution`, as TypeScript 7 requires. The published JavaScript is unchanged and the type definitions still work for consumers on TypeScript 5.
+* Linting moved from ESLint to oxlint with the same rules (`.oxlintrc.json`), because ESLint's TypeScript parser does not work with TypeScript 7. The linter now also covers the generated model classes and `tools/`, where it rejects one-letter identifiers.
+* `BundleUtils`, `ResourceUtils` and `PatchUtils` are typed instead of using `any`. `BundleUtils.getResources(bundle.entry, 'Claim')` returns `Claim[]` without a type argument, the `ResourceUtils` filters return the type of the list they are given, and `PatchUtils.getPatchParameters()` returns a typed `Parameters` resource. All three also accept model class instances.
+* `PATCH_DATATYPE` has a member for every FHIR data type (55, up from 11), and a plain `value...` property name is accepted as well.
+* Fixed `ResourceUtils.getAllReferencesFromResource` returning every reference with a leading `"`.
+* Fixed `BundleUtils.getResources` throwing when a bundle entry has no resource.
+* Fixed `ResourceUtils.getValuesAtResourcePath` dropping `false`, `0` and numbers inside arrays.
+* Fixed `PatchUtils.getPatchParameters` returning its internal object, so creating more operations changed a result already returned.
 * Every primitive element of the data types has a companion property for its id and extensions (`_birthDate`).
 
 ### Updates (R3)
@@ -37,6 +44,11 @@ All:
 * Elements whose names are reserved words now have the name FHIR JSON uses: `function`, `class`, `import`, `extends`, `for`, `abstract`, `short`, `case`, `const` instead of `_function`, `_class` and so on.
 * Elements FHIR requires are required properties only when they are a complex type. Required primitives are optional, because FHIR JSON may carry only their extension.
 * Each data type and its backbone elements now share one file (`patient.ts` holds `Patient`, `PatientContact`...). Import from the package root or an entry point; deep imports of individual files under `dist` have moved.
+* Utilities: values that were `any` are now typed, which can surface compile errors.
+  * `ResourceUtils.getValuesAtResourcePath` returns `unknown[]` unless the value type is given (`getValuesAtResourcePath<string>(...)`), and returns nothing when the path continues past a primitive (it used to return the primitive).
+  * `getIdentifiersByProperty` and `getCodingsByProperty` only accept the primitive elements that can be compared, not `extension`, `type`, `period` or `assigner`.
+  * `BundleUtils.getResource` and `getResourceByFullUrl` are typed `| null | undefined`; they have always returned `undefined` when nothing matches.
+  * `PatchUtils.getPatchParameters` returns a new object on every call.
 * `package.json` now has an `exports` map. Paths under `@smile-cdr/fhirts/dist/` still resolve, but any other deep path (for example into `src/`) no longer does.
 
 R3 (`fhirR3`):
