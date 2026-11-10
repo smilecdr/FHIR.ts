@@ -1,5 +1,81 @@
 # Changelog
 
+## 3.0.0
+
+### Updates (All)
+
+* Every FHIR type for R3, R4 and R5 is now generated from the official FHIR StructureDefinitions by `npm run generate` (`tools/generator`). This replaces the Swagger Codegen output for R4 and R5 and the hand-written R3 classes.
+* Added model classes in the style of the HAPI FHIR Java model for R3 (`@smile-cdr/fhirts/r3/model`), R4 (`/r4/model`) and R5 (`/r5/model`): `getX` / `setX` / `hasX` / `addX` / `getXFirstRep`, typed accessors for choice elements, `fromJSON` / `toJSON` / `parseResource`, `copy`, type guards (`isPatient`...) and constants for required value sets (`valueSetCodes`).
+* Added runtime checks on the model classes. Setters throw a `FhirModelError` for malformed primitives, codes outside a required value set, values of the wrong class, disallowed reference targets and too many repetitions. `validate()` reports required elements, cardinality, choice exclusivity and everything the setters check, with the path of each issue.
+* Added entry points so an application only bundles what it uses: `@smile-cdr/fhirts/utils` for the utilities, `/r3`, `/r4`, `/r4/interfaces`, `/r5` and `/dstu2` for the data types of one version, and `/r3/model`, `/r4/model`, `/r5/model` for the model classes. The package root still exports the data types of every version and the utilities, but not the model classes.
+* The specs run on Vitest instead of Jasmine, with coverage from Vitest in place of nyc. The test run also type-checks the specs, so type-level assertions (`expectTypeOf`) fail it. Developing the library now needs Node 22.12 or later; using the published package does not.
+* The library is now compiled and type-checked with TypeScript 7 (it was 5.9). `tsconfig.json` sets `rootDir` and `types` explicitly and no longer sets `moduleResolution`, as TypeScript 7 requires. The published JavaScript is unchanged and the type definitions still work for consumers on TypeScript 5.
+* Linting moved from ESLint to oxlint with the same rules (`.oxlintrc.json`), because ESLint's TypeScript parser does not work with TypeScript 7. The linter now also covers the generated model classes and `tools/`, where it rejects one-letter identifiers.
+* `BundleUtils`, `ResourceUtils` and `PatchUtils` are typed instead of using `any`. `BundleUtils.getResources(bundle.entry, 'Claim')` returns `Claim[]` without a type argument, the `ResourceUtils` filters return the type of the list they are given, and `PatchUtils.getPatchParameters()` returns a typed `Parameters` resource. All three also accept model class instances.
+* `PATCH_DATATYPE` has a member for every FHIR data type (55, up from 11), and a plain `value...` property name is accepted as well.
+* Fixed `ResourceUtils.getAllReferencesFromResource` returning every reference with a leading `"`.
+* Fixed `BundleUtils.getResources` throwing when a bundle entry has no resource.
+* Fixed `ResourceUtils.getValuesAtResourcePath` dropping `false`, `0` and numbers inside arrays.
+* Fixed `PatchUtils.getPatchParameters` returning its internal object, so creating more operations changed a result already returned.
+* Every primitive element of the data types has a companion property for its id and extensions (`_birthDate`).
+
+### Updates (R3)
+
+* `fhirR3` now covers all 117 STU3 resources and every data type (it had 32 resources).
+* Added code types and constants (`Patient.GenderEnum`) for every required value set.
+
+### Updates (R4)
+
+* Added code types and constants for 111 more elements with a required value set.
+* Added the 18 resources that were missing from the `Resource` union.
+* Added `Element`, `BackboneElement` and `DomainResource` data types.
+
+### Updates (R5)
+
+* Added code types and constants (`Patient.GenderEnum`) for every required value set.
+* Added `List` to the `ResourceList` union.
+
+### Breaking changes
+
+These are compile-time changes to the data types (`fhirR3`, `fhirR4`, `IfhirR4`, `fhirR5`), which have no runtime behaviour.
+
+All:
+
+* Elements whose names are reserved words now have the name FHIR JSON uses: `function`, `class`, `import`, `extends`, `for`, `abstract`, `short`, `case`, `const` instead of `_function`, `_class` and so on.
+* Elements FHIR requires are required properties only when they are a complex type. Required primitives are optional, because FHIR JSON may carry only their extension.
+* Each data type and its backbone elements now share one file (`patient.ts` holds `Patient`, `PatientContact`...). Import from the package root or an entry point; deep imports of individual files under `dist` have moved.
+* Utilities: values that were `any` are now typed, which can surface compile errors.
+  * `ResourceUtils.getValuesAtResourcePath` returns `unknown[]` unless the value type is given (`getValuesAtResourcePath<string>(...)`), and returns nothing when the path continues past a primitive (it used to return the primitive).
+  * `getIdentifiersByProperty` and `getCodingsByProperty` only accept the primitive elements that can be compared, not `extension`, `type`, `period` or `assigner`.
+  * `BundleUtils.getResource` and `getResourceByFullUrl` are typed `| null | undefined`; they have always returned `undefined` when nothing matches.
+  * `PatchUtils.getPatchParameters` returns a new object on every call.
+* `package.json` now has an `exports` map. Paths under `@smile-cdr/fhirts/dist/` still resolve, but any other deep path (for example into `src/`) no longer does.
+
+R3 (`fhirR3`):
+
+* Rewritten from the STU3 definitions. Properties are optional, except required elements of a complex type; previously every property was required.
+* The classes no longer have methods or constructors that take arguments (`Code`, `setvalueQuantity`, `setanswerBoolean` and similar). Use the model classes in `@smile-cdr/fhirts/r3/model` for behaviour.
+* Backbone elements follow the naming of the other versions (`PatientContact`, `ObservationComponent`). These hand-picked names are gone: `FHIRElement`, `BaseResource`, `DoseCoding`, `PractitionerForImmunization`, `ImmunizationExplaination`, `VaccinationProtocol`, `Qualification`, `Content`, `Link`, `Contact`, `Payload`, `Network`, `EnableWhen`, `Answer`, `FHIROption`, `ContextRelated`, `Context`, `ReferenceRange`, `Participant`, `Activity`, `Component`, `Input`, `Output`, `Restriction`, `AvailableTime`, `NotAvailable`, `BundleSignature`, `Search`, `ActivityDetail`, `Position`, `Requester`, `Item`, `Agent`, `Source`, `EntityDetail`, `Entity`, `Udi`.
+* `Code` is now the alias `string`, as in R4 and R5.
+
+R4 (`fhirR4`, `IfhirR4`):
+
+* Every `date`, `dateTime` and `instant` element is `Date | string`, so a JavaScript `Date` is still accepted. Before, 121 of these elements accepted a `Date` and the rest were `string`; code that reads one of the rest as a `string` now has to handle a `Date`.
+* `resourceType` is the literal resource name on every resource. It was `string` on `Basic` and 18 others, and on every `IfhirR4` interface.
+* The 18 properties typed `any` have their FHIR type, for example `BundleRequest.method`, `BundleSearch.mode`, `OperationOutcomeIssue.severity` and `code`, `AllergyIntolerance.category`.
+* `Extension.valueAge`, `valueCount`, `valueDistance` and `valueDuration` are `Age`, `Count`, `Distance` and `Duration` instead of `string`.
+* 33 required primitives became optional: `Bundle.type`, `Extension.url`, `Narrative.div`, `Observation.status`, `DocumentReference.status`, `MedicationRequest.status` and `intent`, `MeasureReport.measure`, `SearchParameter.code`, `base` and `type`, and others on conformance resources.
+* `modifierExtension` is removed from 14 elements that FHIR types as `Element` (for example `TimingRepeat`, `DosageDoseAndRate`), and `contained` from `ExampleScenarioInstance`.
+* `Expression.LanguageEnum` is removed; the binding is not `required` in FHIR.
+* `IfhirR4.IPatient` and the other interfaces now extend the `fhirR4` class of the same resource, so the two cannot differ.
+
+R5 (`fhirR5`):
+
+* Coded elements with a required binding are typed with their codes instead of `string` (384 elements).
+* 137 properties that are not FHIR R5 elements are removed: the 34 underscore forms of reserved words, `modifierExtension` on 17 `Element`-typed elements, and 86 others such as `author`, `editor`, `reviewer`, `endorser`, `topic` and `relatedArtifact` on resources that do not define them.
+* 16 required primitives became optional, among them `Narrative.div`, `Subscription.topic` and `QuestionnaireResponse.questionnaire`.
+* `Xhtml` is `string`; it was an empty interface.
+
 ## 2.4.1
 
 * Added `Parameters` and `Basic` to the R4 `Resource` union type.

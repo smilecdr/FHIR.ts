@@ -1,3 +1,7 @@
+import { beforeEach, describe, expect, expectTypeOf, it } from 'vitest';
+import type * as fhirR4 from '../../FHIR-R4/classes/models-r4';
+import type * as fhirR5 from '../../FHIR-R5/models';
+import { Quantity } from '../../FHIR-R4/model';
 import { PATCH_DATATYPE, PatchAddValueParams, PatchAddBackboneElementParams } from '../constants';
 import { PatchUtils } from './PatchUtils';
 describe('PatchUtils', () => {
@@ -250,10 +254,87 @@ describe('PatchUtils', () => {
     // validate delete params are present
     expect(
       patchUtils.createDeleteParameters('Patient.status').getPatchParameters().parameter
-    ).toHaveSize(1);
+    ).toHaveLength(1);
     // execute
     const actual = patchUtils.resetPatchParameters().getPatchParameters();
     // validate
-    expect(actual.parameter).toHaveSize(0);
+    expect(actual.parameter).toHaveLength(0);
+  });
+
+  it('getPatchParameters() should not change a result that was already returned', () => {
+    const firstResult = patchUtils
+      .createDeleteParameters('Patient.identifier[0]')
+      .getPatchParameters();
+    patchUtils.createDeleteParameters('Patient.identifier[1]');
+
+    expect(firstResult.parameter.length).toBe(1);
+    expect(patchUtils.getPatchParameters().parameter.length).toBe(2);
+    expect(patchUtils.resetPatchParameters().getPatchParameters()).toEqual({
+      resourceType: 'Parameters',
+      parameter: [],
+    });
+    expect(firstResult.parameter.length).toBe(1);
+  });
+
+  it('should accept every FHIR data type for a value', () => {
+    const patchParameters = patchUtils
+      .createReplaceParameters('Observation.valueInteger', 7, PATCH_DATATYPE.INTEGER)
+      .createReplaceParameters(
+        'Observation.value',
+        { value: 6.3, unit: 'mmol/l' },
+        PATCH_DATATYPE.QUANTITY
+      )
+      .createInsertParameters(
+        'Patient.telecom',
+        { system: 'phone', value: '555' },
+        PATCH_DATATYPE.CONTACT_POINT,
+        0
+      )
+      .createAddParameters('Encounter', 'period', {
+        value: { start: '2024-01-01' },
+        valueDataType: PATCH_DATATYPE.PERIOD,
+      })
+      .createReplaceParameters('Basic.extension[0].value', '9007199254740993', 'valueInteger64')
+      .getPatchParameters();
+
+    const valueParts = patchParameters.parameter.map((operation) =>
+      operation.part?.find((operationPart) => operationPart.name === 'value')
+    );
+    expect(valueParts).toEqual([
+      { name: 'value', valueInteger: 7 },
+      { name: 'value', valueQuantity: { value: 6.3, unit: 'mmol/l' } },
+      { name: 'value', valueContactPoint: { system: 'phone', value: '555' } },
+      { name: 'value', valuePeriod: { start: '2024-01-01' } },
+      { name: 'value', valueInteger64: '9007199254740993' },
+    ]);
+    expect(PATCH_DATATYPE.DATE_TIME).toBe('valueDateTime');
+    expect(PATCH_DATATYPE.BASE64_BINARY).toBe('valueBase64Binary');
+  });
+
+  it('should serialise a model class instance given as a value', () => {
+    const patchParameters = patchUtils
+      .createReplaceParameters(
+        'Observation.value',
+        new Quantity().setValue(5).setUnit('mg'),
+        PATCH_DATATYPE.QUANTITY
+      )
+      .getPatchParameters();
+    expect(JSON.parse(JSON.stringify(patchParameters)).parameter[0].part[2]).toEqual({
+      name: 'value',
+      valueQuantity: { value: 5, unit: 'mg' },
+    });
+  });
+
+  it('should return a Parameters resource of any FHIR version', () => {
+    const patchParameters = patchUtils
+      .createDeleteParameters('Patient.active')
+      .getPatchParameters();
+    expectTypeOf(patchParameters.resourceType).toEqualTypeOf<'Parameters'>();
+    const r4Parameters: fhirR4.Parameters = patchParameters;
+    const r5Parameters: fhirR5.Parameters = patchParameters;
+    expect(r4Parameters.parameter?.length).toBe(1);
+    expect(r5Parameters.resourceType).toBe('Parameters');
+    // @ts-expect-error a value property name must start with "value"
+    patchUtils.createReplaceParameters('Patient.active', true, 'boolean');
   });
 });

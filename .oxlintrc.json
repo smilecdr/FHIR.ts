@@ -1,0 +1,39 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript"],
+  "categories": {
+    "correctness": "error"
+  },
+  "rules": {
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
+    "no-console": "warn",
+    "no-debugger": "error",
+    "prefer-const": "error",
+    "no-var": "error",
+    "eqeqeq": ["error", "always"],
+    "curly": ["error", "all"],
+    "no-throw-literal": "error",
+    "typescript/no-wrapper-object-types": "off"
+  },
+  "overrides": [
+    {
+      "files": ["**/*.spec.ts"],
+      "rules": {
+        "no-unused-vars": "off",
+        "no-console": "off"
+      }
+    },
+    {
+      "files": ["tools/**/*.ts"],
+      "rules": {
+        "no-console": "off"
+      }
+    },
+    {
+      "files": ["src/FHIR-*/model/**/*.ts", "src/library/**/*.ts", "tools/**/*.ts"],
+      "rules": {
+        "id-length": ["error", { "min": 2, "properties": "never", "exceptionPatterns": ["^_"] }]
+      }
+    }
+  ]
+}

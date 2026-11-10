@@ -1,0 +1,16 @@
+/**
+ * FHIR R5 model classes generated from hl7.fhir.r5.core@5.0.0.
+ * Do not edit by hand. Change tools/generator and run `npm run generate` instead.
+ */
+
+import type { ParseOptions } from '../../library/model';
+import { modelTypeRegistry } from './modelTypeRegistry';
+import type { Resource } from './resource';
+
+/**
+ * Builds the model for any FHIR R5 resource, choosing the class from the JSON's `resourceType`.
+ * Throws a FhirModelError when the resource type is unknown or the JSON does not match it.
+ */
+export function parseResource(json: unknown, parseOptions: ParseOptions = {}): Resource {
+  return modelTypeRegistry.parseResource(json, parseOptions) as Resource;
+}

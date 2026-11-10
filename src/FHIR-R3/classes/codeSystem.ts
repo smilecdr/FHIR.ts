@@ -1,0 +1,351 @@
+/**
+ * FHIR R3 data types generated from hl7.fhir.r3.core@3.0.2.
+ * Do not edit by hand. Change tools/generator and run `npm run generate` instead.
+ */
+
+import type { CodeableConcept } from './codeableConcept';
+import type { Coding } from './coding';
+import type { ContactDetail } from './contactDetail';
+import type { Element } from './element';
+import type { Extension } from './extension';
+import type { Identifier } from './identifier';
+import type { Meta } from './meta';
+import type { Narrative } from './narrative';
+import type { Resource } from './resourceList';
+import type { UsageContext } from './usageContext';
+
+/**
+ * Base StructureDefinition for CodeSystem Resource
+ */
+export class CodeSystem {
+  resourceType: 'CodeSystem';
+  /** Logical id of this artifact (0..1) */
+  id?: string;
+  /** Id and extensions of the primitive `id`. */
+  _id?: Element;
+  /** Metadata about the resource (0..1) */
+  meta?: Meta;
+  /** A set of rules under which this content was created (0..1) */
+  implicitRules?: string;
+  /** Id and extensions of the primitive `implicitRules`. */
+  _implicitRules?: Element;
+  /** Language of the resource content (0..1) */
+  language?: string;
+  /** Id and extensions of the primitive `language`. */
+  _language?: Element;
+  /** Text summary of the resource, for human interpretation (0..1) */
+  text?: Narrative;
+  /** Contained, inline Resources (0..*) */
+  contained?: Array<Resource>;
+  /** Additional Content defined by implementations (0..*) */
+  extension?: Array<Extension>;
+  /** Extensions that cannot be ignored (0..*) */
+  modifierExtension?: Array<Extension>;
+  /** Logical URI to reference this code system (globally unique) (Coding.system) (0..1) */
+  url?: string;
+  /** Id and extensions of the primitive `url`. */
+  _url?: Element;
+  /** Additional identifier for the code system (0..1) */
+  identifier?: Identifier;
+  /** Business version of the code system (Coding.version) (0..1) */
+  version?: string;
+  /** Id and extensions of the primitive `version`. */
+  _version?: Element;
+  /** Name for this code system (computer friendly) (0..1) */
+  name?: string;
+  /** Id and extensions of the primitive `name`. */
+  _name?: Element;
+  /** Name for this code system (human friendly) (0..1) */
+  title?: string;
+  /** Id and extensions of the primitive `title`. */
+  _title?: Element;
+  /** draft | active | retired | unknown (1..1) */
+  status?: CodeSystem.StatusEnum;
+  /** Id and extensions of the primitive `status`. */
+  _status?: Element;
+  /** For testing purposes, not real usage (0..1) */
+  experimental?: boolean;
+  /** Id and extensions of the primitive `experimental`. */
+  _experimental?: Element;
+  /** Date this was last changed (0..1) */
+  date?: string;
+  /** Id and extensions of the primitive `date`. */
+  _date?: Element;
+  /** Name of the publisher (organization or individual) (0..1) */
+  publisher?: string;
+  /** Id and extensions of the primitive `publisher`. */
+  _publisher?: Element;
+  /** Contact details for the publisher (0..*) */
+  contact?: Array<ContactDetail>;
+  /** Natural language description of the code system (0..1) */
+  description?: string;
+  /** Id and extensions of the primitive `description`. */
+  _description?: Element;
+  /** Context the content is intended to support (0..*) */
+  useContext?: Array<UsageContext>;
+  /** Intended jurisdiction for code system (if applicable) (0..*) */
+  jurisdiction?: Array<CodeableConcept>;
+  /** Why this code system is defined (0..1) */
+  purpose?: string;
+  /** Id and extensions of the primitive `purpose`. */
+  _purpose?: Element;
+  /** Use and/or publishing restrictions (0..1) */
+  copyright?: string;
+  /** Id and extensions of the primitive `copyright`. */
+  _copyright?: Element;
+  /** If code comparison is case sensitive (0..1) */
+  caseSensitive?: boolean;
+  /** Id and extensions of the primitive `caseSensitive`. */
+  _caseSensitive?: Element;
+  /** Canonical URL for value set with entire code system (0..1) */
+  valueSet?: string;
+  /** Id and extensions of the primitive `valueSet`. */
+  _valueSet?: Element;
+  /** grouped-by | is-a | part-of | classified-with (0..1) */
+  hierarchyMeaning?: CodeSystem.HierarchyMeaningEnum;
+  /** Id and extensions of the primitive `hierarchyMeaning`. */
+  _hierarchyMeaning?: Element;
+  /** If code system defines a post-composition grammar (0..1) */
+  compositional?: boolean;
+  /** Id and extensions of the primitive `compositional`. */
+  _compositional?: Element;
+  /** If definitions are not stable (0..1) */
+  versionNeeded?: boolean;
+  /** Id and extensions of the primitive `versionNeeded`. */
+  _versionNeeded?: Element;
+  /** not-present | example | fragment | complete (1..1) */
+  content?: CodeSystem.ContentEnum;
+  /** Id and extensions of the primitive `content`. */
+  _content?: Element;
+  /** Total concepts in the code system (0..1) */
+  count?: number;
+  /** Id and extensions of the primitive `count`. */
+  _count?: Element;
+  /** Filter that can be used in a value set (0..*) */
+  filter?: Array<CodeSystemFilter>;
+  /** Additional information supplied about each concept (0..*) */
+  property?: Array<CodeSystemProperty>;
+  /** Concepts in the code system (0..*) */
+  concept?: Array<CodeSystemConcept>;
+}
+
+export namespace CodeSystem {
+  /** Codes of the required value set http://hl7.org/fhir/ValueSet/publication-status */
+  export type StatusEnum = 'draft' | 'active' | 'retired' | 'unknown';
+  export const StatusEnum = {
+    Draft: 'draft' as StatusEnum,
+    Active: 'active' as StatusEnum,
+    Retired: 'retired' as StatusEnum,
+    Unknown: 'unknown' as StatusEnum,
+  };
+  /** Codes of the required value set http://hl7.org/fhir/ValueSet/codesystem-hierarchy-meaning */
+  export type HierarchyMeaningEnum = 'grouped-by' | 'is-a' | 'part-of' | 'classified-with';
+  export const HierarchyMeaningEnum = {
+    GroupedBy: 'grouped-by' as HierarchyMeaningEnum,
+    IsA: 'is-a' as HierarchyMeaningEnum,
+    PartOf: 'part-of' as HierarchyMeaningEnum,
+    ClassifiedWith: 'classified-with' as HierarchyMeaningEnum,
+  };
+  /** Codes of the required value set http://hl7.org/fhir/ValueSet/codesystem-content-mode */
+  export type ContentEnum = 'not-present' | 'example' | 'fragment' | 'complete';
+  export const ContentEnum = {
+    NotPresent: 'not-present' as ContentEnum,
+    Example: 'example' as ContentEnum,
+    Fragment: 'fragment' as ContentEnum,
+    Complete: 'complete' as ContentEnum,
+  };
+}
+
+/**
+ * Filter that can be used in a value set
+ */
+export class CodeSystemFilter {
+  /** xml:id (or equivalent in JSON) (0..1) */
+  id?: string;
+  /** Id and extensions of the primitive `id`. */
+  _id?: Element;
+  /** Additional Content defined by implementations (0..*) */
+  extension?: Array<Extension>;
+  /** Extensions that cannot be ignored (0..*) */
+  modifierExtension?: Array<Extension>;
+  /** Code that identifies the filter (1..1) */
+  code?: string;
+  /** Id and extensions of the primitive `code`. */
+  _code?: Element;
+  /** How or why the filter is used (0..1) */
+  description?: string;
+  /** Id and extensions of the primitive `description`. */
+  _description?: Element;
+  /** Operators that can be used with filter (1..*) */
+  operator?: Array<CodeSystemFilter.OperatorEnum>;
+  /** Id and extensions of the primitive `operator`. */
+  _operator?: Array<Element | null>;
+  /** What to use for the value (1..1) */
+  value?: string;
+  /** Id and extensions of the primitive `value`. */
+  _value?: Element;
+}
+
+export namespace CodeSystemFilter {
+  /** Codes of the required value set http://hl7.org/fhir/ValueSet/filter-operator */
+  export type OperatorEnum =
+    | '='
+    | 'is-a'
+    | 'descendent-of'
+    | 'is-not-a'
+    | 'regex'
+    | 'in'
+    | 'not-in'
+    | 'generalizes'
+    | 'exists';
+  export const OperatorEnum = {
+    Equal: '=' as OperatorEnum,
+    IsA: 'is-a' as OperatorEnum,
+    DescendentOf: 'descendent-of' as OperatorEnum,
+    IsNotA: 'is-not-a' as OperatorEnum,
+    Regex: 'regex' as OperatorEnum,
+    In: 'in' as OperatorEnum,
+    NotIn: 'not-in' as OperatorEnum,
+    Generalizes: 'generalizes' as OperatorEnum,
+    Exists: 'exists' as OperatorEnum,
+  };
+}
+
+/**
+ * Additional information supplied about each concept
+ */
+export class CodeSystemProperty {
+  /** xml:id (or equivalent in JSON) (0..1) */
+  id?: string;
+  /** Id and extensions of the primitive `id`. */
+  _id?: Element;
+  /** Additional Content defined by implementations (0..*) */
+  extension?: Array<Extension>;
+  /** Extensions that cannot be ignored (0..*) */
+  modifierExtension?: Array<Extension>;
+  /** Identifies the property on the concepts, and when referred to in operations (1..1) */
+  code?: string;
+  /** Id and extensions of the primitive `code`. */
+  _code?: Element;
+  /** Formal identifier for the property (0..1) */
+  uri?: string;
+  /** Id and extensions of the primitive `uri`. */
+  _uri?: Element;
+  /** Why the property is defined, and/or what it conveys (0..1) */
+  description?: string;
+  /** Id and extensions of the primitive `description`. */
+  _description?: Element;
+  /** code | Coding | string | integer | boolean | dateTime (1..1) */
+  type?: CodeSystemProperty.TypeEnum;
+  /** Id and extensions of the primitive `type`. */
+  _type?: Element;
+}
+
+export namespace CodeSystemProperty {
+  /** Codes of the required value set http://hl7.org/fhir/ValueSet/concept-property-type */
+  export type TypeEnum = 'code' | 'Coding' | 'string' | 'integer' | 'boolean' | 'dateTime';
+  export const TypeEnum = {
+    Code: 'code' as TypeEnum,
+    Coding: 'Coding' as TypeEnum,
+    String: 'string' as TypeEnum,
+    Integer: 'integer' as TypeEnum,
+    Boolean: 'boolean' as TypeEnum,
+    DateTime: 'dateTime' as TypeEnum,
+  };
+}
+
+/**
+ * Concepts in the code system
+ */
+export class CodeSystemConcept {
+  /** xml:id (or equivalent in JSON) (0..1) */
+  id?: string;
+  /** Id and extensions of the primitive `id`. */
+  _id?: Element;
+  /** Additional Content defined by implementations (0..*) */
+  extension?: Array<Extension>;
+  /** Extensions that cannot be ignored (0..*) */
+  modifierExtension?: Array<Extension>;
+  /** Code that identifies concept (1..1) */
+  code?: string;
+  /** Id and extensions of the primitive `code`. */
+  _code?: Element;
+  /** Text to display to the user (0..1) */
+  display?: string;
+  /** Id and extensions of the primitive `display`. */
+  _display?: Element;
+  /** Formal definition (0..1) */
+  definition?: string;
+  /** Id and extensions of the primitive `definition`. */
+  _definition?: Element;
+  /** Additional representations for the concept (0..*) */
+  designation?: Array<CodeSystemDesignation>;
+  /** Property value for the concept (0..*) */
+  property?: Array<CodeSystemProperty1>;
+  /** Child Concepts (is-a/contains/categorizes) (0..*) */
+  concept?: Array<CodeSystemConcept>;
+}
+
+/**
+ * Additional representations for the concept
+ */
+export class CodeSystemDesignation {
+  /** xml:id (or equivalent in JSON) (0..1) */
+  id?: string;
+  /** Id and extensions of the primitive `id`. */
+  _id?: Element;
+  /** Additional Content defined by implementations (0..*) */
+  extension?: Array<Extension>;
+  /** Extensions that cannot be ignored (0..*) */
+  modifierExtension?: Array<Extension>;
+  /** Human language of the designation (0..1) */
+  language?: string;
+  /** Id and extensions of the primitive `language`. */
+  _language?: Element;
+  /** Details how this designation would be used (0..1) */
+  use?: Coding;
+  /** The text value for this designation (1..1) */
+  value?: string;
+  /** Id and extensions of the primitive `value`. */
+  _value?: Element;
+}
+
+/**
+ * Property value for the concept
+ */
+export class CodeSystemProperty1 {
+  /** xml:id (or equivalent in JSON) (0..1) */
+  id?: string;
+  /** Id and extensions of the primitive `id`. */
+  _id?: Element;
+  /** Additional Content defined by implementations (0..*) */
+  extension?: Array<Extension>;
+  /** Extensions that cannot be ignored (0..*) */
+  modifierExtension?: Array<Extension>;
+  /** Reference to CodeSystem.property.code (1..1) */
+  code?: string;
+  /** Id and extensions of the primitive `code`. */
+  _code?: Element;
+  /** Value of the property for this concept (1..1) */
+  valueCode?: string;
+  /** Id and extensions of the primitive `valueCode`. */
+  _valueCode?: Element;
+  /** Value of the property for this concept (1..1) */
+  valueCoding?: Coding;
+  /** Value of the property for this concept (1..1) */
+  valueString?: string;
+  /** Id and extensions of the primitive `valueString`. */
+  _valueString?: Element;
+  /** Value of the property for this concept (1..1) */
+  valueInteger?: number;
+  /** Id and extensions of the primitive `valueInteger`. */
+  _valueInteger?: Element;
+  /** Value of the property for this concept (1..1) */
+  valueBoolean?: boolean;
+  /** Id and extensions of the primitive `valueBoolean`. */
+  _valueBoolean?: Element;
+  /** Value of the property for this concept (1..1) */
+  valueDateTime?: string;
+  /** Id and extensions of the primitive `valueDateTime`. */
+  _valueDateTime?: Element;
+}

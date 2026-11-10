@@ -1,38 +1,111 @@
 {
   "name": "@smile-cdr/fhirts",
-  "version": "2.4.1",
+  "version": "3.0.0",
   "description": "Fhir ts/js library for frontend applications with FHIR types and useful utilities.",
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./utils": {
+      "types": "./dist/library/index.d.ts",
+      "default": "./dist/library/index.js"
+    },
+    "./dstu2": {
+      "types": "./dist/FHIR-DSTU2.d.ts",
+      "default": "./dist/FHIR-DSTU2.js"
+    },
+    "./r3": {
+      "types": "./dist/FHIR-R3/classes/models-r3.d.ts",
+      "default": "./dist/FHIR-R3/classes/models-r3.js"
+    },
+    "./r3/model": {
+      "types": "./dist/FHIR-R3/model/index.d.ts",
+      "default": "./dist/FHIR-R3/model/index.js"
+    },
+    "./r4": {
+      "types": "./dist/FHIR-R4/classes/models-r4.d.ts",
+      "default": "./dist/FHIR-R4/classes/models-r4.js"
+    },
+    "./r4/interfaces": {
+      "types": "./dist/FHIR-R4/interfaces/IModel.d.ts",
+      "default": "./dist/FHIR-R4/interfaces/IModel.js"
+    },
+    "./r4/model": {
+      "types": "./dist/FHIR-R4/model/index.d.ts",
+      "default": "./dist/FHIR-R4/model/index.js"
+    },
+    "./r5": {
+      "types": "./dist/FHIR-R5/models.d.ts",
+      "default": "./dist/FHIR-R5/models.js"
+    },
+    "./r5/model": {
+      "types": "./dist/FHIR-R5/model/index.d.ts",
+      "default": "./dist/FHIR-R5/model/index.js"
+    },
+    "./dist/*": {
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "utils": [
+        "dist/library/index.d.ts"
+      ],
+      "dstu2": [
+        "dist/FHIR-DSTU2.d.ts"
+      ],
+      "r3": [
+        "dist/FHIR-R3/classes/models-r3.d.ts"
+      ],
+      "r3/model": [
+        "dist/FHIR-R3/model/index.d.ts"
+      ],
+      "r4": [
+        "dist/FHIR-R4/classes/models-r4.d.ts"
+      ],
+      "r4/interfaces": [
+        "dist/FHIR-R4/interfaces/IModel.d.ts"
+      ],
+      "r4/model": [
+        "dist/FHIR-R4/model/index.d.ts"
+      ],
+      "r5": [
+        "dist/FHIR-R5/models.d.ts"
+      ],
+      "r5/model": [
+        "dist/FHIR-R5/model/index.d.ts"
+      ]
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/smilecdr/FHIR.ts.git"
   },
   "scripts": {
     "build": "tsc",
-    "test": "tsx --tsconfig ./tsconfig.json node_modules/jasmine/bin/jasmine --config=spec/support/jasmine.json",
-    "coverage": "nyc npm run test",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage",
     "audit": "better-npm-audit audit",
-    "lint": "eslint \"src/library/**/*.ts\" \"src/index.ts\"",
-    "lint:fix": "eslint \"src/library/**/*.ts\" \"src/index.ts\" --fix",
+    "lint": "oxlint src/index.ts src/library src/FHIR-R3/model src/FHIR-R4/model src/FHIR-R5/model tools",
+    "lint:fix": "oxlint --fix src/index.ts src/library src/FHIR-R3/model src/FHIR-R4/model src/FHIR-R5/model tools",
     "format": "prettier --write \"src/**/*.ts\"",
-    "format:check": "prettier --check \"src/**/*.ts\""
+    "format:check": "prettier --check \"src/**/*.ts\"",
+    "generate": "tsx tools/generator/generate.ts"
   },
   "devDependencies": {
-    "@types/jasmine": "^4.3.1",
     "@types/node": "^25.2.3",
-    "@typescript-eslint/eslint-plugin": "^8.55.0",
-    "@typescript-eslint/parser": "^8.55.0",
+    "@vitest/coverage-v8": "^5.1.0",
     "better-npm-audit": "^3.7.3",
-    "eslint": "^9.39.2",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.5",
-    "jasmine": "^4.5.0",
-    "nyc": "^15.1.0",
+    "oxlint": "^1.93.0",
     "prettier": "^3.8.1",
-    "ts-node": "^10.9.1",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.3"
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0"
   }
 }
